@@ -6,7 +6,7 @@
     <title>WorldPosta - Operator Platform Proposal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <style>
       * {
@@ -14,59 +14,26 @@
         padding: 0;
         box-sizing: border-box;
       }
-      /* magic-black design tokens */
-      :root {
-        --ink: #0a1320;
-        --ink2: #0d1b2b;
-        --navy: #13263a;
-        --green: #7cb342;
-        --lime: #a8cf38;
-        --lime-pale: #cde9a2;
-        --deep: #5d9842;
-        --grad: linear-gradient(120deg, #7cb342, #a8cf38);
-        --grad-text: linear-gradient(115deg, #7cb342, #a8cf38 55%, #cde9a2);
-        --white: #fff;
-        --fog: #c5d2e2;
-        --fog2: #8497ae;
-        --fog3: #5a6c82;
-        --display: "Space Grotesk", -apple-system, system-ui, sans-serif;
-        --body: "Inter", -apple-system, system-ui, sans-serif;
-        --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
-        --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-      }
       html {
         scroll-behavior: smooth;
       }
       body {
         font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-        background: #0A1320;
-        color: #C5D2E2;
+        background: #080e1c;
+        color: #c6d0dc;
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
       }
-      /* galaxy nebula — layered radial blooms over the ink (layer -3) */
       body::before {
         content: "";
         position: fixed;
         inset: 0;
-        z-index: -3;
+        z-index: -1;
         pointer-events: none;
         background:
-          radial-gradient(ellipse 900px 520px at 75% -4%, rgba(40, 56, 80, 0.85), transparent 60%),
-          radial-gradient(900px 600px at 82% 4%, rgba(93, 152, 66, 0.16), transparent 60%),
-          radial-gradient(760px 560px at 6% 10%, rgba(168, 207, 56, 0.12), transparent 55%),
-          radial-gradient(920px 720px at 92% 96%, rgba(124, 179, 66, 0.12), transparent 60%),
-          radial-gradient(820px 680px at 12% 88%, rgba(36, 52, 86, 0.55), transparent 62%),
-          var(--ink);
-      }
-      /* drifting starfield (layer -2) */
-      #stars {
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        pointer-events: none;
-        opacity: 0.6;
+          radial-gradient(ellipse 900px 500px at 75% 0%, rgba(40, 56, 80, 0.85), transparent 60%),
+          radial-gradient(ellipse 700px 400px at 5% 10%, rgba(74, 120, 48, 0.18), transparent 55%), #080e1c;
       }
       a {
         color: inherit;
@@ -101,15 +68,15 @@
       .nav-links a {
         font-size: 12px;
         letter-spacing: 0.4px;
-        color: #8497AE;
+        color: #7c8ea8;
         transition: color 0.2s;
       }
       .nav-links a:hover {
         color: #fff;
       }
       .nav-cta {
-        background: linear-gradient(120deg, #7CB342, #A8CF38);
-        color: #0A1320;
+        background: linear-gradient(120deg, #4a7830, #8bbf3c);
+        color: #04120a;
         padding: 9px 20px;
         border-radius: 100px;
         font-weight: 700;
@@ -133,21 +100,20 @@
         gap: 8px;
         margin-bottom: 22px;
         padding: 7px 16px 7px 12px;
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        border: 1px solid rgba(96, 152, 64, 0.4);
         border-radius: 100px;
-        background: rgba(124, 179, 66, 0.08);
-        font-family: var(--mono);
+        background: rgba(96, 152, 64, 0.08);
         font-size: 11px;
         letter-spacing: 1.4px;
-        color: #A8CF38;
+        color: #8bbf3c;
         text-transform: uppercase;
       }
       .ey-dot {
         width: 7px;
         height: 7px;
         border-radius: 50%;
-        background: #A8CF38;
-        box-shadow: 0 0 10px #A8CF38;
+        background: #8bbf3c;
+        box-shadow: 0 0 10px #8bbf3c;
         flex-shrink: 0;
       }
 
@@ -164,12 +130,12 @@
       }
       .lede {
         font-size: clamp(15px, 1.4vw, 17px);
-        color: #C5D2E2;
+        color: #c6d0dc;
         max-width: 640px;
         line-height: 1.7;
       }
       .grad {
-        background: linear-gradient(115deg, #7CB342, #A8CF38 60%, #b8dc7a);
+        background: linear-gradient(115deg, #609840, #8bbf3c 60%, #b8dc7a);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -179,15 +145,15 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: linear-gradient(120deg, #7CB342, #A8CF38);
-        color: #0A1320;
+        background: linear-gradient(120deg, #4a7830, #8bbf3c);
+        color: #04120a;
         padding: 14px 24px;
         border-radius: 12px;
         font-weight: 600;
         font-size: 15px;
         border: none;
         cursor: pointer;
-        box-shadow: 0 8px 24px rgba(124, 179, 66, 0.28);
+        box-shadow: 0 8px 24px rgba(96, 152, 64, 0.28);
       }
       .btn-g {
         display: inline-flex;
@@ -209,7 +175,7 @@
 
       /* global focus ring — brand accent, meets WCAG 2.4.7/2.4.11 */
       :focus-visible {
-        outline: 2px solid #A8CF38;
+        outline: 2px solid #8bbf3c;
         outline-offset: 3px;
         border-radius: 4px;
       }
@@ -235,13 +201,13 @@
       }
       .layer-sw {
         background: linear-gradient(135deg, rgba(28, 52, 28, 0.85), rgba(16, 36, 48, 0.9));
-        border-bottom: 1px solid rgba(124, 179, 66, 0.25);
+        border-bottom: 1px solid rgba(96, 152, 64, 0.25);
       }
       .layer-sw::before {
         content: "";
         position: absolute;
         inset: 0;
-        background: linear-gradient(90deg, rgba(124, 179, 66, 0.06), transparent);
+        background: linear-gradient(90deg, rgba(96, 152, 64, 0.06), transparent);
         pointer-events: none;
       }
       .layer-usr {
@@ -255,13 +221,13 @@
         font-weight: 600;
       }
       .layer-hw .layer-label {
-        color: #5A6C82;
+        color: #4e6078;
       }
       .layer-sw .layer-label {
-        color: #A8CF38;
+        color: #8bbf3c;
       }
       .layer-usr .layer-label {
-        color: #5A6C82;
+        color: #4e6078;
       }
       .layer-title {
         font-size: 18px;
@@ -271,7 +237,7 @@
       }
       .layer-desc {
         font-size: 13.5px;
-        color: #8497AE;
+        color: #7c8ea8;
         max-width: 600px;
         line-height: 1.6;
       }
@@ -291,17 +257,17 @@
       .licon-hw {
         background: rgba(38, 54, 80, 0.35);
         border: 1px solid rgba(38, 54, 80, 0.5);
-        color: #8497AE;
+        color: #7c8ea8;
       }
       .licon-sw {
-        background: rgba(124, 179, 66, 0.12);
-        border: 1px solid rgba(124, 179, 66, 0.35);
-        color: #A8CF38;
+        background: rgba(96, 152, 64, 0.12);
+        border: 1px solid rgba(96, 152, 64, 0.35);
+        color: #8bbf3c;
       }
       .licon-usr {
         background: rgba(38, 54, 80, 0.25);
         border: 1px solid rgba(38, 54, 80, 0.4);
-        color: #8497AE;
+        color: #7c8ea8;
       }
       .layer-badge {
         position: absolute;
@@ -314,14 +280,14 @@
         border-radius: 100px;
       }
       .badge-wp {
-        background: rgba(124, 179, 66, 0.15);
-        border: 1px solid rgba(124, 179, 66, 0.4);
-        color: #A8CF38;
+        background: rgba(96, 152, 64, 0.15);
+        border: 1px solid rgba(96, 152, 64, 0.4);
+        color: #8bbf3c;
       }
       .badge-theirs {
         background: rgba(38, 54, 80, 0.4);
         border: 1px solid rgba(38, 54, 80, 0.6);
-        color: #5A6C82;
+        color: #4e6078;
       }
 
       /* GAP TABLE */
@@ -331,14 +297,14 @@
         font-size: 13.5px;
       }
       thead tr {
-        background: rgba(124, 179, 66, 0.08);
-        border-bottom: 2px solid rgba(124, 179, 66, 0.35);
+        background: rgba(96, 152, 64, 0.08);
+        border-bottom: 2px solid rgba(96, 152, 64, 0.35);
       }
       th {
         font-size: 10px;
         letter-spacing: 1.2px;
         text-transform: uppercase;
-        color: #8497AE;
+        color: #7c8ea8;
         padding: 12px 14px;
         text-align: left;
         white-space: nowrap;
@@ -347,19 +313,19 @@
         padding: 14px 14px;
         border-bottom: 1px solid rgba(38, 54, 80, 0.28);
         vertical-align: top;
-        color: #C5D2E2;
+        color: #c6d0dc;
       }
       td:first-child {
-        color: #5A6C82;
+        color: #4e6078;
         font-size: 13px;
       }
       .note {
-        border: 1px solid rgba(124, 179, 66, 0.3);
+        border: 1px solid rgba(96, 152, 64, 0.3);
         padding: 18px 22px;
-        background: rgba(124, 179, 66, 0.07);
+        background: rgba(96, 152, 64, 0.07);
         border-radius: 14px;
         font-size: 15px;
-        color: #C5D2E2;
+        color: #c6d0dc;
         line-height: 1.7;
         margin-top: 28px;
       }
@@ -394,8 +360,8 @@
         padding: 28px;
       }
       .card.hl {
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.16), rgba(124, 179, 66, 0.12));
-        border-color: rgba(124, 179, 66, 0.4);
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.16), rgba(74, 120, 48, 0.12));
+        border-color: rgba(96, 152, 64, 0.4);
       }
       .card h3 {
         font-size: 18px;
@@ -408,11 +374,11 @@
       }
       .card p {
         font-size: 14px;
-        color: #8497AE;
+        color: #7c8ea8;
         line-height: 1.65;
       }
       .card.hl p {
-        color: #C5D2E2;
+        color: #c6d0dc;
       }
       .ic {
         width: 52px;
@@ -421,9 +387,9 @@
         display: grid;
         place-items: center;
         margin-bottom: 18px;
-        color: #A8CF38;
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.16), rgba(124, 179, 66, 0.1));
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        color: #8bbf3c;
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.16), rgba(74, 120, 48, 0.1));
+        border: 1px solid rgba(96, 152, 64, 0.4);
       }
       .ic svg {
         width: 24px;
@@ -453,7 +419,7 @@
       }
       .band p {
         font-size: 15px;
-        color: #C5D2E2;
+        color: #c6d0dc;
         line-height: 1.65;
         margin-bottom: 20px;
       }
@@ -462,11 +428,11 @@
         font-size: 11px;
         letter-spacing: 1px;
         text-transform: uppercase;
-        color: #A8CF38;
+        color: #8bbf3c;
         padding: 6px 14px;
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        border: 1px solid rgba(96, 152, 64, 0.4);
         border-radius: 100px;
-        background: rgba(124, 179, 66, 0.07);
+        background: rgba(96, 152, 64, 0.07);
         margin-bottom: 14px;
       }
       .mg {
@@ -476,13 +442,13 @@
       }
       .mg-t {
         font-size: 14px;
-        color: #A8CF38;
+        color: #8bbf3c;
         font-weight: 600;
         margin-bottom: 4px;
       }
       .mg-d {
         font-size: 13px;
-        color: #8497AE;
+        color: #7c8ea8;
         line-height: 1.6;
       }
 
@@ -525,7 +491,7 @@
         width: 26px;
         height: 26px;
         border-radius: 8px;
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        border: 1px solid rgba(96, 152, 64, 0.4);
       }
       .mock-content {
         padding: 18px;
@@ -545,7 +511,7 @@
       .mock-tile {
         height: 52px;
         border-radius: 10px;
-        background: rgba(124, 179, 66, 0.1);
+        background: rgba(96, 152, 64, 0.1);
         border: 1px solid rgba(38, 54, 80, 0.28);
       }
       .mock-line {
@@ -558,7 +524,7 @@
         margin-left: 8px;
         font-size: 10px;
         font-family: ui-monospace, "SF Mono", monospace;
-        color: rgba(124, 179, 66, 0.45);
+        color: rgba(96, 152, 64, 0.45);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -572,8 +538,8 @@
         font-size: 9px;
         font-weight: 800;
         letter-spacing: 0.5px;
-        color: #A8CF38;
-        background: rgba(124, 179, 66, 0.18);
+        color: #8bbf3c;
+        background: rgba(96, 152, 64, 0.18);
         transition: background 0.55s, color 0.55s, border-color 0.55s;
       }
       #brand-dot  { transition: background 0.55s; }
@@ -586,7 +552,7 @@
         font-family: ui-monospace, "SF Mono", monospace;
         letter-spacing: 0.6px;
         text-transform: uppercase;
-        color: #A8CF38;
+        color: #8bbf3c;
         opacity: 0.7;
         transition: color 0.55s;
       }
@@ -613,7 +579,7 @@
       }
       .io-brand-logo {
         width: 22px; height: 22px;
-        background: #7CB342;
+        background: #4a7830;
         border-radius: 5px;
         display: flex; align-items: center; justify-content: center;
         font-size: 9px; font-weight: 900; color: #fff; letter-spacing: -0.5px;
@@ -636,9 +602,9 @@
         white-space: nowrap;
       }
       .io-tab i { font-size: 10px; }
-      .io-tab-active { color: #7CB342; border-bottom-color: #7CB342; font-weight: 600; }
+      .io-tab-active { color: #4a7830; border-bottom-color: #4a7830; font-weight: 600; }
       .io-body { padding: 14px; }
-      .io-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 1.2px; color: #7CB342; margin-bottom: 2px; }
+      .io-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 1.2px; color: #4a7830; margin-bottom: 2px; }
       .io-heading { font-size: 17px; font-weight: 800; color: #1a2535; margin-bottom: 2px; }
       .io-subtext { font-size: 10px; color: #888; margin-bottom: 12px; }
       .io-quota-card {
@@ -649,7 +615,7 @@
         margin-bottom: 10px;
         position: relative;
       }
-      .io-quota-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: #7CB342; margin-bottom: 4px; }
+      .io-quota-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: #4a7830; margin-bottom: 4px; }
       .io-quota-val { font-size: 22px; font-weight: 800; color: #1a2535; line-height: 1; }
       .io-quota-val span { font-size: 13px; font-weight: 600; }
       .io-quota-badge {
@@ -663,12 +629,12 @@
       .io-stat {
         background: #fff;
         border: 1px solid #e2e6ed;
-        border-left: 3px solid #7CB342;
+        border-left: 3px solid #4a7830;
         border-radius: 9px;
         padding: 11px 12px;
         position: relative; overflow: hidden;
       }
-      .io-stat-label { font-size: 8px; font-weight: 700; letter-spacing: 1px; color: #7CB342; margin-bottom: 5px; }
+      .io-stat-label { font-size: 8px; font-weight: 700; letter-spacing: 1px; color: #4a7830; margin-bottom: 5px; }
       .io-stat-val { font-size: 17px; font-weight: 800; color: #1a2535; line-height: 1; }
       .io-stat-val span { font-size: 10px; font-weight: 600; }
       .io-stat-sub { font-size: 8px; color: #999; margin-top: 3px; }
@@ -676,7 +642,7 @@
         position: absolute; right: -6px; bottom: -6px;
         width: 44px; height: 44px;
         border-radius: 50%;
-        background: rgba(124, 179, 66, 0.08);
+        background: rgba(74, 120, 48, 0.08);
       }
       .io-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
       .io-action {
@@ -688,11 +654,11 @@
       }
       .io-action-ic {
         width: 32px; height: 32px;
-        background: rgba(124, 179, 66, 0.1);
+        background: rgba(74, 120, 48, 0.1);
         border-radius: 8px;
         display: inline-flex; align-items: center; justify-content: center;
         margin-bottom: 6px;
-        color: #7CB342; font-size: 13px;
+        color: #4a7830; font-size: 13px;
       }
       .io-action-name { font-size: 10px; font-weight: 600; color: #1a2535; }
       .io-action-sub { font-size: 8px; color: #999; margin-top: 2px; }
@@ -720,7 +686,7 @@
       .md-brand { display: flex; align-items: center; gap: 8px; }
       .md-brand-ic {
         width: 24px; height: 24px; border-radius: 6px;
-        background: #7CB342;
+        background: #4a7830;
         display: flex; align-items: center; justify-content: center;
         color: #fff; font-size: 10px;
       }
@@ -728,7 +694,7 @@
       .md-topbar-right { display: flex; align-items: center; gap: 8px; }
       .md-avatar {
         width: 24px; height: 24px; border-radius: 50%;
-        background: #7CB342;
+        background: #4a7830;
         display: flex; align-items: center; justify-content: center;
         font-size: 10px; font-weight: 700; color: #fff;
       }
@@ -740,7 +706,7 @@
       .md-body { padding: 14px; }
       .md-hero-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
       .md-greeting { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 3px; line-height: 1.2; }
-      .md-name { color: #A8CF38; }
+      .md-name { color: #8bbf3c; }
       .md-subtext { font-size: 10px; color: #666; }
       .md-clock { text-align: right; }
       .md-date { font-size: 8px; font-weight: 600; letter-spacing: 1px; color: #555; margin-bottom: 2px; }
@@ -753,24 +719,24 @@
         padding: 11px;
       }
       .md-action-active {
-        border-color: #7CB342;
-        background: rgba(124, 179, 66,.08);
+        border-color: #4a7830;
+        background: rgba(74,120,48,.08);
       }
       .md-action-ic {
         width: 28px; height: 28px; border-radius: 7px;
         background: rgba(255,255,255,.06);
         display: flex; align-items: center; justify-content: center;
-        font-size: 11px; color: #A8CF38; margin-bottom: 8px;
+        font-size: 11px; color: #8bbf3c; margin-bottom: 8px;
       }
-      .md-action-active .md-action-ic { background: #7CB342; color: #fff; }
+      .md-action-active .md-action-ic { background: #4a7830; color: #fff; }
       .md-action-title { font-size: 11px; font-weight: 700; color: #e2e8f0; margin-bottom: 4px; }
       .md-action-desc { font-size: 9px; color: #666; line-height: 1.4; }
-      .md-action-link { font-size: 9px; color: #A8CF38; margin-top: 6px; font-weight: 600; }
+      .md-action-link { font-size: 9px; color: #8bbf3c; margin-top: 6px; font-weight: 600; }
       .md-section-label {
         font-size: 13px; font-weight: 700; color: #e2e8f0;
         margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
       }
-      .md-section-accent { color: #A8CF38; }
+      .md-section-accent { color: #8bbf3c; }
       .md-section-count { margin-left: auto; font-size: 9px; font-weight: 600; color: #555; letter-spacing: 1px; }
       .md-live-row {
         display: flex; align-items: center; gap: 12px;
@@ -782,7 +748,7 @@
         padding-right: 12px; min-width: 44px;
       }
       .md-now { font-size: 8px; font-weight: 700; letter-spacing: 1px; color: #555; }
-      .md-live-word { font-size: 16px; font-weight: 800; color: #A8CF38; line-height: 1; }
+      .md-live-word { font-size: 16px; font-weight: 800; color: #8bbf3c; line-height: 1; }
       .md-live-info { flex: 1; }
       .md-live-title { font-size: 12px; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }
       .md-live-pill {
@@ -795,7 +761,7 @@
         background: #e06c6c; display: inline-block;
       }
       .md-rejoin {
-        background: #7CB342; color: #fff;
+        background: #4a7830; color: #fff;
         font-size: 10px; font-weight: 700;
         padding: 6px 12px; border-radius: 7px;
         white-space: nowrap;
@@ -805,7 +771,7 @@
         background: #161b22; border: 1px solid rgba(255,255,255,.06);
         border-radius: 9px; padding: 12px;
       }
-      .md-stat-val { font-size: 16px; font-weight: 800; color: #A8CF38; margin-bottom: 3px; }
+      .md-stat-val { font-size: 16px; font-weight: 800; color: #8bbf3c; margin-bottom: 3px; }
       .md-stat-label { font-size: 8px; color: #555; line-height: 1.4; }
 
       /* POSTA DRIVE DASHBOARD VISUAL */
@@ -837,14 +803,14 @@
       .drv-search i { font-size: 10px; }
       .drv-ai-badge {
         margin-left: auto; font-size: 9px; font-weight: 700;
-        color: #7CB342; background: rgba(124, 179, 66,.08);
-        border: 1px solid rgba(124, 179, 66,.2); border-radius: 4px; padding: 1px 5px;
+        color: #4a7830; background: rgba(74,120,48,.08);
+        border: 1px solid rgba(74,120,48,.2); border-radius: 4px; padding: 1px 5px;
       }
       .drv-topbar-right { display: flex; align-items: center; gap: 8px; }
       .drv-top-ic { font-size: 10px; color: #5f6368; white-space: nowrap; display: flex; align-items: center; gap: 3px; }
       .drv-avatar {
         width: 22px; height: 22px; border-radius: 50%;
-        background: #7CB342; color: #fff;
+        background: #4a7830; color: #fff;
         font-size: 10px; font-weight: 700;
         display: flex; align-items: center; justify-content: center;
       }
@@ -856,7 +822,7 @@
       }
       .drv-new-btn {
         display: flex; align-items: center; gap: 6px;
-        background: #7CB342; color: #fff;
+        background: #4a7830; color: #fff;
         font-size: 11px; font-weight: 600;
         padding: 7px 12px; border-radius: 20px;
         margin-bottom: 10px; width: fit-content;
@@ -869,18 +835,18 @@
       }
       .drv-nav-item i { font-size: 10px; color: #5f6368; }
       .drv-nav-active { background: #e8f5e9; font-weight: 600; }
-      .drv-nav-active i { color: #7CB342; }
+      .drv-nav-active i { color: #4a7830; }
       .drv-storage { margin-top: auto; padding-top: 10px; }
       .drv-storage-label { font-size: 8px; font-weight: 700; letter-spacing: 1px; color: #80868b; margin-bottom: 4px; display: flex; justify-content: space-between; }
-      .drv-storage-pct { color: #7CB342; }
+      .drv-storage-pct { color: #4a7830; }
       .drv-storage-bar { height: 4px; border-radius: 2px; background: #e8eaed; margin-bottom: 4px; }
-      .drv-storage-fill { height: 100%; width: 1%; border-radius: 2px; background: #7CB342; }
+      .drv-storage-fill { height: 100%; width: 1%; border-radius: 2px; background: #4a7830; }
       .drv-storage-used { font-size: 9px; color: #80868b; }
       .drv-main { padding: 12px 14px; overflow: hidden; }
       .drv-greeting-row { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
       .drv-user-av {
         width: 28px; height: 28px; border-radius: 50%;
-        background: #7CB342; color: #fff;
+        background: #4a7830; color: #fff;
         font-size: 11px; font-weight: 700;
         display: flex; align-items: center; justify-content: center; flex-shrink: 0;
       }
@@ -896,7 +862,7 @@
       .drv-ftab i { font-size: 9px; }
       .drv-section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
       .drv-section-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: #80868b; }
-      .drv-view-all { font-size: 10px; color: #7CB342; font-weight: 600; }
+      .drv-view-all { font-size: 10px; color: #4a7830; font-weight: 600; }
       .drv-file-grid { display: flex; gap: 7px; flex-wrap: wrap; }
       .drv-file {
         width: 100px; border: 1px solid #e0e4ea; border-radius: 8px;
@@ -934,7 +900,7 @@
       .sso-brand { display: flex; align-items: center; gap: 7px; }
       .sso-brand-dot {
         width: 10px; height: 10px; border-radius: 50%;
-        background: #7CB342;
+        background: #4a7830;
       }
       .sso-brand-name { font-size: 13px; font-weight: 600; color: #202124; }
       .sso-signout {
@@ -944,7 +910,7 @@
       }
       .sso-body { padding: 20px 24px 14px; }
       .sso-welcome { font-size: 20px; font-weight: 700; color: #202124; margin-bottom: 2px; }
-      .sso-name { color: #7CB342; }
+      .sso-name { color: #4a7830; }
       .sso-sub { font-size: 11px; color: #5f6368; margin-bottom: 14px; }
       .sso-quick-actions { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
       .sso-qa {
@@ -980,7 +946,7 @@
       .sso-ic-excel { background: rgba(52,168,83,.1);  color: #34a853; }
       .sso-ic-ppt   { background: rgba(234,67,53,.1);  color: #ea4335; }
       .sso-ic-kb    { background: rgba(251,188,4,.1);  color: #f9a825; }
-      .sso-ic-diag  { background: rgba(124, 179, 66,.1);  color: #7CB342; }
+      .sso-ic-diag  { background: rgba(74,120,48,.1);  color: #4a7830; }
       .sso-ic-cloud { background: rgba(66,133,244,.08); color: #4285f4; }
       .sso-app-info { flex: 1; min-width: 0; }
       .sso-app-name { font-size: 11px; font-weight: 600; color: #202124; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -1025,9 +991,9 @@
         border-radius: 12px;
         display: grid;
         place-items: center;
-        color: #A8CF38;
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.16), rgba(124, 179, 66, 0.1));
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        color: #8bbf3c;
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.16), rgba(74, 120, 48, 0.1));
+        border: 1px solid rgba(96, 152, 64, 0.4);
         flex-shrink: 0;
       }
       .adv-ic svg {
@@ -1042,7 +1008,7 @@
       }
       .adv-d {
         font-size: 13.5px;
-        color: #8497AE;
+        color: #7c8ea8;
         line-height: 1.6;
       }
 
@@ -1057,11 +1023,11 @@
         width: 76px;
         height: 76px;
         border-radius: 22px;
-        background: linear-gradient(140deg, #7CB342, #A8CF38);
+        background: linear-gradient(140deg, #4a7830, #8bbf3c);
         display: grid;
         place-items: center;
         margin: 0 auto 24px;
-        box-shadow: 0 0 46px rgba(124, 179, 66, 0.4);
+        box-shadow: 0 0 46px rgba(96, 152, 64, 0.4);
       }
       .medal svg {
         width: 34px;
@@ -1084,7 +1050,7 @@
         background: rgba(16, 28, 54, 0.6);
         border: 1px solid rgba(38, 54, 80, 0.28);
         font-size: 14px;
-        color: #C5D2E2;
+        color: #c6d0dc;
       }
       .cic {
         width: 34px;
@@ -1092,9 +1058,9 @@
         border-radius: 10px;
         display: grid;
         place-items: center;
-        color: #A8CF38;
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.16), rgba(124, 179, 66, 0.1));
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        color: #8bbf3c;
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.16), rgba(74, 120, 48, 0.1));
+        border: 1px solid rgba(96, 152, 64, 0.4);
       }
       .cic svg {
         width: 16px;
@@ -1107,7 +1073,7 @@
       }
       footer p {
         font-size: 12px;
-        color: #5A6C82;
+        color: #4e6078;
         letter-spacing: 0.4px;
         margin-top: 12px;
       }
@@ -1168,7 +1134,7 @@
       .stat-l {
         font-size: 11px;
         letter-spacing: 0.6px;
-        color: #8497AE;
+        color: #7c8ea8;
         text-transform: uppercase;
         margin-top: 5px;
       }
@@ -1194,11 +1160,11 @@
         width: 86px;
         height: 86px;
         border-radius: 24px;
-        background: linear-gradient(140deg, #5D9842, #A8CF38);
+        background: linear-gradient(140deg, #3a6020, #8bbf3c);
         display: grid;
         place-items: center;
         z-index: 4;
-        box-shadow: 0 0 50px rgba(124, 179, 66, 0.5);
+        box-shadow: 0 0 50px rgba(96, 152, 64, 0.5);
       }
       .hub svg {
         width: 38px;
@@ -1226,8 +1192,8 @@
         padding: 5px 11px;
         border-radius: 100px;
         background: rgba(8, 14, 28, 0.9);
-        border: 1px solid rgba(124, 179, 66, 0.45);
-        color: #A8CF38;
+        border: 1px solid rgba(96, 152, 64, 0.45);
+        color: #8bbf3c;
         white-space: nowrap;
       }
       .op.cl {
@@ -1235,7 +1201,7 @@
         border-color: rgba(56, 178, 172, 0.35);
       }
       .op.sp {
-        color: #8497AE;
+        color: #7c8ea8;
         border-color: rgba(38, 54, 80, 0.7);
       }
       .od {
@@ -1251,7 +1217,7 @@
         justify-content: center;
         flex-wrap: wrap;
         font-size: 11px;
-        color: #5A6C82;
+        color: #4e6078;
         margin-top: 18px;
       }
       .oleg span {
@@ -1290,7 +1256,7 @@
         width: 4px;
       }
       .sidebar::-webkit-scrollbar-thumb {
-        background: rgba(124, 179, 66, 0.28);
+        background: rgba(96, 152, 64, 0.28);
         border-radius: 4px;
       }
       .sidebar::-webkit-scrollbar-track {
@@ -1316,12 +1282,11 @@
         flex: 1;
       }
       .sb-group {
-        font-family: var(--mono);
         font-size: 10px;
         letter-spacing: 1.8px;
         text-transform: uppercase;
         color: #5a7090;
-        font-weight: 600;
+        font-weight: 700;
         padding: 20px 12px 6px;
       }
       .sb-group:first-of-type {
@@ -1339,7 +1304,7 @@
         border-radius: 9px;
         font-size: 13px;
         white-space: nowrap;
-        color: #8497AE;
+        color: #7c8ea8;
         transition:
           color 0.16s,
           background 0.16s,
@@ -1348,28 +1313,28 @@
         line-height: 1.25;
       }
       .sb-link:hover {
-        color: #C5D2E2;
-        background: rgba(124, 179, 66, 0.06);
+        color: #c6d0dc;
+        background: rgba(96, 152, 64, 0.06);
         transform: translateX(2px);
       }
       .sb-link.active {
         color: #e6f3dc;
-        background: rgba(124, 179, 66, 0.11);
+        background: rgba(96, 152, 64, 0.11);
         border-color: transparent;
-        box-shadow: inset 3px 0 0 #A8CF38;
+        box-shadow: inset 3px 0 0 #8bbf3c;
         transform: none;
       }
       .sb-link .dot {
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: #5A6C82;
+        background: #4e6078;
         flex-shrink: 0;
         transition: 0.16s;
       }
       .sb-link.active .dot {
-        background: #A8CF38;
-        box-shadow: 0 0 8px #A8CF38;
+        background: #8bbf3c;
+        box-shadow: 0 0 8px #8bbf3c;
       }
       .sb-subs {
         display: flex;
@@ -1377,7 +1342,7 @@
         gap: 1px;
         margin: 2px 0 6px 20px;
         padding-left: 12px;
-        border-left: 1px solid rgba(124, 179, 66, 0.22);
+        border-left: 1px solid rgba(96, 152, 64, 0.22);
       }
       .sb-sub {
         font-size: 12px;
@@ -1389,8 +1354,8 @@
         white-space: nowrap;
       }
       .sb-sub:hover {
-        color: #A8CF38;
-        background: rgba(124, 179, 66, 0.06);
+        color: #8bbf3c;
+        background: rgba(96, 152, 64, 0.06);
       }
       .sb-cta {
         margin-top: auto;
@@ -1402,9 +1367,9 @@
         width: 42px;
         height: 42px;
         border-radius: 10px;
-        border: 1px solid rgba(124, 179, 66, 0.4);
-        background: rgba(124, 179, 66, 0.08);
-        color: #A8CF38;
+        border: 1px solid rgba(96, 152, 64, 0.4);
+        background: rgba(96, 152, 64, 0.08);
+        color: #8bbf3c;
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -1421,8 +1386,8 @@
       .sb-cta a {
         display: block;
         text-align: center;
-        background: linear-gradient(120deg, #7CB342, #A8CF38);
-        color: #0A1320;
+        background: linear-gradient(120deg, #4a7830, #8bbf3c);
+        color: #04120a;
         padding: 12px 16px;
         border-radius: 100px;
         font-weight: 700;
@@ -1433,7 +1398,7 @@
           opacity 0.18s;
       }
       .sb-cta a:hover {
-        box-shadow: 0 4px 20px rgba(124, 179, 66, 0.32);
+        box-shadow: 0 4px 20px rgba(96, 152, 64, 0.32);
         opacity: 0.92;
       }
       .main {
@@ -1453,11 +1418,10 @@
         border-bottom: none;
       }
       .kicker {
-        font-family: var(--mono);
         font-size: 11px;
         letter-spacing: 1.4px;
         text-transform: uppercase;
-        color: #8497AE;
+        color: #7c8ea8;
         margin-bottom: 14px;
         display: flex;
         align-items: center;
@@ -1466,7 +1430,7 @@
       .kicker i {
         width: 18px;
         height: 1px;
-        background: rgba(168, 207, 56, 0.6);
+        background: rgba(139, 191, 60, 0.6);
         display: inline-block;
       }
 
@@ -1474,18 +1438,18 @@
       #overview .kicker {
         display: inline-flex;
         padding: 6px 14px 6px 10px;
-        border: 1px solid rgba(124, 179, 66, 0.38);
+        border: 1px solid rgba(96, 152, 64, 0.38);
         border-radius: 100px;
-        background: rgba(124, 179, 66, 0.07);
-        color: #A8CF38;
+        background: rgba(96, 152, 64, 0.07);
+        color: #8bbf3c;
         margin-bottom: 28px;
       }
       #overview .kicker i {
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: #A8CF38;
-        box-shadow: 0 0 8px rgba(168, 207, 56, 0.65);
+        background: #8bbf3c;
+        box-shadow: 0 0 8px rgba(139, 191, 60, 0.65);
         animation: hero-dot-pulse 2.2s ease-in-out infinite;
       }
       @keyframes hero-dot-pulse {
@@ -1505,7 +1469,7 @@
         display: block;
       }
       .hero-accent {
-        color: #A8CF38;
+        color: #8bbf3c;
       }
       .hero-actions {
         display: flex;
@@ -1555,9 +1519,6 @@
           transform: none !important;
           will-change: auto;
         }
-        #stars {
-          display: none;
-        }
       }
 
       /* product card grid */
@@ -1579,8 +1540,8 @@
       }
       .pc {
         border-radius: 14px;
-        background: rgba(124, 179, 66, 0.06);
-        border: 1px solid rgba(124, 179, 66, 0.22);
+        background: rgba(96, 152, 64, 0.06);
+        border: 1px solid rgba(96, 152, 64, 0.22);
         overflow: hidden;
         cursor: pointer;
         transition:
@@ -1591,8 +1552,8 @@
         scroll-margin-top: 24px;
       }
       .pc:hover {
-        border-color: rgba(124, 179, 66, 0.48);
-        background: rgba(124, 179, 66, 0.11);
+        border-color: rgba(96, 152, 64, 0.48);
+        background: rgba(96, 152, 64, 0.11);
         transform: translateY(-4px);
         box-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
       }
@@ -1621,15 +1582,15 @@
         width: 26px;
         height: 26px;
         border-radius: 8px;
-        background: rgba(124, 179, 66, 0.1)
+        background: rgba(96, 152, 64, 0.1)
           url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%238bbf3c' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 13L13 3M13 3H7M13 3v6'/%3E%3C/svg%3E")
           center / 13px no-repeat;
-        border: 1px solid rgba(124, 179, 66, 0.24);
+        border: 1px solid rgba(96, 152, 64, 0.24);
         transition: background-color 0.18s, border-color 0.18s, transform 0.18s;
       }
       .pc:hover .pc-head::after {
-        background-color: rgba(124, 179, 66, 0.22);
-        border-color: rgba(124, 179, 66, 0.5);
+        background-color: rgba(96, 152, 64, 0.22);
+        border-color: rgba(96, 152, 64, 0.5);
         transform: translate(1px, -1px);
       }
       .pc-ic {
@@ -1638,10 +1599,10 @@
         border-radius: 11px;
         display: grid;
         place-items: center;
-        color: #A8CF38;
+        color: #8bbf3c;
         flex-shrink: 0;
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.16), rgba(124, 179, 66, 0.1));
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.16), rgba(74, 120, 48, 0.1));
+        border: 1px solid rgba(96, 152, 64, 0.4);
       }
       .pc-ic svg {
         width: 21px;
@@ -1662,7 +1623,7 @@
       }
       .pc-d {
         font-size: 13px;
-        color: #8497AE;
+        color: #7c8ea8;
         line-height: 1.5;
         margin-top: 3px;
         display: block;
@@ -1684,12 +1645,12 @@
       }
       .pc-hl {
         font-size: 13.5px;
-        color: #C5D2E2;
+        color: #c6d0dc;
         line-height: 1.62;
         padding: 14px 16px;
         border-radius: 10px;
-        background: rgba(124, 179, 66, 0.09);
-        border: 1px solid rgba(124, 179, 66, 0.28);
+        background: rgba(96, 152, 64, 0.09);
+        border: 1px solid rgba(96, 152, 64, 0.28);
         margin-bottom: 18px;
       }
       .pc-feat {
@@ -1705,7 +1666,7 @@
       }
       .pc-feat li {
         font-size: 13px;
-        color: #8497AE;
+        color: #7c8ea8;
         line-height: 1.5;
         padding-left: 18px;
         position: relative;
@@ -1718,7 +1679,7 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: #A8CF38;
+        background: #8bbf3c;
         opacity: 0.7;
       }
       /* product card modal */
@@ -1743,7 +1704,7 @@
       }
       .pc-dialog {
         background: #0d1c2e;
-        border: 1px solid rgba(124, 179, 66, 0.38);
+        border: 1px solid rgba(96, 152, 64, 0.38);
         border-radius: 18px;
         width: 100%;
         max-width: 640px;
@@ -1754,7 +1715,7 @@
         transform: translateY(22px) scale(0.96);
         transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
         scrollbar-width: thin;
-        scrollbar-color: rgba(124, 179, 66, 0.28) transparent;
+        scrollbar-color: rgba(96, 152, 64, 0.28) transparent;
       }
       .pc-dialog.wide { max-width: 1260px; }
       .pc-overlay.open .pc-dialog {
@@ -1768,13 +1729,6 @@
       }
       .pc-dlg-visual-col { min-width: 0; }
       .pc-dlg-text-col { min-width: 0; }
-      /* Atrium: dashboard spans full width below the text content */
-      .pc-dlg-two-col.adash-layout {
-        grid-template-columns: 1fr;
-      }
-      .pc-dlg-two-col.adash-layout .pc-dlg-text-col { order: 1; }
-      .pc-dlg-two-col.adash-layout .pc-dlg-visual-col { order: 2; }
-      .pc-dlg-two-col.adash-layout .pc-visual--adash .adash { margin-top: 0; }
       @media (max-width: 720px) {
         .pc-dlg-two-col { grid-template-columns: 1fr; }
         .pc-dialog.wide { max-width: 640px; }
@@ -1786,9 +1740,9 @@
         width: 34px;
         height: 34px;
         border-radius: 9px;
-        border: 1px solid rgba(124, 179, 66, 0.28);
-        background: rgba(124, 179, 66, 0.08);
-        color: #A8CF38;
+        border: 1px solid rgba(96, 152, 64, 0.28);
+        background: rgba(96, 152, 64, 0.08);
+        color: #8bbf3c;
         cursor: pointer;
         display: grid;
         place-items: center;
@@ -1797,7 +1751,7 @@
         transition: background 0.16s;
       }
       .pc-dlg-close:hover {
-        background: rgba(124, 179, 66, 0.22);
+        background: rgba(96, 152, 64, 0.22);
       }
       .pc-dlg-head {
         display: flex;
@@ -1831,9 +1785,9 @@
         font-family: ui-monospace, monospace;
         padding: 7px 13px;
         border-radius: 100px;
-        color: #A8CF38;
-        background: rgba(124, 179, 66, 0.1);
-        border: 1px solid rgba(124, 179, 66, 0.32);
+        color: #8bbf3c;
+        background: rgba(96, 152, 64, 0.1);
+        border: 1px solid rgba(96, 152, 64, 0.32);
       }
       .sectors {
         display: grid;
@@ -1864,10 +1818,10 @@
         border-radius: 11px;
         display: grid;
         place-items: center;
-        color: #A8CF38;
+        color: #8bbf3c;
         flex-shrink: 0;
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.16), rgba(124, 179, 66, 0.1));
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.16), rgba(74, 120, 48, 0.1));
+        border: 1px solid rgba(96, 152, 64, 0.4);
       }
       .sector .si svg {
         width: 21px;
@@ -1880,7 +1834,7 @@
       }
       .sector p {
         font-size: 13.5px;
-        color: #8497AE;
+        color: #7c8ea8;
         line-height: 1.62;
       }
       .lyr3 {
@@ -1901,8 +1855,8 @@
         background: rgba(10, 18, 34, 0.6);
       }
       .lyc.mid {
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.14), rgba(124, 179, 66, 0.1));
-        border-color: rgba(124, 179, 66, 0.38);
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.14), rgba(74, 120, 48, 0.1));
+        border-color: rgba(96, 152, 64, 0.38);
       }
       .lyr3 .lyc:first-child {
         border-color: rgba(255, 255, 255, 0.35);
@@ -1925,7 +1879,7 @@
       }
       .lyc .ld {
         font-size: 12.5px;
-        color: #8497AE;
+        color: #7c8ea8;
         line-height: 1.55;
       }
       .diagram-wrap {
@@ -2015,11 +1969,11 @@
         font-size: 10px;
         letter-spacing: 1.6px;
         text-transform: uppercase;
-        color: #A8CF38;
+        color: #8bbf3c;
         font-weight: 700;
         margin: 30px 0 12px;
         padding-bottom: 6px;
-        border-bottom: 1px solid rgba(124, 179, 66, 0.18);
+        border-bottom: 1px solid rgba(96, 152, 64, 0.18);
       }
       .ptiles {
         display: grid;
@@ -2044,16 +1998,16 @@
         border-radius: 12px;
         cursor: pointer;
         width: 100%;
-        background: rgba(124, 179, 66, 0.06);
-        border: 1px solid rgba(124, 179, 66, 0.22);
+        background: rgba(96, 152, 64, 0.06);
+        border: 1px solid rgba(96, 152, 64, 0.22);
         transition: 0.16s;
         text-align: left;
         font-family: inherit;
         color: inherit;
       }
       .ptile:hover {
-        background: rgba(124, 179, 66, 0.12);
-        border-color: rgba(124, 179, 66, 0.45);
+        background: rgba(96, 152, 64, 0.12);
+        border-color: rgba(96, 152, 64, 0.45);
         transform: translateY(-1px);
       }
       .ptile .pti {
@@ -2062,10 +2016,10 @@
         border-radius: 10px;
         display: grid;
         place-items: center;
-        color: #A8CF38;
+        color: #8bbf3c;
         flex-shrink: 0;
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.16), rgba(124, 179, 66, 0.1));
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.16), rgba(74, 120, 48, 0.1));
+        border: 1px solid rgba(96, 152, 64, 0.4);
       }
       .ptile .pti svg {
         width: 19px;
@@ -2079,7 +2033,7 @@
         min-width: 0;
       }
       .ptile .pt-go {
-        color: #A8CF38;
+        color: #8bbf3c;
         font-size: 15px;
         opacity: 0.55;
         transition: 0.16s;
@@ -2111,8 +2065,8 @@
         cursor: pointer;
       }
       .ocard:hover {
-        border-color: rgba(124, 179, 66, 0.45);
-        background: rgba(124, 179, 66, 0.08);
+        border-color: rgba(96, 152, 64, 0.45);
+        background: rgba(96, 152, 64, 0.08);
         transform: translateY(-2px);
       }
       .ocard .oi {
@@ -2121,10 +2075,10 @@
         border-radius: 12px;
         display: grid;
         place-items: center;
-        color: #A8CF38;
+        color: #8bbf3c;
         margin-bottom: 16px;
-        background: linear-gradient(150deg, rgba(124, 179, 66, 0.16), rgba(124, 179, 66, 0.1));
-        border: 1px solid rgba(124, 179, 66, 0.4);
+        background: linear-gradient(150deg, rgba(96, 152, 64, 0.16), rgba(74, 120, 48, 0.1));
+        border: 1px solid rgba(96, 152, 64, 0.4);
       }
       .ocard .oi svg {
         width: 23px;
@@ -2140,7 +2094,7 @@
         gap: 8px;
       }
       .ocard h3 .go {
-        color: #A8CF38;
+        color: #8bbf3c;
         font-size: 14px;
         opacity: 0.55;
         transition: 0.16s;
@@ -2151,12 +2105,12 @@
       }
       .ocard p {
         font-size: 13.5px;
-        color: #8497AE;
+        color: #7c8ea8;
         line-height: 1.62;
       }
       .ocard .otag {
         font-size: 11px;
-        color: #A8CF38;
+        color: #8bbf3c;
         font-weight: 600;
         margin-top: 14px;
         display: inline-block;
@@ -2183,34 +2137,12 @@
         line-height: 1.06;
       }
       /* about visual — invisible-layer diagram */
-      .about-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
-        align-items: center;
-      }
-      .about-content {
-        min-width: 0;
-      }
-      .about-content .kicker { margin-bottom: 20px; }
-      .about-content h2 { margin-bottom: 20px; }
-      .about-content .lede + .lede { margin-top: 16px; }
       .about-vis {
-        max-width: 440px;
-        width: 100%;
+        margin: 44px auto 0;
+        max-width: 500px;
         display: flex;
         flex-direction: column;
         align-items: center;
-      }
-      @media (max-width: 860px) {
-        .about-layout {
-          grid-template-columns: 1fr;
-          gap: 40px;
-        }
-        .about-vis {
-          max-width: 500px;
-          margin: 0 auto;
-        }
       }
       .av-card {
         width: 100%;
@@ -2263,7 +2195,7 @@
       .av-seen {
         margin-top: 14px;
         font-size: 11px;
-        color: #5A6C82;
+        color: #4e6078;
         letter-spacing: 0.2px;
       }
       .av-conn {
@@ -2283,7 +2215,7 @@
         background: linear-gradient(
           to bottom,
           rgba(255, 255, 255, 0.06),
-          rgba(168, 207, 56, 0.45),
+          rgba(139, 191, 60, 0.45),
           rgba(255, 255, 255, 0.06)
         );
         transform: translateX(-50%) scaleY(0);
@@ -2299,8 +2231,8 @@
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: #A8CF38;
-        box-shadow: 0 0 8px rgba(168, 207, 56, 0.5);
+        background: #8bbf3c;
+        box-shadow: 0 0 8px rgba(139, 191, 60, 0.5);
         top: 110%;
         opacity: 0;
         animation: av-rise 2.8s ease-in-out infinite;
@@ -2337,7 +2269,7 @@
       }
       .av-invis {
         font-size: 10px;
-        color: #5A6C82;
+        color: #4e6078;
         background: rgba(38, 54, 80, 0.25);
         border: 1px solid rgba(38, 54, 80, 0.4);
         border-radius: 100px;
@@ -2358,14 +2290,14 @@
       .av-cred-n {
         font-size: 18px;
         font-weight: 700;
-        color: #A8CF38;
+        color: #8bbf3c;
         letter-spacing: -0.01em;
         display: block;
         margin-bottom: 2px;
       }
       .av-cred-l {
         font-size: 11px;
-        color: #5A6C82;
+        color: #4e6078;
         line-height: 1.3;
         display: block;
       }
@@ -2381,7 +2313,7 @@
       /* ===== SPLASH SCREEN ===== */
       #splash {
         position: fixed; inset: 0; z-index: 9000;
-        background: #0A1320;
+        background: #080E1C;
         display: flex; align-items: center; justify-content: center;
         flex-direction: column;
       }
@@ -2402,19 +2334,19 @@
       }
       .sp-eco {
         font-size: clamp(12px, 2vw, 16px); font-weight: 600;
-        letter-spacing: 0.38em; color: #A8CF38;
+        letter-spacing: 0.38em; color: #8bbf3c;
         margin-top: 24px;
         opacity: 0; animation: sp-fadein 0.6s ease 0.9s forwards;
       }
       .sp-progress {
         width: 130px; height: 1px;
-        background: rgba(168, 207, 56,0.12);
+        background: rgba(139,191,60,0.12);
         margin-top: 40px; overflow: hidden; border-radius: 1px;
         opacity: 0; animation: sp-fadein 0.5s ease 1.1s forwards;
       }
       .sp-progress-fill {
         height: 100%; width: 0;
-        background: linear-gradient(90deg, #7CB342, #A8CF38);
+        background: linear-gradient(90deg, #4a7830, #8bbf3c);
         animation: sp-prog 3.6s cubic-bezier(0.4,0,0.2,1) 1.1s forwards;
       }
       @keyframes sp-fadein { to { opacity: 1; } }
@@ -2455,433 +2387,24 @@
         .sp-go, .sp-gi, .sp-goi, .sp-gii, .sp-hub-pulse,
         .sp-wordmark, .sp-orb-svg, .sp-eco, .sp-progress { animation: none !important; opacity: 1 !important; }
       }
-
-      /* ===== ECOSYSTEM — LAYERED PLANES DIAGRAM ===== */
-      .eco-vis {
-        margin-top: 44px;
-      }
-      .eco-planelabel {
-        font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: #5a6c82;
-        margin-bottom: 10px;
-      }
-      .eco-planelabel.svc {
-        margin-top: 4px;
-      }
-      /* control plane band */
-      .eco-control {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        padding: 16px 20px;
-        border: 1.5px solid rgba(168, 207, 56, 0.32);
-        border-radius: 16px;
-        background: linear-gradient(120deg, rgba(28, 42, 20, 0.4), rgba(18, 26, 42, 0.7));
-        box-shadow: 0 0 30px rgba(168, 207, 56, 0.1);
-      }
-      .eco-ic {
-        width: 42px;
-        height: 42px;
-        border-radius: 11px;
-        flex-shrink: 0;
-        display: grid;
-        place-items: center;
-        background: rgba(28, 42, 20, 0.6);
-        border: 1px solid rgba(168, 207, 56, 0.32);
-        color: #a8cf38;
-      }
-      .eco-ic.solid {
-        background: linear-gradient(120deg, #7cb342, #a8cf38);
-        color: #0a1320;
-        border: none;
-      }
-      .eco-k {
-        font-family: var(--mono);
-        font-size: 10.5px;
-        letter-spacing: 1.8px;
-        text-transform: uppercase;
-        color: #a8cf38;
-      }
-      .eco-k.dim {
-        color: #5a6c82;
-      }
-      .eco-control-h {
-        font-family: var(--display);
-        font-size: clamp(15px, 2vw, 18px);
-        font-weight: 600;
-        color: #fff;
-        margin-top: 2px;
-      }
-      .eco-control-chips {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-left: auto;
-      }
-      .eco-control-chips span {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: #c5d2e2;
-        border: 1px solid rgba(120, 160, 210, 0.13);
-        border-radius: 100px;
-        padding: 5px 11px;
-      }
-      /* manifold connecting the planes */
-      .eco-manifold {
-        height: 48px;
-        position: relative;
-      }
-      .eco-manifold svg {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-      }
-      .eco-flow {
-        fill: none;
-        stroke: rgba(168, 207, 56, 0.32);
-        stroke-width: 2;
-        stroke-dasharray: 5 9;
-        animation: eco-dash 1.1s linear infinite;
-      }
-      @keyframes eco-dash { to { stroke-dashoffset: -28; } }
-      /* service plane */
-      .eco-service {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .eco-suite {
-        border: 1px solid rgba(120, 160, 210, 0.13);
-        border-radius: 16px;
-        background: rgba(15, 20, 32, 0.7);
-        padding: 18px;
-      }
-      .eco-suite-top {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 14px;
-      }
-      .eco-suite-s {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: #8497ae;
-        margin-top: 2px;
-      }
-      .eco-chips {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      .eco-chips.one {
-        grid-template-columns: 1fr;
-      }
-      .eco-item {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        padding: 9px 12px;
-        border: 1px solid rgba(120, 160, 210, 0.13);
-        border-radius: 10px;
-        background: rgba(21, 27, 40, 0.7);
-        transition: border-color 0.2s var(--ease), background 0.2s var(--ease), opacity 0.5s var(--ease),
-          transform 0.5s var(--ease);
-      }
-      .eco-item:hover {
-        border-color: rgba(168, 207, 56, 0.32);
-        background: rgba(28, 42, 20, 0.32);
-      }
-      .eco-item i {
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: #a8cf38;
-        flex-shrink: 0;
-        box-shadow: 0 0 6px rgba(168, 207, 56, 0.6);
-      }
-      .eco-item b {
-        color: #fff;
-        font-size: 12.5px;
-        font-weight: 600;
-      }
-      .eco-item span.sub {
-        color: #8497ae;
-        font-size: 11px;
-        margin-left: auto;
-      }
-      /* closing note */
-      .eco-banner {
-        margin-top: 14px;
-        text-align: center;
-        border: 1px solid rgba(120, 160, 210, 0.13);
-        border-radius: 14px;
-        background: rgba(15, 20, 32, 0.7);
-        padding: 14px 20px;
-        font-size: 13.5px;
-        color: #c7d0de;
-      }
-      .eco-banner b {
-        color: #a8cf38;
-        font-weight: 600;
-      }
-      @media (max-width: 720px) {
-        .eco-service { grid-template-columns: 1fr; }
-      }
-
-      /* entrance: control plane → manifold → suites → chips → banner */
-      .eco-vis .eco-planelabel,
-      .eco-vis .eco-control,
-      .eco-vis .eco-manifold,
-      .eco-vis .eco-suite,
-      .eco-vis .eco-banner {
-        transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-      }
-      .eco-vis.js .eco-planelabel { opacity: 0; }
-      .eco-vis.js .eco-control { opacity: 0; transform: translateY(-12px); }
-      .eco-vis.js .eco-manifold { opacity: 0; }
-      .eco-vis.js .eco-suite { opacity: 0; transform: translateY(16px); }
-      .eco-vis.js .eco-item { opacity: 0; transform: translateY(8px); }
-      .eco-vis.js .eco-banner { opacity: 0; transform: translateY(12px); }
-      .eco-vis.in .eco-planelabel { opacity: 1; }
-      .eco-vis.in .eco-control { opacity: 1; transform: none; }
-      .eco-vis.in .eco-manifold { opacity: 1; transition-delay: 0.3s; }
-      .eco-vis.in .eco-suite { opacity: 1; transform: none; transition-delay: 0.45s; }
-      .eco-vis.in .eco-suite:last-child { transition-delay: 0.55s; }
-      .eco-vis.in .eco-item { opacity: 1; transform: none; transition-delay: calc(0.7s + var(--i, 0) * 0.04s); }
-      .eco-vis.in .eco-banner { opacity: 1; transform: none; transition-delay: 1.15s; }
-      @media (prefers-reduced-motion: reduce) {
-        .eco-vis.js .eco-planelabel,
-        .eco-vis.js .eco-control,
-        .eco-vis.js .eco-manifold,
-        .eco-vis.js .eco-suite,
-        .eco-vis.js .eco-item,
-        .eco-vis.js .eco-banner { opacity: 1 !important; transform: none !important; }
-        .eco-flow { animation: none !important; }
-        .eco-vis * { transition: none !important; }
-      }
-
-      /* ===== READING-PROGRESS RAIL (right gutter) ===== */
-      .spine {
-        position: fixed;
-        right: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 70;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        pointer-events: none;
-      }
-      .spine-num {
-        font-family: var(--mono);
-        font-size: 0.86rem;
-        color: #8497ae;
-        font-variant-numeric: tabular-nums;
-        letter-spacing: 0.05em;
-      }
-      .spine-track {
-        position: relative;
-        width: 2px;
-        height: 200px;
-        background: rgba(120, 160, 210, 0.16);
-        border-radius: 2px;
-        overflow: hidden;
-      }
-      .spine-fill {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 0%;
-        background: linear-gradient(#7cb342, #a8cf38);
-        border-radius: 2px;
-        box-shadow: 0 0 8px rgba(168, 207, 56, 0.45);
-        transition: height 0.12s linear;
-      }
-      .spine-label {
-        font-family: var(--mono);
-        font-size: 0.66rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: #8497ae;
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-      }
-      /* top scroll-progress bar (tablet / mobile fallback) */
-      .topprogress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        z-index: 75;
-        background: transparent;
-        pointer-events: none;
-        display: none;
-      }
-      .topprogress-fill {
-        height: 100%;
-        width: 0%;
-        background: linear-gradient(90deg, #7cb342, #a8cf38);
-        box-shadow: 0 0 8px rgba(168, 207, 56, 0.5);
-        transition: width 0.12s linear;
-      }
-      @media (max-width: 1024px) {
-        .spine { display: none; }
-        .topprogress { display: block; }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .spine-fill, .topprogress-fill { transition: none !important; }
-      }
-
-      /* ===== ATRIUM CONSOLE VISUAL ===== */
-      .adash {
-        --ad-line:  rgba(120,160,210,.13);
-        --ad-line2: rgba(168,207,56,.32);
-        --ad-gold:  #D8B24C;
-        --ad-teal:  #3FA796;
-        --ad-muted: #7B93AB;
-        --ad-sunken: rgba(120,160,210,.12);
-        --ad-panel:  rgba(13,27,43,.85);
-        max-width: 1140px; margin: 60px auto 0;
-        border: 1px solid var(--ad-line); border-radius: 14px; overflow: hidden;
-        background: var(--ink2); box-shadow: 0 44px 90px rgba(4,10,22,.62);
-        position: relative; z-index: 1; text-align: left; font-size: 11px;
-      }
-      .pc-inner .adash { max-width: none; margin: 20px 0 0; box-shadow: none; }
-      .adash__bar { display: flex; align-items: center; gap: 10px; padding: 7px 13px; background: rgba(4,8,16,0.7); border-bottom: 1px solid var(--ad-line); }
-      .adash__dots { display: flex; gap: 5px; flex-shrink: 0; }
-      .adash__dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--ad-muted); opacity: .7; }
-      .adash__dots i:first-child  { background: #ff5f57; }
-      .adash__dots i:nth-child(2) { background: #febc2e; }
-      .adash__dots i:nth-child(3) { background: #28c840; }
-      .adash__url-bar { display: flex; align-items: center; gap: 5px; background: rgba(255,255,255,.04); border: 1px solid rgba(120,160,210,.1); border-radius: 5px; padding: 3px 9px; flex: 1; min-width: 0; max-width: 260px; }
-      .adash__url-bar svg { flex-shrink: 0; opacity: .55; }
-      .adash__url { font-family: var(--mono); font-size: 9.5px; color: var(--fog2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      .adash__bar-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
-      .adash__env-tag { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 8.5px; color: var(--fog2); background: rgba(255,255,255,.04); border: 1px solid var(--ad-line); border-radius: 4px; padding: 3px 8px; white-space: nowrap; }
-      .adash__app { display: grid; grid-template-columns: 178px 1fr; }
-      .adash__side { border-right: 1px solid rgba(120,160,210,.15); background: rgba(4,9,17,0.9); padding: 12px 0 10px; display: flex; flex-direction: column; gap: 0; overflow: hidden; }
-      .adash__sb { display: flex; align-items: center; gap: 8px; margin: 0; padding: 0 14px 11px; border-bottom: 1px solid rgba(120,160,210,.12); margin-bottom: 6px; }
-      .adash__logo { width: 27px; height: 27px; border-radius: 7px; background: linear-gradient(120deg,#7cb342,#a8cf38); display: inline-flex; align-items: center; justify-content: center; color: #06210a; font-family: var(--display); font-weight: 700; font-size: 12px; flex: 0 0 auto; letter-spacing: -.5px; }
-      .adash__sb b { font-family: var(--display); color: #fff; font-size: 12px; line-height: 1.1; }
-      .adash__sb .t { font-family: var(--mono); font-size: 7px; letter-spacing: 1.2px; color: rgba(90,108,130,.8); display: block; text-transform: uppercase; }
-      .adash__nav { display: flex; align-items: center; gap: 7px; padding: 5px 10px 5px 12px; border-radius: 0; color: rgba(123,147,171,.75); font-size: 10.5px; cursor: default; transition: background .12s, color .12s, border-color .12s; border-left: 2px solid transparent; }
-      .adash__nav:hover { background: rgba(255,255,255,.03); color: #c5d2e2; border-left-color: rgba(168,207,56,.18); }
-      .adash__nav .ic { width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; color: rgba(90,108,130,.7); flex: 0 0 16px; transition: color .12s; }
-      .adash__nav.is-active { background: rgba(168,207,56,.07); color: #dff0c0; border-left-color: #a8cf38; }
-      .adash__nav.is-active .ic { color: #a8cf38; }
-      .adash__nav.is-active:hover { background: rgba(168,207,56,.1); }
-      .adash__group { font-family: var(--mono); font-size: 6.5px; letter-spacing: 1.5px; color: rgba(90,108,130,.55); text-transform: uppercase; padding: 9px 14px 2px 14px; display: block; }
-      .adash__conn { margin: auto 10px 0; padding: 8px 10px; border: 1px solid rgba(120,160,210,.15); border-radius: 6px; background: rgba(168,207,56,.05); }
-      .adash__conn .lbl { font-family: var(--mono); font-size: 7px; letter-spacing: 1px; color: rgba(90,108,130,.65); text-transform: uppercase; margin-bottom: 5px; }
-      .adash__conn .st { display: flex; align-items: center; gap: 5px; color: #c5d2e2; font-size: 10px; margin-bottom: 3px; }
-      .adash__conn .small { font-size: 9px; color: rgba(123,147,171,.7); }
-      .adash__live { width: 6px; height: 6px; border-radius: 50%; background: #a8cf38; display: inline-block; box-shadow: 0 0 6px #a8cf38; flex-shrink: 0; animation: adpulse 1.8s ease-in-out infinite; }
-      @keyframes adpulse { 0%,100%{opacity:1} 50%{opacity:.3} }
-      .adash__main { padding: 13px 15px 12px; min-width: 0; overflow: hidden; }
-      .adash__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 11px; }
-      .adash__breadcrumb { font-family: var(--mono); font-size: 8px; letter-spacing: .4px; color: var(--fog3); text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
-      .adash__breadcrumb .sep { opacity: .4; }
-      .adash__breadcrumb .cur { color: var(--fog2); }
-      .adash__top h4 { font-family: var(--display); color: #fff; font-size: 14px; font-weight: 600; margin: 0; line-height: 1.1; }
-      .adash__top .sub { font-size: 9.5px; color: var(--fog3); margin-top: 3px; }
-      .adash__top-r { display: flex; align-items: center; gap: 7px; flex-shrink: 0; padding-top: 2px; }
-      .adash__ts { font-family: var(--mono); font-size: 8px; color: var(--fog3); white-space: nowrap; }
-      .adash__livetag { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 8px; letter-spacing: 1px; color: var(--lime); padding: 4px 8px; border: 1px solid var(--ad-line2); border-radius: 100px; background: rgba(168,207,56,.06); white-space: nowrap; }
-      .adash__eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 9px; }
-      .adash__eq i { width: 2px; background: var(--lime); border-radius: 1px; transform-origin: bottom; animation: adeq .9s ease-in-out infinite alternate; }
-      .adash__eq i:nth-child(1){height:40%;animation-delay:0s}
-      .adash__eq i:nth-child(2){height:80%;animation-delay:.1s}
-      .adash__eq i:nth-child(3){height:55%;animation-delay:.2s}
-      .adash__eq i:nth-child(4){height:100%;animation-delay:.3s}
-      .adash__eq i:nth-child(5){height:60%;animation-delay:.15s}
-      .adash__eq i:nth-child(6){height:35%;animation-delay:.25s}
-      @keyframes adeq { from{transform:scaleY(.35)} to{transform:scaleY(1)} }
-      .adash__kpis { display: grid; grid-template-columns: repeat(6,1fr); gap: 6px; margin-bottom: 9px; }
-      .adash__kpi { background: rgba(8,16,30,0.75); border: 1px solid rgba(120,160,210,.11); border-radius: 8px; padding: 9px 10px; display: flex; flex-direction: column; gap: 0; position: relative; overflow: hidden; }
-      .adash__kpi::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(120,160,210,.14), transparent); }
-      .adash__kpi .lbl { font-family: var(--mono); font-size: 7px; letter-spacing: .5px; color: var(--fog3); text-transform: uppercase; margin-bottom: 5px; line-height: 1.3; }
-      .adash__kpi .val { font-family: var(--display); font-size: 18px; font-weight: 700; color: #fff; line-height: 1; }
-      .adash__kpi .val.teal { color: var(--ad-teal); }
-      .adash__kpi .val.gold { color: var(--ad-gold); }
-      .adash__kpi .d { font-family: var(--mono); font-size: 7.5px; color: rgba(120,150,180,.55); margin-top: 5px; }
-      .adash__kpi .d.up { color: rgba(168,207,56,.75); }
-      .adash__grid { display: grid; gap: 8px; margin-bottom: 8px; }
-      .adash__grid.g2  { grid-template-columns: 1.5fr 1fr; }
-      .adash__grid.g2e { grid-template-columns: 1fr 1fr; }
-      .adash__panel { background: rgba(8,16,30,0.75); border: 1px solid rgba(120,160,210,.11); border-radius: 9px; padding: 11px; display: flex; flex-direction: column; }
-      .adash__panel h5 { font-family: var(--display); font-size: 11.5px; color: #fff; font-weight: 600; margin: 0; }
-      .adash__panel .cap { font-size: 9px; color: var(--fog3); margin-bottom: 8px; margin-top: 2px; }
-      .adash__panel-hd { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0; }
-      .adash__badge-up { font-family: var(--mono); font-size: 8.5px; color: rgba(168,207,56,.8); background: rgba(168,207,56,.08); border: 1px solid rgba(168,207,56,.2); border-radius: 4px; padding: 2px 6px; white-space: nowrap; margin-top: 1px; flex-shrink: 0; }
-      .adash__bars { flex: 1 1 auto; min-height: 80px; }
-      .adash__spark { display: block; width: 100%; height: 100%; }
-      .adash__spark-grid line { stroke: var(--ad-line); stroke-width: 1; vector-effect: non-scaling-stroke; }
-      .adash__spark-area { opacity: 0; animation: adfade .9s var(--ease) .15s forwards; }
-      .adash__spark-line { fill: none; stroke: var(--lime); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 2000; stroke-dashoffset: 2000; animation: adspark 1.2s var(--ease) forwards; }
-      @keyframes adspark { to{stroke-dashoffset:0} }
-      @keyframes adfade  { to{opacity:1} }
-      .adash__col { transform-box: fill-box; transform-origin: bottom; transform: scaleY(0); animation: adcol .7s var(--ease) forwards; animation-delay: var(--d,0s); }
-      @keyframes adcol   { to{transform:scaleY(1)} }
-      .adash__donut { display: grid; place-items: center; padding: 0; }
-      .adash__ring { stroke-dashoffset: var(--len,0); animation: adring 1s var(--ease) forwards; animation-delay: var(--d,0s); }
-      @keyframes adring { to{stroke-dashoffset:0} }
-      .adash__center { fill: #fff; font-family: var(--display); font-weight: 700; }
-      .adash__legend { display: flex; flex-direction: column; gap: 5px; margin-top: 6px; }
-      .adash__legend span { display: flex; align-items: center; gap: 6px; font-size: 9.5px; color: var(--fog2); }
-      .adash__legend i { width: 8px; height: 8px; border-radius: 2px; flex: 0 0 auto; }
-      .adash__legend b { color: #fff; margin-left: auto; font-family: var(--mono); font-size: 9px; }
-      .adash__hb { display: grid; grid-template-columns: 78px 1fr 40px; align-items: center; gap: 8px; margin-bottom: 6px; }
-      .adash__hb-l { font-size: 10px; color: var(--fog); }
-      .adash__hb-bar { height: 6px; border-radius: 100px; background: var(--ad-sunken); overflow: hidden; }
-      .adash__hb-bar i { display: block; height: 100%; border-radius: 100px; transform: scaleX(0); transform-origin: left; animation: adhb .9s var(--ease) forwards; animation-delay: var(--d,0s); }
-      @keyframes adhb { to{transform:scaleX(1)} }
-      .adash__hb-v { font-family: var(--mono); font-size: 9.5px; color: #fff; text-align: right; }
-      .adash__tbl { width: 100%; border-collapse: collapse; font-size: 10px; }
-      .adash__tbl th { font-family: var(--mono); font-size: 7px; letter-spacing: .6px; text-transform: uppercase; color: var(--ad-muted); text-align: left; padding: 5px 7px; border-bottom: 1px solid var(--ad-line); }
-      .adash__tbl td { padding: 5px 7px; border-bottom: 1px solid var(--ad-line); color: var(--fog2); }
-      .adash__tbl td:first-child { color: #fff; }
-      .adash__tbl tr:last-child td { border-bottom: none; }
-      .adash__pill { font-family: var(--mono); font-size: 8px; padding: 2px 7px; border-radius: 100px; white-space: nowrap; }
-      .adash__pill.ok   { background: rgba(168,207,56,.14); color: var(--lime); border: 1px solid var(--ad-line2); }
-      .adash__pill.prov { background: rgba(216,178,76,.14); color: var(--ad-gold); border: 1px solid rgba(216,178,76,.35); }
-      .adash__note { font-family: var(--mono); font-size: 9px; color: var(--ad-muted); margin-top: 8px; line-height: 1.5; border-top: 1px solid var(--ad-line); padding-top: 7px; }
-      @media (max-width: 1080px) { .adash__kpis { grid-template-columns: repeat(3,1fr); } }
-      @media (max-width: 780px)  { .adash__app  { grid-template-columns: 1fr; } .adash__side { display: none; } }
-      @media (max-width: 720px)  { .adash__grid.g2, .adash__grid.g2e { grid-template-columns: 1fr; } }
-      @media (max-width: 520px)  { .adash__kpis { grid-template-columns: repeat(2,1fr); } }
-      @media (prefers-reduced-motion: reduce) {
-        .adash__spark-line, .adash__spark-area, .adash__ring, .adash__hb-bar i,
-        .adash__col, .adash__live, .adash__eq i { animation: none !important; opacity: 1 !important; stroke-dashoffset: 0 !important; transform: none !important; }
-      }
     </style>
   </head>
   <body>
-    <canvas id="stars"></canvas>
     <div id="splash">
       <div class="sp-inner">
         <img class="sp-wordmark" alt="WorldPosta" src="data:image/png;base64,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" />
         <svg class="sp-orb-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <radialGradient id="sp-glow-g" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="rgba(124, 179, 66,0.35)"/>
-              <stop offset="100%" stop-color="rgba(124, 179, 66,0)"/>
+              <stop offset="0%" stop-color="rgba(96,152,64,0.35)"/>
+              <stop offset="100%" stop-color="rgba(96,152,64,0)"/>
             </radialGradient>
             <linearGradient id="sp-hub-g" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#2e5018"/>
-              <stop offset="100%" stop-color="#A8CF38"/>
+              <stop offset="100%" stop-color="#8bbf3c"/>
             </linearGradient>
             <filter id="sp-hub-f" x="-40%" y="-40%" width="180%" height="180%">
-              <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="rgba(124, 179, 66,0.55)"/>
+              <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="rgba(96,152,64,0.55)"/>
             </filter>
           </defs>
 
@@ -2889,18 +2412,18 @@
           <circle cx="150" cy="150" r="72" fill="url(#sp-glow-g)"/>
 
           <!-- Hub pulse ring -->
-          <circle cx="150" cy="150" r="30" fill="none" stroke="rgba(168, 207, 56,0.55)" stroke-width="1.5" class="sp-hub-pulse"/>
+          <circle cx="150" cy="150" r="30" fill="none" stroke="rgba(139,191,60,0.55)" stroke-width="1.5" class="sp-hub-pulse"/>
 
           <!-- Orbit rings -->
-          <circle cx="150" cy="150" r="75"  fill="none" stroke="rgba(168, 207, 56,0.28)" stroke-width="1" stroke-dasharray="3 7"/>
-          <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(168, 207, 56,0.18)" stroke-width="1" stroke-dasharray="4 10"/>
+          <circle cx="150" cy="150" r="75"  fill="none" stroke="rgba(139,191,60,0.28)" stroke-width="1" stroke-dasharray="3 7"/>
+          <circle cx="150" cy="150" r="120" fill="none" stroke="rgba(139,191,60,0.18)" stroke-width="1" stroke-dasharray="4 10"/>
 
           <!-- Outer orbit (CW 28s) — Mail top, Cloud bottom-right, Files bottom-left -->
           <g class="sp-go">
             <g transform="translate(150, 30)">
               <g class="sp-goi">
-                <rect x="-22" y="-10" width="44" height="20" rx="10" fill="rgba(8,14,28,0.92)" stroke="rgba(168, 207, 56,0.5)" stroke-width="0.8"/>
-                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#A8CF38" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Mail</text>
+                <rect x="-22" y="-10" width="44" height="20" rx="10" fill="rgba(8,14,28,0.92)" stroke="rgba(139,191,60,0.5)" stroke-width="0.8"/>
+                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#8bbf3c" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Mail</text>
               </g>
             </g>
             <g transform="translate(253.9, 210)">
@@ -2911,8 +2434,8 @@
             </g>
             <g transform="translate(46.1, 210)">
               <g class="sp-goi">
-                <rect x="-24" y="-10" width="48" height="20" rx="10" fill="rgba(8,14,28,0.92)" stroke="rgba(168, 207, 56,0.5)" stroke-width="0.8"/>
-                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#A8CF38" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Files</text>
+                <rect x="-24" y="-10" width="48" height="20" rx="10" fill="rgba(8,14,28,0.92)" stroke="rgba(139,191,60,0.5)" stroke-width="0.8"/>
+                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#8bbf3c" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Files</text>
               </g>
             </g>
           </g>
@@ -2922,19 +2445,19 @@
             <g transform="translate(214.95, 112.5)">
               <g class="sp-gii">
                 <rect x="-33" y="-10" width="66" height="20" rx="10" fill="rgba(8,14,28,0.92)" stroke="rgba(124,142,168,0.4)" stroke-width="0.8"/>
-                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#8497AE" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Security</text>
+                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#7c8ea8" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Security</text>
               </g>
             </g>
             <g transform="translate(150, 225)">
               <g class="sp-gii">
                 <rect x="-27" y="-10" width="54" height="20" rx="10" fill="rgba(8,14,28,0.92)" stroke="rgba(124,142,168,0.4)" stroke-width="0.8"/>
-                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#8497AE" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Billing</text>
+                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#7c8ea8" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Billing</text>
               </g>
             </g>
             <g transform="translate(85.05, 112.5)">
               <g class="sp-gii">
-                <rect x="-22" y="-10" width="44" height="20" rx="10" fill="rgba(8,14,28,0.92)" stroke="rgba(168, 207, 56,0.5)" stroke-width="0.8"/>
-                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#A8CF38" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Meet</text>
+                <rect x="-22" y="-10" width="44" height="20" rx="10" fill="rgba(8,14,28,0.92)" stroke="rgba(139,191,60,0.5)" stroke-width="0.8"/>
+                <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" fill="#8bbf3c" font-size="9.5" font-family="system-ui,-apple-system,sans-serif">Meet</text>
               </g>
             </g>
           </g>
@@ -3047,16 +2570,16 @@
               >
                 <defs>
                   <radialGradient id="hb_bgGlowG" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="rgba(124, 179, 66,0.28)" />
+                    <stop offset="0%" stop-color="rgba(96,152,64,0.28)" />
                     <stop offset="70%" stop-color="rgba(22,54,20,0)" />
                   </radialGradient>
                   <linearGradient id="hb_srv" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#243448" />
-                    <stop offset="100%" stop-color="#0D1B2B" />
+                    <stop offset="100%" stop-color="#0E1C2C" />
                   </linearGradient>
                   <linearGradient id="hb_cyl" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#22344A" />
-                    <stop offset="100%" stop-color="#0D1B2B" />
+                    <stop offset="100%" stop-color="#0E1C2C" />
                   </linearGradient>
                   <linearGradient id="hb_cloudGrad" gradientUnits="userSpaceOnUse" x1="270" y1="448" x2="270" y2="512">
                     <stop offset="0%" stop-color="#3E5E8E" />
@@ -3069,7 +2592,7 @@
                   </radialGradient>
                   <radialGradient id="hb_shieldG" cx="38%" cy="30%" r="72%">
                     <stop offset="0%" stop-color="#D6F0A8" />
-                    <stop offset="60%" stop-color="#7CB342" />
+                    <stop offset="60%" stop-color="#609840" />
                     <stop offset="100%" stop-color="#2C5418" />
                   </radialGradient>
                   <radialGradient id="hb_nodeG" cx="36%" cy="30%" r="74%">
@@ -3111,7 +2634,7 @@
                   </filter>
 
                   <marker id="hb_aG" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto">
-                    <polygon points="0,0 9,4 0,8" fill="#A8CF38" />
+                    <polygon points="0,0 9,4 0,8" fill="#8BBF3C" />
                   </marker>
                   <marker id="hb_aB" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto">
                     <polygon points="0,0 9,4 0,8" fill="#5B92CC" />
@@ -3204,7 +2727,7 @@
                   font-size="11"
                   font-weight="500"
                   letter-spacing="0.5"
-                  fill="rgba(168, 207, 56,0.6)"
+                  fill="rgba(139,191,60,0.6)"
                 >
                   Cloud Manager · Collaboration Suite · Operations Spine
                 </text>
@@ -3539,7 +3062,7 @@
                   cy="392.0"
                   r="206"
                   fill="none"
-                  stroke="rgba(168, 207, 56,0.2)"
+                  stroke="rgba(139,191,60,0.2)"
                   stroke-width="1.2"
                   stroke-dasharray="2 7"
                   class="hb_rp"
@@ -3549,7 +3072,7 @@
                   cy="392.0"
                   r="112"
                   fill="none"
-                  stroke="rgba(168, 207, 56,0.24)"
+                  stroke="rgba(139,191,60,0.24)"
                   stroke-width="1.2"
                   stroke-dasharray="2 7"
                   class="hb_rp2"
@@ -3559,7 +3082,7 @@
                   y1="332.1"
                   x2="844.8"
                   y2="224.9"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3568,7 +3091,7 @@
                   y1="348.2"
                   x2="922.3"
                   y2="269.7"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3577,7 +3100,7 @@
                   y1="376.0"
                   x2="967.1"
                   y2="347.2"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3586,7 +3109,7 @@
                   y1="408.0"
                   x2="967.1"
                   y2="436.8"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3595,7 +3118,7 @@
                   y1="435.8"
                   x2="922.3"
                   y2="514.3"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3604,7 +3127,7 @@
                   y1="451.9"
                   x2="844.8"
                   y2="559.1"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3613,7 +3136,7 @@
                   y1="451.9"
                   x2="755.2"
                   y2="559.1"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3622,7 +3145,7 @@
                   y1="435.8"
                   x2="677.7"
                   y2="514.3"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3631,7 +3154,7 @@
                   y1="408.0"
                   x2="632.9"
                   y2="436.8"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3640,7 +3163,7 @@
                   y1="376.0"
                   x2="632.9"
                   y2="347.2"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3649,7 +3172,7 @@
                   y1="348.2"
                   x2="677.7"
                   y2="269.7"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3658,7 +3181,7 @@
                   y1="332.1"
                   x2="755.2"
                   y2="224.9"
-                  stroke="rgba(168, 207, 56,0.30)"
+                  stroke="rgba(139,191,60,0.30)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3667,7 +3190,7 @@
                   y1="330.0"
                   x2="800.0"
                   y2="318.0"
-                  stroke="rgba(168, 207, 56,0.5)"
+                  stroke="rgba(139,191,60,0.5)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3676,7 +3199,7 @@
                   y1="361.0"
                   x2="864.1"
                   y2="355.0"
-                  stroke="rgba(168, 207, 56,0.5)"
+                  stroke="rgba(139,191,60,0.5)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3685,7 +3208,7 @@
                   y1="423.0"
                   x2="864.1"
                   y2="429.0"
-                  stroke="rgba(168, 207, 56,0.5)"
+                  stroke="rgba(139,191,60,0.5)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3694,7 +3217,7 @@
                   y1="454.0"
                   x2="800.0"
                   y2="466.0"
-                  stroke="rgba(168, 207, 56,0.5)"
+                  stroke="rgba(139,191,60,0.5)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3703,7 +3226,7 @@
                   y1="423.0"
                   x2="735.9"
                   y2="429.0"
-                  stroke="rgba(168, 207, 56,0.5)"
+                  stroke="rgba(139,191,60,0.5)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
@@ -3712,17 +3235,17 @@
                   y1="361.0"
                   x2="735.9"
                   y2="355.0"
-                  stroke="rgba(168, 207, 56,0.5)"
+                  stroke="rgba(139,191,60,0.5)"
                   stroke-width="1.1"
                   marker-end="url(#hb_rel)"
                 />
-                <circle cx="800.0" cy="392.0" r="92" fill="rgba(124, 179, 66,0.28)" filter="url(#hb_hubglow)" />
+                <circle cx="800.0" cy="392.0" r="92" fill="rgba(96,152,64,0.28)" filter="url(#hb_hubglow)" />
                 <circle
                   cx="800.0"
                   cy="392.0"
                   r="68"
                   fill="none"
-                  stroke="rgba(168, 207, 56,0.92)"
+                  stroke="rgba(139,191,60,0.92)"
                   stroke-width="3"
                   filter="url(#hb_glow)"
                 />
@@ -3731,7 +3254,7 @@
                   cy="392.0"
                   r="56"
                   fill="rgba(10,18,6,0.62)"
-                  stroke="rgba(168, 207, 56,0.6)"
+                  stroke="rgba(139,191,60,0.6)"
                   stroke-width="1.4"
                 />
                 <circle
@@ -3739,7 +3262,7 @@
                   cy="392.0"
                   r="68"
                   fill="none"
-                  stroke="rgba(168, 207, 56,0.4)"
+                  stroke="rgba(139,191,60,0.4)"
                   stroke-width="6"
                   class="hb_rp"
                 />
@@ -3763,7 +3286,7 @@
                   cy="193.0"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -3771,7 +3294,7 @@
                 <g
                   transform="translate(844.44,184.14) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3794,7 +3317,7 @@
                   cy="246.3"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -3802,7 +3325,7 @@
                 <g
                   transform="translate(936.78,237.46) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3825,7 +3348,7 @@
                   cy="338.7"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -3833,7 +3356,7 @@
                 <g
                   transform="translate(990.10,329.80) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3856,7 +3379,7 @@
                   cy="445.3"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -3864,7 +3387,7 @@
                 <g
                   transform="translate(990.10,436.44) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3887,7 +3410,7 @@
                   cy="537.7"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -3895,7 +3418,7 @@
                 <g
                   transform="translate(936.78,528.78) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3920,7 +3443,7 @@
                   cy="591.0"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -3928,7 +3451,7 @@
                 <g
                   transform="translate(844.44,582.10) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3951,7 +3474,7 @@
                   cy="591.0"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -3959,7 +3482,7 @@
                 <g
                   transform="translate(737.80,582.10) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -3984,7 +3507,7 @@
                   cy="537.7"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -3992,7 +3515,7 @@
                 <g
                   transform="translate(645.46,528.78) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -4110,7 +3633,7 @@
                   cy="193.0"
                   r="26"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -4118,7 +3641,7 @@
                 <g
                   transform="translate(737.80,184.14) scale(0.74,0.74)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2.03"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -4143,7 +3666,7 @@
                   cy="280.0"
                   r="31"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -4151,7 +3674,7 @@
                 <g
                   transform="translate(790.16,270.16) scale(0.82,0.82)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="1.83"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -4174,7 +3697,7 @@
                   cy="336.0"
                   r="31"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -4182,7 +3705,7 @@
                 <g
                   transform="translate(887.15,326.16) scale(0.82,0.82)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="1.83"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -4205,7 +3728,7 @@
                   cy="448.0"
                   r="31"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -4213,7 +3736,7 @@
                 <g
                   transform="translate(887.15,438.16) scale(0.82,0.82)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="1.83"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -4236,7 +3759,7 @@
                   cy="504.0"
                   r="31"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -4244,7 +3767,7 @@
                 <g
                   transform="translate(790.16,494.16) scale(0.82,0.82)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="1.83"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -4269,7 +3792,7 @@
                   cy="448.0"
                   r="31"
                   fill="url(#hb_nodeG)"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   filter="url(#hb_glow)"
                 />
@@ -4277,7 +3800,7 @@
                 <g
                   transform="translate(693.17,438.16) scale(0.82,0.82)"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="1.83"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -4355,7 +3878,7 @@
                   class="hb_fg"
                   d="M1216 383 Q1258 300 1296 226"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-dasharray="1.5 7.5"
@@ -4375,7 +3898,7 @@
                   class="hb_fg"
                   d="M1216 401 Q1258 484 1296 558"
                   fill="none"
-                  stroke="#A8CF38"
+                  stroke="#8BBF3C"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-dasharray="1.5 7.5"
@@ -4549,21 +4072,21 @@
             </div>
             <div class="lyr3">
               <div class="lyc">
-                <div class="ll" style="color: #8497AE">Layer 1 &middot; Yours</div>
+                <div class="ll" style="color: #7c8ea8">Layer 1 &middot; Yours</div>
                 <div class="lt">Your infrastructure</div>
                 <div class="ld">
                   On-premises, colocation, or any cloud. The platform runs on the capacity you already operate.
                 </div>
               </div>
               <div class="lyc mid">
-                <div class="ll" style="color: #A8CF38">Layer 2 &middot; WorldPosta</div>
+                <div class="ll" style="color: #8bbf3c">Layer 2 &middot; WorldPosta</div>
                 <div class="lt">The ecosystem</div>
                 <div class="ld">
                   Cloud, collaboration, and the operations spine, all connected and fully operated for you.
                 </div>
               </div>
               <div class="lyc mid">
-                <div class="ll" style="color: #A8CF38">Layer 3 &middot; Yours</div>
+                <div class="ll" style="color: #8bbf3c">Layer 3 &middot; Yours</div>
                 <div class="lt">Your branded software</div>
                 <div class="ld">
                   What your customers see and buy. Your logo, your domain, your invoices. WorldPosta stays invisible.
@@ -4590,8 +4113,8 @@
               >
                 <defs>
                   <linearGradient id="vd_hub" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#5D9842" />
-                    <stop offset="1" stop-color="#A8CF38" />
+                    <stop offset="0" stop-color="#3A6020" />
+                    <stop offset="1" stop-color="#8BBF3C" />
                   </linearGradient>
                 </defs>
                 <text
@@ -4601,7 +4124,7 @@
                   font-size="11.5"
                   letter-spacing="2"
                   font-weight="700"
-                  fill="#8497AE"
+                  fill="#7C8EA8"
                   font-family="-apple-system,system-ui,sans-serif"
                 >
                   TODAY &#183; MANY VENDORS
@@ -4613,7 +4136,7 @@
                   font-size="11.5"
                   letter-spacing="2"
                   font-weight="700"
-                  fill="#A8CF38"
+                  fill="#8BBF3C"
                   font-family="-apple-system,system-ui,sans-serif"
                 >
                   WITH WORLDPOSTA &#183; ONE ECOSYSTEM
@@ -4904,7 +4427,7 @@
                     y1="0"
                     x2="120"
                     y2="0"
-                    stroke="rgba(168, 207, 56,.7)"
+                    stroke="rgba(139,191,60,.7)"
                     stroke-width="2.6"
                     stroke-dasharray="2 6"
                     stroke-linecap="round"
@@ -4914,7 +4437,7 @@
                   <path
                     d="M114 -8 L132 0 L114 8"
                     fill="none"
-                    stroke="#A8CF38"
+                    stroke="#8BBF3C"
                     stroke-width="2.6"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -4925,7 +4448,7 @@
                   y1="74.0"
                   x2="838"
                   y2="206"
-                  stroke="rgba(168, 207, 56,.42)"
+                  stroke="rgba(139,191,60,.42)"
                   stroke-width="1.4"
                   stroke-dasharray="1.5 7"
                   stroke-linecap="round"
@@ -4937,7 +4460,7 @@
                   y1="123.7"
                   x2="838"
                   y2="206"
-                  stroke="rgba(168, 207, 56,.42)"
+                  stroke="rgba(139,191,60,.42)"
                   stroke-width="1.4"
                   stroke-dasharray="1.5 7"
                   stroke-linecap="round"
@@ -4949,7 +4472,7 @@
                   y1="235.4"
                   x2="838"
                   y2="206"
-                  stroke="rgba(168, 207, 56,.42)"
+                  stroke="rgba(139,191,60,.42)"
                   stroke-width="1.4"
                   stroke-dasharray="1.5 7"
                   stroke-linecap="round"
@@ -4961,7 +4484,7 @@
                   y1="324.9"
                   x2="838"
                   y2="206"
-                  stroke="rgba(168, 207, 56,.42)"
+                  stroke="rgba(139,191,60,.42)"
                   stroke-width="1.4"
                   stroke-dasharray="1.5 7"
                   stroke-linecap="round"
@@ -4973,7 +4496,7 @@
                   y1="324.9"
                   x2="838"
                   y2="206"
-                  stroke="rgba(168, 207, 56,.42)"
+                  stroke="rgba(139,191,60,.42)"
                   stroke-width="1.4"
                   stroke-dasharray="1.5 7"
                   stroke-linecap="round"
@@ -4985,7 +4508,7 @@
                   y1="235.4"
                   x2="838"
                   y2="206"
-                  stroke="rgba(168, 207, 56,.42)"
+                  stroke="rgba(139,191,60,.42)"
                   stroke-width="1.4"
                   stroke-dasharray="1.5 7"
                   stroke-linecap="round"
@@ -4997,7 +4520,7 @@
                   y1="123.7"
                   x2="838"
                   y2="206"
-                  stroke="rgba(168, 207, 56,.42)"
+                  stroke="rgba(139,191,60,.42)"
                   stroke-width="1.4"
                   stroke-dasharray="1.5 7"
                   stroke-linecap="round"
@@ -5027,10 +4550,10 @@
                     width="78"
                     height="30"
                     rx="9"
-                    fill="rgba(124, 179, 66,.13)"
-                    stroke="rgba(168, 207, 56,.55)"
+                    fill="rgba(96,152,64,.13)"
+                    stroke="rgba(139,191,60,.55)"
                   />
-                  <circle cx="812" cy="74" r="3" fill="#A8CF38">
+                  <circle cx="812" cy="74" r="3" fill="#8BBF3C">
                     <animate
                       attributeName="opacity"
                       values="0.35;1;0.35"
@@ -5058,10 +4581,10 @@
                     width="78"
                     height="30"
                     rx="9"
-                    fill="rgba(124, 179, 66,.13)"
-                    stroke="rgba(168, 207, 56,.55)"
+                    fill="rgba(96,152,64,.13)"
+                    stroke="rgba(139,191,60,.55)"
                   />
-                  <circle cx="915" cy="124" r="3" fill="#A8CF38">
+                  <circle cx="915" cy="124" r="3" fill="#8BBF3C">
                     <animate
                       attributeName="opacity"
                       values="0.35;1;0.35"
@@ -5089,10 +4612,10 @@
                     width="79"
                     height="30"
                     rx="9"
-                    fill="rgba(124, 179, 66,.13)"
-                    stroke="rgba(168, 207, 56,.55)"
+                    fill="rgba(96,152,64,.13)"
+                    stroke="rgba(139,191,60,.55)"
                   />
-                  <circle cx="940" cy="235" r="3" fill="#A8CF38">
+                  <circle cx="940" cy="235" r="3" fill="#8BBF3C">
                     <animate
                       attributeName="opacity"
                       values="0.35;1;0.35"
@@ -5120,10 +4643,10 @@
                     width="79"
                     height="30"
                     rx="9"
-                    fill="rgba(124, 179, 66,.13)"
-                    stroke="rgba(168, 207, 56,.55)"
+                    fill="rgba(96,152,64,.13)"
+                    stroke="rgba(139,191,60,.55)"
                   />
-                  <circle cx="869" cy="325" r="3" fill="#A8CF38">
+                  <circle cx="869" cy="325" r="3" fill="#8BBF3C">
                     <animate
                       attributeName="opacity"
                       values="0.35;1;0.35"
@@ -5151,10 +4674,10 @@
                     width="86"
                     height="30"
                     rx="9"
-                    fill="rgba(124, 179, 66,.13)"
-                    stroke="rgba(168, 207, 56,.55)"
+                    fill="rgba(96,152,64,.13)"
+                    stroke="rgba(139,191,60,.55)"
                   />
-                  <circle cx="751" cy="325" r="3" fill="#A8CF38">
+                  <circle cx="751" cy="325" r="3" fill="#8BBF3C">
                     <animate
                       attributeName="opacity"
                       values="0.35;1;0.35"
@@ -5182,10 +4705,10 @@
                     width="79"
                     height="30"
                     rx="9"
-                    fill="rgba(124, 179, 66,.13)"
-                    stroke="rgba(168, 207, 56,.55)"
+                    fill="rgba(96,152,64,.13)"
+                    stroke="rgba(139,191,60,.55)"
                   />
-                  <circle cx="683" cy="235" r="3" fill="#A8CF38">
+                  <circle cx="683" cy="235" r="3" fill="#8BBF3C">
                     <animate
                       attributeName="opacity"
                       values="0.35;1;0.35"
@@ -5213,10 +4736,10 @@
                     width="100"
                     height="30"
                     rx="9"
-                    fill="rgba(124, 179, 66,.13)"
-                    stroke="rgba(168, 207, 56,.55)"
+                    fill="rgba(96,152,64,.13)"
+                    stroke="rgba(139,191,60,.55)"
                   />
-                  <circle cx="698" cy="124" r="3" fill="#A8CF38">
+                  <circle cx="698" cy="124" r="3" fill="#8BBF3C">
                     <animate
                       attributeName="opacity"
                       values="0.35;1;0.35"
@@ -5237,11 +4760,11 @@
                     Management
                   </text>
                 </g>
-                <circle cx="838" cy="206" r="50" fill="rgba(168, 207, 56,.14)">
+                <circle cx="838" cy="206" r="50" fill="rgba(139,191,60,.14)">
                   <animate attributeName="r" values="44;60;44" dur="3.2s" repeatCount="indefinite" />
                   <animate attributeName="opacity" values="0.5;0.08;0.5" dur="3.2s" repeatCount="indefinite" />
                 </circle>
-                <circle cx="838" cy="206" r="40" fill="rgba(124, 179, 66,.18)" />
+                <circle cx="838" cy="206" r="40" fill="rgba(96,152,64,.18)" />
                 <rect
                   x="784"
                   y="176"
@@ -5249,7 +4772,7 @@
                   height="60"
                   rx="15"
                   fill="url(#vd_hub)"
-                  stroke="rgba(168, 207, 56,.75)"
+                  stroke="rgba(139,191,60,.75)"
                   stroke-width="1.5"
                 />
                 <text
@@ -5275,64 +4798,70 @@
               WorldPosta gives you a complete cloud management product, a full collaboration suite, and one panel to run
               everything, with the freedom to bring your own systems into the ecosystem alongside it.
             </p>
-            <div class="eco-vis" id="eco-vis">
-              <div class="eco-planelabel">Control plane</div>
-              <div class="eco-control">
-                <span class="eco-ic solid"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
-                <div>
-                  <div class="eco-k">Operations Spine</div>
-                  <div class="eco-control-h">One control panel behind every service</div>
+            <div class="offer">
+              <a class="ocard" href="#cloud"
+                ><div class="oi">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M17.5 19a4.5 4.5 0 0 0 0-9h-1A7 7 0 1 0 5 18" />
+                  </svg>
                 </div>
-                <div class="eco-control-chips">
-                  <span>Atrium</span><span>Billing Engine</span><span>Watchful</span><span>Identity &amp; SSO</span>
+                <h3>Cloud Manager<span class="go">&#8594;</span></h3>
+                <p>
+                  A complete cloud delivered as one product, NextEdge. Compute, containers, desktops, storage,
+                  databases, networking, and security, provisioned and scaled from a single place.
+                </p>
+                <span class="otag">NextEdge, your full cloud manager</span></a
+              ><a class="ocard" href="#collab"
+                ><div class="oi">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 6 9-6" />
+                  </svg>
                 </div>
-              </div>
-              <div class="eco-manifold">
-                <svg viewBox="0 0 1000 48" preserveAspectRatio="none" aria-hidden="true">
-                  <path class="eco-flow" d="M500 0 C 500 28, 250 18, 250 48" />
-                  <path class="eco-flow" d="M500 0 C 500 28, 750 18, 750 48" />
-                </svg>
-              </div>
-              <div class="eco-planelabel svc">Service plane</div>
-              <div class="eco-service">
-                <div class="eco-suite">
-                  <div class="eco-suite-top">
-                    <span class="eco-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-                    <div>
-                      <div class="eco-k dim">Collaboration Suite</div>
-                      <div class="eco-suite-s">Mail &middot; security &middot; files &middot; meetings &middot; docs</div>
-                    </div>
-                  </div>
-                  <div class="eco-chips one">
-                  <div class="eco-item" style="--i: 0"><i></i><b>Posta Mail</b><span class="sub">Modern mail</span></div>
-                  <div class="eco-item" style="--i: 1"><i></i><b>Posta Gate</b><span class="sub">AI security</span></div>
-                  <div class="eco-item" style="--i: 2"><i></i><b>Drive</b><span class="sub">Files &amp; co-edit</span></div>
-                  <div class="eco-item" style="--i: 3"><i></i><b>Meet</b><span class="sub">Conferencing</span></div>
-                  <div class="eco-item" style="--i: 4"><i></i><b>Online Office Apps</b><span class="sub">Docs &amp; sheets</span></div>
-                  </div>
+                <h3>Collaboration Suite<span class="go">&#8594;</span></h3>
+                <p>
+                  A full mail service with the rest of the suite around it: secure mail, files, meetings, and online
+                  documents, every one of them branded as yours.
+                </p>
+                <span class="otag">Mail, security, Drive, Meet, and Office</span></a
+              ><a class="ocard" href="#operations"
+                ><div class="oi">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" />
+                  </svg>
                 </div>
-                <div class="eco-suite">
-                  <div class="eco-suite-top">
-                    <span class="eco-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.5 19a4.5 4.5 0 0 0 0-9h-1A7 7 0 1 0 5 18"/></svg></span>
-                    <div>
-                      <div class="eco-k dim">Cloud Services &middot; NextEdge</div>
-                      <div class="eco-suite-s">Fully operated, your brand</div>
-                    </div>
-                  </div>
-                  <div class="eco-chips">
-                  <div class="eco-item" style="--i: 0"><i></i><b>NextEdge IaaS</b></div>
-                  <div class="eco-item" style="--i: 1"><i></i><b>Kubernetes</b></div>
-                  <div class="eco-item" style="--i: 2"><i></i><b>Virtual Desktops</b></div>
-                  <div class="eco-item" style="--i: 3"><i></i><b>Object Storage</b></div>
-                  <div class="eco-item" style="--i: 4"><i></i><b>Databases</b></div>
-                  <div class="eco-item" style="--i: 5"><i></i><b>Backup &amp; DR</b></div>
-                  <div class="eco-item" style="--i: 6"><i></i><b>Networking/WAF</b></div>
-                  <div class="eco-item" style="--i: 7"><i></i><b>Managed Security</b></div>
-                  <div class="eco-item" style="--i: 8"><i></i><b>Migration</b></div>
-                  </div>
-                </div>
-              </div>
-              <div class="eco-banner">Take a single product, the whole suite, or the full stack &mdash; <b>provisioned, billed &amp; monitored from one panel, branded as yours.</b></div>
+                <h3>Control Panel &amp; Integrations<span class="go">&#8594;</span></h3>
+                <p>
+                  One panel to provision, bill, monitor, and secure everything, with the freedom to bring your own
+                  systems, such as your ERP, into the ecosystem and manage them under the same panel.
+                </p>
+                <span class="otag">Atrium, billing, monitoring, and identity</span></a
+              >
+            </div>
+            <div class="note">
+              Take a single product, the whole suite, or the full stack. Run it under your brand or ours. Every part of
+              the ecosystem can be customized to fit how you operate.
             </div>
           </div>
         </section>
@@ -6023,199 +5552,6 @@
                       <li>Embedded billing summary</li>
                       <li>Infrastructure console for VM lifecycle</li>
                     </ul>
-
-                    <div class="pc-visual pc-visual--adash">
-                    <div class="adash" role="img" aria-label="Illustrative Atrium control panel: tenants, services, monthly revenue, revenue by service and recent provisioning, with live figures.">
-
-                      <!-- Window chrome -->
-                      <div class="adash__bar">
-                        <span class="adash__dots"><i></i><i></i><i></i></span>
-                        <span class="adash__url-bar">
-                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2.5 4.5V3a2.5 2.5 0 015 0v1.5" stroke="#7B93AB" stroke-width="1.2" stroke-linecap="round"/><rect x="1" y="4.5" width="8" height="5" rx="1.5" stroke="#7B93AB" stroke-width="1.2"/></svg>
-                          <span class="adash__url">console.yourbrand.cloud</span>
-                        </span>
-                        <span class="adash__bar-actions">
-                          <span class="adash__env-tag"><span class="adash__live"></span> Egypt · Production</span>
-                        </span>
-                      </div>
-
-                      <!-- App layout -->
-                      <div class="adash__app">
-
-                        <!-- Sidebar -->
-                        <aside class="adash__side">
-                          <div class="adash__sb"><span class="adash__logo">WP</span><span><b>Atrium</b><span class="t">Control Panel</span></span></div>
-                          <span class="adash__nav is-active"><span class="ic"><i class="fa-solid fa-gauge-high"></i></span> Overview</span>
-                          <span class="adash__nav"><span class="ic"><i class="fa-solid fa-users"></i></span> Customers</span>
-                          <span class="adash__nav"><span class="ic"><i class="fa-solid fa-building"></i></span> Tenants</span>
-                          <span class="adash__group">Catalogue</span>
-                          <span class="adash__nav"><span class="ic"><i class="fa-solid fa-box"></i></span> Products</span>
-                          <span class="adash__nav"><span class="ic"><i class="fa-solid fa-tag"></i></span> Offers</span>
-                          <span class="adash__group">Finance</span>
-                          <span class="adash__nav"><span class="ic"><i class="fa-solid fa-file-invoice-dollar"></i></span> Billing</span>
-                          <span class="adash__group">Operate</span>
-                          <span class="adash__nav"><span class="ic"><i class="fa-solid fa-chart-line"></i></span> Monitoring</span>
-                          <div class="adash__conn">
-                            <div class="lbl">Connected source</div>
-                            <div class="st"><span class="adash__live"></span> WorldPosta cloud <b style="color:var(--ad-gold)">· Egypt</b></div>
-                            <div class="small">2 suites · read-only · 35 AZs</div>
-                          </div>
-                        </aside>
-
-                        <!-- Main content -->
-                        <main class="adash__main">
-
-                          <!-- Header -->
-                          <div class="adash__top">
-                            <div>
-                              <div class="adash__breadcrumb"><span>Atrium</span><span class="sep">›</span><span class="cur">Overview</span></div>
-                              <h4>Estate overview</h4>
-                              <div class="sub">WorldPosta · Egypt · 2 suites · 35 availability zones</div>
-                            </div>
-                            <div class="adash__top-r">
-                              <span class="adash__ts">Synced 2m ago</span>
-                              <span class="adash__livetag">LIVE <span class="adash__eq"><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
-                            </div>
-                          </div>
-
-                          <!-- KPI strip -->
-                          <div class="adash__kpis">
-                            <div class="adash__kpi">
-                              <div class="lbl">Active tenants</div>
-                              <div class="val"><span class="count" data-to="1284">1,284</span></div>
-                              <div class="d up">▲ 6.2% MoM</div>
-                            </div>
-                            <div class="adash__kpi">
-                              <div class="lbl">Services live</div>
-                              <div class="val"><span class="count" data-to="9640">9,640</span></div>
-                              <div class="d">across 2 suites</div>
-                            </div>
-                            <div class="adash__kpi">
-                              <div class="lbl">Monthly revenue</div>
-                              <div class="val">$<span class="count" data-to="412">412</span>k</div>
-                              <div class="d up">▲ 8.1% MoM</div>
-                            </div>
-                            <div class="adash__kpi">
-                              <div class="lbl">Forecast</div>
-                              <div class="val teal">$<span class="count" data-to="448">448</span>k</div>
-                              <div class="d up">▲ month-end</div>
-                            </div>
-                            <div class="adash__kpi">
-                              <div class="lbl">Uptime SLA</div>
-                              <div class="val gold"><span class="count" data-to="99.99" data-dec="2">99.99</span>%</div>
-                              <div class="d">mission-critical</div>
-                            </div>
-                            <div class="adash__kpi">
-                              <div class="lbl">Open tickets</div>
-                              <div class="val"><span class="count" data-to="7">7</span></div>
-                              <div class="d">2 high priority</div>
-                            </div>
-                          </div>
-
-                          <!-- Charts row -->
-                          <div class="adash__grid g2">
-                            <div class="adash__panel">
-                              <div class="adash__panel-hd">
-                                <div><h5>Revenue trend</h5><div class="cap">Daily booked · last 30 days</div></div>
-                                <span class="adash__badge-up">+8.1%</span>
-                              </div>
-                              <div class="adash__bars">
-                                <svg class="adash__spark" viewBox="0 0 480 80" preserveAspectRatio="none" role="img" aria-label="Daily booked revenue column chart trending up over 30 days">
-                                  <defs>
-                                    <linearGradient id="colGrad" x1="0" y1="0" x2="0" y2="1">
-                                      <stop offset="0" stop-color="#a8cf38" stop-opacity=".9"/>
-                                      <stop offset="1" stop-color="#5d9842" stop-opacity=".6"/>
-                                    </linearGradient>
-                                  </defs>
-                                  <line x1="0" y1="20" x2="480" y2="20" stroke="rgba(120,160,210,.07)" stroke-width="1"/>
-                                  <line x1="0" y1="40" x2="480" y2="40" stroke="rgba(120,160,210,.07)" stroke-width="1"/>
-                                  <line x1="0" y1="60" x2="480" y2="60" stroke="rgba(120,160,210,.07)" stroke-width="1"/>
-                                  <rect class="adash__col" x="0"   y="35" width="10" height="45" rx="1.5" fill="url(#colGrad)" style="--d:.00s"/>
-                                  <rect class="adash__col" x="16"  y="32" width="10" height="48" rx="1.5" fill="url(#colGrad)" style="--d:.015s"/>
-                                  <rect class="adash__col" x="32"  y="37" width="10" height="43" rx="1.5" fill="url(#colGrad)" style="--d:.03s"/>
-                                  <rect class="adash__col" x="48"  y="29" width="10" height="51" rx="1.5" fill="url(#colGrad)" style="--d:.045s"/>
-                                  <rect class="adash__col" x="64"  y="31" width="10" height="49" rx="1.5" fill="url(#colGrad)" style="--d:.06s"/>
-                                  <rect class="adash__col" x="80"  y="26" width="10" height="54" rx="1.5" fill="url(#colGrad)" style="--d:.075s"/>
-                                  <rect class="adash__col" x="96"  y="28" width="10" height="52" rx="1.5" fill="url(#colGrad)" style="--d:.09s"/>
-                                  <rect class="adash__col" x="112" y="23" width="10" height="57" rx="1.5" fill="url(#colGrad)" style="--d:.105s"/>
-                                  <rect class="adash__col" x="128" y="27" width="10" height="53" rx="1.5" fill="url(#colGrad)" style="--d:.12s"/>
-                                  <rect class="adash__col" x="144" y="22" width="10" height="58" rx="1.5" fill="url(#colGrad)" style="--d:.135s"/>
-                                  <rect class="adash__col" x="160" y="25" width="10" height="55" rx="1.5" fill="url(#colGrad)" style="--d:.15s"/>
-                                  <rect class="adash__col" x="176" y="20" width="10" height="60" rx="1.5" fill="url(#colGrad)" style="--d:.165s"/>
-                                  <rect class="adash__col" x="192" y="24" width="10" height="56" rx="1.5" fill="url(#colGrad)" style="--d:.18s"/>
-                                  <rect class="adash__col" x="208" y="18" width="10" height="62" rx="1.5" fill="url(#colGrad)" style="--d:.195s"/>
-                                  <rect class="adash__col" x="224" y="22" width="10" height="58" rx="1.5" fill="url(#colGrad)" style="--d:.21s"/>
-                                  <rect class="adash__col" x="240" y="17" width="10" height="63" rx="1.5" fill="url(#colGrad)" style="--d:.225s"/>
-                                  <rect class="adash__col" x="256" y="20" width="10" height="60" rx="1.5" fill="url(#colGrad)" style="--d:.24s"/>
-                                  <rect class="adash__col" x="272" y="15" width="10" height="65" rx="1.5" fill="url(#colGrad)" style="--d:.255s"/>
-                                  <rect class="adash__col" x="288" y="19" width="10" height="61" rx="1.5" fill="url(#colGrad)" style="--d:.27s"/>
-                                  <rect class="adash__col" x="304" y="14" width="10" height="66" rx="1.5" fill="url(#colGrad)" style="--d:.285s"/>
-                                  <rect class="adash__col" x="320" y="17" width="10" height="63" rx="1.5" fill="url(#colGrad)" style="--d:.30s"/>
-                                  <rect class="adash__col" x="336" y="13" width="10" height="67" rx="1.5" fill="url(#colGrad)" style="--d:.315s"/>
-                                  <rect class="adash__col" x="352" y="16" width="10" height="64" rx="1.5" fill="url(#colGrad)" style="--d:.33s"/>
-                                  <rect class="adash__col" x="368" y="12" width="10" height="68" rx="1.5" fill="url(#colGrad)" style="--d:.345s"/>
-                                  <rect class="adash__col" x="384" y="15" width="10" height="65" rx="1.5" fill="url(#colGrad)" style="--d:.36s"/>
-                                  <rect class="adash__col" x="400" y="10" width="10" height="70" rx="1.5" fill="url(#colGrad)" style="--d:.375s"/>
-                                  <rect class="adash__col" x="416" y="14" width="10" height="66" rx="1.5" fill="url(#colGrad)" style="--d:.39s"/>
-                                  <rect class="adash__col" x="432" y="9"  width="10" height="71" rx="1.5" fill="url(#colGrad)" style="--d:.405s"/>
-                                  <rect class="adash__col" x="448" y="12" width="10" height="68" rx="1.5" fill="url(#colGrad)" style="--d:.42s"/>
-                                  <rect class="adash__col" x="464" y="8"  width="10" height="72" rx="1.5" fill="url(#colGrad)" style="--d:.435s"/>
-                                </svg>
-                              </div>
-                            </div>
-                            <div class="adash__panel">
-                              <h5>Revenue by service</h5><div class="cap">Last 30 days · MRR $412k</div>
-                              <div class="adash__donut">
-                                <svg viewBox="0 0 160 160" width="96" height="96">
-                                  <circle cx="80" cy="80" r="58" fill="none" stroke="rgba(120,160,210,.1)" stroke-width="22"/>
-                                  <circle class="adash__ring" cx="80" cy="80" r="58" fill="none" stroke="#a8cf38"  stroke-width="22" stroke-dasharray="124 364" transform="rotate(-90 80 80)" style="--len:124;--d:0s"/>
-                                  <circle class="adash__ring" cx="80" cy="80" r="58" fill="none" stroke="#3FA796"  stroke-width="22" stroke-dasharray="98.3 364"  transform="rotate(32.6 80 80)"  style="--len:98.3;--d:.1s"/>
-                                  <circle class="adash__ring" cx="80" cy="80" r="58" fill="none" stroke="#cde9a2"  stroke-width="22" stroke-dasharray="58.2 364"  transform="rotate(129.7 80 80)" style="--len:58.2;--d:.2s"/>
-                                  <circle class="adash__ring" cx="80" cy="80" r="58" fill="none" stroke="#D8B24C"  stroke-width="22" stroke-dasharray="47.3 364"  transform="rotate(186.9 80 80)" style="--len:47.3;--d:.3s"/>
-                                  <circle class="adash__ring" cx="80" cy="80" r="58" fill="none" stroke="#5d9842"  stroke-width="22" stroke-dasharray="36.4 364"  transform="rotate(233.4 80 80)" style="--len:36.4;--d:.4s"/>
-                                  <text class="adash__center" x="80" y="77" text-anchor="middle" font-size="18">$412k</text>
-                                  <text x="80" y="92" text-anchor="middle" font-size="8" fill="#5a6c82" style="font-family:var(--mono)">MRR · 30d</text>
-                                </svg>
-                              </div>
-                              <div class="adash__legend">
-                                <span><i style="background:#a8cf38"></i>Posta Mail <b>34%</b></span>
-                                <span><i style="background:#3FA796"></i>NextEdge Cloud <b>27%</b></span>
-                                <span><i style="background:#cde9a2"></i>Drive <b>16%</b></span>
-                                <span><i style="background:#D8B24C"></i>iO Storage <b>13%</b></span>
-                                <span><i style="background:#5d9842"></i>Meet &amp; other <b>10%</b></span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- Lower row -->
-                          <div class="adash__grid g2e">
-                            <div class="adash__panel">
-                              <h5>Top services</h5><div class="cap">By monthly revenue</div>
-                              <div class="adash__hb"><span class="adash__hb-l">Posta Mail</span><span class="adash__hb-bar"><i style="width:88%;background:#a8cf38;--d:0s"></i></span><span class="adash__hb-v">$140k</span></div>
-                              <div class="adash__hb"><span class="adash__hb-l">NextEdge Cloud</span><span class="adash__hb-bar"><i style="width:70%;background:#3FA796;--d:.08s"></i></span><span class="adash__hb-v">$112k</span></div>
-                              <div class="adash__hb"><span class="adash__hb-l">Drive</span><span class="adash__hb-bar"><i style="width:42%;background:#cde9a2;--d:.16s"></i></span><span class="adash__hb-v">$66k</span></div>
-                              <div class="adash__hb"><span class="adash__hb-l">iO Storage</span><span class="adash__hb-bar"><i style="width:34%;background:#D8B24C;--d:.24s"></i></span><span class="adash__hb-v">$54k</span></div>
-                              <div class="adash__hb"><span class="adash__hb-l">Meet</span><span class="adash__hb-bar"><i style="width:26%;background:#5d9842;--d:.32s"></i></span><span class="adash__hb-v">$40k</span></div>
-                            </div>
-                            <div class="adash__panel">
-                              <h5>Recent provisioning</h5><div class="cap">Across your tenants</div>
-                              <table class="adash__tbl">
-                                <thead><tr><th>Customer</th><th>Service</th><th>Status</th></tr></thead>
-                                <tbody>
-                                  <tr><td>Nile Bank</td><td>Posta Mail · 500 seats</td><td><span class="adash__pill ok">Active</span></td></tr>
-                                  <tr><td>Delta Retail</td><td>NextEdge · 12 VMs</td><td><span class="adash__pill prov">Provisioning</span></td></tr>
-                                  <tr><td>Horizon Gov</td><td>iO Storage · 40 TB</td><td><span class="adash__pill ok">Active</span></td></tr>
-                                  <tr><td>Atlas MSP</td><td>Full suite</td><td><span class="adash__pill ok">Active</span></td></tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-
-                          <div class="adash__note">Illustrative Atrium console · sample figures computed in-browser · connect your tenant to see live identity, billing and monitoring data.</div>
-                        </main>
-                      </div>
-                    </div>
-                    </div><!-- /pc-visual--adash -->
                   </div>
                 </div>
               </div>
@@ -6405,7 +5741,7 @@
                 style="
                   font-size: 13px;
                   font-weight: 600;
-                  color: #A8CF38;
+                  color: #8bbf3c;
                   letter-spacing: 0.4px;
                   text-transform: uppercase;
                   margin-bottom: 8px;
@@ -6413,7 +5749,7 @@
               >
                 Open by design
               </div>
-              <p style="font-size: 14.5px; color: #C5D2E2; line-height: 1.65; max-width: 720px">
+              <p style="font-size: 14.5px; color: #c6d0dc; line-height: 1.65; max-width: 720px">
                 The platform is built to fit the systems you already run. Connect identity, provisioning, storage, and
                 events through open standards and APIs, so the ecosystem becomes part of your operation rather than a
                 silo beside it.
@@ -6428,40 +5764,36 @@
         </section>
         <section class="psec" id="about">
           <div class="wrap">
-            <div class="about-layout">
-              <div class="about-content">
-                <div class="kicker"><i></i>Why WorldPosta &middot; About</div>
-                <h2>The team behind<br /><span class="grad">the layer you operate.</span></h2>
-                <p class="lede">
-                  WorldPosta has spent more than a decade building and running the software that powers cloud, mail, and
-                  collaboration for service providers. The platform runs across a globally distributed footprint and is
-                  built and operated to internationally recognized standards for information security, privacy, and payment
-                  data.
-                </p>
-                <p class="lede">
-                  WorldPosta does not compete for your customers. We operate the layer beneath your brand, so the trust, the
-                  relationship, and the revenue stay with you while we keep the platform running, updated, and secure.
-                </p>
+            <div class="kicker"><i></i>Why WorldPosta &middot; About</div>
+            <h2>The team behind<br /><span class="grad">the layer you operate.</span></h2>
+            <p class="lede">
+              WorldPosta has spent more than a decade building and running the software that powers cloud, mail, and
+              collaboration for service providers. The platform runs across a globally distributed footprint and is
+              built and operated to internationally recognized standards for information security, privacy, and payment
+              data.
+            </p>
+            <p class="lede" style="margin-top: 16px">
+              WorldPosta does not compete for your customers. We operate the layer beneath your brand, so the trust, the
+              relationship, and the revenue stay with you while we keep the platform running, updated, and secure.
+            </p>
+            <div class="about-vis" id="about-vis">
+              <div class="av-brand-card av-card">
+                <div class="av-ey" style="color:#7C8EA8">Your operator brand</div>
+                <div class="av-brand-title">YOUR BRAND</div>
+                <div class="av-ptags"><span class="av-ptag">Cloud</span><span class="av-ptag">Mail</span><span class="av-ptag">Files</span><span class="av-ptag">Security</span><span class="av-ptag">Billing</span></div>
+                <div class="av-seen">What your customers see</div>
               </div>
-              <div class="about-vis" id="about-vis">
-                <div class="av-brand-card av-card">
-                  <div class="av-ey" style="color:#8497AE">Your operator brand</div>
-                  <div class="av-brand-title">YOUR BRAND</div>
-                  <div class="av-ptags"><span class="av-ptag">Cloud</span><span class="av-ptag">Mail</span><span class="av-ptag">Files</span><span class="av-ptag">Security</span><span class="av-ptag">Billing</span></div>
-                  <div class="av-seen">What your customers see</div>
+              <div class="av-conn"><div class="av-track"></div><div class="av-dot"></div><div class="av-dot"></div><div class="av-dot"></div></div>
+              <div class="av-wp-card av-card">
+                <div class="av-wp-top">
+                  <div class="av-ey" style="color:rgba(139,191,60,.65);margin-bottom:0">WorldPosta Platform</div>
+                  <span class="av-invis">Invisible to your customers</span>
                 </div>
-                <div class="av-conn"><div class="av-track"></div><div class="av-dot"></div><div class="av-dot"></div><div class="av-dot"></div></div>
-                <div class="av-wp-card av-card">
-                  <div class="av-wp-top">
-                    <div class="av-ey" style="color:rgba(168, 207, 56,.65);margin-bottom:0">WorldPosta Platform</div>
-                    <span class="av-invis">Invisible to your customers</span>
-                  </div>
-                  <div class="av-creds">
-                    <div><span class="av-cred-n">10+</span><span class="av-cred-l">Years operating</span></div>
-                    <div><span class="av-cred-n">ISO</span><span class="av-cred-l">IEC&nbsp;27001 certified</span></div>
-                    <div><span class="av-cred-n">PCI</span><span class="av-cred-l">DSS compliant</span></div>
-                    <div><span class="av-cred-n">SOC</span><span class="av-cred-l">24/7 operations</span></div>
-                  </div>
+                <div class="av-creds">
+                  <div><span class="av-cred-n">10+</span><span class="av-cred-l">Years operating</span></div>
+                  <div><span class="av-cred-n">ISO</span><span class="av-cred-l">IEC&nbsp;27001 certified</span></div>
+                  <div><span class="av-cred-n">PCI</span><span class="av-cred-l">DSS compliant</span></div>
+                  <div><span class="av-cred-n">SOC</span><span class="av-cred-l">24/7 operations</span></div>
                 </div>
               </div>
             </div>
@@ -6620,7 +5952,7 @@
                   <div class="mock-bar">
                     <span class="mock-dot" style="background: #e06c6c"></span
                     ><span class="mock-dot" style="background: #e0b84c"></span
-                    ><span class="mock-dot" id="brand-dot" style="background: #A8CF38"></span>
+                    ><span class="mock-dot" id="brand-dot" style="background: #8bbf3c"></span>
                     <span class="mock-bar-url" id="brand-url">portal.worldposta.com</span>
                   </div>
                   <div class="mock-body">
@@ -6639,7 +5971,7 @@
                       </div>
                       <div class="mock-line" style="width: 90%; background: rgba(120, 160, 210, 0.14)"></div>
                       <div class="mock-line" style="width: 74%; background: rgba(120, 160, 210, 0.1)"></div>
-                      <div class="mock-line" id="brand-line" style="width: 82%; background: rgba(124, 179, 66, 0.18)"></div>
+                      <div class="mock-line" id="brand-line" style="width: 82%; background: rgba(96, 152, 64, 0.18)"></div>
                     </div>
                   </div>
                 </div>
@@ -6907,27 +6239,6 @@
 
         var _dlg = _ov.querySelector(".pc-dialog");
 
-        function runAdashCounts(root) {
-          var motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-          root.querySelectorAll('.count[data-to]').forEach(function (el) {
-            var target = parseFloat(el.getAttribute('data-to'));
-            var dec = parseInt(el.getAttribute('data-dec') || '0', 10);
-            var fmt = function (n) {
-              return dec > 0 ? n.toFixed(dec) : Math.round(n).toLocaleString();
-            };
-            if (!motionOk) { el.textContent = fmt(target); return; }
-            el.textContent = dec > 0 ? (0).toFixed(dec) : '0';
-            var start = performance.now();
-            var dur = 900;
-            requestAnimationFrame(function step(now) {
-              var t = Math.min((now - start) / dur, 1);
-              var ease = 1 - Math.pow(1 - t, 3);
-              el.textContent = fmt(target * ease);
-              if (t < 1) requestAnimationFrame(step);
-            });
-          });
-        }
-
         function openPcModal(pc) {
           var icEl = pc.querySelector(".pc-ic");
           var titleEl = pc.querySelector(".pc-t");
@@ -6935,7 +6246,6 @@
           var hlEl = pc.querySelector(".pc-hl");
           var visualEl = pc.querySelector(".pc-visual");
           var featEl = pc.querySelector(".pc-feat");
-          var isAdash = visualEl && visualEl.classList.contains('pc-visual--adash');
           _dlgIc.innerHTML = "";
           if (icEl) _dlgIc.appendChild(icEl.cloneNode(true));
           _dlgTitles.innerHTML =
@@ -6949,9 +6259,8 @@
             (featEl ? featEl.outerHTML : "");
           if (visualEl) {
             _dlg.classList.add("wide");
-            var twoColClass = 'pc-dlg-two-col' + (isAdash ? ' adash-layout' : '');
             _dlgContent.innerHTML =
-              '<div class="' + twoColClass + '">' +
+              '<div class="pc-dlg-two-col">' +
               '<div class="pc-dlg-visual-col">' + visualEl.outerHTML + "</div>" +
               '<div class="pc-dlg-text-col">' + textCol + "</div>" +
               "</div>";
@@ -6961,7 +6270,6 @@
           }
           _ov.classList.add("open");
           document.body.style.overflow = "hidden";
-          if (isAdash) runAdashCounts(_dlgContent);
         }
 
         function closePcModal() {
@@ -7002,7 +6310,7 @@
       // brand palette cycling — #brand mock
       (function () {
         var palettes = [
-          { name: "WorldPosta · Platform", hex: "#A8CF38", rgb: "96,152,64",   url: "portal.worldposta.com", logo: "WP" },
+          { name: "WorldPosta · Platform", hex: "#8BBF3C", rgb: "96,152,64",   url: "portal.worldposta.com", logo: "WP" },
           { name: "NovaTel · Cloud",       hex: "#3B82F6", rgb: "59,130,246",  url: "cloud.novatel.net",     logo: "NT" },
           { name: "AlphaPay · Portal",     hex: "#F59E0B", rgb: "245,158,11",  url: "portal.alphapay.io",    logo: "AP" },
           { name: "GovCloud · Suite",      hex: "#818CF8", rgb: "129,140,248", url: "suite.govcloud.eg",     logo: "GV" },
@@ -7079,146 +6387,6 @@
         var obs = new IntersectionObserver(function (e) { if (e[0].isIntersecting) trigger(); }, { threshold: .2 });
         obs.observe(vis);
       })();
-
-      // Galaxy starfield — drifting, gently twinkling stars (magic-black layer -2)
-      (function () {
-        var stars = document.getElementById('stars');
-        if (!stars) return;
-        var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (RM) { stars.style.display = 'none'; return; }
-        var ctx = stars.getContext('2d'), w, h, dpr, pts;
-        function size() {
-          dpr = Math.min(window.devicePixelRatio || 1, 2);
-          w = innerWidth; h = innerHeight;
-          stars.width = w * dpr; stars.height = h * dpr;
-          stars.style.width = w + 'px'; stars.style.height = h + 'px';
-          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-          var n = Math.min(150, Math.floor(w / 9));
-          pts = Array.from({ length: n }, function () {
-            var near = Math.random() < 0.18; // a few brighter, faster "near" stars for depth
-            return {
-              x: Math.random() * w,
-              y: Math.random() * h,
-              r: near ? Math.random() * 1.3 + 1.0 : Math.random() * 1.1 + 0.3,
-              a: Math.random() * 0.5 + 0.25,
-              s: (near ? Math.random() * 0.35 + 0.22 : Math.random() * 0.18 + 0.05),
-              tw: Math.random() * 6.28,         // twinkle phase
-              ts: Math.random() * 0.04 + 0.012, // twinkle speed
-              near: near
-            };
-          });
-        }
-        size();
-        addEventListener('resize', size, { passive: true });
-        (function draw() {
-          ctx.clearRect(0, 0, w, h);
-          for (var i = 0; i < pts.length; i++) {
-            var p = pts[i];
-            p.y -= p.s; if (p.y < 0) { p.y = h; p.x = Math.random() * w; }
-            p.tw += p.ts;
-            var a = p.a * (0.6 + 0.4 * Math.sin(p.tw)); // gentle twinkle
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, 7);
-            ctx.fillStyle = 'rgba(180,205,140,' + a + ')';
-            if (p.near) { ctx.shadowColor = 'rgba(168,207,56,0.7)'; ctx.shadowBlur = 6; }
-            else { ctx.shadowBlur = 0; }
-            ctx.fill();
-          }
-          ctx.shadowBlur = 0;
-          requestAnimationFrame(draw);
-        })();
-      })();
-      // Ecosystem diagram — choreographed reveal on scroll-in
-      (function () {
-        var v = document.getElementById('eco-vis');
-        if (!v) return;
-        v.classList.add('js');
-        if (!window.IntersectionObserver) { v.classList.add('in'); return; }
-        var o = new IntersectionObserver(function (e) {
-          if (e[0].isIntersecting) { v.classList.add('in'); o.disconnect(); }
-        }, { threshold: 0.2 });
-        o.observe(v);
-      })();
-
-      // Right-side progress spine — minimap of major sections
-      (function () {
-        var defs = [
-          ['overview', 'Overview'], ['opportunity', 'Opportunity'], ['provide', 'Platform'],
-          ['cloud', 'NextEdge'], ['collab', 'Collaboration'], ['operations', 'Operations'],
-          ['about', 'About'], ['security', 'Security'], ['operated', 'Operated'],
-          ['brand', 'Your Brand'], ['sectors', 'Sectors'], ['start', 'Get Started']
-        ];
-        var items = defs
-          .map(function (d) { return { id: d[0], label: d[1], el: document.getElementById(d[0]) }; })
-          .filter(function (x) { return x.el; });
-        if (!items.length) return;
-
-        // Desktop rail: number + vertical track/fill + vertical label
-        var spine = document.createElement('div');
-        spine.className = 'spine';
-        spine.setAttribute('role', 'progressbar');
-        spine.setAttribute('aria-label', 'Reading progress');
-        spine.setAttribute('aria-valuemin', '0');
-        spine.setAttribute('aria-valuemax', '100');
-        var num = document.createElement('span');
-        num.className = 'spine-num';
-        num.textContent = '01';
-        var track = document.createElement('div');
-        track.className = 'spine-track';
-        var fill = document.createElement('div');
-        fill.className = 'spine-fill';
-        track.appendChild(fill);
-        var label = document.createElement('span');
-        label.className = 'spine-label';
-        label.textContent = items[0].label;
-        spine.appendChild(num);
-        spine.appendChild(track);
-        spine.appendChild(label);
-        document.body.appendChild(spine);
-
-        // Mobile/tablet fallback: thin top bar
-        var top = document.createElement('div');
-        top.className = 'topprogress';
-        top.setAttribute('aria-hidden', 'true');
-        var topFill = document.createElement('div');
-        topFill.className = 'topprogress-fill';
-        top.appendChild(topFill);
-        document.body.appendChild(top);
-
-        function absTop(el) {
-          return el.getBoundingClientRect().top + (window.scrollY || document.documentElement.scrollTop);
-        }
-        function docMax() {
-          return Math.max(1, document.documentElement.scrollHeight - innerHeight);
-        }
-        var active = -1;
-        function update() {
-          var y = window.scrollY || document.documentElement.scrollTop;
-          var prog = Math.min(1, Math.max(0, y / docMax()));
-          var pct = (prog * 100).toFixed(2) + '%';
-          fill.style.height = pct;
-          topFill.style.width = pct;
-          spine.setAttribute('aria-valuenow', Math.round(prog * 100));
-          // current section drives the number + label
-          var mid = y + innerHeight * 0.4;
-          var idx = 0;
-          for (var i = 0; i < items.length; i++) {
-            if (absTop(items[i].el) <= mid) idx = i;
-          }
-          if (idx !== active) {
-            active = idx;
-            num.textContent = (idx + 1 < 10 ? '0' : '') + (idx + 1);
-            label.textContent = items[idx].label;
-          }
-        }
-        update();
-        addEventListener('scroll', update, { passive: true });
-        addEventListener('resize', update, { passive: true });
-        addEventListener('load', update);
-      })();
     </script>
-  <!-- impeccable-live-start -->
-<script src="http://localhost:8400/live.js"></script>
-<!-- impeccable-live-end -->
-</body>
+  </body>
 </html>
