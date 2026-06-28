@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>WorldPosta - Operator Platform Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <style>
       * {
         margin: 0;
@@ -14,7 +18,7 @@
         scroll-behavior: smooth;
       }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
         background: #080e1c;
         color: #c6d0dc;
         line-height: 1.6;
@@ -113,6 +117,9 @@
         flex-shrink: 0;
       }
 
+      h1, h2 {
+        font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      }
       h2 {
         font-size: clamp(28px, 4vw, 50px);
         font-weight: 700;
@@ -302,10 +309,10 @@
         font-size: 13px;
       }
       .note {
-        border-left: 3px solid #8bbf3c;
+        border: 1px solid rgba(96, 152, 64, 0.3);
         padding: 18px 22px;
         background: rgba(96, 152, 64, 0.07);
-        border-radius: 0 14px 14px 0;
+        border-radius: 14px;
         font-size: 15px;
         color: #c6d0dc;
         line-height: 1.7;
@@ -501,6 +508,450 @@
         border-radius: 4px;
         margin-bottom: 7px;
       }
+      .mock-bar-url {
+        flex: 1;
+        margin-left: 8px;
+        font-size: 10px;
+        font-family: ui-monospace, "SF Mono", monospace;
+        color: rgba(96, 152, 64, 0.45);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        align-self: center;
+        transition: color 0.55s;
+      }
+      .mock-logo-ic {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        color: #8bbf3c;
+        background: rgba(96, 152, 64, 0.18);
+        transition: background 0.55s, color 0.55s, border-color 0.55s;
+      }
+      #brand-dot  { transition: background 0.55s; }
+      #brand-tile { transition: background 0.55s, border-color 0.55s; }
+      #brand-line { transition: background 0.55s; }
+      .brand-cycle-tag {
+        margin-top: 14px;
+        text-align: center;
+        font-size: 11px;
+        font-family: ui-monospace, "SF Mono", monospace;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: #8bbf3c;
+        opacity: 0.7;
+        transition: color 0.55s;
+      }
+
+      /* iO OBJECT STORAGE DASHBOARD VISUAL */
+      .pc-visual.io-dash {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        background: #f0f2f5;
+        margin: 18px 0 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 13px;
+        color: #1a2535;
+        box-shadow: 0 6px 28px rgba(0, 0, 0, 0.5);
+      }
+      .io-topbar {
+        background: #fff;
+        border-bottom: 1px solid #e2e6ed;
+        padding: 9px 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .io-brand-logo {
+        width: 22px; height: 22px;
+        background: #4a7830;
+        border-radius: 5px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 9px; font-weight: 900; color: #fff; letter-spacing: -0.5px;
+      }
+      .io-brand-name { font-size: 11px; font-weight: 700; color: #1a2535; }
+      .io-brand-sep { color: #ccc; font-size: 14px; margin: 0 2px; }
+      .io-brand-title { font-size: 11px; color: #555; }
+      .io-tabs {
+        background: #fff;
+        border-bottom: 1px solid #e2e6ed;
+        display: flex;
+        padding: 0 14px;
+      }
+      .io-tab {
+        padding: 8px 12px;
+        font-size: 11px;
+        color: #666;
+        border-bottom: 2px solid transparent;
+        display: flex; align-items: center; gap: 5px;
+        white-space: nowrap;
+      }
+      .io-tab i { font-size: 10px; }
+      .io-tab-active { color: #4a7830; border-bottom-color: #4a7830; font-weight: 600; }
+      .io-body { padding: 14px; }
+      .io-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 1.2px; color: #4a7830; margin-bottom: 2px; }
+      .io-heading { font-size: 17px; font-weight: 800; color: #1a2535; margin-bottom: 2px; }
+      .io-subtext { font-size: 10px; color: #888; margin-bottom: 12px; }
+      .io-quota-card {
+        background: #fff;
+        border: 1px solid #e2e6ed;
+        border-radius: 9px;
+        padding: 12px 14px;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .io-quota-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: #4a7830; margin-bottom: 4px; }
+      .io-quota-val { font-size: 22px; font-weight: 800; color: #1a2535; line-height: 1; }
+      .io-quota-val span { font-size: 13px; font-weight: 600; }
+      .io-quota-badge {
+        position: absolute; top: 12px; right: 12px;
+        background: #f3f4f6; border: 1px solid #dde2e8;
+        border-radius: 6px; padding: 2px 7px;
+        font-size: 9px; color: #555; white-space: nowrap;
+      }
+      .io-quota-note { font-size: 9px; color: #999; margin-top: 5px; line-height: 1.4; }
+      .io-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
+      .io-stat {
+        background: #fff;
+        border: 1px solid #e2e6ed;
+        border-left: 3px solid #4a7830;
+        border-radius: 9px;
+        padding: 11px 12px;
+        position: relative; overflow: hidden;
+      }
+      .io-stat-label { font-size: 8px; font-weight: 700; letter-spacing: 1px; color: #4a7830; margin-bottom: 5px; }
+      .io-stat-val { font-size: 17px; font-weight: 800; color: #1a2535; line-height: 1; }
+      .io-stat-val span { font-size: 10px; font-weight: 600; }
+      .io-stat-sub { font-size: 8px; color: #999; margin-top: 3px; }
+      .io-stat-ghost {
+        position: absolute; right: -6px; bottom: -6px;
+        width: 44px; height: 44px;
+        border-radius: 50%;
+        background: rgba(74, 120, 48, 0.08);
+      }
+      .io-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+      .io-action {
+        background: #fff;
+        border: 1px solid #e2e6ed;
+        border-radius: 9px;
+        padding: 11px 8px;
+        text-align: center;
+      }
+      .io-action-ic {
+        width: 32px; height: 32px;
+        background: rgba(74, 120, 48, 0.1);
+        border-radius: 8px;
+        display: inline-flex; align-items: center; justify-content: center;
+        margin-bottom: 6px;
+        color: #4a7830; font-size: 13px;
+      }
+      .io-action-name { font-size: 10px; font-weight: 600; color: #1a2535; }
+      .io-action-sub { font-size: 8px; color: #999; margin-top: 2px; }
+
+      /* MEET DASHBOARD VISUAL */
+      .pc-visual.meet-dash {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,.06);
+        background: #0e1117;
+        margin: 18px 0 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 13px;
+        color: #e2e8f0;
+        box-shadow: 0 6px 28px rgba(0,0,0,.6);
+      }
+      .md-topbar {
+        background: #161b22;
+        border-bottom: 1px solid rgba(255,255,255,.06);
+        padding: 9px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .md-brand { display: flex; align-items: center; gap: 8px; }
+      .md-brand-ic {
+        width: 24px; height: 24px; border-radius: 6px;
+        background: #4a7830;
+        display: flex; align-items: center; justify-content: center;
+        color: #fff; font-size: 10px;
+      }
+      .md-brand-name { font-size: 12px; font-weight: 600; color: #e2e8f0; }
+      .md-topbar-right { display: flex; align-items: center; gap: 8px; }
+      .md-avatar {
+        width: 24px; height: 24px; border-radius: 50%;
+        background: #4a7830;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 10px; font-weight: 700; color: #fff;
+      }
+      .md-logout {
+        font-size: 10px; color: #888;
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 5px; padding: 2px 7px;
+      }
+      .md-body { padding: 14px; }
+      .md-hero-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+      .md-greeting { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 3px; line-height: 1.2; }
+      .md-name { color: #8bbf3c; }
+      .md-subtext { font-size: 10px; color: #666; }
+      .md-clock { text-align: right; }
+      .md-date { font-size: 8px; font-weight: 600; letter-spacing: 1px; color: #555; margin-bottom: 2px; }
+      .md-time { font-size: 18px; font-weight: 700; color: #444; font-variant-numeric: tabular-nums; }
+      .md-actions { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 12px; }
+      .md-action {
+        background: #161b22;
+        border: 1px solid rgba(255,255,255,.07);
+        border-radius: 9px;
+        padding: 11px;
+      }
+      .md-action-active {
+        border-color: #4a7830;
+        background: rgba(74,120,48,.08);
+      }
+      .md-action-ic {
+        width: 28px; height: 28px; border-radius: 7px;
+        background: rgba(255,255,255,.06);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 11px; color: #8bbf3c; margin-bottom: 8px;
+      }
+      .md-action-active .md-action-ic { background: #4a7830; color: #fff; }
+      .md-action-title { font-size: 11px; font-weight: 700; color: #e2e8f0; margin-bottom: 4px; }
+      .md-action-desc { font-size: 9px; color: #666; line-height: 1.4; }
+      .md-action-link { font-size: 9px; color: #8bbf3c; margin-top: 6px; font-weight: 600; }
+      .md-section-label {
+        font-size: 13px; font-weight: 700; color: #e2e8f0;
+        margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+      }
+      .md-section-accent { color: #8bbf3c; }
+      .md-section-count { margin-left: auto; font-size: 9px; font-weight: 600; color: #555; letter-spacing: 1px; }
+      .md-live-row {
+        display: flex; align-items: center; gap: 12px;
+        background: #161b22; border: 1px solid rgba(255,255,255,.07);
+        border-radius: 9px; padding: 10px 12px; margin-bottom: 10px;
+      }
+      .md-live-badge {
+        border-right: 1px solid rgba(255,255,255,.08);
+        padding-right: 12px; min-width: 44px;
+      }
+      .md-now { font-size: 8px; font-weight: 700; letter-spacing: 1px; color: #555; }
+      .md-live-word { font-size: 16px; font-weight: 800; color: #8bbf3c; line-height: 1; }
+      .md-live-info { flex: 1; }
+      .md-live-title { font-size: 12px; font-weight: 600; color: #e2e8f0; margin-bottom: 3px; }
+      .md-live-pill {
+        display: inline-flex; align-items: center; gap: 4px;
+        background: rgba(255,255,255,.05); border-radius: 20px;
+        padding: 2px 7px; font-size: 9px; color: #888;
+      }
+      .md-live-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: #e06c6c; display: inline-block;
+      }
+      .md-rejoin {
+        background: #4a7830; color: #fff;
+        font-size: 10px; font-weight: 700;
+        padding: 6px 12px; border-radius: 7px;
+        white-space: nowrap;
+      }
+      .md-stats {
+        display: grid; grid-template-columns: repeat(4,1fr); gap: 8px;
+        background: #161b22; border: 1px solid rgba(255,255,255,.06);
+        border-radius: 9px; padding: 12px;
+      }
+      .md-stat-val { font-size: 16px; font-weight: 800; color: #8bbf3c; margin-bottom: 3px; }
+      .md-stat-label { font-size: 8px; color: #555; line-height: 1.4; }
+
+      /* POSTA DRIVE DASHBOARD VISUAL */
+      .pc-visual.drv-dash {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #e0e4ea;
+        background: #fff;
+        margin: 18px 0 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 12px;
+        color: #202124;
+        box-shadow: 0 6px 28px rgba(0,0,0,.45);
+      }
+      .drv-topbar {
+        display: flex; align-items: center; gap: 10px;
+        padding: 8px 14px;
+        border-bottom: 1px solid #e8eaed;
+        background: #fff;
+      }
+      .drv-brand { display: flex; align-items: center; gap: 6px; min-width: 120px; }
+      .drv-brand-ic { font-size: 8px; letter-spacing: -1px; }
+      .drv-brand-name { font-size: 13px; font-weight: 600; color: #202124; white-space: nowrap; }
+      .drv-search {
+        flex: 1; display: flex; align-items: center; gap: 7px;
+        background: #f1f3f4; border-radius: 20px;
+        padding: 6px 12px; font-size: 11px; color: #5f6368;
+      }
+      .drv-search i { font-size: 10px; }
+      .drv-ai-badge {
+        margin-left: auto; font-size: 9px; font-weight: 700;
+        color: #4a7830; background: rgba(74,120,48,.08);
+        border: 1px solid rgba(74,120,48,.2); border-radius: 4px; padding: 1px 5px;
+      }
+      .drv-topbar-right { display: flex; align-items: center; gap: 8px; }
+      .drv-top-ic { font-size: 10px; color: #5f6368; white-space: nowrap; display: flex; align-items: center; gap: 3px; }
+      .drv-avatar {
+        width: 22px; height: 22px; border-radius: 50%;
+        background: #4a7830; color: #fff;
+        font-size: 10px; font-weight: 700;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .drv-body { display: grid; grid-template-columns: 140px 1fr; }
+      .drv-sidenav {
+        border-right: 1px solid #e8eaed;
+        padding: 10px 8px 12px;
+        display: flex; flex-direction: column; gap: 1px;
+      }
+      .drv-new-btn {
+        display: flex; align-items: center; gap: 6px;
+        background: #4a7830; color: #fff;
+        font-size: 11px; font-weight: 600;
+        padding: 7px 12px; border-radius: 20px;
+        margin-bottom: 10px; width: fit-content;
+      }
+      .drv-nav-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: #80868b; padding: 6px 8px 3px; }
+      .drv-nav-item {
+        display: flex; align-items: center; gap: 7px;
+        padding: 5px 8px; border-radius: 20px;
+        font-size: 11px; color: #202124; cursor: default;
+      }
+      .drv-nav-item i { font-size: 10px; color: #5f6368; }
+      .drv-nav-active { background: #e8f5e9; font-weight: 600; }
+      .drv-nav-active i { color: #4a7830; }
+      .drv-storage { margin-top: auto; padding-top: 10px; }
+      .drv-storage-label { font-size: 8px; font-weight: 700; letter-spacing: 1px; color: #80868b; margin-bottom: 4px; display: flex; justify-content: space-between; }
+      .drv-storage-pct { color: #4a7830; }
+      .drv-storage-bar { height: 4px; border-radius: 2px; background: #e8eaed; margin-bottom: 4px; }
+      .drv-storage-fill { height: 100%; width: 1%; border-radius: 2px; background: #4a7830; }
+      .drv-storage-used { font-size: 9px; color: #80868b; }
+      .drv-main { padding: 12px 14px; overflow: hidden; }
+      .drv-greeting-row { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; }
+      .drv-user-av {
+        width: 28px; height: 28px; border-radius: 50%;
+        background: #4a7830; color: #fff;
+        font-size: 11px; font-weight: 700;
+        display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      }
+      .drv-greeting { font-size: 15px; font-weight: 700; color: #202124; }
+      .drv-greeting-date { font-size: 10px; color: #5f6368; }
+      .drv-filter-tabs { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+      .drv-ftab {
+        display: flex; align-items: center; gap: 5px;
+        border: 1px solid #e0e4ea; border-radius: 20px;
+        padding: 4px 10px; font-size: 10px; color: #5f6368;
+        white-space: nowrap;
+      }
+      .drv-ftab i { font-size: 9px; }
+      .drv-section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+      .drv-section-label { font-size: 9px; font-weight: 700; letter-spacing: 1px; color: #80868b; }
+      .drv-view-all { font-size: 10px; color: #4a7830; font-weight: 600; }
+      .drv-file-grid { display: flex; gap: 7px; flex-wrap: wrap; }
+      .drv-file {
+        width: 100px; border: 1px solid #e0e4ea; border-radius: 8px;
+        padding: 10px 8px 8px; background: #fff;
+      }
+      .drv-file-ic {
+        width: 32px; height: 32px; border-radius: 6px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 16px; margin-bottom: 6px;
+      }
+      .drv-word  { background: rgba(66,133,244,.1); color: #4285f4; }
+      .drv-excel { background: rgba(52,168,83,.1);  color: #34a853; }
+      .drv-pdf   { background: rgba(234,67,53,.1);  color: #ea4335; }
+      .drv-file-name { font-size: 9px; color: #202124; font-weight: 500; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .drv-file-date { font-size: 8px; color: #80868b; }
+
+      /* IDENTITY & SSO LAUNCHER VISUAL */
+      .pc-visual.sso-dash {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #e0e4ea;
+        background: #f8f9fb;
+        margin: 18px 0 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 12px;
+        color: #202124;
+        box-shadow: 0 6px 28px rgba(0,0,0,.45);
+      }
+      .sso-topbar {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 10px 18px;
+        background: #fff;
+        border-bottom: 1px solid #e8eaed;
+      }
+      .sso-brand { display: flex; align-items: center; gap: 7px; }
+      .sso-brand-dot {
+        width: 10px; height: 10px; border-radius: 50%;
+        background: #4a7830;
+      }
+      .sso-brand-name { font-size: 13px; font-weight: 600; color: #202124; }
+      .sso-signout {
+        font-size: 10px; color: #5f6368;
+        border: 1px solid #e0e4ea; border-radius: 6px;
+        padding: 3px 10px;
+      }
+      .sso-body { padding: 20px 24px 14px; }
+      .sso-welcome { font-size: 20px; font-weight: 700; color: #202124; margin-bottom: 2px; }
+      .sso-name { color: #4a7830; }
+      .sso-sub { font-size: 11px; color: #5f6368; margin-bottom: 14px; }
+      .sso-quick-actions { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+      .sso-qa {
+        display: flex; align-items: center; gap: 6px;
+        border: 1px solid #e0e4ea; border-radius: 20px;
+        background: #fff;
+        padding: 5px 12px; font-size: 10px; color: #202124;
+        white-space: nowrap;
+      }
+      .sso-qa i { font-size: 10px; color: #5f6368; }
+      .sso-app-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .sso-app-card {
+        display: flex; align-items: center; gap: 9px;
+        background: #fff;
+        border: 1px solid #e8eaed; border-radius: 9px;
+        padding: 10px 11px;
+        position: relative;
+      }
+      .sso-app-ic {
+        width: 32px; height: 32px; flex-shrink: 0;
+        border-radius: 8px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 14px;
+      }
+      .sso-ic-drive { background: #eef2f7; color: #5f6368; }
+      .sso-ic-mail  { background: #fce8ea; color: #e05555; }
+      .sso-ic-meet  { background: #e8f0fe; color: #4285f4; }
+      .sso-ic-word  { background: rgba(66,133,244,.1); color: #4285f4; }
+      .sso-ic-excel { background: rgba(52,168,83,.1);  color: #34a853; }
+      .sso-ic-ppt   { background: rgba(234,67,53,.1);  color: #ea4335; }
+      .sso-ic-kb    { background: rgba(251,188,4,.1);  color: #f9a825; }
+      .sso-ic-diag  { background: rgba(74,120,48,.1);  color: #4a7830; }
+      .sso-ic-cloud { background: rgba(66,133,244,.08); color: #4285f4; }
+      .sso-app-info { flex: 1; min-width: 0; }
+      .sso-app-name { font-size: 11px; font-weight: 600; color: #202124; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .sso-app-desc { font-size: 9px; color: #80868b; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+      .sso-app-go { font-size: 8px; color: #c0c6ce; flex-shrink: 0; }
+      .sso-recent-files {
+        background: #fff;
+        border: 1px solid #e8eaed; border-radius: 9px;
+        padding: 10px 12px;
+      }
+      .sso-recent-label { font-size: 8px; font-weight: 700; letter-spacing: 1px; color: #80868b; margin-bottom: 7px; }
+      .sso-rf-row { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; border-bottom: 1px solid #f1f3f4; }
+      .sso-rf-row:last-child { border-bottom: none; }
+      .sso-rf-name { font-size: 9px; color: #202124; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 70%; }
+      .sso-rf-date { font-size: 8px; color: #80868b; white-space: nowrap; }
+      .sso-footer { text-align: center; font-size: 9px; color: #80868b; margin-top: 14px; padding-top: 10px; border-top: 1px solid #e8eaed; }
 
       /* ADVANTAGES */
       .adv-grid {
@@ -811,11 +1262,6 @@
         height: 25px;
         width: auto;
       }
-      @media (prefers-color-scheme: dark) {
-        .sb-brand img {
-          filter: brightness(0) invert(1);
-        }
-      }
       .sb-nav {
         display: flex;
         flex-direction: column;
@@ -860,11 +1306,11 @@
         transform: translateX(2px);
       }
       .sb-link.active {
-        color: #c6d0dc;
-        background: rgba(96, 152, 64, 0.06);
+        color: #e6f3dc;
+        background: rgba(96, 152, 64, 0.11);
         border-color: transparent;
-        box-shadow: none;
-        transform: translateX(2px);
+        box-shadow: inset 3px 0 0 #8bbf3c;
+        transform: none;
       }
       .sb-link .dot {
         width: 6px;
@@ -975,42 +1421,144 @@
         background: rgba(139, 191, 60, 0.6);
         display: inline-block;
       }
-      /* accordion product cards */
+
+      /* ── HERO SECTION (overview) ─────────────────────────────────── */
+      #overview .kicker {
+        display: inline-flex;
+        padding: 6px 14px 6px 10px;
+        border: 1px solid rgba(96, 152, 64, 0.38);
+        border-radius: 100px;
+        background: rgba(96, 152, 64, 0.07);
+        color: #8bbf3c;
+        margin-bottom: 28px;
+      }
+      #overview .kicker i {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #8bbf3c;
+        box-shadow: 0 0 8px rgba(139, 191, 60, 0.65);
+        animation: hero-dot-pulse 2.2s ease-in-out infinite;
+      }
+      @keyframes hero-dot-pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.55; transform: scale(0.8); }
+      }
+      .psec-hero-h1 {
+        font-size: clamp(34px, 4.6vw, 58px);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.04;
+        color: #fff;
+        margin-bottom: 20px;
+        text-wrap: balance;
+      }
+      .psec-hero-h1 span {
+        display: block;
+      }
+      .hero-accent {
+        color: #8bbf3c;
+      }
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+
+      @keyframes hero-fade-up {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      #overview .kicker       { animation: hero-fade-up 0.55s cubic-bezier(.2,.7,.2,1) both; }
+      #overview .psec-hero-h1 { animation: hero-fade-up 0.60s cubic-bezier(.2,.7,.2,1) 0.08s both; }
+      #overview .lede         { animation: hero-fade-up 0.60s cubic-bezier(.2,.7,.2,1) 0.18s both; }
+      #overview .hero-actions { animation: hero-fade-up 0.60s cubic-bezier(.2,.7,.2,1) 0.28s both; }
+      #overview .diagram-wrap { animation: hero-fade-up 0.65s cubic-bezier(.2,.7,.2,1) 0.40s both; }
+      @media (prefers-reduced-motion: reduce) {
+        #overview .kicker,
+        #overview .psec-hero-h1,
+        #overview .lede,
+        #overview .hero-actions,
+        #overview .diagram-wrap {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      /* product card grid */
       .acc {
         margin-top: 32px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 960px) {
+        .acc {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 580px) {
+        .acc {
+          grid-template-columns: 1fr;
+        }
       }
       .pc {
         border-radius: 14px;
         background: rgba(96, 152, 64, 0.06);
         border: 1px solid rgba(96, 152, 64, 0.22);
         overflow: hidden;
+        cursor: pointer;
         transition:
-          border-color 0.16s,
-          background 0.16s;
+          border-color 0.18s,
+          background 0.18s,
+          transform 0.2s,
+          box-shadow 0.2s;
         scroll-margin-top: 24px;
       }
       .pc:hover {
-        border-color: rgba(96, 152, 64, 0.4);
-      }
-      .pc.open {
-        background: rgba(96, 152, 64, 0.09);
-        border-color: rgba(96, 152, 64, 0.44);
+        border-color: rgba(96, 152, 64, 0.48);
+        background: rgba(96, 152, 64, 0.11);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
       }
       .pc-head {
         width: 100%;
+        height: 100%;
         display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 18px 22px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 22px;
+        padding-bottom: 44px;
         cursor: pointer;
         background: none;
         border: none;
         text-align: left;
         color: inherit;
         font-family: inherit;
+        position: relative;
+      }
+      .pc-head::after {
+        content: "";
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        background: rgba(96, 152, 64, 0.1)
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%238bbf3c' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 13L13 3M13 3H7M13 3v6'/%3E%3C/svg%3E")
+          center / 13px no-repeat;
+        border: 1px solid rgba(96, 152, 64, 0.24);
+        transition: background-color 0.18s, border-color 0.18s, transform 0.18s;
+      }
+      .pc:hover .pc-head::after {
+        background-color: rgba(96, 152, 64, 0.22);
+        border-color: rgba(96, 152, 64, 0.5);
+        transform: translate(1px, -1px);
       }
       .pc-ic {
         width: 42px;
@@ -1026,6 +1574,9 @@
       .pc-ic svg {
         width: 21px;
         height: 21px;
+      }
+      .pc-ic i {
+        font-size: 19px;
       }
       .pc-tt {
         flex: 1;
@@ -1045,19 +1596,11 @@
         display: block;
       }
       .pc-chev {
-        color: #8bbf3c;
-        font-size: 13px;
-        transition: transform 0.25s;
-        flex-shrink: 0;
-        opacity: 0.85;
-      }
-      .pc.open .pc-chev {
-        transform: rotate(90deg);
+        display: none;
       }
       .pc-body {
         height: 0;
         overflow: hidden;
-        transition: height 0.35s ease;
       }
       .pc-inner {
         padding: 4px 24px 24px 80px;
@@ -1073,8 +1616,8 @@
         line-height: 1.62;
         padding: 14px 16px;
         border-radius: 10px;
-        background: rgba(96, 152, 64, 0.08);
-        border-left: 3px solid #8bbf3c;
+        background: rgba(96, 152, 64, 0.09);
+        border: 1px solid rgba(96, 152, 64, 0.28);
         margin-bottom: 18px;
       }
       .pc-feat {
@@ -1105,6 +1648,98 @@
         border-radius: 50%;
         background: #8bbf3c;
         opacity: 0.7;
+      }
+      /* product card modal */
+      .pc-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(4, 9, 18, 0.86);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.22s;
+      }
+      .pc-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .pc-dialog {
+        background: #0d1c2e;
+        border: 1px solid rgba(96, 152, 64, 0.38);
+        border-radius: 18px;
+        width: 100%;
+        max-width: 640px;
+        max-height: 88vh;
+        overflow-y: auto;
+        padding: 32px;
+        position: relative;
+        transform: translateY(22px) scale(0.96);
+        transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
+        scrollbar-width: thin;
+        scrollbar-color: rgba(96, 152, 64, 0.28) transparent;
+      }
+      .pc-dialog.wide { max-width: 1260px; }
+      .pc-overlay.open .pc-dialog {
+        transform: translateY(0) scale(1);
+      }
+      .pc-dlg-two-col {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 32px;
+        align-items: start;
+      }
+      .pc-dlg-visual-col { min-width: 0; }
+      .pc-dlg-text-col { min-width: 0; }
+      @media (max-width: 720px) {
+        .pc-dlg-two-col { grid-template-columns: 1fr; }
+        .pc-dialog.wide { max-width: 640px; }
+      }
+      .pc-dlg-close {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        border: 1px solid rgba(96, 152, 64, 0.28);
+        background: rgba(96, 152, 64, 0.08);
+        color: #8bbf3c;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        font-size: 16px;
+        line-height: 1;
+        transition: background 0.16s;
+      }
+      .pc-dlg-close:hover {
+        background: rgba(96, 152, 64, 0.22);
+      }
+      .pc-dlg-head {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 22px;
+        padding-right: 46px;
+      }
+      .pc-dlg-titles .pc-t {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .pc-dlg-titles .pc-d {
+        margin-top: 5px;
+        display: block;
+      }
+      #pc-dlg-content .pc-hl {
+        margin-bottom: 20px;
+      }
+      #pc-dlg-content .pc-feat {
+        margin-top: 0;
       }
       .chips {
         display: flex;
@@ -1464,9 +2099,9 @@
       .wrap {
         max-width: 1100px;
       }
-      .psec h1 {
-        font-size: clamp(34px, 4.4vw, 54px) !important;
-        line-height: 1.05;
+      .psec-hero-h1 {
+        font-size: clamp(32px, 4.2vw, 52px);
+        line-height: 1.06;
       }
       /* about visual — invisible-layer diagram */
       .about-vis {
@@ -1721,27 +2356,20 @@
         <section class="psec" id="overview">
           <div class="wrap">
             <div class="kicker"><i></i>The software layer operators were missing</div>
-            <h1
-              style="
-                font-size: clamp(34px, 4.6vw, 58px);
-                font-weight: 700;
-                letter-spacing: -0.03em;
-                line-height: 1.04;
-                color: #fff;
-                margin-bottom: 20px;
-              "
-            >
-              <span style="display: block">Own your ecosystem.</span>
-              <span style="display: block; padding-left: clamp(34px, 6vw, 96px)"
-                ><span class="grad">Everything connected.</span></span
-              >
-              <span style="display: block; padding-left: clamp(68px, 12vw, 192px)">Everything yours.</span>
+            <h1 class="psec-hero-h1">
+              <span>Own your ecosystem.</span>
+              <span><span class="hero-accent">Everything connected.</span></span>
+              <span>Everything yours.</span>
             </h1>
             <p class="lede">
               WorldPosta is a complete ecosystem for service providers that want full control over how digital services
               are delivered, branded, and operated. Every component works together through one platform, so you can
               start with a single suite, expand across the full stack, and run everything under your own brand.
             </p>
+            <div class="hero-actions">
+              <a href="#start" class="btn-p">Request a Walkthrough</a>
+              <a href="#provide" class="btn-g">Explore the Platform</a>
+            </div>
             <div class="diagram-wrap">
               <svg
                 viewBox="48 58 1524 572"
@@ -1780,12 +2408,12 @@
                     <stop offset="100%" stop-color="#080F06" />
                   </radialGradient>
                   <radialGradient id="hb_custG" cx="36%" cy="30%" r="74%">
-                    <stop offset="0%" stop-color="#241A40" />
-                    <stop offset="100%" stop-color="#0E0A20" />
+                    <stop offset="0%" stop-color="#101E38" />
+                    <stop offset="100%" stop-color="#060E1C" />
                   </radialGradient>
                   <linearGradient id="hb_custIcon" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#9E7BD0" />
-                    <stop offset="100%" stop-color="#6B46B0" />
+                    <stop offset="0%" stop-color="#5CA0D8" />
+                    <stop offset="100%" stop-color="#3E6FA8" />
                   </linearGradient>
 
                   <filter id="hb_soft" x="-50%" y="-50%" width="200%" height="200%">
@@ -1918,7 +2546,7 @@
                   font-size="12"
                   font-weight="600"
                   letter-spacing="3"
-                  fill="rgba(150,120,205,0.85)"
+                  fill="rgba(120,155,200,0.85)"
                 >
                   YOUR BRANDED SOFTWARE
                 </text>
@@ -1928,8 +2556,8 @@
                   width="80"
                   height="22"
                   rx="11"
-                  fill="rgba(22,14,40,0.92)"
-                  stroke="rgba(118,90,175,0.55)"
+                  fill="rgba(14,26,46,0.92)"
+                  stroke="rgba(90,130,185,0.55)"
                 />
                 <text
                   x="1418.0"
@@ -1938,7 +2566,7 @@
                   font-size="10.5"
                   font-weight="700"
                   letter-spacing="1"
-                  fill="rgba(168,140,212,0.9)"
+                  fill="rgba(150,185,225,0.9)"
                 >
                   YOURS
                 </text>
@@ -3092,7 +3720,7 @@
                   cy="212"
                   r="30"
                   fill="url(#hb_custG)"
-                  stroke="rgba(140,108,195,0.65)"
+                  stroke="rgba(95,140,195,0.65)"
                   stroke-width="1.6"
                   filter="url(#hb_drop)"
                 />
@@ -3116,7 +3744,7 @@
                   font-size="15"
                   font-weight="600"
                   letter-spacing="0"
-                  fill="rgba(220,212,240,0.95)"
+                  fill="rgba(208,224,244,0.95)"
                 >
                   Enterprise
                 </text>
@@ -3126,27 +3754,27 @@
                   width="196"
                   height="60"
                   rx="9"
-                  fill="rgba(22,16,40,0.6)"
-                  stroke="rgba(104,76,158,0.45)"
+                  fill="rgba(14,26,46,0.6)"
+                  stroke="rgba(80,120,175,0.45)"
                   stroke-width="1"
                 />
-                <rect x="1388.0" y="232" width="5" height="8" rx="1.5" fill="rgba(160,128,205,0.75)" />
-                <rect x="1395.0" y="226" width="5" height="14" rx="1.5" fill="rgba(160,128,205,0.75)" />
-                <rect x="1402.0" y="229" width="5" height="11" rx="1.5" fill="rgba(160,128,205,0.75)" />
-                <rect x="1409.0" y="223" width="5" height="17" rx="1.5" fill="rgba(160,128,205,0.75)" />
-                <rect x="1432.0" y="228" width="5" height="12" rx="1.5" fill="rgba(132,102,182,0.7)" />
-                <rect x="1439.0" y="233" width="5" height="7" rx="1.5" fill="rgba(132,102,182,0.7)" />
-                <rect x="1446.0" y="224" width="5" height="16" rx="1.5" fill="rgba(132,102,182,0.7)" />
-                <rect x="1453.0" y="227" width="5" height="13" rx="1.5" fill="rgba(132,102,182,0.7)" />
-                <circle cx="1532.0" cy="228" r="16" fill="rgba(18,12,34,0.7)" stroke="rgba(104,76,158,0.45)" />
-                <path d="M1532.0 228 L1532.0 212 A16 16 0 0 1 1548.0 228 Z" fill="rgba(160,128,205,0.8)" />
-                <path d="M1532.0 228 L1548.0 228 A16 16 0 0 1 1532.0 244 Z" fill="rgba(118,92,172,0.6)" />
+                <rect x="1388.0" y="232" width="5" height="8" rx="1.5" fill="rgba(110,165,215,0.75)" />
+                <rect x="1395.0" y="226" width="5" height="14" rx="1.5" fill="rgba(110,165,215,0.75)" />
+                <rect x="1402.0" y="229" width="5" height="11" rx="1.5" fill="rgba(110,165,215,0.75)" />
+                <rect x="1409.0" y="223" width="5" height="17" rx="1.5" fill="rgba(110,165,215,0.75)" />
+                <rect x="1432.0" y="228" width="5" height="12" rx="1.5" fill="rgba(78,122,180,0.7)" />
+                <rect x="1439.0" y="233" width="5" height="7" rx="1.5" fill="rgba(78,122,180,0.7)" />
+                <rect x="1446.0" y="224" width="5" height="16" rx="1.5" fill="rgba(78,122,180,0.7)" />
+                <rect x="1453.0" y="227" width="5" height="13" rx="1.5" fill="rgba(78,122,180,0.7)" />
+                <circle cx="1532.0" cy="228" r="16" fill="rgba(18,12,34,0.7)" stroke="rgba(80,120,175,0.45)" />
+                <path d="M1532.0 228 L1532.0 212 A16 16 0 0 1 1548.0 228 Z" fill="rgba(110,165,215,0.8)" />
+                <path d="M1532.0 228 L1548.0 228 A16 16 0 0 1 1532.0 244 Z" fill="rgba(70,111,160,0.6)" />
                 <circle
                   cx="1330.0"
                   cy="392"
                   r="30"
                   fill="url(#hb_custG)"
-                  stroke="rgba(140,108,195,0.65)"
+                  stroke="rgba(95,140,195,0.65)"
                   stroke-width="1.6"
                   filter="url(#hb_drop)"
                 />
@@ -3168,7 +3796,7 @@
                   font-size="15"
                   font-weight="600"
                   letter-spacing="0"
-                  fill="rgba(220,212,240,0.95)"
+                  fill="rgba(208,224,244,0.95)"
                 >
                   Government
                 </text>
@@ -3178,14 +3806,14 @@
                   width="196"
                   height="60"
                   rx="9"
-                  fill="rgba(22,16,40,0.6)"
-                  stroke="rgba(104,76,158,0.45)"
+                  fill="rgba(14,26,46,0.6)"
+                  stroke="rgba(80,120,175,0.45)"
                   stroke-width="1"
                 />
                 <g
                   transform="translate(1392.0,392) scale(1.1)"
                   fill="none"
-                  stroke="rgba(160,128,205,0.8)"
+                  stroke="rgba(110,165,215,0.8)"
                   stroke-width="1.6"
                   stroke-linejoin="round"
                 >
@@ -3200,7 +3828,7 @@
                   cy="572"
                   r="30"
                   fill="url(#hb_custG)"
-                  stroke="rgba(140,108,195,0.65)"
+                  stroke="rgba(95,140,195,0.65)"
                   stroke-width="1.6"
                   filter="url(#hb_drop)"
                 />
@@ -3222,7 +3850,7 @@
                   font-size="15"
                   font-weight="600"
                   letter-spacing="0"
-                  fill="rgba(220,212,240,0.95)"
+                  fill="rgba(208,224,244,0.95)"
                 >
                   SMBs
                 </text>
@@ -3232,8 +3860,8 @@
                   width="196"
                   height="60"
                   rx="9"
-                  fill="rgba(22,16,40,0.6)"
-                  stroke="rgba(104,76,158,0.45)"
+                  fill="rgba(14,26,46,0.6)"
+                  stroke="rgba(80,120,175,0.45)"
                   stroke-width="1"
                 />
                 <circle cx="1398.0" cy="582" r="8" fill="none" stroke="rgba(160,128,205,0.85)" stroke-width="1.6" />
@@ -3245,9 +3873,9 @@
                 />
                 <rect x="1424.0" y="574" width="86" height="4" rx="2" fill="rgba(160,128,205,0.5)" />
                 <rect x="1424.0" y="583" width="104" height="4" rx="2" fill="rgba(160,128,205,0.42)" />
-                <circle cx="1536.0" cy="588" r="15" fill="rgba(18,12,34,0.7)" stroke="rgba(104,76,158,0.45)" />
-                <path d="M1536.0 588 L1536.0 573 A15 15 0 0 1 1551.0 588 Z" fill="rgba(160,128,205,0.8)" />
-                <path d="M1536.0 588 L1551.0 588 A15 15 0 0 1 1536.0 603 Z" fill="rgba(118,92,172,0.6)" />
+                <circle cx="1536.0" cy="588" r="15" fill="rgba(18,12,34,0.7)" stroke="rgba(80,120,175,0.45)" />
+                <path d="M1536.0 588 L1536.0 573 A15 15 0 0 1 1551.0 588 Z" fill="rgba(110,165,215,0.8)" />
+                <path d="M1536.0 588 L1551.0 588 A15 15 0 0 1 1536.0 603 Z" fill="rgba(70,111,160,0.6)" />
               </svg>
             </div>
             <div class="lyr3">
@@ -4058,15 +4686,7 @@
               <div class="pc" id="p-nextedge">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M17.5 19a4.5 4.5 0 0 0 0-9h-1A7 7 0 1 0 5 18" /></svg></span
+                    ><i class="fa-solid fa-server"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">NextEdge IaaS</span
                     ><span class="pc-d"
@@ -4098,18 +4718,7 @@
               <div class="pc" id="p-kubernetes">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path
-                        d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
-                      />
-                      <path d="M9 12l2 2 4-4" /></svg></span
+                    ><i class="fa-solid fa-cubes"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Managed Kubernetes</span
                     ><span class="pc-d"
@@ -4137,16 +4746,7 @@
               <div class="pc" id="p-vdi">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <rect x="2" y="3" width="20" height="14" rx="2" />
-                      <path d="M8 21h8M12 17v4" /></svg></span
+                    ><i class="fa-solid fa-desktop"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Virtual Desktops (VDI)</span
                     ><span class="pc-d"
@@ -4174,16 +4774,7 @@
               <div class="pc" id="p-io">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M12 2 2 7l10 5 10-5-10-5z" />
-                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" /></svg></span
+                    ><i class="fa-solid fa-hard-drive"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">iO Object Storage</span
                     ><span class="pc-d"
@@ -4197,6 +4788,73 @@
                     <div class="pc-hl">
                       Any existing S3 SDK or tool works unchanged by swapping a single endpoint, so customers get object
                       storage inside your data centers with no egress fees and no code rewrite.
+                    </div>
+                    <div class="pc-visual io-dash" aria-hidden="true">
+                      <div class="io-topbar">
+                        <div class="io-brand-logo">WP</div>
+                        <span class="io-brand-name">WorldPosta</span>
+                        <span class="io-brand-sep">|</span>
+                        <span class="io-brand-title">Object Storage</span>
+                      </div>
+                      <div class="io-tabs">
+                        <div class="io-tab io-tab-active"><i class="fa-solid fa-gauge-simple-high"></i> Dashboard</div>
+                        <div class="io-tab"><i class="fa-solid fa-bucket"></i> Buckets</div>
+                        <div class="io-tab"><i class="fa-solid fa-key"></i> Access keys</div>
+                        <div class="io-tab"><i class="fa-solid fa-gear"></i> Settings</div>
+                      </div>
+                      <div class="io-body">
+                        <div class="io-eyebrow">DASHBOARD</div>
+                        <div class="io-heading">Your storage</div>
+                        <div class="io-subtext">Your storage at a glance. Quick links below jump to common actions.</div>
+                        <div class="io-quota-card">
+                          <div class="io-quota-label">STORAGE QUOTA</div>
+                          <div class="io-quota-val">12.21 <span>GB</span></div>
+                          <div class="io-quota-badge">No limit set</div>
+                          <div class="io-quota-note">No storage limit is set on your plan — 12.21 GB currently stored across 20,746 objects.</div>
+                        </div>
+                        <div class="io-stats">
+                          <div class="io-stat">
+                            <div class="io-stat-label">STORAGE USED</div>
+                            <div class="io-stat-val">12.21 <span>GB</span></div>
+                            <div class="io-stat-sub">Live from storage</div>
+                            <div class="io-stat-ghost"></div>
+                          </div>
+                          <div class="io-stat">
+                            <div class="io-stat-label">BUCKETS</div>
+                            <div class="io-stat-val">2</div>
+                            <div class="io-stat-sub">Active (not soft-deleted)</div>
+                            <div class="io-stat-ghost"></div>
+                          </div>
+                          <div class="io-stat">
+                            <div class="io-stat-label">TOTAL OBJECTS</div>
+                            <div class="io-stat-val">20,746</div>
+                            <div class="io-stat-sub">Across all buckets, live</div>
+                            <div class="io-stat-ghost"></div>
+                          </div>
+                        </div>
+                        <div class="io-actions">
+                          <div class="io-action">
+                            <div class="io-action-ic"><i class="fa-solid fa-bucket"></i></div>
+                            <div class="io-action-name">Buckets</div>
+                            <div class="io-action-sub">Browse + manage</div>
+                          </div>
+                          <div class="io-action">
+                            <div class="io-action-ic"><i class="fa-solid fa-key"></i></div>
+                            <div class="io-action-name">Access keys</div>
+                            <div class="io-action-sub">Mint + revoke</div>
+                          </div>
+                          <div class="io-action">
+                            <div class="io-action-ic"><i class="fa-solid fa-gear"></i></div>
+                            <div class="io-action-name">Settings</div>
+                            <div class="io-action-sub">Plan + activity</div>
+                          </div>
+                          <div class="io-action">
+                            <div class="io-action-ic"><i class="fa-solid fa-link"></i></div>
+                            <div class="io-action-name">Webhooks</div>
+                            <div class="io-action-sub">Event delivery</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <ul class="pc-feat">
                       <li>S3-compatible API that works with existing SDKs and tools</li>
@@ -4214,16 +4872,7 @@
               <div class="pc" id="p-databases">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M12 2C6.5 2 2 4.7 2 8s4.5 6 10 6 10-2.7 10-6S17.5 2 12 2z" />
-                      <path d="M2 8v8c0 3.3 4.5 6 10 6s10-2.7 10-6V8" /></svg></span
+                    ><i class="fa-solid fa-database"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Managed Databases</span
                     ><span class="pc-d"
@@ -4252,16 +4901,7 @@
               <div class="pc" id="p-backup">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M21 12a9 9 0 1 1-3-6.7L21 8" />
-                      <path d="M21 3v5h-5" /></svg></span
+                    ><i class="fa-solid fa-clock-rotate-left"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Backup &amp; DR</span
                     ><span class="pc-d"
@@ -4289,17 +4929,7 @@
               <div class="pc" id="p-networking">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <circle cx="6" cy="18" r="3" />
-                      <circle cx="18" cy="6" r="3" />
-                      <path d="M6 15V9a3 3 0 0 1 3-3h6M18 9v6a3 3 0 0 1-3 3H9" /></svg></span
+                    ><i class="fa-solid fa-network-wired"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Networking &amp; WAF</span
                     ><span class="pc-d"
@@ -4328,16 +4958,7 @@
               <div class="pc" id="p-security">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                      <path d="M9 12l2 2 4-4" /></svg></span
+                    ><i class="fa-solid fa-shield-halved"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Managed Security</span
                     ><span class="pc-d"
@@ -4368,15 +4989,7 @@
               <div class="pc" id="p-migration">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M16 3h5v5M21 3l-8 8M8 21H3v-5M3 21l8-8" /></svg></span
+                    ><i class="fa-solid fa-right-left"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Zero-downtime Migration</span
                     ><span class="pc-d"
@@ -4417,16 +5030,7 @@
               <div class="pc" id="p-posta">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <rect x="3" y="5" width="18" height="14" rx="2" />
-                      <path d="m3 7 9 6 9-6" /></svg></span
+                    ><i class="fa-solid fa-envelope"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Posta Mail</span
                     ><span class="pc-d"
@@ -4460,15 +5064,7 @@
               <div class="pc" id="p-gate">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg></span
+                    ><i class="fa-solid fa-shield-virus"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Posta Gate</span
                     ><span class="pc-d"
@@ -4499,15 +5095,7 @@
               <div class="pc" id="p-drive">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M3 7a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span
+                    ><i class="fa-solid fa-folder-open"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Drive</span
                     ><span class="pc-d"
@@ -4521,6 +5109,75 @@
                     <div class="pc-hl">
                       Customers co-edit real Word, Excel, and PowerPoint documents in the browser with full fidelity,
                       while files and encryption keys stay on infrastructure you control and isolated per tenant.
+                    </div>
+                    <div class="pc-visual drv-dash" aria-hidden="true">
+                      <!-- top bar -->
+                      <div class="drv-topbar">
+                        <div class="drv-brand">
+                          <div class="drv-brand-ic">
+                            <span style="color:#4285f4">●</span><span style="color:#ea4335">●</span><span style="color:#fbbc04">●</span>
+                          </div>
+                          <span class="drv-brand-name">Posta Drive</span>
+                        </div>
+                        <div class="drv-search">
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                          <span>Search in Drive</span>
+                          <span class="drv-ai-badge">AI</span>
+                        </div>
+                        <div class="drv-topbar-right">
+                          <span class="drv-top-ic"><i class="fa-solid fa-star"></i> Ask AI</span>
+                          <span class="drv-top-ic"><i class="fa-regular fa-bell"></i></span>
+                          <div class="drv-avatar">?</div>
+                        </div>
+                      </div>
+                      <div class="drv-body">
+                        <!-- left nav -->
+                        <div class="drv-sidenav">
+                          <div class="drv-new-btn"><i class="fa-solid fa-plus"></i> New</div>
+                          <div class="drv-nav-label">DRIVE</div>
+                          <div class="drv-nav-item drv-nav-active"><i class="fa-solid fa-house"></i> Home</div>
+                          <div class="drv-nav-item"><i class="fa-solid fa-hard-drive"></i> My Drive</div>
+                          <div class="drv-nav-item"><i class="fa-solid fa-user-group"></i> Shared with me</div>
+                          <div class="drv-nav-item"><i class="fa-regular fa-clock"></i> Recent</div>
+                          <div class="drv-nav-item"><i class="fa-regular fa-star"></i> Starred</div>
+                          <div class="drv-nav-item"><i class="fa-solid fa-layer-group"></i> Workspace</div>
+                          <div class="drv-nav-item"><i class="fa-solid fa-gear"></i> Settings</div>
+                          <div class="drv-nav-item"><i class="fa-solid fa-trash"></i> Trash</div>
+                          <div class="drv-storage">
+                            <div class="drv-storage-label">STORAGE <span class="drv-storage-pct">0%</span></div>
+                            <div class="drv-storage-bar"><div class="drv-storage-fill"></div></div>
+                            <div class="drv-storage-used">23 MB of 100.0 GB</div>
+                          </div>
+                        </div>
+                        <!-- main area -->
+                        <div class="drv-main">
+                          <div class="drv-greeting-row">
+                            <div class="drv-user-av">?</div>
+                            <div>
+                              <div class="drv-greeting">Good afternoon</div>
+                              <div class="drv-greeting-date">Sunday, June 28</div>
+                            </div>
+                          </div>
+                          <div class="drv-filter-tabs">
+                            <div class="drv-ftab"><i class="fa-regular fa-folder"></i> My Drive</div>
+                            <div class="drv-ftab"><i class="fa-solid fa-user-group"></i> Shared with me</div>
+                            <div class="drv-ftab"><i class="fa-solid fa-clock-rotate-left"></i> Recent</div>
+                            <div class="drv-ftab"><i class="fa-regular fa-star"></i> Saved searches</div>
+                          </div>
+                          <div class="drv-section-head"><span class="drv-section-label">RECENTLY OPENED</span><span class="drv-view-all">View all</span></div>
+                          <div class="drv-file-grid">
+                            <div class="drv-file"><div class="drv-file-ic drv-word"><i class="fa-solid fa-file-word"></i></div><div class="drv-file-name">Document 2026-06-04...</div><div class="drv-file-date">Jun 4</div></div>
+                            <div class="drv-file"><div class="drv-file-ic drv-word"><i class="fa-solid fa-file-word"></i></div><div class="drv-file-name">Document 2026-06-04...</div><div class="drv-file-date">Jun 4</div></div>
+                            <div class="drv-file"><div class="drv-file-ic drv-excel"><i class="fa-solid fa-file-excel"></i></div><div class="drv-file-name">Spreadsheet 2026-05-...</div><div class="drv-file-date">May 31</div></div>
+                            <div class="drv-file"><div class="drv-file-ic drv-pdf"><i class="fa-solid fa-file-pdf"></i></div><div class="drv-file-name">Plan_Billing.pdf</div><div class="drv-file-date">May 28</div></div>
+                            <div class="drv-file"><div class="drv-file-ic drv-excel"><i class="fa-solid fa-file-excel"></i></div><div class="drv-file-name">link_check_report.xlsx</div><div class="drv-file-date">May 19</div></div>
+                          </div>
+                          <div class="drv-section-head" style="margin-top:10px"><span class="drv-section-label">STARRED</span><span class="drv-view-all">View all</span></div>
+                          <div class="drv-file-grid">
+                            <div class="drv-file"><div class="drv-file-ic drv-word"><i class="fa-solid fa-file-word"></i></div><div class="drv-file-name">Document 2026-05-13...</div><div class="drv-file-date">May 13</div></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <ul class="pc-feat">
                       <li>Files and folders with versioning, trash, and restore</li>
@@ -4542,16 +5199,7 @@
               <div class="pc" id="p-meet">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M15 10l5-3v10l-5-3" />
-                      <rect x="3" y="5" width="12" height="14" rx="2" /></svg></span
+                    ><i class="fa-solid fa-video"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Meet</span
                     ><span class="pc-d"
@@ -4566,6 +5214,63 @@
                       From any file a customer schedules a meeting that auto-grants attendees access and revokes it
                       afterward, so meetings are a first-class action on documents and identities, not a separate app to
                       buy.
+                    </div>
+                    <div class="pc-visual meet-dash" aria-hidden="true">
+                      <div class="md-topbar">
+                        <div class="md-brand">
+                          <div class="md-brand-ic"><i class="fa-solid fa-video"></i></div>
+                          <span class="md-brand-name">WorldPosta Meet</span>
+                        </div>
+                        <div class="md-topbar-right">
+                          <div class="md-avatar">A</div>
+                          <div class="md-logout">Log out</div>
+                        </div>
+                      </div>
+                      <div class="md-body">
+                        <div class="md-hero-row">
+                          <div>
+                            <div class="md-greeting">Good afternoon, <span class="md-name">Adam.</span></div>
+                            <div class="md-subtext">You have 1 meeting today — ready when you are.</div>
+                          </div>
+                          <div class="md-clock">
+                            <div class="md-date">SUNDAY, JUNE 7, 2026</div>
+                            <div class="md-time">14:32</div>
+                          </div>
+                        </div>
+                        <div class="md-actions">
+                          <div class="md-action md-action-active">
+                            <div class="md-action-ic"><i class="fa-solid fa-video"></i></div>
+                            <div class="md-action-title">Start an instant meeting</div>
+                            <div class="md-action-desc">Spin up a room in 10 seconds — invite anyone with the link.</div>
+                            <div class="md-action-link">Start now →</div>
+                          </div>
+                          <div class="md-action">
+                            <div class="md-action-ic"><i class="fa-regular fa-calendar"></i></div>
+                            <div class="md-action-title">Schedule for later</div>
+                            <div class="md-action-desc">Pick a time, set a duration, and share the link.</div>
+                          </div>
+                          <div class="md-action">
+                            <div class="md-action-ic"><i class="fa-solid fa-square-check"></i></div>
+                            <div class="md-action-title">Join with a code</div>
+                            <div class="md-action-desc">Got a meeting code or shared link? Paste it here.</div>
+                          </div>
+                        </div>
+                        <div class="md-section-label">Today &amp; <span class="md-section-accent">upcoming</span> <span class="md-section-count">1 MEETING</span></div>
+                        <div class="md-live-row">
+                          <div class="md-live-badge"><div class="md-now">NOW</div><div class="md-live-word">live</div></div>
+                          <div class="md-live-info">
+                            <div class="md-live-title">Instant meeting</div>
+                            <div class="md-live-pill"><span class="md-live-dot"></span>live</div>
+                          </div>
+                          <div class="md-rejoin">Rejoin →</div>
+                        </div>
+                        <div class="md-stats">
+                          <div class="md-stat"><div class="md-stat-val">2h 15m</div><div class="md-stat-label">Total time in meetings this week</div></div>
+                          <div class="md-stat"><div class="md-stat-val">1</div><div class="md-stat-label">Meetings you hosted this week</div></div>
+                          <div class="md-stat"><div class="md-stat-val">45m</div><div class="md-stat-label">Average meeting duration this week</div></div>
+                          <div class="md-stat"><div class="md-stat-val">2</div><div class="md-stat-label">Total meetings on your account</div></div>
+                        </div>
+                      </div>
                     </div>
                     <ul class="pc-feat">
                       <li>Browser video and audio meetings with a pre-join device test</li>
@@ -4586,16 +5291,7 @@
               <div class="pc" id="p-office">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                      <path d="M14 2v6h6M9 13h6M9 17h6" /></svg></span
+                    ><i class="fa-solid fa-file-lines"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Online Office Apps</span
                     ><span class="pc-d"
@@ -4637,15 +5333,7 @@
               <div class="pc" id="p-atrium">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" /></svg></span
+                    ><i class="fa-solid fa-table-columns"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Atrium</span
                     ><span class="pc-d"
@@ -4678,16 +5366,7 @@
               <div class="pc" id="p-billing">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <rect x="2" y="5" width="20" height="14" rx="2" />
-                      <path d="M2 10h20M6 15h4" /></svg></span
+                    ><i class="fa-solid fa-receipt"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Billing Engine</span
                     ><span class="pc-d"
@@ -4720,16 +5399,7 @@
               <div class="pc" id="p-watchful">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                      <circle cx="12" cy="12" r="3" /></svg></span
+                    ><i class="fa-solid fa-eye"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Watchful</span
                     ><span class="pc-d"
@@ -4761,16 +5431,7 @@
               <div class="pc" id="p-identity">
                 <button class="pc-head" type="button" aria-expanded="false">
                   <span class="pc-ic"
-                    ><svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.8"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" /></svg></span
+                    ><i class="fa-solid fa-id-card"></i></span
                   ><span class="pc-tt"
                     ><span class="pc-t">Identity &amp; SSO</span
                     ><span class="pc-d"
@@ -4784,6 +5445,80 @@
                     <div class="pc-hl">
                       Every product authenticates against one identity provider with a fine-grained policy engine, so a
                       user gets one secure sign-on across the whole ecosystem and you control access centrally.
+                    </div>
+                    <div class="pc-visual sso-dash" aria-hidden="true">
+                      <div class="sso-topbar">
+                        <div class="sso-brand">
+                          <span class="sso-brand-dot"></span>
+                          <span class="sso-brand-name">WorldPosta</span>
+                        </div>
+                        <div class="sso-signout">Sign out</div>
+                      </div>
+                      <div class="sso-body">
+                        <div class="sso-welcome">Welcome, <span class="sso-name">Adam</span></div>
+                        <div class="sso-sub">Pick an app to get started.</div>
+                        <div class="sso-quick-actions">
+                          <div class="sso-qa"><i class="fa-regular fa-envelope"></i> Compose mail</div>
+                          <div class="sso-qa"><i class="fa-regular fa-file-word"></i> New Word doc</div>
+                          <div class="sso-qa"><i class="fa-solid fa-video"></i> Schedule meeting</div>
+                        </div>
+                        <div class="sso-app-grid">
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-drive"><i class="fa-solid fa-folder-open"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">Posta Drive</div><div class="sso-app-desc">Files, sharing, Office editing</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-mail"><i class="fa-regular fa-envelope"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">Posta</div><div class="sso-app-desc">Webmail (EWS / IMAP / Graph)</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-meet"><i class="fa-solid fa-video"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">Meet</div><div class="sso-app-desc">Video meetings + recording</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                          <div class="sso-recent-files">
+                            <div class="sso-recent-label">RECENT FILES</div>
+                            <div class="sso-rf-row"><span class="sso-rf-name">Document 2026-06-04.docx</span><span class="sso-rf-date">6/4/2026</span></div>
+                            <div class="sso-rf-row"><span class="sso-rf-name">Document 2026-06-04.docx</span><span class="sso-rf-date">6/4/2026</span></div>
+                            <div class="sso-rf-row"><span class="sso-rf-name">Spreadsheet 2026-05-31.xlsx</span><span class="sso-rf-date">5/31/2026</span></div>
+                            <div class="sso-rf-row"><span class="sso-rf-name">Plan_Billing.pdf</span><span class="sso-rf-date">5/28/2026</span></div>
+                            <div class="sso-rf-row"><span class="sso-rf-name">link_check_report.xlsx</span><span class="sso-rf-date">5/19/2026</span></div>
+                          </div>
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-word"><i class="fa-solid fa-file-word"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">Word</div><div class="sso-app-desc">New document — opens in Offi...</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-excel"><i class="fa-solid fa-file-excel"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">Excel</div><div class="sso-app-desc">New spreadsheet — opens in Of...</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-ppt"><i class="fa-solid fa-file-powerpoint"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">PowerPoint</div><div class="sso-app-desc">New presentation — opens in O...</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-kb"><i class="fa-solid fa-book-open"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">Knowledge</div><div class="sso-app-desc">KB articles &amp; search</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-diag"><i class="fa-solid fa-diagram-project"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">Diagrams</div><div class="sso-app-desc">Architecture &amp; flowcharts</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                          <div class="sso-app-card">
+                            <div class="sso-app-ic sso-ic-cloud"><i class="fa-solid fa-cloud"></i></div>
+                            <div class="sso-app-info"><div class="sso-app-name">Nextcloud</div><div class="sso-app-desc">Files &amp; collaboration</div></div>
+                            <i class="fa-solid fa-arrow-up-right-from-square sso-app-go"></i>
+                          </div>
+                        </div>
+                        <div class="sso-footer">WorldPosta · Home</div>
+                      </div>
                     </div>
                     <ul class="pc-feat">
                       <li>Standards-based provider using OIDC, OAuth2, and SAML 2.0</li>
@@ -4849,6 +5584,27 @@
               WorldPosta does not compete for your customers. We operate the layer beneath your brand, so the trust, the
               relationship, and the revenue stay with you while we keep the platform running, updated, and secure.
             </p>
+            <div class="about-vis" id="about-vis">
+              <div class="av-brand-card av-card">
+                <div class="av-ey" style="color:#7C8EA8">Your operator brand</div>
+                <div class="av-brand-title">YOUR BRAND</div>
+                <div class="av-ptags"><span class="av-ptag">Cloud</span><span class="av-ptag">Mail</span><span class="av-ptag">Files</span><span class="av-ptag">Security</span><span class="av-ptag">Billing</span></div>
+                <div class="av-seen">What your customers see</div>
+              </div>
+              <div class="av-conn"><div class="av-track"></div><div class="av-dot"></div><div class="av-dot"></div><div class="av-dot"></div></div>
+              <div class="av-wp-card av-card">
+                <div class="av-wp-top">
+                  <div class="av-ey" style="color:rgba(139,191,60,.65);margin-bottom:0">WorldPosta Platform</div>
+                  <span class="av-invis">Invisible to your customers</span>
+                </div>
+                <div class="av-creds">
+                  <div><span class="av-cred-n">10+</span><span class="av-cred-l">Years operating</span></div>
+                  <div><span class="av-cred-n">ISO</span><span class="av-cred-l">IEC&nbsp;27001 certified</span></div>
+                  <div><span class="av-cred-n">PCI</span><span class="av-cred-l">DSS compliant</span></div>
+                  <div><span class="av-cred-n">SOC</span><span class="av-cred-l">24/7 operations</span></div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         <section class="psec" id="security">
@@ -5004,11 +5760,12 @@
                   <div class="mock-bar">
                     <span class="mock-dot" style="background: #e06c6c"></span
                     ><span class="mock-dot" style="background: #e0b84c"></span
-                    ><span class="mock-dot" style="background: #8bbf3c"></span>
+                    ><span class="mock-dot" id="brand-dot" style="background: #8bbf3c"></span>
+                    <span class="mock-bar-url" id="brand-url">portal.worldposta.com</span>
                   </div>
                   <div class="mock-body">
                     <div class="mock-side">
-                      <div class="mock-icon"></div>
+                      <div class="mock-icon mock-logo-ic" id="brand-logo">WP</div>
                       <div class="mock-icon"></div>
                       <div class="mock-icon"></div>
                       <div class="mock-icon"></div>
@@ -5016,16 +5773,17 @@
                     <div class="mock-content">
                       <div class="mock-row" style="width: 42%"></div>
                       <div class="mock-tiles">
-                        <div class="mock-tile"></div>
+                        <div class="mock-tile" id="brand-tile"></div>
                         <div class="mock-tile"></div>
                         <div class="mock-tile"></div>
                       </div>
                       <div class="mock-line" style="width: 90%; background: rgba(120, 160, 210, 0.14)"></div>
                       <div class="mock-line" style="width: 74%; background: rgba(120, 160, 210, 0.1)"></div>
-                      <div class="mock-line" style="width: 82%; background: rgba(96, 152, 64, 0.18)"></div>
+                      <div class="mock-line" id="brand-line" style="width: 82%; background: rgba(96, 152, 64, 0.18)"></div>
                     </div>
                   </div>
                 </div>
+                <div class="brand-cycle-tag" id="brand-cycle-tag">WorldPosta · Platform</div>
               </div>
             </div>
           </div>
@@ -5200,6 +5958,18 @@
       </main>
     </div>
 
+    <!-- product card modal -->
+    <div class="pc-overlay" id="pc-overlay" role="dialog" aria-modal="true" aria-label="Product detail">
+      <div class="pc-dialog">
+        <button class="pc-dlg-close" id="pc-dlg-close" aria-label="Close">&#x2715;</button>
+        <div class="pc-dlg-head">
+          <div id="pc-dlg-ic"></div>
+          <div class="pc-dlg-titles" id="pc-dlg-titles"></div>
+        </div>
+        <div id="pc-dlg-content"></div>
+      </div>
+    </div>
+
     <script>
       (function () {
         var links = [].slice.call(document.querySelectorAll(".sb-link"));
@@ -5240,28 +6010,133 @@
             if (_tg) _tg.setAttribute("aria-expanded", "false");
           });
         });
-        // accordion toggle
+        // product card modal
+        var _ov = document.getElementById("pc-overlay");
+        var _dlgIc = document.getElementById("pc-dlg-ic");
+        var _dlgTitles = document.getElementById("pc-dlg-titles");
+        var _dlgContent = document.getElementById("pc-dlg-content");
+
+        var _dlg = _ov.querySelector(".pc-dialog");
+
+        function openPcModal(pc) {
+          var icEl = pc.querySelector(".pc-ic");
+          var titleEl = pc.querySelector(".pc-t");
+          var descEl = pc.querySelector(".pc-d");
+          var hlEl = pc.querySelector(".pc-hl");
+          var visualEl = pc.querySelector(".pc-visual");
+          var featEl = pc.querySelector(".pc-feat");
+          _dlgIc.innerHTML = "";
+          if (icEl) _dlgIc.appendChild(icEl.cloneNode(true));
+          _dlgTitles.innerHTML =
+            '<span class="pc-t">' +
+            (titleEl ? titleEl.textContent : "") +
+            '</span><span class="pc-d">' +
+            (descEl ? descEl.innerHTML : "") +
+            "</span>";
+          var textCol =
+            (hlEl ? '<div class="pc-hl">' + hlEl.innerHTML + "</div>" : "") +
+            (featEl ? featEl.outerHTML : "");
+          if (visualEl) {
+            _dlg.classList.add("wide");
+            _dlgContent.innerHTML =
+              '<div class="pc-dlg-two-col">' +
+              '<div class="pc-dlg-visual-col">' + visualEl.outerHTML + "</div>" +
+              '<div class="pc-dlg-text-col">' + textCol + "</div>" +
+              "</div>";
+          } else {
+            _dlg.classList.remove("wide");
+            _dlgContent.innerHTML = textCol;
+          }
+          _ov.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closePcModal() {
+          _ov.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+
         document.querySelectorAll(".pc-head").forEach(function (h) {
           h.addEventListener("click", function () {
-            var c = h.parentElement;
-            var open = c.classList.toggle("open");
-            h.setAttribute("aria-expanded", open);
+            openPcModal(h.parentElement);
           });
         });
-        // sidebar product sub-links: scroll + open card
+
+        document.getElementById("pc-dlg-close").addEventListener("click", closePcModal);
+        _ov.addEventListener("click", function (e) {
+          if (e.target === _ov) closePcModal();
+        });
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && _ov.classList.contains("open")) closePcModal();
+        });
+
+        // sidebar product sub-links: scroll to section + open modal
         document.querySelectorAll(".sb-sub, .ptile").forEach(function (a) {
           a.addEventListener("click", function (ev) {
             ev.preventDefault();
             var k = a.getAttribute("data-prod");
             var card = document.getElementById("p-" + k);
             if (card) {
-              card.classList.add("open");
-              var h = card.querySelector(".pc-head");
-              if (h) h.setAttribute("aria-expanded", "true");
-              card.scrollIntoView({ behavior: "smooth", block: "center" });
+              document.getElementById("cloud").scrollIntoView({ behavior: "smooth", block: "start" });
+              setTimeout(function () {
+                openPcModal(card);
+              }, 380);
             }
           });
         });
+      })();
+
+      // brand palette cycling — #brand mock
+      (function () {
+        var palettes = [
+          { name: "WorldPosta · Platform", hex: "#8BBF3C", rgb: "96,152,64",   url: "portal.worldposta.com", logo: "WP" },
+          { name: "NovaTel · Cloud",       hex: "#3B82F6", rgb: "59,130,246",  url: "cloud.novatel.net",     logo: "NT" },
+          { name: "AlphaPay · Portal",     hex: "#F59E0B", rgb: "245,158,11",  url: "portal.alphapay.io",    logo: "AP" },
+          { name: "GovCloud · Suite",      hex: "#818CF8", rgb: "129,140,248", url: "suite.govcloud.eg",     logo: "GV" },
+          { name: "SkyISP · Drive",        hex: "#2DD4BF", rgb: "45,212,191",  url: "drive.skyisp.com",      logo: "SK" },
+        ];
+        var idx   = 0;
+        var bdot  = document.getElementById("brand-dot");
+        var burl  = document.getElementById("brand-url");
+        var blogo = document.getElementById("brand-logo");
+        var btile = document.getElementById("brand-tile");
+        var bline = document.getElementById("brand-line");
+        var btag  = document.getElementById("brand-cycle-tag");
+
+        function apply(p) {
+          bdot.style.background   = p.hex;
+          burl.style.color        = "rgba(" + p.rgb + ",.45)";
+          burl.textContent        = p.url;
+          blogo.style.background  = "rgba(" + p.rgb + ",.18)";
+          blogo.style.color       = p.hex;
+          blogo.style.borderColor = "rgba(" + p.rgb + ",.4)";
+          blogo.textContent       = p.logo;
+          btile.style.background  = "rgba(" + p.rgb + ",.1)";
+          btile.style.borderColor = "rgba(" + p.rgb + ",.3)";
+          bline.style.background  = "rgba(" + p.rgb + ",.22)";
+          if (btag) { btag.style.color = p.hex; btag.textContent = p.name; }
+        }
+
+        if (bdot && blogo && btile && bline) {
+          apply(palettes[0]);
+          setInterval(function () {
+            idx = (idx + 1) % palettes.length;
+            apply(palettes[idx]);
+          }, 2500);
+        }
+      })();
+      (function () {
+        var vis = document.getElementById('about-vis');
+        if (!vis || !window.IntersectionObserver) return;
+        var wp = vis.querySelector('.av-wp-card'), conn = vis.querySelector('.av-conn'), brand = vis.querySelector('.av-brand-card');
+        function trigger() {
+          setTimeout(function () { wp.classList.add('av-in'); }, 0);
+          setTimeout(function () { conn.classList.add('av-in'); }, 350);
+          setTimeout(function () { brand.classList.add('av-in'); }, 700);
+          obs.disconnect();
+        }
+        var obs = new IntersectionObserver(function (e) { if (e[0].isIntersecting) trigger(); }, { threshold: .2 });
+        obs.observe(vis);
       })();
     </script>
   </body>

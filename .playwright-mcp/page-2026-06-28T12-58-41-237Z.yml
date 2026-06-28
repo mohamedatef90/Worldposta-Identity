@@ -1,0 +1,436 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - complementary [ref=e3]:
+      - img "WorldPosta" [ref=e5]
+      - generic [ref=e6]:
+        - generic [ref=e7]: ECOSYSTEM
+        - link "Overview" [ref=e8] [cursor=pointer]:
+          - /url: "#overview"
+          - text: Overview
+        - link "The Opportunity" [ref=e10] [cursor=pointer]:
+          - /url: "#opportunity"
+          - text: The Opportunity
+        - link "What We Provide" [ref=e12] [cursor=pointer]:
+          - /url: "#provide"
+          - text: What We Provide
+        - generic [ref=e14]: THE PLATFORM
+        - link "NextEdge" [ref=e15] [cursor=pointer]:
+          - /url: "#cloud"
+          - text: NextEdge
+        - generic [ref=e17]:
+          - link "NextEdge IaaS" [ref=e18] [cursor=pointer]:
+            - /url: "#p-nextedge"
+          - link "Managed Kubernetes" [ref=e19] [cursor=pointer]:
+            - /url: "#p-kubernetes"
+          - link "Virtual Desktops (VDI)" [ref=e20] [cursor=pointer]:
+            - /url: "#p-vdi"
+          - link "iO Object Storage" [ref=e21] [cursor=pointer]:
+            - /url: "#p-io"
+          - link "Managed Databases" [ref=e22] [cursor=pointer]:
+            - /url: "#p-databases"
+          - link "Backup & DR" [ref=e23] [cursor=pointer]:
+            - /url: "#p-backup"
+          - link "Networking & WAF" [ref=e24] [cursor=pointer]:
+            - /url: "#p-networking"
+          - link "Managed Security" [ref=e25] [cursor=pointer]:
+            - /url: "#p-security"
+          - link "Zero-downtime Migration" [ref=e26] [cursor=pointer]:
+            - /url: "#p-migration"
+        - link "Collaboration Suite" [ref=e27] [cursor=pointer]:
+          - /url: "#collab"
+          - text: Collaboration Suite
+        - generic [ref=e29]:
+          - link "Posta Mail" [ref=e30] [cursor=pointer]:
+            - /url: "#p-posta"
+          - link "Posta Gate" [ref=e31] [cursor=pointer]:
+            - /url: "#p-gate"
+          - link "Drive" [ref=e32] [cursor=pointer]:
+            - /url: "#p-drive"
+          - link "Meet" [ref=e33] [cursor=pointer]:
+            - /url: "#p-meet"
+          - link "Online Office Apps" [ref=e34] [cursor=pointer]:
+            - /url: "#p-office"
+        - link "Operations Spine" [ref=e35] [cursor=pointer]:
+          - /url: "#operations"
+          - text: Operations Spine
+        - generic [ref=e37]:
+          - link "Atrium" [ref=e38] [cursor=pointer]:
+            - /url: "#p-atrium"
+          - link "Billing Engine" [ref=e39] [cursor=pointer]:
+            - /url: "#p-billing"
+          - link "Watchful" [ref=e40] [cursor=pointer]:
+            - /url: "#p-watchful"
+          - link "Identity & SSO" [ref=e41] [cursor=pointer]:
+            - /url: "#p-identity"
+        - generic [ref=e42]: WHY WORLDPOSTA
+        - link "About WorldPosta" [ref=e43] [cursor=pointer]:
+          - /url: "#about"
+          - text: About WorldPosta
+        - link "Security & Data Residency" [ref=e45] [cursor=pointer]:
+          - /url: "#security"
+          - text: Security & Data Residency
+        - link "Fully Operated" [ref=e47] [cursor=pointer]:
+          - /url: "#operated"
+          - text: Fully Operated
+        - link "Your Brand, Your Margin" [ref=e49] [cursor=pointer]:
+          - /url: "#brand"
+          - text: Your Brand, Your Margin
+        - generic [ref=e51]: FIT & NEXT STEPS
+        - link "Built for Your Sector" [ref=e52] [cursor=pointer]:
+          - /url: "#sectors"
+          - text: Built for Your Sector
+        - link "Get Started" [ref=e54] [cursor=pointer]:
+          - /url: "#start"
+          - text: Get Started
+        - link "Request a Walkthrough" [ref=e57] [cursor=pointer]:
+          - /url: "#start"
+    - main [ref=e58]:
+      - generic [ref=e60]:
+        - generic [ref=e61]: The software layer operators were missing
+        - heading "Own your ecosystem. Everything connected. Everything yours." [level=1] [ref=e63]:
+          - generic [ref=e64]: Own your ecosystem.
+          - generic [ref=e65]: Everything connected.
+          - generic [ref=e66]: Everything yours.
+        - paragraph [ref=e67]: WorldPosta is a complete ecosystem for service providers that want full control over how digital services are delivered, branded, and operated. Every component works together through one platform, so you can start with a single suite, expand across the full stack, and run everything under your own brand.
+        - img [ref=e69]:
+          - generic [ref=e71]: YOUR INFRASTRUCTURE
+          - generic [ref=e73]: YOURS
+          - generic [ref=e74]: WORLDPOSTA ECOSYSTEM
+          - generic [ref=e75]: Cloud Manager · Collaboration Suite · Operations Spine
+          - generic [ref=e76]: YOUR BRANDED SOFTWARE
+          - generic [ref=e78]: YOURS
+          - generic [ref=e92]: Compute
+          - generic [ref=e112]: Networking
+          - generic [ref=e121]: Storage
+          - generic [ref=e129]: Virtual Machines
+          - generic [ref=e181]: WorldPosta
+          - generic [ref=e186]: NextEdge IaaS
+          - generic [ref=e191]: Kubernetes
+          - generic [ref=e196]: Security
+          - generic [ref=e201]: VDI
+          - generic [ref=e206]: Databases
+          - generic [ref=e211]: Backup & DR
+          - generic [ref=e216]: Migration
+          - generic [ref=e221]: Networking
+          - generic [ref=e226]: Watchful
+          - generic [ref=e231]: Billing
+          - generic [ref=e236]: Atrium
+          - generic [ref=e241]: iO Storage
+          - generic [ref=e246]: Posta Mail
+          - generic [ref=e251]: Posta Gate
+          - generic [ref=e256]: Drive
+          - generic [ref=e261]: Meet
+          - generic [ref=e266]: Online Office
+          - generic [ref=e271]: Identity
+          - generic [ref=e287]: Enterprise
+          - generic [ref=e304]: Government
+          - generic [ref=e316]: SMBs
+        - generic [ref=e325]:
+          - generic [ref=e326]:
+            - generic [ref=e327]: Layer 1 · Yours
+            - generic [ref=e328]: Your infrastructure
+            - generic [ref=e329]: On-premises, colocation, or any cloud. The platform runs on the capacity you already operate.
+          - generic [ref=e330]:
+            - generic [ref=e331]: Layer 2 · WorldPosta
+            - generic [ref=e332]: The ecosystem
+            - generic [ref=e333]: Cloud, collaboration, and the operations spine, all connected and fully operated for you.
+          - generic [ref=e334]:
+            - generic [ref=e335]: Layer 3 · Yours
+            - generic [ref=e336]: Your branded software
+            - generic [ref=e337]: What your customers see and buy. Your logo, your domain, your invoices. WorldPosta stays invisible.
+      - generic [ref=e339]:
+        - generic [ref=e340]: Why now
+        - heading "From multiple vendors to one connected ecosystem." [level=2] [ref=e342]:
+          - text: From multiple vendors
+          - text: to one connected ecosystem.
+        - paragraph [ref=e343]: Every additional platform brings another vendor relationship, management workflow, support process, and integration point. Over time, what should be one ecosystem becomes a collection of disconnected systems. WorldPosta replaces that complexity with a unified ecosystem where cloud, communication, storage, networking, security, billing, and management work together by design.
+        - img [ref=e345]:
+          - generic [ref=e346]: TODAY · MANY VENDORS
+          - generic [ref=e347]: WITH WORLDPOSTA · ONE ECOSYSTEM
+          - generic [ref=e351]: Mail
+          - generic [ref=e355]: Cloud
+          - generic [ref=e359]: Storage
+          - generic [ref=e363]: Security
+          - generic [ref=e367]: Billing
+          - generic [ref=e371]: Backup
+          - generic [ref=e375]: Network
+          - generic [ref=e391]: Cloud
+          - generic [ref=e395]: Mail
+          - generic [ref=e399]: Storage
+          - generic [ref=e403]: Network
+          - generic [ref=e407]: Security
+          - generic [ref=e411]: Billing
+          - generic [ref=e415]: Management
+          - generic [ref=e419]: WorldPosta
+      - generic [ref=e421]:
+        - generic [ref=e422]: Ecosystem · What we provide
+        - heading "One ecosystem, shaped around how you operate." [level=2] [ref=e424]:
+          - text: One ecosystem,
+          - text: shaped around how you operate.
+        - paragraph [ref=e425]: WorldPosta gives you a complete cloud management product, a full collaboration suite, and one panel to run everything, with the freedom to bring your own systems into the ecosystem alongside it.
+        - generic [ref=e426]:
+          - link "Cloud Manager → A complete cloud delivered as one product, NextEdge. Compute, containers, desktops, storage, databases, networking, and security, provisioned and scaled from a single place. NextEdge, your full cloud manager" [ref=e427] [cursor=pointer]:
+            - /url: "#cloud"
+            - img [ref=e429]
+            - heading "Cloud Manager →" [level=3] [ref=e431]:
+              - text: Cloud Manager
+              - generic [ref=e432]: →
+            - paragraph [ref=e433]: A complete cloud delivered as one product, NextEdge. Compute, containers, desktops, storage, databases, networking, and security, provisioned and scaled from a single place.
+            - generic [ref=e434]: NextEdge, your full cloud manager
+          - 'link "Collaboration Suite → A full mail service with the rest of the suite around it: secure mail, files, meetings, and online documents, every one of them branded as yours. Mail, security, Drive, Meet, and Office" [ref=e435] [cursor=pointer]':
+            - /url: "#collab"
+            - img [ref=e437]
+            - heading "Collaboration Suite →" [level=3] [ref=e440]:
+              - text: Collaboration Suite
+              - generic [ref=e441]: →
+            - paragraph [ref=e442]: "A full mail service with the rest of the suite around it: secure mail, files, meetings, and online documents, every one of them branded as yours."
+            - generic [ref=e443]: Mail, security, Drive, Meet, and Office
+          - link "Control Panel & Integrations → One panel to provision, bill, monitor, and secure everything, with the freedom to bring your own systems, such as your ERP, into the ecosystem and manage them under the same panel. Atrium, billing, monitoring, and identity" [ref=e444] [cursor=pointer]:
+            - /url: "#operations"
+            - img [ref=e446]
+            - heading "Control Panel & Integrations →" [level=3] [ref=e448]:
+              - text: Control Panel & Integrations
+              - generic [ref=e449]: →
+            - paragraph [ref=e450]: One panel to provision, bill, monitor, and secure everything, with the freedom to bring your own systems, such as your ERP, into the ecosystem and manage them under the same panel.
+            - generic [ref=e451]: Atrium, billing, monitoring, and identity
+        - generic [ref=e452]: Take a single product, the whole suite, or the full stack. Run it under your brand or ours. Every part of the ecosystem can be customized to fit how you operate.
+      - generic [ref=e454]:
+        - generic [ref=e455]: The platform · NextEdge
+        - heading "A complete cloud manager, fully operated, branded as yours." [level=2] [ref=e457]:
+          - text: A complete cloud manager,
+          - text: fully operated, branded as yours.
+        - paragraph [ref=e458]: The full set of cloud services your customers expect from a global cloud, running on your hardware or your cloud provider and delivered under your brand. Compute, containers, desktops, storage, databases, resilience, networking, and security, all operated by WorldPosta.
+        - generic [ref=e459]:
+          - button " NextEdge IaaS A self-service infrastructure cloud with multi-hypervisor compute, networking, and block storage, each tenant in its own isolated virtual datacenter." [ref=e461] [cursor=pointer]:
+            - generic [ref=e463]: 
+            - generic [ref=e464]:
+              - generic [ref=e465]: NextEdge IaaS
+              - generic [ref=e466]: A self-service infrastructure cloud with multi-hypervisor compute, networking, and block storage, each tenant in its own isolated virtual datacenter.
+          - button " Managed Kubernetes Production container orchestration where customers create, scale, and upgrade clusters without ever touching the control panel." [ref=e468] [cursor=pointer]:
+            - generic [ref=e470]: 
+            - generic [ref=e471]:
+              - generic [ref=e472]: Managed Kubernetes
+              - generic [ref=e473]: Production container orchestration where customers create, scale, and upgrade clusters without ever touching the control panel.
+          - button " Virtual Desktops (VDI) Cloud-hosted desktops, including GPU workstations, that give customers secure remote access without any on-premises hardware." [ref=e475] [cursor=pointer]:
+            - generic [ref=e477]: 
+            - generic [ref=e478]:
+              - generic [ref=e479]: Virtual Desktops (VDI)
+              - generic [ref=e480]: Cloud-hosted desktops, including GPU workstations, that give customers secure remote access without any on-premises hardware.
+          - button " iO Object Storage S3-compatible object storage that drops in behind existing tooling by changing only the endpoint." [ref=e482] [cursor=pointer]:
+            - generic [ref=e484]: 
+            - generic [ref=e485]:
+              - generic [ref=e486]: iO Object Storage
+              - generic [ref=e487]: S3-compatible object storage that drops in behind existing tooling by changing only the endpoint.
+          - button " Managed Databases A fully managed database service where patching, backups, and day-to-day administration are handled for the customer." [ref=e489] [cursor=pointer]:
+            - generic [ref=e491]: 
+            - generic [ref=e492]:
+              - generic [ref=e493]: Managed Databases
+              - generic [ref=e494]: A fully managed database service where patching, backups, and day-to-day administration are handled for the customer.
+          - button " Backup & DR Scheduled off-site backups and a dedicated disaster-recovery site for failover and business continuity." [ref=e496] [cursor=pointer]:
+            - generic [ref=e498]: 
+            - generic [ref=e499]:
+              - generic [ref=e500]: Backup & DR
+              - generic [ref=e501]: Scheduled off-site backups and a dedicated disaster-recovery site for failover and business continuity.
+          - button " Networking & WAF Multi-tier virtual networks with load balancing, public IP management, and traffic controls." [ref=e503] [cursor=pointer]:
+            - generic [ref=e505]: 
+            - generic [ref=e506]:
+              - generic [ref=e507]: Networking & WAF
+              - generic [ref=e508]: Multi-tier virtual networks with load balancing, public IP management, and traffic controls.
+          - button " Managed Security A zero-trust security layer with a round-the-clock SOC and an included detection, response, and scanning stack." [ref=e510] [cursor=pointer]:
+            - generic [ref=e512]: 
+            - generic [ref=e513]:
+              - generic [ref=e514]: Managed Security
+              - generic [ref=e515]: A zero-trust security layer with a round-the-clock SOC and an included detection, response, and scanning stack.
+          - button " Zero-downtime Migration End-to-end workload migration from public cloud or on-premises, handled for the customer with hybrid coexistence." [ref=e517] [cursor=pointer]:
+            - generic [ref=e519]: 
+            - generic [ref=e520]:
+              - generic [ref=e521]: Zero-downtime Migration
+              - generic [ref=e522]: End-to-end workload migration from public cloud or on-premises, handled for the customer with hybrid coexistence.
+      - generic [ref=e524]:
+        - generic [ref=e525]: The platform · Collaboration suite
+        - heading "A complete collaboration suite, branded as yours." [level=2] [ref=e527]:
+          - text: A complete collaboration suite,
+          - text: branded as yours.
+        - paragraph [ref=e528]: Mail, security, files, meetings, and documents in one connected suite. Give your customers the everyday tools they rely on, hosted on your infrastructure and carrying your name instead of a foreign logo.
+        - generic [ref=e529]:
+          - button " Posta Mail A modern, fast web mail client with native mobile and desktop apps that fully replaces legacy webmail." [ref=e531] [cursor=pointer]:
+            - generic [ref=e533]: 
+            - generic [ref=e534]:
+              - generic [ref=e535]: Posta Mail
+              - generic [ref=e536]: A modern, fast web mail client with native mobile and desktop apps that fully replaces legacy webmail.
+          - button " Posta Gate An AI-driven email security gateway that filters all mail before delivery, deployed by a single DNS change." [ref=e538] [cursor=pointer]:
+            - generic [ref=e540]: 
+            - generic [ref=e541]:
+              - generic [ref=e542]: Posta Gate
+              - generic [ref=e543]: An AI-driven email security gateway that filters all mail before delivery, deployed by a single DNS change.
+          - button " Drive Cloud file storage and document collaboration with real Microsoft Office co-editing, isolated per tenant." [ref=e545] [cursor=pointer]:
+            - generic [ref=e547]: 
+            - generic [ref=e548]:
+              - generic [ref=e549]: Drive
+              - generic [ref=e550]: Cloud file storage and document collaboration with real Microsoft Office co-editing, isolated per tenant.
+          - button " Meet Browser-based video conferencing and collaboration, wired into the same identity and file platform as the rest of the suite." [ref=e552] [cursor=pointer]:
+            - generic [ref=e554]: 
+            - generic [ref=e555]:
+              - generic [ref=e556]: Meet
+              - generic [ref=e557]: Browser-based video conferencing and collaboration, wired into the same identity and file platform as the rest of the suite.
+          - button " Online Office Apps Real-time co-editing of documents, spreadsheets, and presentations in the browser, self-hosted on your infrastructure." [ref=e559] [cursor=pointer]:
+            - generic [ref=e561]: 
+            - generic [ref=e562]:
+              - generic [ref=e563]: Online Office Apps
+              - generic [ref=e564]: Real-time co-editing of documents, spreadsheets, and presentations in the browser, self-hosted on your infrastructure.
+      - generic [ref=e566]:
+        - generic [ref=e567]: The platform · Operations spine
+        - heading "One control panel behind every service." [level=2] [ref=e569]:
+          - text: One control panel
+          - text: behind every service.
+        - paragraph [ref=e570]: The spine ties the whole ecosystem together. Provision and monitor every service and tenant, price and bill on your own terms, watch the platform in real time, and give every user one identity across all of it.
+        - generic [ref=e571]:
+          - button " Atrium The unified control panel and shell that provisions and manages every product and tenant from one place." [ref=e573] [cursor=pointer]:
+            - generic [ref=e575]: 
+            - generic [ref=e576]:
+              - generic [ref=e577]: Atrium
+              - generic [ref=e578]: The unified control panel and shell that provisions and manages every product and tenant from one place.
+          - button " Billing Engine The single billing platform for metering, plans, invoices, and payments, with your margin and your branding on top." [ref=e580] [cursor=pointer]:
+            - generic [ref=e582]: 
+            - generic [ref=e583]:
+              - generic [ref=e584]: Billing Engine
+              - generic [ref=e585]: The single billing platform for metering, plans, invoices, and payments, with your margin and your branding on top.
+          - button " Watchful Fleet-wide operational intelligence that detects issues across every product and proposes fixes for human approval." [ref=e587] [cursor=pointer]:
+            - generic [ref=e589]: 
+            - generic [ref=e590]:
+              - generic [ref=e591]: Watchful
+              - generic [ref=e592]: Fleet-wide operational intelligence that detects issues across every product and proposes fixes for human approval.
+          - button " Identity & SSO One identity provider and policy engine behind every product, with single sign-on for every user." [ref=e594] [cursor=pointer]:
+            - generic [ref=e596]: 
+            - generic [ref=e597]:
+              - generic [ref=e598]: Identity & SSO
+              - generic [ref=e599]: One identity provider and policy engine behind every product, with single sign-on for every user.
+        - generic [ref=e600]:
+          - generic [ref=e601]: Open by design
+          - paragraph [ref=e602]: The platform is built to fit the systems you already run. Connect identity, provisioning, storage, and events through open standards and APIs, so the ecosystem becomes part of your operation rather than a silo beside it.
+          - generic [ref=e603]:
+            - generic [ref=e604]: OIDC
+            - generic [ref=e605]: SAML
+            - generic [ref=e606]: SCIM
+            - generic [ref=e607]: S3 API
+            - generic [ref=e608]: Webhooks
+            - generic [ref=e609]: REST API
+            - generic [ref=e610]: MCP
+      - generic [ref=e612]:
+        - generic [ref=e613]: Why WorldPosta · About
+        - heading "The team behind the layer you operate." [level=2] [ref=e615]:
+          - text: The team behind
+          - text: the layer you operate.
+        - paragraph [ref=e616]: WorldPosta has spent more than a decade building and running the software that powers cloud, mail, and collaboration for service providers. The platform runs across a globally distributed footprint and is built and operated to internationally recognized standards for information security, privacy, and payment data.
+        - paragraph [ref=e617]: WorldPosta does not compete for your customers. We operate the layer beneath your brand, so the trust, the relationship, and the revenue stay with you while we keep the platform running, updated, and secure.
+      - generic [ref=e619]:
+        - generic [ref=e620]: Why WorldPosta · Trust
+        - heading "Your customers' data stays within your borders." [level=2] [ref=e622]:
+          - text: Your customers' data
+          - text: stays within your borders.
+        - paragraph [ref=e623]: For telcos, banks, and government providers, where data lives and who can reach it is the first question, not the last. WorldPosta is built so that data residency, certification, and isolation are properties of the platform, not promises bolted on afterward.
+        - generic [ref=e624]:
+          - generic [ref=e625]:
+            - heading "In-country data" [level=3] [ref=e626]
+            - paragraph [ref=e627]: Customer data stays where you decide. Where it lives follows your customers' regulatory requirements, not a foreign provider's region map.
+          - generic [ref=e628]:
+            - heading "Certified and audited" [level=3] [ref=e629]
+            - paragraph [ref=e630]: The platform is built and operated to internationally recognized standards for information security, privacy, and payment data, independently certified.
+          - generic [ref=e631]:
+            - heading "Zero-trust security" [level=3] [ref=e632]
+            - paragraph [ref=e633]: A round-the-clock SOC, encryption in transit and at rest, extended detection and response, and continuous vulnerability scanning across the stack.
+          - generic [ref=e634]:
+            - heading "Per-tenant isolation" [level=3] [ref=e635]
+            - paragraph [ref=e636]: Every tenant is logically isolated end to end, so one customer's workloads, identities, and data never touch another's.
+      - generic [ref=e638]:
+        - generic [ref=e639]: Why WorldPosta · Operations
+        - heading "We run the software layer. You serve your customers." [level=2] [ref=e641]:
+          - text: We run the software layer.
+          - text: You serve your customers.
+        - paragraph [ref=e642]: You do not need to build a cloud engineering team to offer a cloud. WorldPosta operates the software layer end to end, on the infrastructure you already have, so your people stay focused on customers and growth.
+        - generic [ref=e643]:
+          - generic [ref=e644]:
+            - img [ref=e646]
+            - generic [ref=e649]:
+              - generic [ref=e650]: No software ops team
+              - generic [ref=e651]: Updates, patches, and monitoring of the software layer are handled by WorldPosta. Your team runs customers, not the platform.
+          - generic [ref=e652]:
+            - img [ref=e654]
+            - generic [ref=e657]:
+              - generic [ref=e658]: No new infrastructure
+              - generic [ref=e659]: The ecosystem deploys on the servers, colocation, or cloud you already operate. No procurement and no migration to a specific provider.
+          - generic [ref=e660]:
+            - img [ref=e662]
+            - generic [ref=e664]:
+              - generic [ref=e665]: Live in days
+              - generic [ref=e666]: Stand up the platform and onboard your first tenants quickly, then expand across the stack at your own pace.
+      - generic [ref=e668]:
+        - generic [ref=e669]: Why WorldPosta · Commercials
+        - generic [ref=e672]:
+          - generic [ref=e673]: White-label
+          - heading "Your brand end to end. Your margin on top." [level=2] [ref=e674]:
+            - text: Your brand end to end.
+            - text: Your margin on top.
+          - paragraph [ref=e675]: Your customers see your logo, your domain, and your invoices. WorldPosta stays invisible. Set your own pricing with the billing engine and keep the margin between what you pay and what you charge.
+          - generic [ref=e676]:
+            - generic [ref=e677]:
+              - generic [ref=e678]: Your brand
+              - generic [ref=e679]: Every screen, email, and portal carries your identity, not ours.
+            - generic [ref=e680]:
+              - generic [ref=e681]: Your pricing
+              - generic [ref=e682]: Seat, usage, bundle, or tier. You decide the model and the markup.
+            - generic [ref=e683]:
+              - generic [ref=e684]: Your invoices
+              - generic [ref=e685]: Billing runs on your template, in your currency, under your name.
+            - generic [ref=e686]:
+              - generic [ref=e687]: Your relationship
+              - generic [ref=e688]: You own the customer and the support line from first contact onward.
+      - generic [ref=e711]:
+        - generic [ref=e712]: Fit
+        - heading "Built for the providers their customers already trust." [level=2] [ref=e714]:
+          - text: Built for the providers
+          - text: their customers already trust.
+        - paragraph [ref=e715]: The same ecosystem adapts to the operators who deliver it. Wherever you already hold the infrastructure and the relationship, WorldPosta gives you the portfolio to match.
+        - generic [ref=e716]:
+          - generic [ref=e717]:
+            - generic [ref=e718]:
+              - img [ref=e720]
+              - heading "Telcos" [level=3] [ref=e722]
+            - paragraph [ref=e723]: Add cloud, mail, and collaboration to the connectivity you already sell, and keep customers inside your network and on your bill.
+          - generic [ref=e724]:
+            - generic [ref=e725]:
+              - img [ref=e727]
+              - heading "Banking & Finance" [level=3] [ref=e729]
+            - paragraph [ref=e730]: Keep regulated data within your borders, with per-tenant isolation, audited controls, and a security stack built for compliance.
+          - generic [ref=e731]:
+            - generic [ref=e732]:
+              - img [ref=e734]
+              - heading "Government" [level=3] [ref=e736]
+            - paragraph [ref=e737]: Deliver digital services to agencies and citizens under a national brand, with data that never leaves your control.
+          - generic [ref=e738]:
+            - generic [ref=e739]:
+              - img [ref=e741]
+              - heading "Large Enterprise & MSP" [level=3] [ref=e743]
+            - paragraph [ref=e744]: Run a private cloud and managed services for internal divisions or external clients, all from one operator console.
+      - generic [ref=e745]:
+        - generic [ref=e746]:
+          - img [ref=e748]
+          - heading "See the ecosystem running on your infrastructure." [level=2] [ref=e751]:
+            - text: See the ecosystem running
+            - text: on your infrastructure.
+          - paragraph [ref=e752]: We will walk your team through the platform, map it to the infrastructure you already operate, and scope a proof of concept under your own brand.
+          - generic [ref=e753]:
+            - generic [ref=e754]:
+              - img [ref=e756]
+              - text: partners@worldposta.com
+            - generic [ref=e759]:
+              - img [ref=e761]
+              - text: worldposta.com
+          - link "Request a Walkthrough" [ref=e764] [cursor=pointer]:
+            - /url: "#overview"
+        - generic [ref=e765]:
+          - img "WorldPosta" [ref=e766]
+          - paragraph [ref=e767]: The software ecosystem operators run their business on. Your infrastructure. Your brand. Operated for you.
+  - dialog "Product detail":
+    - generic:
+      - button "Close": ✕
