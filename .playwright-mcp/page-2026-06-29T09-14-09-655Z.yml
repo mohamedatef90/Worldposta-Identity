@@ -1,0 +1,1594 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - img "WorldPosta" [ref=e4]
+    - generic [ref=e5]: ECOSYSTEM
+  - generic [ref=e7]:
+    - complementary [ref=e8]:
+      - generic [ref=e9]:
+        - img "WorldPosta" [ref=e10]
+        - button "Collapse sidebar" [expanded] [ref=e11] [cursor=pointer]:
+          - img [ref=e12]
+      - generic [ref=e14]:
+        - generic [ref=e15]: ECOSYSTEM
+        - link "Overview" [ref=e16] [cursor=pointer]:
+          - /url: "#overview"
+          - text: Overview
+        - link "The Opportunity" [ref=e18] [cursor=pointer]:
+          - /url: "#opportunity"
+          - text: The Opportunity
+        - link "What We Provide" [ref=e20] [cursor=pointer]:
+          - /url: "#provide"
+          - text: What We Provide
+        - generic [ref=e22]: THE PLATFORM
+        - link "NextEdge" [ref=e23] [cursor=pointer]:
+          - /url: "#cloud"
+          - text: NextEdge
+        - generic [ref=e25]:
+          - link "NextEdge IaaS" [ref=e26] [cursor=pointer]:
+            - /url: "#p-nextedge"
+          - link "Managed Kubernetes" [ref=e27] [cursor=pointer]:
+            - /url: "#p-kubernetes"
+          - link "Virtual Desktops (VDI)" [ref=e28] [cursor=pointer]:
+            - /url: "#p-vdi"
+          - link "iO Object Storage" [ref=e29] [cursor=pointer]:
+            - /url: "#p-io"
+          - link "Managed Databases" [ref=e30] [cursor=pointer]:
+            - /url: "#p-databases"
+          - link "Backup & DR" [ref=e31] [cursor=pointer]:
+            - /url: "#p-backup"
+          - link "Networking & WAF" [ref=e32] [cursor=pointer]:
+            - /url: "#p-networking"
+          - link "Managed Security" [ref=e33] [cursor=pointer]:
+            - /url: "#p-security"
+          - link "Zero-downtime Migration" [ref=e34] [cursor=pointer]:
+            - /url: "#p-migration"
+        - link "Collaboration Suite" [ref=e35] [cursor=pointer]:
+          - /url: "#collab"
+          - text: Collaboration Suite
+        - generic [ref=e37]:
+          - link "Posta Mail" [ref=e38] [cursor=pointer]:
+            - /url: "#p-posta"
+          - link "Posta Gate" [ref=e39] [cursor=pointer]:
+            - /url: "#p-gate"
+          - link "Drive" [ref=e40] [cursor=pointer]:
+            - /url: "#p-drive"
+          - link "Meet" [ref=e41] [cursor=pointer]:
+            - /url: "#p-meet"
+          - link "Online Office Apps" [ref=e42] [cursor=pointer]:
+            - /url: "#p-office"
+        - link "Operations Spine" [ref=e43] [cursor=pointer]:
+          - /url: "#operations"
+          - text: Operations Spine
+        - generic [ref=e45]:
+          - link "Atrium" [ref=e46] [cursor=pointer]:
+            - /url: "#p-atrium"
+          - link "Billing Engine" [ref=e47] [cursor=pointer]:
+            - /url: "#p-billing"
+          - link "Watchful" [ref=e48] [cursor=pointer]:
+            - /url: "#p-watchful"
+          - link "Identity & SSO" [ref=e49] [cursor=pointer]:
+            - /url: "#p-identity"
+        - generic [ref=e50]: WHY WORLDPOSTA
+        - link "About WorldPosta" [ref=e51] [cursor=pointer]:
+          - /url: "#about"
+          - text: About WorldPosta
+        - link "Security & Data Residency" [ref=e53] [cursor=pointer]:
+          - /url: "#security"
+          - text: Security & Data Residency
+        - link "Fully Operated" [ref=e55] [cursor=pointer]:
+          - /url: "#operated"
+          - text: Fully Operated
+        - link "Your Brand, Your Margin" [ref=e57] [cursor=pointer]:
+          - /url: "#brand"
+          - text: Your Brand, Your Margin
+        - generic [ref=e59]: FIT & NEXT STEPS
+        - link "Built for Your Sector" [ref=e60] [cursor=pointer]:
+          - /url: "#sectors"
+          - text: Built for Your Sector
+        - link "Get Started" [ref=e62] [cursor=pointer]:
+          - /url: "#start"
+          - text: Get Started
+        - link "Request a Walkthrough" [ref=e65] [cursor=pointer]:
+          - /url: "#start"
+    - main [ref=e66]:
+      - generic [ref=e68]:
+        - generic [ref=e69]: The software layer operators were missing
+        - heading "Own your ecosystem. Everything connected. Everything yours." [level=1] [ref=e71]:
+          - generic [ref=e72]: Own your ecosystem.
+          - generic [ref=e74]: Everything connected.
+          - generic [ref=e75]: Everything yours.
+        - paragraph [ref=e76]: WorldPosta is a complete ecosystem for service providers that want full control over how digital services are delivered, branded, and operated. Every component works together through one platform, so you can start with a single suite, expand across the full stack, and run everything under your own brand.
+        - generic [ref=e77]:
+          - link "Request a Walkthrough" [ref=e78] [cursor=pointer]:
+            - /url: "#start"
+          - link "Explore the Platform" [ref=e79] [cursor=pointer]:
+            - /url: "#provide"
+        - generic [ref=e80]:
+          - button "View the ecosystem diagram full screen" [ref=e81] [cursor=pointer]:
+            - img [ref=e82]
+            - generic [ref=e87]: Full screen
+          - 'img "WorldPosta ecosystem diagram: your infrastructure on the left, the WorldPosta platform in the centre connecting cloud, collaboration, and operations, and your branded software delivered to enterprise, government, and SMB customers on the right" [ref=e88]':
+            - generic [ref=e90]: YOUR INFRASTRUCTURE
+            - generic [ref=e92]: YOURS
+            - generic [ref=e93]: WORLDPOSTA ECOSYSTEM
+            - generic [ref=e94]: Cloud Manager · Collaboration Suite · Operations Spine
+            - generic [ref=e95]: YOUR BRANDED SOFTWARE
+            - generic [ref=e97]: YOURS
+            - generic [ref=e111]: Compute
+            - generic [ref=e131]: Networking
+            - generic [ref=e140]: Storage
+            - generic [ref=e148]: Virtual Machines
+            - generic [ref=e203]: NextEdge IaaS
+            - generic [ref=e208]: Kubernetes
+            - generic [ref=e213]: Security
+            - generic [ref=e218]: VDI
+            - generic [ref=e223]: Databases
+            - generic [ref=e228]: Backup & DR
+            - generic [ref=e233]: Migration
+            - generic [ref=e238]: Networking
+            - generic [ref=e243]: Watchful
+            - generic [ref=e248]: Billing
+            - generic [ref=e253]: Atrium
+            - generic [ref=e258]: iO Storage
+            - generic [ref=e263]: Posta Mail
+            - generic [ref=e268]: Posta Gate
+            - generic [ref=e273]: Drive
+            - generic [ref=e278]: Meet
+            - generic [ref=e283]: Online Office
+            - generic [ref=e288]: Identity
+            - generic [ref=e304]: Enterprise
+            - generic [ref=e321]: Government
+            - generic [ref=e333]: SMBs
+        - generic [ref=e342]:
+          - generic [ref=e343]:
+            - generic [ref=e344]: Layer 1 · Yours
+            - generic [ref=e345]: Your infrastructure
+            - generic [ref=e346]: On-premises, colocation, or any cloud. The platform runs on the capacity you already operate.
+          - generic [ref=e347]:
+            - generic [ref=e348]: Layer 2 · WorldPosta
+            - generic [ref=e349]: The ecosystem
+            - generic [ref=e350]: Cloud, collaboration, and the operations spine, all connected and fully operated for you.
+          - generic [ref=e351]:
+            - generic [ref=e352]: Layer 3 · Yours
+            - generic [ref=e353]: Your branded software
+            - generic [ref=e354]: What your customers see and buy. Your logo, your domain, your invoices. WorldPosta stays invisible.
+      - generic [ref=e356]:
+        - generic [ref=e357]: Why now
+        - heading "From multiple vendors to one connected ecosystem." [level=2] [ref=e359]:
+          - text: From multiple vendors
+          - text: to one connected ecosystem.
+        - paragraph [ref=e360]: Every additional platform brings another vendor relationship, management workflow, support process, and integration point. Over time, what should be one ecosystem becomes a collection of disconnected systems. WorldPosta replaces that complexity with a unified ecosystem where cloud, communication, storage, networking, security, billing, and management work together by design.
+        - img [ref=e362]:
+          - generic [ref=e363]: TODAY · MANY VENDORS
+          - generic [ref=e364]: WITH WORLDPOSTA · ONE ECOSYSTEM
+          - generic [ref=e368]: Mail
+          - generic [ref=e372]: Cloud
+          - generic [ref=e376]: Storage
+          - generic [ref=e380]: Security
+          - generic [ref=e384]: Billing
+          - generic [ref=e388]: Backup
+          - generic [ref=e392]: Network
+          - generic [ref=e408]: Cloud
+          - generic [ref=e412]: Mail
+          - generic [ref=e416]: Storage
+          - generic [ref=e420]: Network
+          - generic [ref=e424]: Security
+          - generic [ref=e428]: Billing
+          - generic [ref=e432]: Management
+          - generic [ref=e436]: WorldPosta
+      - generic [ref=e438]:
+        - generic [ref=e439]: Ecosystem · What we provide
+        - heading "One ecosystem, shaped around how you operate." [level=2] [ref=e441]:
+          - text: One ecosystem,
+          - text: shaped around how you operate.
+        - paragraph [ref=e442]: WorldPosta gives you a complete cloud management product, a full collaboration suite, and one panel to run everything, with the freedom to bring your own systems into the ecosystem alongside it.
+        - generic [ref=e443]:
+          - generic [ref=e444]: Control plane
+          - generic [ref=e445]:
+            - img [ref=e447]
+            - generic [ref=e452]:
+              - generic [ref=e453]: Operations Spine
+              - generic [ref=e454]: One control panel behind every service
+            - generic [ref=e455]:
+              - generic [ref=e456]: Atrium
+              - generic [ref=e457]: Billing Engine
+              - generic [ref=e458]: Watchful
+              - generic [ref=e459]: Identity & SSO
+          - img [ref=e461]
+          - generic [ref=e464]: Service plane
+          - generic [ref=e465]:
+            - generic [ref=e466]:
+              - generic [ref=e467]:
+                - img [ref=e469]
+                - generic [ref=e472]:
+                  - generic [ref=e473]: Collaboration Suite
+                  - generic [ref=e474]: Mail · security · files · meetings · docs
+              - generic [ref=e475]:
+                - generic [ref=e476]:
+                  - generic [ref=e478]: Posta Mail
+                  - generic [ref=e479]: Modern mail
+                - generic [ref=e480]:
+                  - generic [ref=e482]: Posta Gate
+                  - generic [ref=e483]: AI security
+                - generic [ref=e484]:
+                  - generic [ref=e486]: Drive
+                  - generic [ref=e487]: Files & co-edit
+                - generic [ref=e488]:
+                  - generic [ref=e490]: Meet
+                  - generic [ref=e491]: Conferencing
+                - generic [ref=e492]:
+                  - generic [ref=e494]: Online Office Apps
+                  - generic [ref=e495]: Docs & sheets
+            - generic [ref=e496]:
+              - generic [ref=e497]:
+                - img [ref=e499]
+                - generic [ref=e501]:
+                  - generic [ref=e502]: Cloud Services · NextEdge
+                  - generic [ref=e503]: Fully operated, your brand
+              - generic [ref=e504]:
+                - generic [ref=e507]: NextEdge IaaS
+                - generic [ref=e510]: Kubernetes
+                - generic [ref=e513]: Virtual Desktops
+                - generic [ref=e516]: Object Storage
+                - generic [ref=e519]: Databases
+                - generic [ref=e522]: Backup & DR
+                - generic [ref=e525]: Networking/WAF
+                - generic [ref=e528]: Managed Security
+                - generic [ref=e531]: Migration
+          - generic [ref=e532]: Take a single product, the whole suite, or the full stack — provisioned, billed & monitored from one panel, branded as yours.
+      - generic [ref=e534]:
+        - generic [ref=e535]: The platform · Virtualization stacks
+        - heading "Two foundations, one operated cloud." [level=2] [ref=e537]:
+          - text: Two foundations,
+          - text: one operated cloud.
+        - paragraph [ref=e538]: "Run workloads on NextEdge — a lean, multi-hypervisor fabric — or on CloudEdge, a secured VMware stack with software-defined networking and firewall integration. Watch a request travel down each stack: same panel, same brand, your choice of foundation."
+        - generic [ref=e539]:
+          - generic [ref=e540]:
+            - generic [ref=e541]: Lean · multi-hypervisor
+            - generic [ref=e542]: NextEdge
+            - generic [ref=e543]: Bring KVM, Citrix, or VMware workloads onto a shared OSN fabric, with firewall integration.
+            - generic [ref=e545]:
+              - generic [ref=e550]: nextedge.cloud/stack
+              - generic [ref=e551]:
+                - generic [ref=e552]: NextEdge
+                - generic [ref=e553]: Multi-hypervisor IaaS
+              - generic [ref=e554]:
+                - generic [ref=e557]:
+                  - generic [ref=e558]: Hypervisor
+                  - generic [ref=e559]: KVM · Citrix · VMware
+                - generic [ref=e561]: OSN
+                - generic [ref=e563]: SecurityFirewall integration
+          - generic [ref=e564]:
+            - generic [ref=e565]: Secured · VMware native
+            - generic [ref=e566]: CloudEdge
+            - generic [ref=e567]: VMware compute wrapped in NSX networking and firewall integration.
+            - generic [ref=e569]:
+              - generic [ref=e574]: cloudedge.cloud/stack
+              - generic [ref=e575]:
+                - generic [ref=e576]: CloudEdge
+                - generic [ref=e577]: Secured VMware stack
+              - generic [ref=e578]:
+                - generic [ref=e582]: ComputeVMware
+                - generic [ref=e584]: SDNNSX
+                - generic [ref=e586]: SecurityFirewall integration
+      - generic [ref=e588]:
+        - generic [ref=e589]: The platform · NextEdge
+        - heading "A complete cloud manager, fully operated, branded as yours." [level=2] [ref=e591]:
+          - text: A complete cloud manager,
+          - text: fully operated, branded as yours.
+        - paragraph [ref=e592]: The full set of cloud services your customers expect from a global cloud, running on your hardware or your cloud provider and delivered under your brand. Compute, containers, desktops, storage, databases, resilience, networking, and security, all operated by WorldPosta.
+        - generic [ref=e593]:
+          - generic [ref=e594] [cursor=pointer]:
+            - button " NextEdge IaaS A self-service infrastructure cloud with multi-hypervisor compute, networking, and block storage, each tenant in its own isolated virtual datacenter." [ref=e595]:
+              - generic [ref=e597]: 
+              - generic [ref=e598]:
+                - generic [ref=e599]: NextEdge IaaS
+                - generic [ref=e600]: A self-service infrastructure cloud with multi-hypervisor compute, networking, and block storage, each tenant in its own isolated virtual datacenter.
+            - generic [ref=e601]:
+              - generic [ref=e602]: Every customer gets a private, fully isolated virtual datacenter on KVM, with VMware reachable through the same control panel, so they run a self-service cloud inside your borders and bring their existing estate instead of rebuilding it.
+              - generic [ref=e603]:
+                - generic [ref=e604]:
+                  - generic [ref=e605]: P
+                  - generic [ref=e606]: Portaldash-work by WorldPosta
+                  - generic [ref=e607]: "|"
+                  - generic [ref=e608]: NextEdge
+                  - generic [ref=e609]:
+                    - generic [ref=e610]: 
+                    - generic [ref=e611]: 
+                    - generic [ref=e612]: D
+                - generic [ref=e613]:
+                  - generic [ref=e614]:
+                    - generic [ref=e615]:
+                      - generic [ref=e616]: 
+                      - text: Home
+                    - generic [ref=e617]:
+                      - generic [ref=e618]: 
+                      - text: Apps & Marketplace
+                    - generic [ref=e619]:
+                      - generic [ref=e620]: 
+                      - text: Users
+                    - generic [ref=e621]:
+                      - generic [ref=e622]: 
+                      - text: Groups
+                    - generic [ref=e623]:
+                      - generic [ref=e624]: 
+                      - text: Add member
+                    - generic [ref=e625]:
+                      - generic [ref=e626]: 
+                      - text: Domains
+                    - generic [ref=e627]:
+                      - generic [ref=e628]: 
+                      - text: Billing
+                    - generic [ref=e629]:
+                      - generic [ref=e630]: 
+                      - text: Security
+                    - generic [ref=e631]:
+                      - generic [ref=e632]: 
+                      - text: Reports
+                    - generic [ref=e633]:
+                      - generic [ref=e634]: 
+                      - text: Cloud
+                    - generic [ref=e635]:
+                      - generic [ref=e636]: 
+                      - text: Settings
+                    - generic [ref=e637]:
+                      - generic [ref=e638]: 
+                      - text: Platform
+                  - generic [ref=e639]:
+                    - generic [ref=e640]:
+                      - generic [ref=e641]:
+                        - generic [ref=e642]: Dashboard
+                        - generic [ref=e643]: NextEdge · Portaldash-work
+                      - generic [ref=e644]:
+                        - generic [ref=e645]: Firewall
+                        - generic [ref=e646]: VPC
+                        - generic [ref=e647]: Load Balancers & NAT
+                        - generic [ref=e648]: Kubernetes
+                        - generic [ref=e649]: View cost report
+                        - generic [ref=e650]: + Create VM
+                    - generic [ref=e651]:
+                      - generic [ref=e652]:
+                        - generic [ref=e653]: RUNNING VMS
+                        - generic [ref=e654]: "3"
+                        - generic [ref=e655]: 3 total
+                      - generic [ref=e656]:
+                        - generic [ref=e657]: SPEND THIS MONTH
+                        - generic [ref=e658]: —
+                        - generic [ref=e659]: Available once VMs run
+                      - generic [ref=e660]:
+                        - generic [ref=e661]: PUBLIC IPS
+                        - generic [ref=e662]: "0"
+                        - generic [ref=e663]: Allocated when needed
+                      - generic [ref=e664]:
+                        - generic [ref=e665]: BLOCK STORAGE
+                        - generic [ref=e666]: 0 GB
+                        - generic [ref=e667]: Per-VM allocation
+                    - generic [ref=e668]:
+                      - generic [ref=e669]: Virtual machines · 3
+                      - table [ref=e670]:
+                        - rowgroup [ref=e671]:
+                          - row [ref=e672]:
+                            - columnheader [ref=e673]: NAME
+                            - columnheader [ref=e674]: STATE
+                            - columnheader [ref=e675]: SIZE
+                            - columnheader [ref=e676]: ZONE
+                            - columnheader [ref=e677]: TEMPLATE
+                            - columnheader [ref=e678]: IP
+                        - rowgroup [ref=e679]:
+                          - row [ref=e680]:
+                            - cell [ref=e681]:
+                              - generic [ref=e682]: portaldash-k8s-control-19e8c793111
+                              - generic [ref=e683]: c70ef5e2-4a98-4f48-bbba-141b706bbc31
+                            - cell [ref=e684]:
+                              - generic [ref=e685]: Running
+                            - cell [ref=e686]: k8s-node
+                            - cell [ref=e687]: fra-k8s-adv
+                            - cell [ref=e688]: SystemVM Template (KVM)
+                            - cell [ref=e689]: 10.1.1.129
+                          - row [ref=e690]:
+                            - cell [ref=e691]:
+                              - generic [ref=e692]: portaldash-k8s-node-19e8c7d8bbb
+                              - generic [ref=e693]: 2b72592a-de25-41c6-87f6-f495410a089e
+                            - cell [ref=e694]:
+                              - generic [ref=e695]: Running
+                            - cell [ref=e696]: k8s-node
+                            - cell [ref=e697]: fra-k8s-adv
+                            - cell [ref=e698]: SystemVM Template (KVM)
+                            - cell [ref=e699]: 10.1.1.122
+                          - row [ref=e700]:
+                            - cell [ref=e701]:
+                              - generic [ref=e702]: test-vm
+                              - generic [ref=e703]: cadeb966-0c0e-4b3b-9c89-b86535e088ff
+                            - cell [ref=e704]:
+                              - generic [ref=e705]: Running
+                            - cell [ref=e706]: Small-Local
+                            - cell [ref=e707]: fra-lab-1
+                            - cell [ref=e708]: Ubuntu 24.04 LTS (KVM)
+                            - cell [ref=e709]: 172.20.1.238
+              - list [ref=e710]:
+                - listitem [ref=e711]: "Full VM lifecycle: deploy, start, stop, reboot, snapshot, and destroy"
+                - listitem [ref=e712]: Block volumes that create, attach, resize, and detach on demand
+                - listitem [ref=e713]: Live VM metrics for CPU, memory, network, disk, and IOPS
+                - listitem [ref=e714]: Browser console plus SSH key injection and password reset
+                - listitem [ref=e715]: Per-tenant isolated virtual datacenter
+                - listitem [ref=e716]: Modern template catalog across major Linux distributions
+                - listitem [ref=e717]: Multi-tier private networks with per-tier access control
+                - listitem [ref=e718]: Self-service subscribe, suspend, and restore
+          - generic [ref=e719] [cursor=pointer]:
+            - button " Managed Kubernetes Production container orchestration where customers create, scale, and upgrade clusters without ever touching the control panel." [ref=e720]:
+              - generic [ref=e722]: 
+              - generic [ref=e723]:
+                - generic [ref=e724]: Managed Kubernetes
+                - generic [ref=e725]: Production container orchestration where customers create, scale, and upgrade clusters without ever touching the control panel.
+            - generic [ref=e726]:
+              - generic [ref=e727]: Customers provision managed Kubernetes clusters from the same console as their VMs and networks, so containers and infrastructure live together under one panel.
+              - list [ref=e728]:
+                - listitem [ref=e729]: Create, scale, and upgrade clusters on demand
+                - listitem [ref=e730]: No control-panel management for the customer
+                - listitem [ref=e731]: Runs alongside VMs and networking in the same virtual datacenter
+                - listitem [ref=e732]: Integrated with identity, billing, and observability
+                - listitem [ref=e733]: Per-tenant isolation end to end
+          - generic [ref=e734] [cursor=pointer]:
+            - button " Virtual Desktops (VDI) Cloud-hosted desktops, including GPU workstations, that give customers secure remote access without any on-premises hardware." [ref=e735]:
+              - generic [ref=e737]: 
+              - generic [ref=e738]:
+                - generic [ref=e739]: Virtual Desktops (VDI)
+                - generic [ref=e740]: Cloud-hosted desktops, including GPU workstations, that give customers secure remote access without any on-premises hardware.
+            - generic [ref=e741]:
+              - generic [ref=e742]: Deliver full desktops and GPU workstations from your infrastructure, so customers' teams work securely from anywhere without managing endpoints or buying workstations.
+              - list [ref=e743]:
+                - listitem [ref=e744]: Cloud-hosted desktops streamed to any device
+                - listitem [ref=e745]: GPU workstations for design, engineering, and AI workloads
+                - listitem [ref=e746]: Secure remote access with no on-premises hardware
+                - listitem [ref=e747]: Centralized provisioning and lifecycle management
+                - listitem [ref=e748]: Per-tenant isolation and access control
+          - generic [ref=e749] [cursor=pointer]:
+            - button " iO Object Storage S3-compatible object storage that drops in behind existing tooling by changing only the endpoint." [ref=e750]:
+              - generic [ref=e752]: 
+              - generic [ref=e753]:
+                - generic [ref=e754]: iO Object Storage
+                - generic [ref=e755]: S3-compatible object storage that drops in behind existing tooling by changing only the endpoint.
+            - generic [ref=e756]:
+              - generic [ref=e757]: Any existing S3 SDK or tool works unchanged by swapping a single endpoint, so customers get object storage inside your data centers with no egress fees and no code rewrite.
+              - generic [ref=e758]:
+                - generic [ref=e759]:
+                  - generic [ref=e760]: WP
+                  - generic [ref=e761]: WorldPosta
+                  - generic [ref=e762]: "|"
+                  - generic [ref=e763]: Object Storage
+                - generic [ref=e764]:
+                  - generic [ref=e765]:
+                    - generic [ref=e766]: 
+                    - text: Dashboard
+                  - generic [ref=e767]:
+                    - generic [ref=e768]: 
+                    - text: Buckets
+                  - generic [ref=e769]:
+                    - generic [ref=e770]: 
+                    - text: Access keys
+                  - generic [ref=e771]:
+                    - generic [ref=e772]: 
+                    - text: Settings
+                - generic [ref=e773]:
+                  - generic [ref=e774]: DASHBOARD
+                  - generic [ref=e775]: Your storage
+                  - generic [ref=e776]: Your storage at a glance. Quick links below jump to common actions.
+                  - generic [ref=e777]:
+                    - generic [ref=e778]: STORAGE QUOTA
+                    - generic [ref=e779]: 12.21 GB
+                    - generic [ref=e780]: No limit set
+                    - generic [ref=e781]: No storage limit is set on your plan — 12.21 GB currently stored across 20,746 objects.
+                  - generic [ref=e782]:
+                    - generic [ref=e783]:
+                      - generic [ref=e784]: STORAGE USED
+                      - generic [ref=e785]: 12.21 GB
+                      - generic [ref=e786]: Live from storage
+                    - generic [ref=e788]:
+                      - generic [ref=e789]: BUCKETS
+                      - generic [ref=e790]: "2"
+                      - generic [ref=e791]: Active (not soft-deleted)
+                    - generic [ref=e793]:
+                      - generic [ref=e794]: TOTAL OBJECTS
+                      - generic [ref=e795]: 20,746
+                      - generic [ref=e796]: Across all buckets, live
+                  - generic [ref=e798]:
+                    - generic [ref=e799]:
+                      - generic [ref=e801]: 
+                      - generic [ref=e802]: Buckets
+                      - generic [ref=e803]: Browse + manage
+                    - generic [ref=e804]:
+                      - generic [ref=e806]: 
+                      - generic [ref=e807]: Access keys
+                      - generic [ref=e808]: Mint + revoke
+                    - generic [ref=e809]:
+                      - generic [ref=e811]: 
+                      - generic [ref=e812]: Settings
+                      - generic [ref=e813]: Plan + activity
+                    - generic [ref=e814]:
+                      - generic [ref=e816]: 
+                      - generic [ref=e817]: Webhooks
+                      - generic [ref=e818]: Event delivery
+              - list [ref=e819]:
+                - listitem [ref=e820]: S3-compatible API that works with existing SDKs and tools
+                - listitem [ref=e821]: Presigned-URL direct upload and download
+                - listitem [ref=e822]: Multipart upload for large, multi-gigabyte objects
+                - listitem [ref=e823]: Per-tenant buckets with scoped credentials
+                - listitem [ref=e824]: Bucket policies, CORS, versioning, and object lock
+                - listitem [ref=e825]: Lifecycle rules for expiration and transition
+                - listitem [ref=e826]: Event webhooks on bucket activity
+                - listitem [ref=e827]: No egress tolls
+          - generic [ref=e828] [cursor=pointer]:
+            - button " Managed Databases A fully managed database service where patching, backups, and day-to-day administration are handled for the customer." [ref=e829]:
+              - generic [ref=e831]: 
+              - generic [ref=e832]:
+                - generic [ref=e833]: Managed Databases
+                - generic [ref=e834]: A fully managed database service where patching, backups, and day-to-day administration are handled for the customer.
+            - generic [ref=e835]:
+              - generic [ref=e836]: Customers get production databases with round-the-clock DBA support, automated patching, and managed backups, so their teams ship applications instead of running database operations.
+              - list [ref=e837]:
+                - listitem [ref=e838]: Fully managed provisioning and scaling
+                - listitem [ref=e839]: Round-the-clock DBA support
+                - listitem [ref=e840]: Automated patching and maintenance
+                - listitem [ref=e841]: Managed backups and point-in-time recovery
+                - listitem [ref=e842]: Monitoring and alerting built in
+                - listitem [ref=e843]: Per-tenant isolation
+          - generic [ref=e844] [cursor=pointer]:
+            - button " Backup & DR Scheduled off-site backups and a dedicated disaster-recovery site for failover and business continuity." [ref=e845]:
+              - generic [ref=e847]: 
+              - generic [ref=e848]:
+                - generic [ref=e849]: Backup & DR
+                - generic [ref=e850]: Scheduled off-site backups and a dedicated disaster-recovery site for failover and business continuity.
+            - generic [ref=e851]:
+              - generic [ref=e852]: Scheduled off-site backups paired with a dedicated disaster-recovery site give customers a tested path to failover, so a single incident does not become an outage.
+              - list [ref=e853]:
+                - listitem [ref=e854]: Scheduled off-site backups
+                - listitem [ref=e855]: Dedicated disaster-recovery site
+                - listitem [ref=e856]: Failover for business continuity
+                - listitem [ref=e857]: Policy-driven retention
+                - listitem [ref=e858]: Recovery testing and reporting
+          - generic [ref=e859] [cursor=pointer]:
+            - button " Networking & WAF Multi-tier virtual networks with load balancing, public IP management, and traffic controls." [ref=e860]:
+              - generic [ref=e862]: 
+              - generic [ref=e863]:
+                - generic [ref=e864]: Networking & WAF
+                - generic [ref=e865]: Multi-tier virtual networks with load balancing, public IP management, and traffic controls.
+            - generic [ref=e866]:
+              - generic [ref=e867]: Customers build multi-tier private networks with load balancing, public IP management, and firewall controls from the same panel as their compute, so the whole topology lives in one place.
+              - list [ref=e868]:
+                - listitem [ref=e869]: Multi-tier private networks with per-tier access control
+                - listitem [ref=e870]: Load balancing with health checks and session stickiness
+                - listitem [ref=e871]: Public IP association, port forwarding, and static NAT
+                - listitem [ref=e872]: Security groups for ingress and egress
+                - listitem [ref=e873]: Web application firewall protection
+                - listitem [ref=e874]: Managed from the unified console
+          - generic [ref=e875] [cursor=pointer]:
+            - button " Managed Security A zero-trust security layer with a round-the-clock SOC and an included detection, response, and scanning stack." [ref=e876]:
+              - generic [ref=e878]: 
+              - generic [ref=e879]:
+                - generic [ref=e880]: Managed Security
+                - generic [ref=e881]: A zero-trust security layer with a round-the-clock SOC and an included detection, response, and scanning stack.
+            - generic [ref=e882]:
+              - generic [ref=e883]: Security is operated for the customer around the clock, combining a zero-trust posture with continuous detection, response, and vulnerability scanning, so protection is a property of the platform rather than a separate project.
+              - list [ref=e884]:
+                - listitem [ref=e885]: Zero-trust architecture across the stack
+                - listitem [ref=e886]: Round-the-clock security operations center
+                - listitem [ref=e887]: Extended detection and response
+                - listitem [ref=e888]: Security information and event monitoring
+                - listitem [ref=e889]: Web application firewall
+                - listitem [ref=e890]: Continuous vulnerability scanning
+                - listitem [ref=e891]: Encryption in transit and at rest
+          - generic [ref=e892] [cursor=pointer]:
+            - button " Zero-downtime Migration End-to-end workload migration from public cloud or on-premises, handled for the customer with hybrid coexistence." [ref=e893]:
+              - generic [ref=e895]: 
+              - generic [ref=e896]:
+                - generic [ref=e897]: Zero-downtime Migration
+                - generic [ref=e898]: End-to-end workload migration from public cloud or on-premises, handled for the customer with hybrid coexistence.
+            - generic [ref=e899]:
+              - generic [ref=e900]: Migrations run on resumable, idempotent pipelines, so a failed step resumes cleanly without duplicating data, and source and target run side by side until cutover.
+              - list [ref=e901]:
+                - listitem [ref=e902]: End-to-end migration from public cloud or on-premises
+                - listitem [ref=e903]: Resumable, idempotent transfers with no duplicated data
+                - listitem [ref=e904]: Hybrid coexistence during the transition
+                - listitem [ref=e905]: Progress tracking with accurate completion estimates
+                - listitem [ref=e906]: Operator oversight and structured audit
+                - listitem [ref=e907]: Self-service and operator-assisted paths
+      - generic [ref=e909]:
+        - generic [ref=e910]: The platform · Collaboration suite
+        - heading "A complete collaboration suite, branded as yours." [level=2] [ref=e912]:
+          - text: A complete collaboration suite,
+          - text: branded as yours.
+        - paragraph [ref=e913]: Mail, security, files, meetings, and documents in one connected suite. Give your customers the everyday tools they rely on, hosted on your infrastructure and carrying your name instead of a foreign logo.
+        - generic [ref=e914]:
+          - generic [ref=e915] [cursor=pointer]:
+            - button " Posta Mail A modern, fast web mail client with native mobile and desktop apps that fully replaces legacy webmail." [ref=e916]:
+              - generic [ref=e918]: 
+              - generic [ref=e919]:
+                - generic [ref=e920]: Posta Mail
+                - generic [ref=e921]: A modern, fast web mail client with native mobile and desktop apps that fully replaces legacy webmail.
+            - generic [ref=e922]:
+              - generic [ref=e923]: Native push delivery puts mail in the inbox in seconds, the felt-speed difference that keeps users from drifting to consumer mail, with the full client estate across web, mobile, and desktop branded as yours.
+              - 'generic "Posta Mail: drag to compare the Classic and Chat views" [ref=e924]':
+                - img "Posta Mail Classic view"
+                - img "Posta Mail Chat view"
+                - generic: Classic
+                - generic: Chat
+                - generic: Drag to compare
+                - button "Drag to compare Classic and Chat" [ref=e925]:
+                  - img [ref=e926]
+              - list [ref=e929]:
+                - listitem [ref=e930]: Modern web client plus native iOS, Android, Mac, and Windows apps
+                - listitem [ref=e931]: Near-instant push delivery to the inbox
+                - listitem [ref=e932]: Conversation threading and fast full-body search
+                - listitem [ref=e933]: Focused inbox with per-sender overrides and a rules engine
+                - listitem [ref=e934]: Snooze, sweep, templates, and schedule or undo send
+                - listitem [ref=e935]: Calendar with recurrence, RSVP, and find-a-time
+                - listitem [ref=e936]: Contacts with directory sync
+                - listitem [ref=e937]: S/MIME signing and verification
+                - listitem [ref=e938]: Offline reading as a progressive web app
+                - listitem [ref=e939]: Large mailbox storage
+          - generic [ref=e940] [cursor=pointer]:
+            - button " Posta Gate An AI-driven email security gateway that filters all mail before delivery, deployed by a single DNS change." [ref=e941]:
+              - generic [ref=e943]: 
+              - generic [ref=e944]:
+                - generic [ref=e945]: Posta Gate
+                - generic [ref=e946]: An AI-driven email security gateway that filters all mail before delivery, deployed by a single DNS change.
+            - generic [ref=e947]:
+              - generic [ref=e948]: Many antivirus engines, sandbox detonation, and behavioral AI inspect every message and link before delivery, deployed by an MX-record change with no mailbox migration and instantly reversible.
+              - list [ref=e949]:
+                - listitem [ref=e950]: A multi-engine antivirus stack scans every attachment and link
+                - listitem [ref=e951]: Sandbox detonation of suspicious files and URLs for zero-day threats
+                - listitem [ref=e952]: Behavioral and AI detection for phishing and ransomware
+                - listitem [ref=e953]: Works with any mail platform, on-premises or hosted
+                - listitem [ref=e954]: Single MX-record deployment with no migration
+                - listitem [ref=e955]: Granular organization, domain, and mailbox policies
+                - listitem [ref=e956]: Quarantine and release workflow
+          - generic [ref=e957] [cursor=pointer]:
+            - button " Drive Cloud file storage and document collaboration with real Microsoft Office co-editing, isolated per tenant." [ref=e958]:
+              - generic [ref=e960]: 
+              - generic [ref=e961]:
+                - generic [ref=e962]: Drive
+                - generic [ref=e963]: Cloud file storage and document collaboration with real Microsoft Office co-editing, isolated per tenant.
+            - generic [ref=e964]:
+              - generic [ref=e965]: Customers co-edit real Word, Excel, and PowerPoint documents in the browser with full fidelity, while files and encryption keys stay on infrastructure you control and isolated per tenant.
+              - generic [ref=e966]:
+                - generic [ref=e967]:
+                  - generic [ref=e968]:
+                    - generic [ref=e969]: ●●●
+                    - generic [ref=e970]: Posta Drive
+                  - generic [ref=e971]:
+                    - generic [ref=e972]: 
+                    - generic [ref=e973]: Search in Drive
+                    - generic [ref=e974]: AI
+                  - generic [ref=e975]:
+                    - generic [ref=e976]:
+                      - generic [ref=e977]: 
+                      - text: Ask AI
+                    - generic [ref=e979]: 
+                    - generic [ref=e980]: "?"
+                - generic [ref=e981]:
+                  - generic [ref=e982]:
+                    - generic [ref=e983]:
+                      - generic [ref=e984]: +
+                      - text: New
+                    - generic [ref=e985]: DRIVE
+                    - generic [ref=e986]:
+                      - generic [ref=e987]: 
+                      - text: Home
+                    - generic [ref=e988]:
+                      - generic [ref=e989]: 
+                      - text: My Drive
+                    - generic [ref=e990]:
+                      - generic [ref=e991]: 
+                      - text: Shared with me
+                    - generic [ref=e992]:
+                      - generic [ref=e993]: 
+                      - text: Recent
+                    - generic [ref=e994]:
+                      - generic [ref=e995]: 
+                      - text: Starred
+                    - generic [ref=e996]:
+                      - generic [ref=e997]: 
+                      - text: Workspace
+                    - generic [ref=e998]:
+                      - generic [ref=e999]: 
+                      - text: Settings
+                    - generic [ref=e1000]:
+                      - generic [ref=e1001]: 
+                      - text: Trash
+                    - generic [ref=e1002]:
+                      - generic [ref=e1003]:
+                        - text: STORAGE
+                        - generic [ref=e1004]: 0%
+                      - generic [ref=e1007]: 23 MB of 100.0 GB
+                  - generic [ref=e1008]:
+                    - generic [ref=e1009]:
+                      - generic [ref=e1010]: "?"
+                      - generic [ref=e1011]:
+                        - generic [ref=e1012]: Good afternoon
+                        - generic [ref=e1013]: Sunday, June 28
+                    - generic [ref=e1014]:
+                      - generic [ref=e1015]:
+                        - generic [ref=e1016]: 
+                        - text: My Drive
+                      - generic [ref=e1017]:
+                        - generic [ref=e1018]: 
+                        - text: Shared with me
+                      - generic [ref=e1019]:
+                        - generic [ref=e1020]: 
+                        - text: Recent
+                      - generic [ref=e1021]:
+                        - generic [ref=e1022]: 
+                        - text: Saved searches
+                    - generic [ref=e1023]:
+                      - generic [ref=e1024]: RECENTLY OPENED
+                      - generic [ref=e1025]: View all
+                    - generic [ref=e1026]:
+                      - generic [ref=e1027]:
+                        - generic [ref=e1029]: 
+                        - generic [ref=e1030]: Document 2026-06-04...
+                        - generic [ref=e1031]: Jun 4
+                      - generic [ref=e1032]:
+                        - generic [ref=e1034]: 
+                        - generic [ref=e1035]: Document 2026-06-04...
+                        - generic [ref=e1036]: Jun 4
+                      - generic [ref=e1037]:
+                        - generic [ref=e1039]: 
+                        - generic [ref=e1040]: Spreadsheet 2026-05-...
+                        - generic [ref=e1041]: May 31
+                      - generic [ref=e1042]:
+                        - generic [ref=e1044]: 
+                        - generic [ref=e1045]: Plan_Billing.pdf
+                        - generic [ref=e1046]: May 28
+                      - generic [ref=e1047]:
+                        - generic [ref=e1049]: 
+                        - generic [ref=e1050]: link_check_report.xlsx
+                        - generic [ref=e1051]: May 19
+                    - generic [ref=e1052]:
+                      - generic [ref=e1053]: STARRED
+                      - generic [ref=e1054]: View all
+                    - generic [ref=e1056]:
+                      - generic [ref=e1058]: 
+                      - generic [ref=e1059]: Document 2026-05-13...
+                      - generic [ref=e1060]: May 13
+              - list [ref=e1061]:
+                - listitem [ref=e1062]: Files and folders with versioning, trash, and restore
+                - listitem [ref=e1063]: Sharing roles, expiring links, passcodes, and branded landing pages
+                - listitem [ref=e1064]: Microsoft Office co-editing of Word, Excel, and PowerPoint in the browser
+                - listitem [ref=e1065]: PDF viewer with annotation and save-back
+                - listitem [ref=e1066]: Full-text search with OCR on images and scanned PDFs
+                - listitem [ref=e1067]: Comments, mentions, presence, and an activity feed
+                - listitem [ref=e1068]: Resumable chunked and folder upload
+                - listitem [ref=e1069]: WebDAV mount from Finder or Explorer
+                - listitem [ref=e1070]: Encryption, legal hold, and data classification
+                - listitem [ref=e1071]: Data-loss-prevention rules and ransomware rollback
+                - listitem [ref=e1072]: Single sign-on with SCIM provisioning
+                - listitem [ref=e1073]: Schedule a meeting directly from a file
+          - generic [ref=e1074] [cursor=pointer]:
+            - button " Meet Browser-based video conferencing and collaboration, wired into the same identity and file platform as the rest of the suite." [ref=e1075]:
+              - generic [ref=e1077]: 
+              - generic [ref=e1078]:
+                - generic [ref=e1079]: Meet
+                - generic [ref=e1080]: Browser-based video conferencing and collaboration, wired into the same identity and file platform as the rest of the suite.
+            - generic [ref=e1081]:
+              - generic [ref=e1082]: From any file a customer schedules a meeting that auto-grants attendees access and revokes it afterward, so meetings are a first-class action on documents and identities, not a separate app to buy.
+              - generic [ref=e1083]:
+                - generic [ref=e1084]:
+                  - generic [ref=e1085]:
+                    - generic [ref=e1087]: 
+                    - generic [ref=e1088]: WorldPosta Meet
+                  - generic [ref=e1089]:
+                    - generic [ref=e1090]: A
+                    - generic [ref=e1091]: Log out
+                - generic [ref=e1092]:
+                  - generic [ref=e1093]:
+                    - generic [ref=e1094]:
+                      - generic [ref=e1095]: Good afternoon, Adam.
+                      - generic [ref=e1096]: You have 1 meeting today — ready when you are.
+                    - generic [ref=e1097]:
+                      - generic [ref=e1098]: SUNDAY, JUNE 7, 2026
+                      - generic [ref=e1099]: 14:32
+                  - generic [ref=e1100]:
+                    - generic [ref=e1101]:
+                      - generic [ref=e1103]: 
+                      - generic [ref=e1104]: Start an instant meeting
+                      - generic [ref=e1105]: Spin up a room in 10 seconds — invite anyone with the link.
+                      - generic [ref=e1106]: Start now →
+                    - generic [ref=e1107]:
+                      - generic [ref=e1109]: 
+                      - generic [ref=e1110]: Schedule for later
+                      - generic [ref=e1111]: Pick a time, set a duration, and share the link.
+                    - generic [ref=e1112]:
+                      - generic [ref=e1114]: 
+                      - generic [ref=e1115]: Join with a code
+                      - generic [ref=e1116]: Got a meeting code or shared link? Paste it here.
+                  - generic [ref=e1117]:
+                    - text: Today &
+                    - generic [ref=e1118]: upcoming
+                    - generic [ref=e1119]: 1 MEETING
+                  - generic [ref=e1120]:
+                    - generic [ref=e1121]:
+                      - generic [ref=e1122]: NOW
+                      - generic [ref=e1123]: live
+                    - generic [ref=e1124]:
+                      - generic [ref=e1125]: Instant meeting
+                      - generic [ref=e1126]: live
+                    - generic [ref=e1128]: Rejoin →
+                  - generic [ref=e1129]:
+                    - generic [ref=e1130]:
+                      - generic [ref=e1131]: 2h 15m
+                      - generic [ref=e1132]: Total time in meetings this week
+                    - generic [ref=e1133]:
+                      - generic [ref=e1134]: "1"
+                      - generic [ref=e1135]: Meetings you hosted this week
+                    - generic [ref=e1136]:
+                      - generic [ref=e1137]: 45m
+                      - generic [ref=e1138]: Average meeting duration this week
+                    - generic [ref=e1139]:
+                      - generic [ref=e1140]: "2"
+                      - generic [ref=e1141]: Total meetings on your account
+              - list [ref=e1142]:
+                - listitem [ref=e1143]: Browser video and audio meetings with a pre-join device test
+                - listitem [ref=e1144]: Screen sharing with presenter view
+                - listitem [ref=e1145]: Collaborative whiteboard where guests can draw
+                - listitem [ref=e1146]: Guest join by a secure single link
+                - listitem [ref=e1147]: Chat, reactions, read receipts, polls, and Q&A
+                - listitem [ref=e1148]: Co-hosts, hand-raise, lobby, and passcodes
+                - listitem [ref=e1149]: Vanity URLs, templates, and calendar invites
+                - listitem [ref=e1150]: Schedule from a file with automatic access cleanup
+                - listitem [ref=e1151]: Background blur, virtual backgrounds, and voice isolation
+                - listitem [ref=e1152]: Per-tenant branding and audit logging
+                - listitem [ref=e1153]: Native desktop app
+          - generic [ref=e1154] [cursor=pointer]:
+            - button " Online Office Apps Real-time co-editing of documents, spreadsheets, and presentations in the browser, self-hosted on your infrastructure." [ref=e1155]:
+              - generic [ref=e1157]: 
+              - generic [ref=e1158]:
+                - generic [ref=e1159]: Online Office Apps
+                - generic [ref=e1160]: Real-time co-editing of documents, spreadsheets, and presentations in the browser, self-hosted on your infrastructure.
+            - generic [ref=e1161]:
+              - generic [ref=e1162]: Customers edit native Office documents together in the browser with true fidelity, served from your own infrastructure, so everyday document work never leaves your platform.
+              - list [ref=e1163]:
+                - listitem [ref=e1164]: Real-time co-editing of documents, spreadsheets, and presentations
+                - listitem [ref=e1165]: True Microsoft Office format fidelity
+                - listitem [ref=e1166]: Runs in the browser with nothing to install
+                - listitem [ref=e1167]: Self-hosted on your infrastructure
+                - listitem [ref=e1168]: Integrated with Drive storage and sharing
+                - listitem [ref=e1169]: Per-tenant isolation
+              - 'img "Illustrative online office app: a browser editing a Word document with Excel and PowerPoint files open in tabs, three people co-editing in real time, served from self-hosted infrastructure." [ref=e1170]':
+                - generic [ref=e1171]:
+                  - generic [ref=e1176]:
+                    - img [ref=e1177]
+                    - generic: office.yourbrand.cloud/d/q3-board-pack.docx
+                  - generic [ref=e1180]: Egypt · Self-hosted
+                - tablist [ref=e1182]:
+                  - tab " Q3 Board Pack.docx" [ref=e1183]:
+                    - generic [ref=e1184]: 
+                    - generic [ref=e1185]: Q3 Board Pack.docx
+                  - tab " Budget FY26.xlsx" [ref=e1186]:
+                    - generic [ref=e1187]: 
+                    - generic [ref=e1188]: Budget FY26.xlsx
+                  - tab " Investor Deck.pptx" [ref=e1189]:
+                    - generic [ref=e1190]: 
+                    - generic [ref=e1191]: Investor Deck.pptx
+                  - generic [ref=e1193]: +
+                - generic [ref=e1194]:
+                  - generic [ref=e1195]:
+                    - generic:
+                      - generic [ref=e1196]: 
+                      - generic [ref=e1197]:
+                        - text: Q3 Board Pack
+                        - text: Word · .docx
+                    - generic [ref=e1198]:
+                      - generic [ref=e1200]: 
+                      - generic [ref=e1202]: 
+                      - generic [ref=e1204]: 
+                      - generic [ref=e1206]: 
+                    - generic [ref=e1207]:
+                      - generic [ref=e1208]:
+                        - generic [ref=e1209]: 
+                        - text: Saved
+                      - generic [ref=e1210]:
+                        - generic "You" [ref=e1211]: ME
+                        - generic "Layla M." [ref=e1212]: LM
+                        - generic "Omar R." [ref=e1213]: OR
+                  - generic [ref=e1215]:
+                    - generic [ref=e1216]: Q3 2026 · Board pack
+                    - generic [ref=e1217]: Operator Platform Review
+                    - generic [ref=e1218]: Prepared for the executive committee · Revision 14
+                    - generic [ref=e1222]: You
+                    - generic [ref=e1230]: Layla M.
+                    - generic [ref=e1238]: Omar R.
+                  - generic [ref=e1241]:
+                    - text: 3 people editing
+                    - generic [ref=e1243]: ·
+                    - text: Word
+                    - generic [ref=e1244]: ·
+                    - text: Page 1 of 12
+                    - generic [ref=e1245]: Synced to Drive · Egypt
+                - text:   %         
+      - generic [ref=e1247]:
+        - generic [ref=e1248]: The platform · Operations spine
+        - heading "One control panel behind every service." [level=2] [ref=e1250]:
+          - text: One control panel
+          - text: behind every service.
+        - paragraph [ref=e1251]: The spine ties the whole ecosystem together. Provision and monitor every service and tenant, price and bill on your own terms, watch the platform in real time, and give every user one identity across all of it.
+        - generic [ref=e1252]:
+          - generic [ref=e1253] [cursor=pointer]:
+            - button " Atrium The unified control panel and shell that provisions and manages every product and tenant from one place." [ref=e1254]:
+              - generic [ref=e1256]: 
+              - generic [ref=e1257]:
+                - generic [ref=e1258]: Atrium
+                - generic [ref=e1259]: The unified control panel and shell that provisions and manages every product and tenant from one place.
+            - generic [ref=e1260]:
+              - generic [ref=e1261]: A single console fans provisioning and administration out across every product and tenant, with an organization hierarchy that maps cleanly onto government, ministry, and entity structures.
+              - list [ref=e1262]:
+                - listitem [ref=e1263]: One shell and launcher across every product
+                - listitem [ref=e1264]: App launcher filtered by each group's entitlements
+                - listitem [ref=e1265]: One-click tenant provisioning across the whole suite
+                - listitem [ref=e1266]: Organization hierarchy for complex structures
+                - listitem [ref=e1267]: Append-only audit log on every change
+                - listitem [ref=e1268]: Tenant domain management with DNS verification
+                - listitem [ref=e1269]: Automated certificate and domain verification
+                - listitem [ref=e1270]: Users, groups, and team management
+                - listitem [ref=e1271]: Embedded billing summary
+                - listitem [ref=e1272]: Infrastructure console for VM lifecycle
+              - 'img "Illustrative Atrium control panel: tenants, services, monthly revenue, revenue by service and recent provisioning, with live figures." [ref=e1274]':
+                - generic [ref=e1275]:
+                  - generic [ref=e1280]:
+                    - img [ref=e1281]
+                    - generic: console.yourbrand.cloud
+                  - generic [ref=e1285]: Egypt · Production
+                - generic [ref=e1287]:
+                  - complementary [ref=e1288]:
+                    - generic [ref=e1289]:
+                      - generic [ref=e1290]: WP
+                      - generic [ref=e1291]:
+                        - text: Atrium
+                        - generic [ref=e1292]: Control Panel
+                    - generic [ref=e1293]:
+                      - generic [ref=e1295]: 
+                      - text: Overview
+                    - generic [ref=e1296]:
+                      - generic [ref=e1298]: 
+                      - text: Customers
+                    - generic [ref=e1299]:
+                      - generic [ref=e1301]: 
+                      - text: Tenants
+                    - generic [ref=e1302]: Catalogue
+                    - generic [ref=e1303]:
+                      - generic [ref=e1305]: 
+                      - text: Products
+                    - generic [ref=e1306]:
+                      - generic [ref=e1308]: 
+                      - text: Offers
+                    - generic [ref=e1309]: Finance
+                    - generic [ref=e1310]:
+                      - generic [ref=e1312]: 
+                      - text: Billing
+                    - generic [ref=e1313]: Operate
+                    - generic [ref=e1314]:
+                      - generic [ref=e1316]: 
+                      - text: Monitoring
+                    - generic [ref=e1317]:
+                      - generic [ref=e1318]: Connected source
+                      - generic [ref=e1319]:
+                        - text: WorldPosta cloud
+                        - generic [ref=e1321]: · Egypt
+                      - generic [ref=e1322]: 2 suites · read-only · 35 AZs
+                  - main [ref=e1323]:
+                    - generic [ref=e1324]:
+                      - generic [ref=e1325]:
+                        - generic [ref=e1326]:
+                          - generic [ref=e1327]: Atrium
+                          - generic [ref=e1328]: ›
+                          - generic [ref=e1329]: Overview
+                        - heading "Estate overview" [level=4] [ref=e1330]
+                        - generic [ref=e1331]: WorldPosta · Egypt · 2 suites · 35 availability zones
+                      - generic [ref=e1332]:
+                        - generic [ref=e1333]: Synced 2m ago
+                        - generic [ref=e1334]: LIVE
+                    - generic [ref=e1342]:
+                      - generic [ref=e1343]:
+                        - generic: Active tenants
+                        - generic: 1,284
+                        - generic: ▲ 6.2% MoM
+                      - generic [ref=e1344]:
+                        - generic: Services live
+                        - generic: 9,640
+                        - generic: across 2 suites
+                      - generic [ref=e1345]:
+                        - generic: Monthly revenue
+                        - generic: $412k
+                        - generic: ▲ 8.1% MoM
+                      - generic [ref=e1346]:
+                        - generic: Forecast
+                        - generic: $448k
+                        - generic: ▲ month-end
+                      - generic [ref=e1347]:
+                        - generic: Uptime SLA
+                        - generic: 99.99%
+                        - generic: mission-critical
+                      - generic [ref=e1348]:
+                        - generic: Open tickets
+                        - generic: "7"
+                        - generic: 2 high priority
+                    - generic [ref=e1349]:
+                      - generic [ref=e1350]:
+                        - generic [ref=e1351]:
+                          - generic [ref=e1352]:
+                            - heading "Revenue trend" [level=5] [ref=e1353]
+                            - generic [ref=e1354]: Daily booked · last 30 days
+                          - generic [ref=e1355]: +8.1%
+                        - img "Daily booked revenue column chart trending up over 30 days" [ref=e1357]
+                      - generic [ref=e1362]:
+                        - heading "Revenue by service" [level=5] [ref=e1363]
+                        - generic [ref=e1364]: Last 30 days · MRR $412k
+                        - img [ref=e1366]:
+                          - generic [ref=e1373]: $412k
+                          - generic [ref=e1374]: MRR · 30d
+                        - generic [ref=e1375]:
+                          - generic [ref=e1376]:
+                            - text: Posta Mail
+                            - generic [ref=e1378]: 34%
+                          - generic [ref=e1379]:
+                            - text: NextEdge Cloud
+                            - generic [ref=e1381]: 27%
+                          - generic [ref=e1382]:
+                            - text: Drive
+                            - generic [ref=e1384]: 16%
+                          - generic [ref=e1385]:
+                            - text: iO Storage
+                            - generic [ref=e1387]: 13%
+                          - generic [ref=e1388]:
+                            - text: Meet & other
+                            - generic [ref=e1390]: 10%
+                    - generic [ref=e1391]:
+                      - generic [ref=e1392]:
+                        - heading "Top services" [level=5] [ref=e1393]
+                        - generic [ref=e1394]: By monthly revenue
+                        - generic [ref=e1395]:
+                          - generic [ref=e1396]: Posta Mail
+                          - generic [ref=e1397]: $140k
+                        - generic [ref=e1398]:
+                          - generic [ref=e1399]: NextEdge Cloud
+                          - generic [ref=e1400]: $112k
+                        - generic [ref=e1401]:
+                          - generic [ref=e1402]: Drive
+                          - generic [ref=e1403]: $66k
+                        - generic [ref=e1404]:
+                          - generic [ref=e1405]: iO Storage
+                          - generic [ref=e1406]: $54k
+                        - generic [ref=e1407]:
+                          - generic [ref=e1408]: Meet
+                          - generic [ref=e1409]: $40k
+                      - generic [ref=e1410]:
+                        - heading "Recent provisioning" [level=5] [ref=e1411]
+                        - generic [ref=e1412]: Across your tenants
+                        - table [ref=e1413]:
+                          - rowgroup [ref=e1414]:
+                            - row "Customer Service Status" [ref=e1415]:
+                              - columnheader "Customer" [ref=e1416]
+                              - columnheader "Service" [ref=e1417]
+                              - columnheader "Status" [ref=e1418]
+                          - rowgroup [ref=e1419]:
+                            - row "Nile Bank Posta Mail · 500 seats Active" [ref=e1420]:
+                              - cell "Nile Bank" [ref=e1421]
+                              - cell "Posta Mail · 500 seats" [ref=e1422]
+                              - cell "Active" [ref=e1423]
+                            - row "Delta Retail NextEdge · 12 VMs Provisioning" [ref=e1424]:
+                              - cell "Delta Retail" [ref=e1425]
+                              - cell "NextEdge · 12 VMs" [ref=e1426]
+                              - cell "Provisioning" [ref=e1427]
+                            - row "Horizon Gov iO Storage · 40 TB Active" [ref=e1428]:
+                              - cell "Horizon Gov" [ref=e1429]
+                              - cell "iO Storage · 40 TB" [ref=e1430]
+                              - cell "Active" [ref=e1431]
+                            - row "Atlas MSP Full suite Active" [ref=e1432]:
+                              - cell "Atlas MSP" [ref=e1433]
+                              - cell "Full suite" [ref=e1434]
+                              - cell "Active" [ref=e1435]
+                    - generic [ref=e1436]: Illustrative Atrium console · sample figures computed in-browser · connect your tenant to see live identity, billing and monitoring data.
+          - generic [ref=e1437] [cursor=pointer]:
+            - button " Billing Engine The single billing platform for metering, plans, invoices, and payments, with your margin and your branding on top." [ref=e1438]:
+              - generic [ref=e1440]: 
+              - generic [ref=e1441]:
+                - generic [ref=e1442]: Billing Engine
+                - generic [ref=e1443]: The single billing platform for metering, plans, invoices, and payments, with your margin and your branding on top.
+            - generic [ref=e1444]:
+              - generic [ref=e1445]: Every service meters into one billing platform where you set plans per tenant, apply your margin, and issue invoices on your own template, in your currency, under your name.
+              - list [ref=e1446]:
+                - listitem [ref=e1447]: Usage metering across every service
+                - listitem [ref=e1448]: Plans and a per-tenant catalog
+                - listitem [ref=e1449]: Subscription lifecycle across trial, active, paused, and canceled
+                - listitem [ref=e1450]: Invoices with PDF and accounting export
+                - listitem [ref=e1451]: Payments by card, online wallet, and bank transfer
+                - listitem [ref=e1452]: Automated dunning and retries
+                - listitem [ref=e1453]: Wallet, credits, discounts, and coupons
+                - listitem [ref=e1454]: Reseller hierarchy with commission tracking
+                - listitem [ref=e1455]: Customer self-service portal
+                - listitem [ref=e1456]: Tamper-proof audit log
+          - generic [ref=e1457] [cursor=pointer]:
+            - button " Watchful Fleet-wide operational intelligence that detects issues across every product and proposes fixes for human approval." [ref=e1458]:
+              - generic [ref=e1460]: 
+              - generic [ref=e1461]:
+                - generic [ref=e1462]: Watchful
+                - generic [ref=e1463]: Fleet-wide operational intelligence that detects issues across every product and proposes fixes for human approval.
+            - generic [ref=e1464]:
+              - generic [ref=e1465]: Watchful detects bugs, security signals, and failures across the whole platform and proposes remediation that only runs after a human approves it, with every step recorded in an audit trail.
+              - generic [ref=e1466]:
+                - generic [ref=e1467]:
+                  - generic [ref=e1468]: Watchful
+                  - generic [ref=e1469]:
+                    - generic [ref=e1470]: Overview
+                    - generic [ref=e1471]: Incidents
+                    - generic [ref=e1472]: Settings
+                  - generic [ref=e1473]:
+                    - generic [ref=e1474]: adam@worldposta.com
+                    - generic [ref=e1475]: Sign out
+                - generic [ref=e1476]:
+                  - generic [ref=e1477]: Fleet overview
+                  - generic [ref=e1478]: Live event sources, open incidents per product. Refreshes every 10s.
+                  - generic [ref=e1479]: PUBLIC ENDPOINTS (SYNTHETIC PROBES)
+                  - generic [ref=e1480]:
+                    - generic [ref=e1481]:
+                      - generic [ref=e1482]:
+                        - generic [ref=e1483]: drive
+                        - generic [ref=e1484]: UP
+                      - generic [ref=e1485]:
+                        - generic [ref=e1486]: 19ms
+                        - generic [ref=e1487]: cert 88d
+                    - generic [ref=e1488]:
+                      - generic [ref=e1489]:
+                        - generic [ref=e1490]: edge
+                        - generic [ref=e1491]: UP
+                      - generic [ref=e1492]:
+                        - generic [ref=e1493]: 14ms
+                        - generic [ref=e1494]: cert 51d
+                    - generic [ref=e1495]:
+                      - generic [ref=e1496]:
+                        - generic [ref=e1497]: identity
+                        - generic [ref=e1498]: UP
+                      - generic [ref=e1499]:
+                        - generic [ref=e1500]: 14ms
+                        - generic [ref=e1501]: cert 89d
+                    - generic [ref=e1502]:
+                      - generic [ref=e1503]:
+                        - generic [ref=e1504]: knowledge
+                        - generic [ref=e1505]: UP
+                      - generic [ref=e1506]:
+                        - generic [ref=e1507]: 20ms
+                        - generic [ref=e1508]: cert 272d
+                    - generic [ref=e1509]:
+                      - generic [ref=e1510]:
+                        - generic [ref=e1511]: meet
+                        - generic [ref=e1512]: UP
+                      - generic [ref=e1513]:
+                        - generic [ref=e1514]: —
+                        - generic [ref=e1515]: cert 32d
+                    - generic [ref=e1516]:
+                      - generic [ref=e1517]:
+                        - generic [ref=e1518]: offeredge
+                        - generic [ref=e1519]: UP
+                      - generic [ref=e1520]:
+                        - generic [ref=e1521]: 14ms
+                        - generic [ref=e1522]: cert 272d
+                    - generic [ref=e1523]:
+                      - generic [ref=e1524]:
+                        - generic [ref=e1525]: posta
+                        - generic [ref=e1526]: UP
+                      - generic [ref=e1527]:
+                        - generic [ref=e1528]: 13ms
+                        - generic [ref=e1529]: cert 39d
+                    - generic [ref=e1530]:
+                      - generic [ref=e1531]:
+                        - generic [ref=e1532]: watchful
+                        - generic [ref=e1533]: UP
+                      - generic [ref=e1534]:
+                        - generic [ref=e1535]: 8ms
+                        - generic [ref=e1536]: cert 35d
+                  - generic [ref=e1537]: INFRASTRUCTURE
+                  - generic [ref=e1538]:
+                    - generic [ref=e1539]:
+                      - generic [ref=e1540]:
+                        - generic [ref=e1541]: 172.20.1.15:9100
+                        - generic [ref=e1542]: load 0.03
+                      - generic [ref=e1543]:
+                        - generic [ref=e1544]: cpu
+                        - generic [ref=e1546]: 0.6%
+                      - generic [ref=e1547]:
+                        - generic [ref=e1548]: mem
+                        - generic [ref=e1550]: 11.7%
+                      - generic [ref=e1551]:
+                        - generic [ref=e1552]: disk
+                        - generic [ref=e1554]: 20.0%
+                      - generic [ref=e1555]: no data
+                    - generic [ref=e1556]:
+                      - generic [ref=e1557]:
+                        - generic [ref=e1558]: 172.20.1.16:9100
+                        - generic [ref=e1559]: load 0.01
+                      - generic [ref=e1560]:
+                        - generic [ref=e1561]: cpu
+                        - generic [ref=e1563]: 5.7%
+                      - generic [ref=e1564]:
+                        - generic [ref=e1565]: mem
+                        - generic [ref=e1567]: 40.4%
+                      - generic [ref=e1568]:
+                        - generic [ref=e1569]: disk
+                        - generic [ref=e1571]: 28.3%
+                      - generic [ref=e1572]: no data
+                    - generic [ref=e1573]:
+                      - generic [ref=e1574]:
+                        - generic [ref=e1575]: ceph-dev
+                        - generic [ref=e1576]: load 0.43
+                      - generic [ref=e1577]:
+                        - generic [ref=e1578]: cpu
+                        - generic [ref=e1580]: 21.5%
+                      - generic [ref=e1581]:
+                        - generic [ref=e1582]: mem
+                        - generic [ref=e1584]: 84.1%
+                      - generic [ref=e1585]:
+                        - generic [ref=e1586]: disk
+                        - generic [ref=e1588]: 37.7%
+                      - generic [ref=e1589]: no data
+                    - generic [ref=e1590]:
+                      - generic [ref=e1591]:
+                        - generic [ref=e1592]: id-db
+                        - generic [ref=e1593]: load 0.03
+                      - generic [ref=e1594]:
+                        - generic [ref=e1595]: cpu
+                        - generic [ref=e1597]: 1.8%
+                      - generic [ref=e1598]:
+                        - generic [ref=e1599]: mem
+                        - generic [ref=e1601]: 43.8%
+                      - generic [ref=e1602]:
+                        - generic [ref=e1603]: disk
+                        - generic [ref=e1605]: 78.2%
+                      - generic [ref=e1606]: no data
+                    - generic [ref=e1607]:
+                      - generic [ref=e1608]:
+                        - generic [ref=e1609]: cd
+                        - generic [ref=e1610]: load 1.10
+                      - generic [ref=e1611]:
+                        - generic [ref=e1612]: cpu
+                        - generic [ref=e1614]: 13.2%
+                      - generic [ref=e1615]:
+                        - generic [ref=e1616]: mem
+                        - generic [ref=e1618]: 25.8%
+                      - generic [ref=e1619]:
+                        - generic [ref=e1620]: disk
+                        - generic [ref=e1622]: 20.8%
+                      - generic [ref=e1623]: no data
+                    - generic [ref=e1624]:
+                      - generic [ref=e1625]:
+                        - generic [ref=e1626]: id-app
+                        - generic [ref=e1627]: load 0.35
+                      - generic [ref=e1628]:
+                        - generic [ref=e1629]: cpu
+                        - generic [ref=e1631]: 23.7%
+                      - generic [ref=e1632]:
+                        - generic [ref=e1633]: mem
+                        - generic [ref=e1635]: 24.4%
+                      - generic [ref=e1636]:
+                        - generic [ref=e1637]: disk
+                        - generic [ref=e1639]: 27.0%
+                      - generic [ref=e1640]: no data
+                    - generic [ref=e1641]:
+                      - generic [ref=e1642]:
+                        - generic [ref=e1643]: monitoring
+                        - generic [ref=e1644]: load 0.11
+                      - generic [ref=e1645]:
+                        - generic [ref=e1646]: cpu
+                        - generic [ref=e1648]: 7.7%
+                      - generic [ref=e1649]:
+                        - generic [ref=e1650]: mem
+                        - generic [ref=e1652]: 36.1%
+                      - generic [ref=e1653]:
+                        - generic [ref=e1654]: disk
+                        - generic [ref=e1656]: 24.0%
+                      - generic [ref=e1657]: no data
+                    - generic [ref=e1658]:
+                      - generic [ref=e1659]:
+                        - generic [ref=e1660]: posta
+                        - generic [ref=e1661]: load 0.23
+                      - generic [ref=e1662]:
+                        - generic [ref=e1663]: cpu
+                        - generic [ref=e1665]: 15.5%
+                      - generic [ref=e1666]:
+                        - generic [ref=e1667]: mem
+                        - generic [ref=e1669]: 29.0%
+                      - generic [ref=e1670]:
+                        - generic [ref=e1671]: disk
+                        - generic [ref=e1673]: 20.8%
+                      - generic [ref=e1674]: no data
+              - list [ref=e1675]:
+                - listitem [ref=e1676]: Event ingestion across every product
+                - listitem [ref=e1677]: Automatic incident detection, grouping, and promotion
+                - listitem [ref=e1678]: Error, latency, and traffic metrics per product
+                - listitem [ref=e1679]: Sign-in risk and audit correlation
+                - listitem [ref=e1680]: Approval-gated remediation with full audit
+                - listitem [ref=e1681]: Critical-only paging by default
+                - listitem [ref=e1682]: Incident acknowledge, resolve, and auto-resolve
+                - listitem [ref=e1683]: Noise suppression for known patterns
+                - listitem [ref=e1684]: AI-assisted triage
+          - generic [ref=e1685] [cursor=pointer]:
+            - button " Identity & SSO One identity provider and policy engine behind every product, with single sign-on for every user." [ref=e1686]:
+              - generic [ref=e1688]: 
+              - generic [ref=e1689]:
+                - generic [ref=e1690]: Identity & SSO
+                - generic [ref=e1691]: One identity provider and policy engine behind every product, with single sign-on for every user.
+            - generic [ref=e1692]:
+              - generic [ref=e1693]: Every product authenticates against one identity provider with a fine-grained policy engine, so a user gets one secure sign-on across the whole ecosystem and you control access centrally.
+              - generic [ref=e1694]:
+                - generic [ref=e1695]:
+                  - generic [ref=e1698]: WorldPosta
+                  - generic [ref=e1699]: Sign out
+                - generic [ref=e1700]:
+                  - generic [ref=e1701]: Welcome, Adam
+                  - generic [ref=e1702]: Pick an app to get started.
+                  - generic [ref=e1703]:
+                    - generic [ref=e1704]:
+                      - generic [ref=e1705]: 
+                      - text: Compose mail
+                    - generic [ref=e1706]:
+                      - generic [ref=e1707]: 
+                      - text: New Word doc
+                    - generic [ref=e1708]:
+                      - generic [ref=e1709]: 
+                      - text: Schedule meeting
+                  - generic [ref=e1710]:
+                    - generic [ref=e1711]:
+                      - generic [ref=e1713]: 
+                      - generic [ref=e1714]:
+                        - generic [ref=e1715]: Posta Drive
+                        - generic [ref=e1716]: Files, sharing, Office editing
+                      - generic [ref=e1717]: 
+                    - generic [ref=e1718]:
+                      - generic [ref=e1720]: 
+                      - generic [ref=e1721]:
+                        - generic [ref=e1722]: Posta
+                        - generic [ref=e1723]: Webmail (EWS / IMAP / Graph)
+                      - generic [ref=e1724]: 
+                    - generic [ref=e1725]:
+                      - generic [ref=e1727]: 
+                      - generic [ref=e1728]:
+                        - generic [ref=e1729]: Meet
+                        - generic [ref=e1730]: Video meetings + recording
+                      - generic [ref=e1731]: 
+                    - generic [ref=e1732]:
+                      - generic [ref=e1734]: 
+                      - generic [ref=e1735]:
+                        - generic [ref=e1736]: Word
+                        - generic [ref=e1737]: New document — opens in Offi...
+                      - generic [ref=e1738]: 
+                    - generic [ref=e1739]:
+                      - generic [ref=e1741]: 
+                      - generic [ref=e1742]:
+                        - generic [ref=e1743]: Excel
+                        - generic [ref=e1744]: New spreadsheet — opens in Of...
+                      - generic [ref=e1745]: 
+                    - generic [ref=e1746]:
+                      - generic [ref=e1748]: 
+                      - generic [ref=e1749]:
+                        - generic [ref=e1750]: PowerPoint
+                        - generic [ref=e1751]: New presentation — opens in O...
+                      - generic [ref=e1752]: 
+                    - generic [ref=e1753]:
+                      - generic [ref=e1755]: 
+                      - generic [ref=e1756]:
+                        - generic [ref=e1757]: Knowledge
+                        - generic [ref=e1758]: KB articles & search
+                      - generic [ref=e1759]: 
+                    - generic [ref=e1760]:
+                      - generic [ref=e1762]: 
+                      - generic [ref=e1763]:
+                        - generic [ref=e1764]: Diagrams
+                        - generic [ref=e1765]: Architecture & flowcharts
+                      - generic [ref=e1766]: 
+                    - generic [ref=e1767]:
+                      - generic [ref=e1769]: 
+                      - generic [ref=e1770]:
+                        - generic [ref=e1771]: Nextcloud
+                        - generic [ref=e1772]: Files & collaboration
+                      - generic [ref=e1773]: 
+                    - generic [ref=e1774]:
+                      - generic [ref=e1775]: RECENT FILES
+                      - generic [ref=e1776]:
+                        - generic [ref=e1777]: Document 2026-06-04.docx
+                        - generic [ref=e1778]: 6/4/2026
+                      - generic [ref=e1779]:
+                        - generic [ref=e1780]: Document 2026-06-04.docx
+                        - generic [ref=e1781]: 6/4/2026
+                      - generic [ref=e1782]:
+                        - generic [ref=e1783]: Spreadsheet 2026-05-31.xlsx
+                        - generic [ref=e1784]: 5/31/2026
+                      - generic [ref=e1785]:
+                        - generic [ref=e1786]: Plan_Billing.pdf
+                        - generic [ref=e1787]: 5/28/2026
+                      - generic [ref=e1788]:
+                        - generic [ref=e1789]: link_check_report.xlsx
+                        - generic [ref=e1790]: 5/19/2026
+                  - generic [ref=e1791]: WorldPosta · Home
+              - list [ref=e1792]:
+                - listitem [ref=e1793]: Standards-based provider using OIDC, OAuth2, and SAML 2.0
+                - listitem [ref=e1794]: Single sign-on across every product
+                - listitem [ref=e1795]: Login with external providers such as Google and Microsoft
+                - listitem [ref=e1796]: Adaptive multi-factor authentication with step-up
+                - listitem [ref=e1797]: Passkeys and biometric sign-in
+                - listitem [ref=e1798]: Recovery codes and magic-link with anti-enumeration
+                - listitem [ref=e1799]: Fine-grained allow and deny policy engine
+                - listitem [ref=e1800]: Per-tenant directory integration
+                - listitem [ref=e1801]: SCIM 2.0 user provisioning
+                - listitem [ref=e1802]: Token revocation and audit logging
+        - generic [ref=e1803]:
+          - generic [ref=e1804]: Open by design
+          - paragraph [ref=e1805]: The platform is built to fit the systems you already run. Connect identity, provisioning, storage, and events through open standards and APIs, so the ecosystem becomes part of your operation rather than a silo beside it.
+          - generic [ref=e1806]:
+            - generic [ref=e1807]: OIDC
+            - generic [ref=e1808]: SAML
+            - generic [ref=e1809]: SCIM
+            - generic [ref=e1810]: S3 API
+            - generic [ref=e1811]: Webhooks
+            - generic [ref=e1812]: REST API
+            - generic [ref=e1813]: MCP
+      - generic [ref=e1816]:
+        - generic [ref=e1817]:
+          - generic [ref=e1818]: Why WorldPosta · About
+          - heading "The team behind the layer you operate." [level=2] [ref=e1820]:
+            - text: The team behind
+            - text: the layer you operate.
+          - paragraph [ref=e1821]: WorldPosta has spent more than a decade building and running the software that powers cloud, mail, and collaboration for service providers. The platform runs across a globally distributed footprint and is built and operated to internationally recognized standards for information security, privacy, and payment data.
+          - paragraph [ref=e1822]: WorldPosta does not compete for your customers. We operate the layer beneath your brand, so the trust, the relationship, and the revenue stay with you while we keep the platform running, updated, and secure.
+        - generic [ref=e1823]:
+          - generic [ref=e1824]:
+            - generic [ref=e1825]: Your operator brand
+            - generic [ref=e1826]: YOUR BRAND
+            - generic [ref=e1827]:
+              - generic [ref=e1828]: Cloud
+              - generic [ref=e1829]: Mail
+              - generic [ref=e1830]: Files
+              - generic [ref=e1831]: Security
+              - generic [ref=e1832]: Billing
+            - generic [ref=e1833]: What your customers see
+          - generic [ref=e1838]:
+            - generic [ref=e1839]:
+              - generic [ref=e1840]: WorldPosta Platform
+              - generic [ref=e1841]: Invisible to your customers
+            - generic [ref=e1842]:
+              - generic [ref=e1843]:
+                - generic [ref=e1844]: 10+
+                - generic [ref=e1845]: Years operating
+              - generic [ref=e1846]:
+                - generic [ref=e1847]: ISO
+                - generic [ref=e1848]: IEC 27001 certified
+              - generic [ref=e1849]:
+                - generic [ref=e1850]: PCI
+                - generic [ref=e1851]: DSS compliant
+              - generic [ref=e1852]:
+                - generic [ref=e1853]: SOC
+                - generic [ref=e1854]: 24/7 operations
+      - generic [ref=e1856]:
+        - generic [ref=e1857]: Why WorldPosta · Trust
+        - heading "Your customers' data stays within your borders." [level=2] [ref=e1859]:
+          - text: Your customers' data
+          - text: stays within your borders.
+        - paragraph [ref=e1860]: For telcos, banks, and government providers, where data lives and who can reach it is the first question, not the last. WorldPosta is built so that data residency, certification, and isolation are properties of the platform, not promises bolted on afterward.
+        - generic [ref=e1861]:
+          - generic [ref=e1862]:
+            - heading "In-country data" [level=3] [ref=e1863]
+            - paragraph [ref=e1864]: Customer data stays where you decide. Where it lives follows your customers' regulatory requirements, not a foreign provider's region map.
+          - generic [ref=e1865]:
+            - heading "Certified and audited" [level=3] [ref=e1866]
+            - paragraph [ref=e1867]: The platform is built and operated to internationally recognized standards for information security, privacy, and payment data, independently certified.
+          - generic [ref=e1868]:
+            - heading "Zero-trust security" [level=3] [ref=e1869]
+            - paragraph [ref=e1870]: A round-the-clock SOC, encryption in transit and at rest, extended detection and response, and continuous vulnerability scanning across the stack.
+          - generic [ref=e1871]:
+            - heading "Per-tenant isolation" [level=3] [ref=e1872]
+            - paragraph [ref=e1873]: Every tenant is logically isolated end to end, so one customer's workloads, identities, and data never touch another's.
+      - generic [ref=e1875]:
+        - generic [ref=e1876]: Why WorldPosta · Operations
+        - heading "We run the software layer. You serve your customers." [level=2] [ref=e1878]:
+          - text: We run the software layer.
+          - text: You serve your customers.
+        - paragraph [ref=e1879]: You do not need to build a cloud engineering team to offer a cloud. WorldPosta operates the software layer end to end, on the infrastructure you already have, so your people stay focused on customers and growth.
+        - generic [ref=e1880]:
+          - generic [ref=e1881]:
+            - img [ref=e1883]
+            - generic [ref=e1886]:
+              - generic [ref=e1887]: No software ops team
+              - generic [ref=e1888]: Updates, patches, and monitoring of the software layer are handled by WorldPosta. Your team runs customers, not the platform.
+          - generic [ref=e1889]:
+            - img [ref=e1891]
+            - generic [ref=e1894]:
+              - generic [ref=e1895]: No new infrastructure
+              - generic [ref=e1896]: The ecosystem deploys on the servers, colocation, or cloud you already operate. No procurement and no migration to a specific provider.
+          - generic [ref=e1897]:
+            - img [ref=e1899]
+            - generic [ref=e1901]:
+              - generic [ref=e1902]: Live in days
+              - generic [ref=e1903]: Stand up the platform and onboard your first tenants quickly, then expand across the stack at your own pace.
+      - generic [ref=e1905]:
+        - generic [ref=e1906]: Why WorldPosta · Commercials
+        - generic [ref=e1908]:
+          - generic [ref=e1909]:
+            - generic [ref=e1910]: White-label
+            - heading "Your brand end to end. Your margin on top." [level=2] [ref=e1911]:
+              - text: Your brand end to end.
+              - text: Your margin on top.
+            - paragraph [ref=e1912]: Your customers see your logo, your domain, and your invoices. WorldPosta stays invisible. Set your own pricing with the billing engine and keep the margin between what you pay and what you charge.
+            - generic [ref=e1913]:
+              - generic [ref=e1914]:
+                - generic [ref=e1915]: Your brand
+                - generic [ref=e1916]: Every screen, email, and portal carries your identity, not ours.
+              - generic [ref=e1917]:
+                - generic [ref=e1918]: Your pricing
+                - generic [ref=e1919]: Seat, usage, bundle, or tier. You decide the model and the markup.
+              - generic [ref=e1920]:
+                - generic [ref=e1921]: Your invoices
+                - generic [ref=e1922]: Billing runs on your template, in your currency, under your name.
+              - generic [ref=e1923]:
+                - generic [ref=e1924]: Your relationship
+                - generic [ref=e1925]: You own the customer and the support line from first contact onward.
+          - generic [ref=e1926]:
+            - generic [ref=e1927]:
+              - generic [ref=e1932]: portal.worldposta.com
+              - generic [ref=e1935]: WP
+            - generic [ref=e1948]: WorldPosta · Platform
+      - generic [ref=e1950]:
+        - generic [ref=e1951]: Fit
+        - heading "Built for the providers their customers already trust." [level=2] [ref=e1953]:
+          - text: Built for the providers
+          - text: their customers already trust.
+        - paragraph [ref=e1954]: The same ecosystem adapts to the operators who deliver it. Wherever you already hold the infrastructure and the relationship, WorldPosta gives you the portfolio to match.
+        - generic [ref=e1955]:
+          - generic [ref=e1956]:
+            - generic [ref=e1957]:
+              - img [ref=e1959]
+              - heading "Telcos" [level=3] [ref=e1961]
+            - paragraph [ref=e1962]: Add cloud, mail, and collaboration to the connectivity you already sell, and keep customers inside your network and on your bill.
+          - generic [ref=e1963]:
+            - generic [ref=e1964]:
+              - img [ref=e1966]
+              - heading "Banking & Finance" [level=3] [ref=e1968]
+            - paragraph [ref=e1969]: Keep regulated data within your borders, with per-tenant isolation, audited controls, and a security stack built for compliance.
+          - generic [ref=e1970]:
+            - generic [ref=e1971]:
+              - img [ref=e1973]
+              - heading "Government" [level=3] [ref=e1975]
+            - paragraph [ref=e1976]: Deliver digital services to agencies and citizens under a national brand, with data that never leaves your control.
+          - generic [ref=e1977]:
+            - generic [ref=e1978]:
+              - img [ref=e1980]
+              - heading "Large Enterprise & MSP" [level=3] [ref=e1982]
+            - paragraph [ref=e1983]: Run a private cloud and managed services for internal divisions or external clients, all from one operator console.
+      - generic [ref=e1984]:
+        - generic [ref=e1985]:
+          - img [ref=e1987]
+          - heading "See the ecosystem running on your infrastructure." [level=2] [ref=e1990]:
+            - text: See the ecosystem running
+            - text: on your infrastructure.
+          - paragraph [ref=e1991]: We will walk your team through the platform, map it to the infrastructure you already operate, and scope a proof of concept under your own brand.
+          - generic [ref=e1992]:
+            - generic [ref=e1993]:
+              - img [ref=e1995]
+              - text: partners@worldposta.com
+            - generic [ref=e1998]:
+              - img [ref=e2000]
+              - text: worldposta.com
+          - link "Request a Walkthrough" [ref=e2003] [cursor=pointer]:
+            - /url: "#overview"
+        - generic [ref=e2004]:
+          - img "WorldPosta" [ref=e2005]
+          - paragraph [ref=e2006]: The software ecosystem operators run their business on. Your infrastructure. Your brand. Operated for you.
+  - dialog "WorldPosta ecosystem diagram, full screen":
+    - generic:
+      - button "Close full screen": ✕
+      - generic:
+        - generic: WorldPosta ecosystem
+        - generic: Your infrastructure, the platform, your branded software — one connected stack.
+  - dialog "Product detail":
+    - generic:
+      - button "Close": ✕
+  - tooltip
+  - progressbar "Reading progress":
+    - generic: "01"
+    - generic: Overview
