@@ -1190,6 +1190,91 @@
       .wd-metric-v { font-size: 10px; color: #41506a; text-align: right; }
       .wd-nodata { font-size: 9px; color: #aeb6c4; margin-top: 8px; padding-top: 7px; border-top: 1px solid #f0f3f7; }
 
+      /* BILLING ENGINE — customer self-service portal mock */
+      .pc-visual.billing-dash {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #d9e2ef;
+        background: linear-gradient(180deg, #eef4fb 0%, #e7eef9 100%);
+        margin: 18px 0 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 12px;
+        color: #1f2733;
+        box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45);
+      }
+      .bl-mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+      .bl-shell { display: grid; grid-template-columns: 188px 1fr; gap: 20px; padding: 20px; align-items: start; }
+      .bl-side { background: #fff; border: 1px solid #e3e9f2; border-radius: 12px; padding: 9px; }
+      .bl-side-item {
+        display: flex; align-items: center; gap: 10px;
+        padding: 9px 11px; border-radius: 8px;
+        font-size: 12px; color: #41506a; white-space: nowrap;
+      }
+      .bl-side-item i { width: 15px; text-align: center; color: #95a1b3; font-size: 12px; }
+      .bl-side-item.active { background: #f0f6ea; color: #4c7a25; font-weight: 600; }
+      .bl-side-item.active i { color: #7CB342; }
+      .bl-side-item.cta { color: #7CB342; font-weight: 600; }
+      .bl-side-item.cta i { color: #7CB342; }
+      .bl-side-help { font-size: 10px; color: #8a94a3; padding: 12px 11px 4px; }
+      .bl-side-help a { color: #3b6fd4; }
+      .bl-main { min-width: 0; }
+      .bl-alert {
+        display: flex; align-items: center; gap: 14px;
+        background: #fdf6e3; border: 1px solid #f2e2b6; border-radius: 12px;
+        padding: 13px 16px; margin-bottom: 18px;
+      }
+      .bl-alert-msg { font-size: 12.5px; color: #4a3c12; flex: 1; line-height: 1.4; }
+      .bl-alert-msg i { color: #d99a0a; margin-right: 7px; }
+      .bl-alert-msg b { font-weight: 700; color: #8a6a12; }
+      .bl-alert-actions { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+      .bl-pay {
+        font-size: 11px; font-weight: 700; color: #fff;
+        background: #d98a0a; border-radius: 7px; padding: 7px 14px; white-space: nowrap;
+      }
+      .bl-link { font-size: 11px; font-weight: 600; color: #4a3c12; text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+      .bl-greet { font-size: 22px; font-weight: 700; color: #161d28; line-height: 1.1; }
+      .bl-greet-sub { font-size: 11.5px; color: #6b7790; margin: 5px 0 16px; }
+      .bl-welcome {
+        display: flex; align-items: flex-start; gap: 16px;
+        background: linear-gradient(120deg, #f0f6ea, #eef2fb);
+        border: 1px solid #dde7d2; border-radius: 12px;
+        padding: 16px 18px; margin-bottom: 18px;
+      }
+      .bl-welcome-badge { font-size: 22px; font-weight: 800; letter-spacing: -.5px; color: #4c7a25; flex-shrink: 0; }
+      .bl-welcome-body { flex: 1; min-width: 0; }
+      .bl-welcome-h { font-size: 13px; font-weight: 700; color: #161d28; margin-bottom: 4px; }
+      .bl-welcome-d { font-size: 11px; color: #5f6b7c; line-height: 1.5; }
+      .bl-dismiss {
+        font-size: 10.5px; color: #5f6b7c; flex-shrink: 0;
+        border: 1px solid #d8dee6; border-radius: 7px; padding: 5px 11px; background: #fff;
+      }
+      .bl-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
+      .bl-stat { background: #fff; border: 1px solid #e3e9f2; border-radius: 11px; padding: 13px 14px; }
+      .bl-stat-k { font-size: 8.5px; font-weight: 700; letter-spacing: .8px; color: #8a94a3; margin-bottom: 8px; line-height: 1.3; }
+      .bl-stat-v { font-size: 24px; font-weight: 800; color: #161d28; line-height: 1; font-feature-settings: "tnum"; }
+      .bl-stat-v.green { color: #2f9c4a; }
+      .bl-stat-v.orange { color: #e0820c; }
+      .bl-stat-v.purple { color: #7c4dd6; }
+      .bl-attn { background: #fff; border: 1px solid #e3e9f2; border-radius: 12px; overflow: hidden; }
+      .bl-attn-head { font-size: 13px; font-weight: 700; color: #161d28; padding: 14px 16px; border-bottom: 1px solid #eef1f6; }
+      .bl-attn-list { padding: 12px 16px; display: flex; flex-direction: column; gap: 10px; }
+      .bl-inv {
+        display: flex; align-items: center; gap: 14px;
+        background: #fdf6e3; border: 1px solid #f2e2b6; border-radius: 9px;
+        padding: 11px 14px;
+      }
+      .bl-inv-info { flex: 1; min-width: 0; }
+      .bl-inv-name { font-size: 12px; font-weight: 600; color: #6b4e12; }
+      .bl-inv-name .bl-mono { font-weight: 700; }
+      .bl-inv-amt { font-size: 11px; color: #8a6a12; margin-top: 2px; }
+      .bl-inv .bl-pay { background: #d98a0a; }
+      @media (max-width: 720px) {
+        .bl-shell { grid-template-columns: 1fr; }
+        .bl-side { display: none; }
+        .bl-stats { grid-template-columns: repeat(2, 1fr); }
+        .bl-alert { flex-direction: column; align-items: flex-start; gap: 10px; }
+      }
+
       /* NEXTEDGE IaaS — Portaldash cloud-console mock */
       .pc-visual.nextedge-dash {
         border-radius: 10px;
@@ -5960,7 +6045,7 @@
               <div class="vs-col next">
                 <div class="vs-eyebrow">Lean &middot; multi-hypervisor</div>
                 <div class="vs-name">NextEdge</div>
-                <div class="vs-tag">Bring KVM, Citrix, or VMware workloads onto a shared OSN fabric, with firewall integration.</div>
+                <div class="vs-tag">Bring KVM, Citrix, or VMware workloads onto a shared OVS fabric, with firewall integration.</div>
                 <div class="vs-stage" id="vs-next">
                   <div class="vs-con">
                     <div class="vs-con-bar"><i></i><i></i><i></i><span class="vs-con-url">nextedge.cloud/stack</span></div>
@@ -5968,7 +6053,7 @@
                     <div class="vs-con-body">
                       <div class="vs-con-line"><span class="vs-packet"></span></div>
                       <div class="vs-node" style="--n:0"><div class="vs-node-name"><span class="t">Hypervisor</span></div><div class="vs-node-sub">KVM &middot; Citrix &middot; VMware</div></div>
-                      <div class="vs-node" style="--n:1"><div class="vs-node-name">OSN</div></div>
+                      <div class="vs-node" style="--n:1"><div class="vs-node-name">OVS</div></div>
                       <div class="vs-node" style="--n:2"><div class="vs-node-name"><span class="t">Security</span>Firewall integration</div></div>
                     </div>
                   </div>
@@ -7163,6 +7248,100 @@
                     <div class="pc-hl">
                       Every service meters into one billing platform where you set plans per tenant, apply your margin,
                       and issue invoices on your own template, in your currency, under your name.
+                    </div>
+                    <div class="pc-visual billing-dash pc-visual--adash" aria-hidden="true">
+                      <div class="bl-shell">
+                        <aside class="bl-side">
+                          <div class="bl-side-item active"><i class="fa-solid fa-user"></i>My account</div>
+                          <div class="bl-side-item"><i class="fa-regular fa-bell"></i>Account status</div>
+                          <div class="bl-side-item"><i class="fa-solid fa-rotate"></i>Subscriptions</div>
+                          <div class="bl-side-item"><i class="fa-solid fa-file-invoice"></i>Invoices &amp; receipts</div>
+                          <div class="bl-side-item"><i class="fa-solid fa-wallet"></i>Wallet</div>
+                          <div class="bl-side-item"><i class="fa-regular fa-credit-card"></i>Payment methods</div>
+                          <div class="bl-side-item"><i class="fa-solid fa-bullhorn"></i>Notifications</div>
+                          <div class="bl-side-item"><i class="fa-solid fa-users"></i>Team</div>
+                          <div class="bl-side-item"><i class="fa-solid fa-id-badge"></i>Profile + tax</div>
+                          <div class="bl-side-item"><i class="fa-regular fa-comment"></i>Contact billing</div>
+                          <div class="bl-side-item cta"><i class="fa-solid fa-plus"></i>Subscribe to plan</div>
+                          <div class="bl-side-help">Need help? <a>Contact billing</a></div>
+                        </aside>
+                        <div class="bl-main">
+                          <div class="bl-alert">
+                            <div class="bl-alert-msg">
+                              <i class="fa-solid fa-triangle-exclamation"></i>You have <b>9</b> unpaid invoices totaling
+                              <b>$41.20</b>. Pay now to keep your service active.
+                            </div>
+                            <div class="bl-alert-actions">
+                              <span class="bl-pay">Pay now</span><span class="bl-link">View details</span>
+                            </div>
+                          </div>
+                          <div class="bl-greet">Hi Adam 👋</div>
+                          <div class="bl-greet-sub">
+                            Your billing dashboard. Everything you need to manage subscriptions, invoices, and payment
+                            methods is in the left nav.
+                          </div>
+                          <div class="bl-welcome">
+                            <div class="bl-welcome-badge">TADA</div>
+                            <div class="bl-welcome-body">
+                              <div class="bl-welcome-h">Welcome to the rebuilt customer portal</div>
+                              <div class="bl-welcome-d">
+                                New: search/filter invoices + email-a-copy, pause/resume subscriptions, request seat
+                                changes, email-a-secure-link for card updates, your notification log + preferences,
+                                profile + tax-IDs, and a direct line to the billing team under Contact billing.
+                              </div>
+                            </div>
+                            <span class="bl-dismiss">Dismiss</span>
+                          </div>
+                          <div class="bl-stats">
+                            <div class="bl-stat">
+                              <div class="bl-stat-k">ACTIVE SUBSCRIPTIONS</div>
+                              <div class="bl-stat-v"><span class="count" data-to="8" data-dec="0">8</span></div>
+                            </div>
+                            <div class="bl-stat">
+                              <div class="bl-stat-k">INVOICES TOTAL</div>
+                              <div class="bl-stat-v">$<span class="count" data-to="124.80" data-dec="2">124.80</span></div>
+                            </div>
+                            <div class="bl-stat">
+                              <div class="bl-stat-k">PAID</div>
+                              <div class="bl-stat-v green">$<span class="count" data-to="83.60" data-dec="2">83.60</span></div>
+                            </div>
+                            <div class="bl-stat">
+                              <div class="bl-stat-k">OPEN INVOICES</div>
+                              <div class="bl-stat-v orange"><span class="count" data-to="9" data-dec="0">9</span></div>
+                            </div>
+                            <div class="bl-stat">
+                              <div class="bl-stat-k">WALLET BALANCE</div>
+                              <div class="bl-stat-v purple">$<span class="count" data-to="12.40" data-dec="2">12.40</span></div>
+                            </div>
+                          </div>
+                          <div class="bl-attn">
+                            <div class="bl-attn-head">Things needing your attention</div>
+                            <div class="bl-attn-list">
+                              <div class="bl-inv">
+                                <div class="bl-inv-info">
+                                  <div class="bl-inv-name">Invoice <span class="bl-mono">WOR-7AC2-019-004</span> unpaid</div>
+                                  <div class="bl-inv-amt">$6.50</div>
+                                </div>
+                                <span class="bl-pay">Pay now</span>
+                              </div>
+                              <div class="bl-inv">
+                                <div class="bl-inv-info">
+                                  <div class="bl-inv-name">Invoice <span class="bl-mono">WOR-7AC2-019-002</span> unpaid</div>
+                                  <div class="bl-inv-amt">$1.10</div>
+                                </div>
+                                <span class="bl-pay">Pay now</span>
+                              </div>
+                              <div class="bl-inv">
+                                <div class="bl-inv-info">
+                                  <div class="bl-inv-name">Invoice <span class="bl-mono">WOR-7AC2-019-001</span> unpaid</div>
+                                  <div class="bl-inv-amt">$9.80</div>
+                                </div>
+                                <span class="bl-pay">Pay now</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <ul class="pc-feat">
                       <li>Usage metering across every service</li>
