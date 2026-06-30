@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light');}catch(e){}</script>
     <style>
       * {
         margin: 0;
@@ -2425,8 +2426,8 @@
       .eco-overlay.open { opacity: 1; pointer-events: auto; }
       .eco-zoom-panel {
         position: relative;
-        width: 90vw;
-        height: 90vh;
+        width: 96vw;
+        height: 96vh;
         background: rgba(6, 12, 26, 0.72);
         border: 1px solid rgba(124, 179, 66, 0.28);
         border-radius: 18px;
@@ -2437,8 +2438,23 @@
         transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1);
       }
       .eco-overlay.open .eco-zoom-panel { transform: scale(1); }
-      .eco-zoom-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; flex-shrink: 0; padding-right: 48px; }
-      .eco-zoom-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(168, 207, 56, 0.95); }
+      .eco-zoom-head {
+        display: flex; align-items: center; gap: 14px;
+        margin-bottom: 16px; flex-shrink: 0; padding-right: 56px;
+        border-bottom: 1px solid rgba(124,179,66,.14);
+        padding-bottom: 14px;
+      }
+      .eco-zoom-eyebrow {
+        font-family: var(--mono); font-size: 11.5px; letter-spacing: 2.8px;
+        text-transform: uppercase; color: rgba(168, 207, 56, 0.95);
+      }
+      .eco-zoom-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: #a8cf38;
+        box-shadow: 0 0 8px rgba(168,207,56,.6);
+        flex-shrink: 0;
+        animation: hb_pulse 3s ease-in-out infinite;
+      }
       .eco-zoom-sub { font-size: 12px; color: var(--fog2); }
       .eco-zoom-body { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
       .eco-zoom-body svg { width: 100%; height: 100%; display: block; }
@@ -3376,7 +3392,7 @@
       .vs-con-head .h-sub { font-family: var(--mono); font-size: 11px; color: var(--acc); }
       .vs-node-name { font-size: 14px; font-weight: 700; color: var(--white); letter-spacing: -0.005em; }
       .vs-node-name .t { font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--acc); margin-right: 8px; font-weight: 600; }
-      .vs-node-sub { font-family: var(--mono); font-size: 11px; color: var(--fog2); margin-top: 2px; }
+      .vs-node-sub { font-family: var(--mono); font-size: 11px; color: #8497ae; margin-top: 2px; }
       @media (max-width: 860px) {
         .vs-grid { grid-template-columns: 1fr; gap: 22px; }
       }
@@ -3384,6 +3400,11 @@
         .vs-node { opacity: 1; transform: none; transition: none; }
         .vs-packet { display: none; }
       }
+
+      /* Open by design card — base (dark); light treatment lives under .light below */
+      .obd { border-radius: 18px; background: rgba(8, 16, 36, 0.7); border: 1px solid rgba(38, 54, 80, 0.3); }
+      .obd-eyebrow { color: #a8cf38; }
+      .obd-desc { color: #c5d2e2; }
 
       /* ===== READING-PROGRESS RAIL (right gutter) ===== */
       .spine {
@@ -3580,6 +3601,482 @@
       @media (prefers-reduced-motion: reduce) {
         .adash__spark-line, .adash__spark-area, .adash__ring, .adash__hb-bar i,
         .adash__col, .adash__live, .adash__eq i { animation: none !important; opacity: 1 !important; stroke-dashoffset: 0 !important; transform: none !important; }
+      }
+    </style>
+    <style id="theme-light">
+      /* ================================================================
+         LIGHT THEME — scoped under .light on <html>. Dark mode unchanged.
+         Tokens (light): canvas #F2EFE9 · surface #FDFBF8 · text #0D1620
+         Accent: forest green #3A6820 → #2C5218 (AA on warm bg)
+         fog2-light #4E6679 (tertiary text, replaces dark-mode #82929E — 5.23:1 on canvas)
+         ================================================================ */
+
+      /* --- Theme-toggle button (fixed, top-right) -------------------------- */
+      .theme-toggle {
+        position: fixed; top: 16px; right: 20px; z-index: 9999;
+        display: flex; align-items: center; justify-content: center;
+        width: 40px; height: 40px; border-radius: 50%; cursor: pointer; padding: 0;
+        border: 1px solid rgba(124,179,66,.40);
+        background: rgba(10,19,32,.72);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        color: #A8CF38;
+        box-shadow: 0 4px 18px rgba(0,0,0,.35);
+        transition: background .18s, box-shadow .18s, border-color .18s;
+      }
+      .theme-toggle:hover {
+        background: rgba(124,179,66,.18);
+        box-shadow: 0 6px 24px rgba(124,179,66,.25);
+      }
+      .theme-toggle svg { width: 18px; height: 18px; }
+      .theme-toggle .ic-moon { display: none; }
+      .light .theme-toggle {
+        border-color: rgba(78,128,44,.45);
+        background: rgba(250,247,242,.85);
+        color: #2C5218;
+        box-shadow: 0 4px 18px rgba(10,20,36,.18);
+      }
+      .light .theme-toggle:hover {
+        background: rgba(78,128,44,.14);
+        box-shadow: 0 6px 24px rgba(78,128,44,.22);
+      }
+      .light .theme-toggle .ic-sun  { display: none; }
+      .light .theme-toggle .ic-moon { display: block; }
+
+      /* --- Canvas + global ------------------------------------------------- */
+      .light body { background: #F2EFE9; color: #2A3848; }
+      .light body::before {
+        background:
+          radial-gradient(ellipse 900px 520px at 75% -4%, rgba(78,128,44,.07), transparent 60%),
+          radial-gradient(760px 560px at 6% 10%, rgba(78,128,44,.05), transparent 55%),
+          radial-gradient(600px 400px at 50% 85%, rgba(200,180,140,.05), transparent 60%),
+          #F2EFE9;
+      }
+      .light #stars { display: none; }
+      .light hr { border-top-color: rgba(18,30,50,.10); }
+      .light a:hover { color: #0D1620; }
+
+      /* --- Navigation ------------------------------------------------------ */
+      .light nav { background: rgba(250,247,242,.96); border-bottom-color: rgba(18,30,50,.11); }
+      .light .nav-links a { color: #566478; }
+      .light .nav-links a:hover { color: #0D1620; }
+
+      /* --- Headings / hero -------------------------------------------------- */
+      .light h1, .light h2, .light h3 { color: #0D1620; }
+      .light .psec-hero-h1 { color: #0D1620; }
+      .light .hero-accent {
+        background: linear-gradient(115deg, #2C5218, #3A6820 55%, #4A7030);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        color: transparent;
+      }
+      .light .lede { color: #2A3848; }
+      .light .band p { color: #2A3848; }
+
+      /* --- Kicker / eyebrow ------------------------------------------------ */
+      .light .kicker { color: #566478; }
+      .light .kicker i { background: rgba(58,104,32,.50); }
+      .light .ey {
+        color: #2C5218; border-color: rgba(78,128,44,.40); background: rgba(78,128,44,.09);
+      }
+      .light .ey-dot { background: #3A6820; box-shadow: 0 0 8px rgba(78,128,44,.35); }
+
+      /* --- Gradient text ---------------------------------------------------- */
+      .light .grad {
+        background: linear-gradient(115deg, #2C5218, #3A6820 55%, #4A7030);
+        -webkit-background-clip: text; background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* --- Tags / chips / pills -------------------------------------------- */
+      .light .tag { color: #2C5218; border-color: rgba(78,128,44,.40); background: rgba(78,128,44,.09); }
+      .light .chip { color: #2C5218; background: rgba(78,128,44,.09); border-color: rgba(78,128,44,.35); }
+      .light .ptgroup { color: #2C5218; border-bottom-color: rgba(78,128,44,.25); }
+
+      /* --- Sidebar ---------------------------------------------------------- */
+      .light .sidebar { background: rgba(250,247,242,.97); border-right-color: rgba(18,30,50,.11); }
+      .light .sb-brand { border-bottom-color: rgba(18,30,50,.11); }
+      .light .sb-brand img { filter: none; }
+      .light .sb-group { color: #4E6679; }
+      .light .sb-group:not(:first-of-type) { border-top-color: rgba(18,30,50,.11); }
+      .light .sb-link { color: #566478; }
+      .light .sb-link:hover, .light .sb-link.active { color: #0D1620; background: rgba(78,128,44,.09); }
+      .light .sb-link .dot { background: #B5C0CE; }
+      .light .sb-link.active .dot { background: #3A6820; box-shadow: 0 0 8px rgba(78,128,44,.45); }
+      .light .sb-subs { border-left-color: rgba(78,128,44,.25); }
+      .light .sb-sub { color: #566478; }
+      .light .sb-sub:hover { color: #2C5218; background: rgba(78,128,44,.09); }
+      .light .sb-cta { border-top-color: rgba(18,30,50,.11); }
+      .light .sb-collapse, .light .sb-toggle {
+        border-color: rgba(78,128,44,.40); background: rgba(78,128,44,.09); color: #2C5218;
+      }
+      .light .sb-tip { background: #0D1620; color: #fff; border-color: rgba(78,128,44,.50); }
+
+      /* --- Sections --------------------------------------------------------- */
+      .light .psec { border-bottom-color: rgba(18,30,50,.09); }
+
+      /* --- Buttons ---------------------------------------------------------- */
+      .light .btn-g {
+        background: #FDFBF8; color: #0D1620; border-color: rgba(18,30,50,.18);
+      }
+      .light .btn-g:hover { background: #F5F2EC; }
+
+      /* --- Cards ------------------------------------------------------------ */
+      .light .card {
+        background: #FDFBF8; border-color: rgba(18,30,50,.09);
+        box-shadow: 0 1px 3px rgba(10,20,36,.05), 0 8px 22px rgba(10,20,36,.07);
+      }
+      .light .card.hl {
+        background: linear-gradient(150deg, rgba(78,128,44,.12), rgba(78,128,44,.06));
+        border-color: rgba(78,128,44,.40);
+      }
+      .light .card h3, .light .card.hl h3 { color: #0D1620; }
+      .light .card p { color: #566478; }
+      .light .card.hl p { color: #2A3848; }
+      .light .ic {
+        color: #3A6820;
+        background: linear-gradient(150deg, rgba(78,128,44,.14), rgba(78,128,44,.08));
+        border-color: rgba(78,128,44,.40);
+      }
+
+      /* --- 3-layer cards ---------------------------------------------------- */
+      .light .lyc {
+        background: #FDFBF8; border-color: rgba(18,30,50,.09);
+        box-shadow: 0 1px 3px rgba(10,20,36,.05), 0 8px 22px rgba(10,20,36,.07);
+      }
+      .light .lyc.mid {
+        background: linear-gradient(150deg, rgba(78,128,44,.12), rgba(78,128,44,.05));
+        border-color: rgba(78,128,44,.38);
+      }
+      .light .lyc .lt { color: #0D1620; }
+      .light .lyc .ld { color: #566478; }
+      .light .lyc.mid .ll { color: #2C5218 !important; }
+      .light .lyc:not(.mid) .ll { color: #4E6679 !important; }
+
+      /* --- Sector cards ----------------------------------------------------- */
+      .light .sector {
+        background: #FDFBF8; border-color: rgba(18,30,50,.09);
+        box-shadow: 0 1px 3px rgba(10,20,36,.05), 0 8px 22px rgba(10,20,36,.07);
+      }
+      .light .sector h3 { color: #0D1620; }
+      .light .sector p { color: #566478; }
+      .light .sector .si {
+        color: #3A6820;
+        background: linear-gradient(150deg, rgba(78,128,44,.14), rgba(78,128,44,.08));
+        border-color: rgba(78,128,44,.40);
+      }
+
+      /* --- Offer cards ------------------------------------------------------ */
+      .light .ocard {
+        background: #FDFBF8; border-color: rgba(18,30,50,.09);
+        box-shadow: 0 1px 3px rgba(10,20,36,.05), 0 8px 22px rgba(10,20,36,.07);
+      }
+      .light .ocard h3 { color: #0D1620; }
+      .light .ocard p { color: #566478; }
+      .light .ocard .oi {
+        color: #3A6820;
+        background: linear-gradient(150deg, rgba(78,128,44,.14), rgba(78,128,44,.08));
+        border-color: rgba(78,128,44,.40);
+      }
+      .light .ocard:hover { background: rgba(78,128,44,.08); border-color: rgba(78,128,44,.40); }
+      .light .ocard .otag { color: #2C5218; }
+      .light .ocard h3 .go { color: #2C5218; }
+
+      /* --- Advantage items -------------------------------------------------- */
+      .light .adv {
+        background: #FDFBF8; border-color: rgba(18,30,50,.09);
+      }
+      .light .adv-t { color: #0D1620; }
+      .light .adv-d { color: #566478; }
+      .light .adv-ic {
+        color: #3A6820;
+        background: linear-gradient(150deg, rgba(78,128,44,.14), rgba(78,128,44,.08));
+        border-color: rgba(78,128,44,.40);
+      }
+
+      /* --- Band / split panel ----------------------------------------------- */
+      .light .band { background: #FDFBF8; border-color: rgba(18,30,50,.09); }
+      .light .mg-t { color: #2C5218; }
+      .light .mg-d { color: #566478; }
+
+      /* --- Accordion product cards ----------------------------------------- */
+      .light .pc { background: rgba(78,128,44,.06); border-color: rgba(78,128,44,.22); }
+      .light .pc.open { background: rgba(78,128,44,.09); border-color: rgba(78,128,44,.44); }
+      .light .pc-t { color: #0D1620; }
+      .light .pc-d { color: #566478; }
+      .light .pc-ic {
+        color: #3A6820;
+        background: linear-gradient(150deg, rgba(78,128,44,.14), rgba(78,128,44,.08));
+        border-color: rgba(78,128,44,.40);
+      }
+      .light .pc-chev { color: #2C5218; }
+      .light .pc-hl { color: #2A3848; background: rgba(78,128,44,.08); border-color: rgba(78,128,44,.26); }
+      .light .pc-feat li { color: #566478; }
+      .light .pc-feat li::before { background: #3A6820; }
+
+      /* ===== Service detail modal — light styling applies ONLY in light mode.
+         Scoped to .light #pc-overlay so dark mode keeps the original dark modal,
+         without affecting on-page product cards. ===== */
+      .light #pc-overlay { background: rgba(0, 0, 0, 0.45); }
+      .light #pc-overlay .pc-dialog {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.22);
+        scrollbar-color: rgba(123, 158, 58, 0.45) transparent;
+      }
+      .light #pc-overlay .pc-dlg-close {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        color: #6b7280;
+      }
+      .light #pc-overlay .pc-dlg-close:hover {
+        background: #f8fafc;
+        border-color: #7b9e3a;
+        color: #4e802c;
+      }
+      .light #pc-overlay .pc-t { color: #1f2937; }
+      .light #pc-overlay .pc-d { color: #6b7280; }
+      .light #pc-overlay .pc-ic {
+        color: #4e802c;
+        background: linear-gradient(150deg, rgba(123, 158, 58, 0.16), rgba(123, 158, 58, 0.08));
+        border: 1px solid rgba(123, 158, 58, 0.4);
+      }
+      .light #pc-overlay .pc-hl {
+        color: #1f2937;
+        background: #f8fafc;
+        border: 1px solid #e5e7eb;
+      }
+      .light #pc-overlay .pc-feat li { color: #6b7280; }
+      .light #pc-overlay .pc-feat li::before { background: #7b9e3a; opacity: 1; }
+      .light #pc-overlay .chip {
+        color: #4e802c;
+        background: #f4f6f4;
+        border: 1px solid #e5e7eb;
+      }
+
+      /* ===== Light-mode treatments for Ecosystem planes, Virtualization stacks,
+         and the Open-by-design card. Dark mode keeps the original dark styling. ===== */
+      .light .eco-control {
+        background: #fff;
+        border: 1px solid #e6eae6;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+      }
+      .light .eco-control:hover { border-color: #7faf45; transform: translateY(-2px); box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1); }
+      .light .eco-ic { background: #eaf6e8; border-color: #d8ebcf; color: #7faf45; }
+      .light .eco-ic.solid { background: linear-gradient(120deg, #7cb342, #a8cf38); color: #fff; border: none; box-shadow: 0 6px 16px rgba(124, 179, 66, 0.28); }
+      .light .eco-k { color: #5e8e2e; }
+      .light .eco-k.dim { color: #6b7280; }
+      .light .eco-control-h { color: #1f2937; }
+      .light .eco-control-chips span { color: #475569; background: #f4f6f4; border-color: #e4e8e4; }
+      .light .eco-flow { stroke: rgba(127, 175, 69, 0.55); }
+      .light .eco-suite {
+        background: #fff;
+        border-color: #e6eae6;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+      }
+      .light .eco-suite:hover { border-color: #7faf45; transform: translateY(-2px); box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1); }
+      .light .eco-suite-top { margin: -18px -18px 14px; padding: 14px 18px; background: #f8faf8; border-bottom: 1px solid #eef1ee; }
+      .light .eco-suite-s { color: #6b7280; }
+      .light .eco-item {
+        background: #fafbfa;
+        border-color: #e7ebe7;
+        border-radius: 14px;
+        gap: 10px;
+        transition: border-color 0.25s var(--ease), background 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease), opacity 0.5s var(--ease);
+      }
+      .light .eco-item:hover { border-color: #7faf45; background: #f5fbf4; transform: translateY(-2px) scale(1.01); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07); }
+      .light .eco-item i { width: 18px; height: 18px; background: #eaf6e8; display: grid; place-items: center; box-shadow: none; }
+      .light .eco-item i::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #7faf45; }
+      .light .eco-item b { color: #1f2937; }
+      .light .eco-item span.sub { color: #6b7280; }
+      .light .eco-banner { background: #fff; border-color: #e6eae6; border-radius: 16px; color: #475569; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
+      .light .eco-banner b { color: #5e8e2e; }
+
+      .light .vs-col {
+        background: #fff;
+        border: 1px solid #e6eae6;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+        transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
+      }
+      .light .vs-col:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1); }
+      .light .vs-col.next { border-color: #e3ecda; }
+      .light .vs-col.cloud { border-color: #dde7f1; }
+      .light .vs-col.next:hover { border-color: #7faf45; }
+      .light .vs-col.cloud:hover { border-color: #6aa0d6; }
+      .light .vs-col.next .vs-eyebrow { color: #5e8e2e; }
+      .light .vs-col.cloud .vs-eyebrow { color: #3e7bb8; }
+      .light .vs-name { color: #1f2937; }
+      .light .vs-tag { color: #6b7280; }
+      .light .vs-col.next { --acc: #5e8e2e; --acc-soft: rgba(124, 179, 66, 0.45); --acc-glow: rgba(124, 179, 66, 0.3); --acc-fill: rgba(124, 179, 66, 0.12); }
+      .light .vs-col.cloud { --acc: #3e7bb8; --acc-soft: rgba(62, 123, 184, 0.4); --acc-glow: rgba(62, 123, 184, 0.28); --acc-fill: rgba(62, 123, 184, 0.1); }
+      .light .vs-con { border-color: #e6eae6; border-radius: 14px; background: #fff; box-shadow: 0 10px 26px -18px rgba(15, 23, 42, 0.25); }
+      .light .vs-con-bar { background: #f8faf8; border-bottom-color: #eef1ee; }
+      .light .vs-con-url { color: #6b7280; }
+      .light .vs-con-line { background: #e7ebe7; }
+      .light .vs-con-head { background: linear-gradient(120deg, var(--acc-fill), rgba(255, 255, 255, 0)); }
+      .light .vs-con-head .h-name { color: #1f2937; }
+      .light .vs-node { background: #fafbfa; border-color: #e7ebe7; border-radius: 14px; }
+      .light .vs-node-name { color: #1f2937; }
+      .light .vs-node-sub { color: #6b7280; }
+
+      .light .obd { background: #fff; border-color: #e6eae6; border-radius: 20px; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
+      .light .obd-eyebrow { color: #5e8e2e; }
+      .light .obd-desc { color: #475569; }
+
+      /* ===== "Why now" diagram — light mode only. The SVG uses inline fill/stroke
+         attributes; these attribute selectors (scoped to .light #opportunity svg) override
+         them ONLY in light mode, so dark mode and the other diagrams are unaffected. ===== */
+      .light #opportunity .diagram-wrap {
+        background: linear-gradient(150deg, rgba(78, 128, 44, 0.12), rgba(78, 128, 44, 0.05));
+        border-color: rgba(78, 128, 44, 0.38);
+        box-shadow: 0 1px 3px rgba(10, 20, 36, 0.05), 0 8px 22px rgba(10, 20, 36, 0.07);
+      }
+      /* "TODAY · MANY VENDORS" side — muted slate on white */
+      .light #opportunity svg [fill="rgba(38,54,80,.5)"] { fill: #f1f4f1; }
+      .light #opportunity svg [stroke="rgba(96,116,148,.55)"] { stroke: #dfe4df; }
+      .light #opportunity svg [fill="#6f88a8"] { fill: #94a3b8; }
+      .light #opportunity svg [fill="#9DB0C8"] { fill: #475569; }
+      .light #opportunity svg [fill="#8497AE"] { fill: #64748b; }
+      /* "WITH WORLDPOSTA · ONE ECOSYSTEM" side — readable brand green on white */
+      .light #opportunity svg [fill="#A6D154"] { fill: #3f7222; }
+      .light #opportunity svg [fill="#A8CF38"] { fill: #4e802c; }
+      .light #opportunity svg [stroke="#A8CF38"] { stroke: #6fa03a; }
+      .light #opportunity svg [stroke="rgba(168, 207, 56,.42)"] { stroke: rgba(124, 179, 66, 0.55); }
+      .light #opportunity svg [stroke="rgba(168, 207, 56,.7)"] { stroke: rgba(124, 179, 66, 0.78); }
+      .light #opportunity svg [fill="#C2DC8A"] { fill: #6fa03a; }
+
+      /* --- Product tiles ---------------------------------------------------- */
+      .light .ptile { background: rgba(78,128,44,.06); border-color: rgba(78,128,44,.22); }
+      .light .ptile:hover { background: rgba(78,128,44,.11); border-color: rgba(78,128,44,.40); }
+      .light .ptile .ptn { color: #0D1620; }
+      .light .ptile .pti {
+        color: #3A6820;
+        background: linear-gradient(150deg, rgba(78,128,44,.14), rgba(78,128,44,.08));
+        border-color: rgba(78,128,44,.40);
+      }
+      .light .ptile .pt-go { color: #2C5218; }
+
+      /* --- Layer stack diagram --------------------------------------------- */
+      .light .layer-stack { border-color: rgba(18,30,50,.11); }
+      .light .layer-hw { background: #F5F2EC; border-bottom-color: rgba(18,30,50,.09); }
+      .light .layer-sw {
+        background: linear-gradient(135deg, rgba(78,128,44,.10), rgba(78,128,44,.04));
+        border-bottom-color: rgba(78,128,44,.25);
+      }
+      .light .layer-usr { background: #FDFBF8; }
+      .light .layer-hw .layer-label, .light .layer-usr .layer-label { color: #82929E; }
+      .light .layer-sw .layer-label { color: #2C5218; }
+      .light .layer-title { color: #0D1620; }
+      .light .layer-desc { color: #566478; }
+      .light .licon-hw, .light .licon-usr {
+        background: #EDE9E1; border-color: rgba(18,30,50,.14); color: #566478;
+      }
+      .light .licon-sw { color: #2C5218; }
+      .light .badge-wp { color: #2C5218; }
+      .light .badge-theirs {
+        background: #EDE9E1; border-color: rgba(18,30,50,.18); color: #82929E;
+      }
+
+      /* --- Tables + notes --------------------------------------------------- */
+      .light table thead tr { background: rgba(78,128,44,.09); border-bottom-color: rgba(78,128,44,.40); }
+      .light table th { color: #566478; }
+      .light table td { color: #2A3848; border-bottom-color: rgba(18,30,50,.09); }
+      .light table td:first-child { color: #82929E; }
+      .light .note { background: rgba(78,128,44,.08); color: #2A3848; border-color: rgba(78,128,44,.26); }
+
+      /* --- Hero stats ------------------------------------------------------- */
+      .light .stat + .stat { border-left-color: rgba(18,30,50,.11); }
+      .light .stat-v { color: #182E0E; }
+      .light .stat-l { color: #566478; }
+
+      /* --- Contact bar ------------------------------------------------------ */
+      .light .contact { background: #FDFBF8; border-color: rgba(18,30,50,.09); color: #2A3848; }
+      .light .cic {
+        color: #3A6820;
+        background: linear-gradient(150deg, rgba(78,128,44,.14), rgba(78,128,44,.08));
+        border-color: rgba(78,128,44,.40);
+      }
+
+      /* --- About / av-* visual -------------------------------------------- */
+      .light .av-brand-card { background: #FDFBF8; border-color: rgba(18,30,50,.11); }
+      .light .av-wp-card { background: #F5F2EC; border-color: rgba(18,30,50,.14); }
+      .light .av-ptag { color: #566478; background: #EDE9E1; border-color: rgba(18,30,50,.11); }
+      .light .av-brand-title { color: #0D1620; }
+      .light .av-seen, .light .av-cred-l { color: #82929E; }
+      .light .av-cred-n { color: #2C5218; }
+      .light .av-invis { color: #82929E; background: #EDE9E1; border-color: rgba(18,30,50,.14); }
+
+      /* --- Orbit nodes ------------------------------------------------------ */
+      .light .op { background: #FDFBF8; border-color: rgba(78,128,44,.40); color: #2C5218; }
+      .light .op.cl { color: #186E7E; border-color: rgba(24,110,126,.35); }
+      .light .op.sp { color: #566478; border-color: rgba(18,30,50,.25); }
+      .light .oleg { color: #82929E; }
+
+      /* --- Ecosystem diagram — stays dark in light mode (intentional control-room window) */
+      .light .diagram-wrap {
+        background: linear-gradient(148deg, #091a0d 0%, #0a1320 55%, #0c1b2a 100%);
+        border-color: rgba(78,128,44,.38);
+        box-shadow:
+          0 0 0 1px rgba(78,128,44,.12),
+          0 8px 32px rgba(10,26,14,.28),
+          inset 0 0 80px rgba(58,104,32,.07);
+      }
+      /* Expand button — lives on the dark diagram, no light-mode change needed */
+      .light .eco-expand {
+        background: rgba(6,18,8,.78);
+        border-color: rgba(124,179,66,.38);
+        color: #A8CF38;
+      }
+      .light .eco-expand:hover {
+        background: rgba(78,128,44,.22);
+        border-color: rgba(124,179,66,.60);
+      }
+      /* Fullscreen overlay — rich forest backdrop for both modes */
+      .light .eco-overlay {
+        background: rgba(6,14,8,.93);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+      .light .eco-zoom-panel {
+        background: linear-gradient(148deg, #091a0d 0%, #0a1320 60%, #0c1b2a 100%);
+        border: 1px solid rgba(78,128,44,.42);
+        box-shadow:
+          0 0 0 1px rgba(78,128,44,.10),
+          0 40px 90px rgba(4,10,8,.70);
+      }
+      .light .eco-zoom-eyebrow { color: #A8CF38; }
+      .light .eco-zoom-sub { color: #8497ae; }
+      .light .eco-zoom-close {
+        border-color: rgba(124,179,66,.34);
+        background: rgba(78,128,44,.10);
+        color: #A8CF38;
+      }
+      .light .eco-zoom-close:hover { background: rgba(78,128,44,.22); }
+
+      /* --- Mock shell (product UI preview wrapper only) -------------------- */
+      .light .mock {
+        background: #FDFBF8; border-color: rgba(18,30,50,.11);
+        box-shadow: 0 20px 46px rgba(10,20,36,.13);
+      }
+      .light .mock-bar { background: #F1EEE8; border-bottom-color: rgba(18,30,50,.09); }
+      .light .mock-side { background: #F5F2EC; border-right-color: rgba(18,30,50,.09); }
+      .light .mock-row { background: rgba(60,90,140,.10); }
+      .light .mock-tile { background: rgba(78,128,44,.09); border-color: rgba(18,30,50,.09); }
+
+      /* --- Footer ----------------------------------------------------------- */
+      .light footer { border-top-color: rgba(18,30,50,.11); }
+      .light footer p { color: #82929E; }
+
+      /* --- Mobile sidebar --------------------------------------------------- */
+      @media (max-width: 980px) {
+        .light .sidebar { background: rgba(250,247,242,.98); border-bottom-color: rgba(18,30,50,.11); }
+        .light .sb-nav {
+          background: #FDFBF8; border-bottom-color: rgba(18,30,50,.18);
+          box-shadow: 0 20px 46px rgba(10,20,36,.13);
+        }
       }
     </style>
   </head>
@@ -7583,19 +8080,17 @@
               </div>
             </div>
             <div
+              class="obd"
               style="
                 margin-top: 40px;
                 padding: 30px;
-                border-radius: 18px;
-                background: rgba(8, 16, 36, 0.7);
-                border: 1px solid rgba(38, 54, 80, 0.3);
               "
             >
               <div
+                class="obd-eyebrow"
                 style="
                   font-size: 13px;
                   font-weight: 600;
-                  color: #A8CF38;
                   letter-spacing: 0.4px;
                   text-transform: uppercase;
                   margin-bottom: 8px;
@@ -7603,7 +8098,7 @@
               >
                 Open by design
               </div>
-              <p style="font-size: 14.5px; color: #C5D2E2; line-height: 1.65; max-width: 720px">
+              <p class="obd-desc" style="font-size: 14.5px; line-height: 1.65; max-width: 720px">
                 The platform is built to fit the systems you already run. Connect identity, provisioning, storage, and
                 events through open standards and APIs, so the ecosystem becomes part of your operation rather than a
                 silo beside it.
@@ -8013,8 +8508,9 @@
       <div class="eco-zoom-panel">
         <button class="eco-zoom-close" id="eco-zoom-close" aria-label="Close full screen">&#x2715;</button>
         <div class="eco-zoom-head">
-          <span class="eco-zoom-eyebrow">WorldPosta ecosystem</span>
-          <span class="eco-zoom-sub">Your infrastructure, the platform, your branded software &mdash; one connected stack.</span>
+          <span class="eco-zoom-dot" aria-hidden="true"></span>
+          <span class="eco-zoom-eyebrow">WorldPosta Ecosystem</span>
+          <span class="eco-zoom-sub">Your infrastructure &middot; the platform &middot; your branded software — one connected stack.</span>
         </div>
         <div class="eco-zoom-body" id="eco-zoom-body"></div>
       </div>
@@ -8588,6 +9084,17 @@
         addEventListener('resize', update, { passive: true });
         addEventListener('load', update);
       })();
+    </script>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark mode" title="Toggle light mode">
+    <svg class="ic-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="ic-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+    <script>
+      document.getElementById('themeToggle').addEventListener('click', function () {
+        var light = !document.documentElement.classList.contains('light');
+        document.documentElement.classList.toggle('light', light);
+        try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+      });
     </script>
   <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
