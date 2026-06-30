@@ -13,6 +13,12 @@ colors:
   fog2: "#8497ae"
   fog3: "#5a6c82"
   white: "#ffffff"
+  # Scoped accents — NOT general accents. Each appears only inside the one
+  # component that must distinguish multiple entities. See §2 "The Scoped Accent Exception."
+  cloud-blue: "#6aa0d6"        # CloudEdge stream in the NextEdge/CloudEdge comparison
+  cloud-blue-deep: "#3e6fa8"   # CloudEdge edge/icon tint
+  ad-teal: "#3fa796"           # dashboard chart series / 2nd co-editor
+  ad-gold: "#d8b24c"           # dashboard chart series / 3rd co-editor
 typography:
   display:
     fontFamily: "Space Grotesk, -apple-system, system-ui, sans-serif"
@@ -100,6 +106,13 @@ A near-monochromatic dark system with a single controlled accent. The palette co
 
 **The Fog Hierarchy Rule.** Body copy uses `#c5d2e2` (Fog), not white. White is for headlines only. Using white for body text flattens hierarchy and burns contrast budget.
 
+**The Scoped Accent Exception.** The One Accent Rule governs *page-level* emphasis. Inside a single component that must encode multiple distinct entities, a small, named set of scoped accents is permitted — and only there:
+- **Comparison dual-accent.** When two offerings sit side by side (the `#stacks` NextEdge/CloudEdge consoles), NextEdge keeps the sovereign green and CloudEdge takes **Cloud Blue** (`#6aa0d6`). The pairing is meaningful — green = compute-native, blue = network-secured — not decorative. Two accents maximum, one per side.
+- **Data / presence series.** Dashboard charts and multi-user presence (Atrium donut, co-editing cursors) may use **`#3fa796` teal** and **`#d8b24c` gold** alongside the green to separate series or collaborators. These are scoped tokens declared locally on the component, never global.
+- **Product-screenshot palettes.** Light product mockups (below) carry their real product brand colors and are exempt from this system entirely.
+
+A scoped accent must never leak into page chrome, headings, buttons, kickers, or links — those stay sovereign green.
+
 ## 3. Typography
 
 **Display Font:** Space Grotesk (with -apple-system, system-ui, sans-serif fallback)
@@ -162,6 +175,22 @@ The system is flat-by-default, using tonal layering (`#0a1320 → #0d1b2b → #1
 - KPI cards with count-up animation. Scoped local tokens: `--ad-gold: #D8B24C`, `--ad-teal: #3FA796`.
 - Used only as product visual inside the Atrium card modal.
 
+### Product-screenshot mockups (`.office-dash`, `.drv-dash`, `.sso-dash`, …)
+- Illustrative renderings of real product UIs, shown inside a product-card modal. **Deliberately light-surfaced** (`#fff` / `#eceef2`, ~10px radius) because they depict actual screens — a sanctioned exception to the dark canvas and the One Accent Rule.
+- Carry authentic product brand colors where the product demands it: Word `#2B579A`, Excel `#217346`, PowerPoint `#C43E1C`; Drive/Google-style greys.
+- **Co-editing presence** uses three distinct identity colors — green (you), `--ad-teal` (#3FA796), `--ad-gold` (#D8B24C) — for cursors, name flags, and avatars.
+- `office-dash` is **interactive**: a tab strip switches Word / Excel / PowerPoint panes (each its own ribbon, surface, status bar, URL). Because the card content is cloned into the modal, switching is handled by a **delegated `document` click listener**, not per-element handlers.
+
+### Signal-path comparison consoles (`.vs-con`, in `#stacks`)
+- Two console windows side by side (traffic-light chrome + URL), comparing **NextEdge** (green) and **CloudEdge** (`#6aa0d6` blue) under a shared heading.
+- Structure: window chrome → **head title bar** (`.vs-con-head`, the product name — "the main head") → body of stacked technology layers (`.vs-node`, each with a mono `tier` label + name) wired to a vertical connector.
+- A `.vs-packet` dot travels the connector top→bottom on a loop (the request flowing down the stack); nodes fade in on `.vs-stage.in`. Surfaces use `--ink2`/`--navy`; both halves collapse to one column under 860px.
+
+### Full-screen diagram overlay (`.eco-overlay` / `.eco-zoom-panel`)
+- Expands a complex diagram to a 90vw × 90vh panel on the dark-glass backdrop (mirrors the product modal's language: blurred backdrop, lime-accent border + close button).
+- Opens with a **clone of the source SVG** (no asset duplication; vector scales crisply). Closes on ×, backdrop click, or Esc; body scroll locks while open; focus moves to the close button and returns to the trigger.
+- Trigger is `.eco-expand` — a mono "Full screen" pill pinned to the diagram's top-right; icon-only under 600px.
+
 ## 6. Do's and Don'ts
 
 ### Do:
@@ -173,6 +202,9 @@ The system is flat-by-default, using tonal layering (`#0a1320 → #0d1b2b → #1
 - **Do** limit `.grad` gradient-clip text to display headlines of 18px or larger.
 - **Do** respect `prefers-reduced-motion` on all animations.
 - **Do** test every text element for WCAG AA contrast (≥4.5:1 body, ≥3:1 large).
+- **Do** wire interactivity inside cloneable content (product-card visuals) with **delegated `document` listeners**, so it survives being cloned into the detail modal.
+- **Do** drive reveals with an `IntersectionObserver` that toggles an `.in` class; let CSS own the transition. One reveal observer per family, no competing scroll listeners.
+- **Do** clone (not move) a source node when mirroring it into an overlay, and restore focus to the trigger on close.
 
 ### Don't:
 - **Don't** use generic SaaS landing-page patterns: pricing tiers, smiley stock photos, badge clutter, rounded-everything, or startup warmth.
@@ -185,3 +217,22 @@ The system is flat-by-default, using tonal layering (`#0a1320 → #0d1b2b → #1
 - **Don't** use `border-left` greater than 1px as a colored stripe accent on cards or list items.
 - **Don't** stack multiple `.ey` eyebrow kickers in the same section — one per section maximum.
 - **Don't** use white text for body paragraphs. Fog (`#c5d2e2`) provides hierarchy separation from headlines.
+- **Don't** let a scoped accent (Cloud Blue, teal, gold) escape its component into page chrome, buttons, kickers, headings, or links — those stay sovereign green.
+
+## 7. Interaction & Motion Patterns
+
+The page is read top-to-bottom, so motion's job is to **confirm context on arrival**, not to entertain. Three patterns recur:
+
+- **Scroll-reveal.** An `IntersectionObserver` adds `.in` to a section/visual as it enters; CSS transitions opacity/transform from a resting offset. Stagger children with a `--n` (or `--i`) custom property feeding `transition-delay`. Examples: `.eco-vis.in`, `.vs-stage.in`.
+- **Ambient loop.** A single small element loops to imply liveness — the `.vs-packet` travelling a connector, the Atrium count-ups, the live-dot pulse. One looping element per component; keep it quiet.
+- **Clone-safe controls.** Product-card mockups are cloned into the modal, so their controls (office tab-switch, `cmp-vis` slider) use **delegated listeners on `document`** keyed by class. Per-element handlers would silently die on the clone.
+
+**Overlays.** Two patterns share one visual language (blurred dark backdrop, lime-accent border, × close, Esc + backdrop-click to dismiss, body-scroll lock, focus to close → return to trigger): the **product-card modal** (`.pc-overlay`) and the **full-screen diagram view** (`.eco-overlay`, a 90vw × 90vh panel holding a cloned SVG).
+
+**Reduced motion.** Every animation above is wrapped so `@media (prefers-reduced-motion: reduce)` drops it to the resting state — reveals show immediately, loops stop or hide, transitions are removed. This is a hard requirement, not a nicety.
+
+## 8. Build Constraints
+
+- `index.html` is **fully self-contained**: inline `<style>` and `<script>`, no external assets, fonts-via-CDN, framework, or build step. Tokens live in `:root`.
+- Preview with `python3 -m http.server <port>` then open `http://localhost:<port>/index.html` (Playwright blocks `file://`).
+- Keep this `DESIGN.md` and the `:root` token block in sync — when you add a scoped accent or component, document it here so design-lint recognizes it as intentional rather than drift.
