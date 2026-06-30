@@ -3731,6 +3731,131 @@
       .light .card h3, .light .card.hl h3 { color: #0D1620; }
       .light .card p { color: #566478; }
       .light .card.hl p { color: #2A3848; }
+
+      /* ── Trust cards · Option 1 ─────────────────────────────────── */
+      @property --t1a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+      #security { position: relative; overflow: hidden; }
+      #security > .wrap { position: relative; z-index: 1; }
+
+      /* faint dotted pattern + floating particles behind the cards */
+      .t1-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+      .t1-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        color: rgba(124, 179, 66, 0.10);
+        background-image: radial-gradient(currentColor 1px, transparent 1.7px);
+        background-size: 24px 24px;
+        -webkit-mask-image: radial-gradient(ellipse 82% 72% at 50% 46%, #000 38%, transparent 86%);
+        mask-image: radial-gradient(ellipse 82% 72% at 50% 46%, #000 38%, transparent 86%);
+      }
+      .t1-p {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(124, 179, 66, 0.7), rgba(124, 179, 66, 0));
+        opacity: 0.5;
+        animation: t1-float 16s ease-in-out infinite;
+      }
+      .t1-p:nth-child(1) { left: 6%; top: 20%; animation-duration: 17s; animation-delay: -2s; }
+      .t1-p:nth-child(2) { left: 22%; top: 70%; animation-duration: 20s; animation-delay: -7s; }
+      .t1-p:nth-child(3) { left: 46%; top: 28%; animation-duration: 15s; animation-delay: -4s; }
+      .t1-p:nth-child(4) { left: 70%; top: 66%; animation-duration: 21s; animation-delay: -1s; }
+      .t1-p:nth-child(5) { left: 86%; top: 24%; animation-duration: 18s; animation-delay: -9s; }
+      .t1-p:nth-child(6) { left: 92%; top: 56%; animation-duration: 19s; animation-delay: -5s; }
+      @keyframes t1-float {
+        0%, 100% { transform: translate(0, 0); opacity: 0.14; }
+        50% { transform: translate(18px, -26px); opacity: 0.5; }
+      }
+
+      /* premium glass cards */
+      #option1-trust-cards .card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(124, 179, 66, 0.22);
+        border-radius: 22px;
+        padding: 28px;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+        transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+      }
+      /* animated glowing border + travelling light particle */
+      #option1-trust-cards .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1.4px;
+        background: conic-gradient(from var(--t1a), transparent 0deg, transparent 238deg, rgba(124, 179, 66, 0.85) 300deg, #CBEB92 332deg, rgba(124, 179, 66, 0.85) 360deg);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask-composite: exclude;
+        filter: drop-shadow(0 0 3px rgba(168, 207, 56, 0.5));
+        pointer-events: none;
+        animation: t1-spin 7s linear infinite;
+      }
+      #option1-trust-cards .card:nth-child(1)::before { animation-delay: 0s; }
+      #option1-trust-cards .card:nth-child(2)::before { animation-delay: -1.75s; }
+      #option1-trust-cards .card:nth-child(3)::before { animation-delay: -3.5s; }
+      #option1-trust-cards .card:nth-child(4)::before { animation-delay: -5.25s; }
+      @keyframes t1-spin { to { --t1a: 360deg; } }
+
+      #option1-trust-cards .card:hover {
+        transform: translateY(-5px);
+        transition-delay: 0s;
+        border-color: rgba(124, 179, 66, 0.45);
+        box-shadow: 0 22px 48px rgba(0, 0, 0, 0.3);
+      }
+      #option1-trust-cards .card:hover::before { animation-duration: 3.5s; filter: drop-shadow(0 0 6px rgba(168, 207, 56, 0.85)); }
+
+      /* icon in a soft circular container */
+      #option1-trust-cards .t1-ic {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #A8CF38;
+        background: radial-gradient(circle at 50% 38%, rgba(124, 179, 66, 0.24), rgba(124, 179, 66, 0.08));
+        border: 1px solid rgba(124, 179, 66, 0.30);
+        box-shadow: 0 0 0 6px rgba(124, 179, 66, 0.05);
+        margin-bottom: 18px;
+        transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+      }
+      #option1-trust-cards .t1-ic svg { width: 24px; height: 24px; }
+      #option1-trust-cards .card:hover .t1-ic {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 8px rgba(124, 179, 66, 0.10), 0 0 22px rgba(124, 179, 66, 0.35);
+      }
+
+      /* scroll-in entrance: fade + rise 30px + stagger (visible by default) */
+      #option1-trust-cards.reveal:not(.in) .card { opacity: 0; transform: translateY(30px); }
+      #option1-trust-cards .card:nth-child(1):not(:hover) { transition-delay: 0.05s; }
+      #option1-trust-cards .card:nth-child(2):not(:hover) { transition-delay: 0.14s; }
+      #option1-trust-cards .card:nth-child(3):not(:hover) { transition-delay: 0.23s; }
+      #option1-trust-cards .card:nth-child(4):not(:hover) { transition-delay: 0.32s; }
+
+      /* light theme tuning */
+      .light #option1-trust-cards .card {
+        background: rgba(255, 255, 255, 0.6);
+        border-color: rgba(124, 179, 66, 0.22);
+        box-shadow: 0 10px 30px rgba(40, 70, 20, 0.08);
+      }
+      .light #option1-trust-cards .card:hover { box-shadow: 0 22px 48px rgba(40, 70, 20, 0.16); }
+      .light #option1-trust-cards .t1-ic { color: #3A6820; }
+      .light .t1-bg::before { color: rgba(58, 104, 32, 0.12); }
+
+      @media (prefers-reduced-motion: reduce) {
+        #option1-trust-cards .card::before { animation: none; }
+        .t1-p { animation: none; }
+        #option1-trust-cards .card:hover { transform: none; }
+        #option1-trust-cards .card:hover .t1-ic { transform: none; }
+        #option1-trust-cards.reveal:not(.in) .card { opacity: 1; transform: none; }
+      }
       .light .ic {
         color: #3A6820;
         background: linear-gradient(150deg, rgba(78,128,44,.14), rgba(78,128,44,.08));
@@ -8153,6 +8278,9 @@
           </div>
         </section>
         <section class="psec" id="security">
+          <div class="t1-bg" aria-hidden="true">
+            <span class="t1-p"></span><span class="t1-p"></span><span class="t1-p"></span><span class="t1-p"></span><span class="t1-p"></span><span class="t1-p"></span>
+          </div>
           <div class="wrap">
             <div class="kicker"><i></i>Why WorldPosta &middot; Trust</div>
             <h2>Your customers' data<br /><span class="grad">stays within your borders.</span></h2>
@@ -8161,8 +8289,11 @@
               not the last. WorldPosta is built so that data residency, certification, and isolation are properties of
               the platform, not promises bolted on afterward.
             </p>
-            <div class="g2">
+            <div class="g2" id="option1-trust-cards">
               <div class="card">
+                <div class="t1-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                </div>
                 <h3>In-country data</h3>
                 <p>
                   Customer data stays where you decide. Where it lives follows your customers' regulatory requirements,
@@ -8170,6 +8301,9 @@
                 </p>
               </div>
               <div class="card">
+                <div class="t1-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6" /><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5" /></svg>
+                </div>
                 <h3>Certified and audited</h3>
                 <p>
                   The platform is built and operated to internationally recognized standards for information security,
@@ -8177,6 +8311,9 @@
                 </p>
               </div>
               <div class="card">
+                <div class="t1-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z" /><path d="m9 12 2 2 4-4" /></svg>
+                </div>
                 <h3>Zero-trust security</h3>
                 <p>
                   A round-the-clock SOC, encryption in transit and at rest, extended detection and response, and
@@ -8184,6 +8321,9 @@
                 </p>
               </div>
               <div class="card">
+                <div class="t1-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /></svg>
+                </div>
                 <h3>Per-tenant isolation</h3>
                 <p>
                   Every tenant is logically isolated end to end, so one customer's workloads, identities, and data never
@@ -9424,9 +9564,25 @@
         document.documentElement.classList.toggle('light', light);
         try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
       });
-    </script>
-  <!-- impeccable-live-start -->
-<script src="http://localhost:8400/live.js"></script>
-<!-- impeccable-live-end -->
+    </script>
+    <script>
+      // Trust cards (Option 1) — staggered scroll-in entrance.
+      (function () {
+        var grid = document.getElementById('option1-trust-cards');
+        if (!grid) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        grid.classList.add('reveal');
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { grid.classList.add('in'); io.disconnect(); }
+            });
+          }, { threshold: 0.2 });
+          io.observe(grid);
+        } else {
+          grid.classList.add('in');
+        }
+      })();
+    </script>
 </body>
 </html>
