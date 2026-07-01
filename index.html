@@ -2019,8 +2019,9 @@
       .light .op.sp { color: #566478; border-color: rgba(18,30,50,.25); }
       .light .oleg { color: #82929E; }
 
-      /* --- Ecosystem diagram — stays dark in light mode (intentional control-room window).
-         Frame is deepened for light mode so the dark panel separates crisply from paper. */
+      /* --- "Why now" diagram (#opportunity) — stays dark in light mode (intentional
+         control-room window). Frame deepened so the dark panel separates from paper.
+         The #overview hero diagram gets its own full light treatment below. */
       .light .diagram-wrap {
         background: linear-gradient(148deg, #091a0d 0%, #0a1320 55%, #0c1b2a 100%);
         border-color: rgba(78,128,44,.52);
@@ -2029,6 +2030,136 @@
           0 10px 38px rgba(10,26,14,.34),
           inset 0 0 80px rgba(58,104,32,.07);
       }
+
+      /* ===================================================================
+         HERO ECOSYSTEM DIAGRAM (#overview) — full light-theme recolor.
+         The SVG uses inline fill/stroke/stop-color attributes tuned for a
+         dark canvas; these selectors (scoped to .light #overview svg) win
+         over presentation attributes ONLY in light mode. Dark mode and the
+         #opportunity diagram are untouched.
+         =================================================================== */
+      .light #overview .diagram-wrap {
+        background: linear-gradient(150deg, #FBFAF6 0%, #F4F1EA 60%, #EFEBE2 100%);
+        border-color: rgba(78,128,44,.34);
+        box-shadow:
+          0 1px 3px rgba(10,20,36,.05),
+          0 10px 30px rgba(10,20,36,.08),
+          inset 0 0 0 1px rgba(255,255,255,.5);
+      }
+      /* Expand pill — light treatment to sit on the paper card */
+      .light #overview .eco-expand {
+        background: rgba(255,255,255,.82);
+        border-color: rgba(78,128,44,.40);
+        color: #2C5218;
+      }
+      .light #overview .eco-expand:hover {
+        background: rgba(78,128,44,.12);
+        border-color: rgba(78,128,44,.60);
+      }
+
+      /* --- Gradient bodies: dark node/server fills → light tinted fills --- */
+      .light #overview svg stop[stop-color="#16240E"] { stop-color: #E9F2D8; }  /* node body (green) top */
+      .light #overview svg stop[stop-color="#080F06"] { stop-color: #D5E7BB; }  /* node body (green) bottom */
+      .light #overview svg stop[stop-color="#101E38"] { stop-color: #E7EEF7; }  /* customer node (blue) top */
+      .light #overview svg stop[stop-color="#060E1C"] { stop-color: #D2DFEE; }  /* customer node (blue) bottom */
+      .light #overview svg stop[stop-color="#243448"] { stop-color: #E4EBF3; }  /* server body top */
+      .light #overview svg stop[stop-color="#22344A"] { stop-color: #E4EBF3; }  /* cylinder body top */
+      .light #overview svg stop[stop-color="#0D1B2B"] { stop-color: #CCD7E5; }  /* server/cylinder bottom */
+      .light #overview svg stop[stop-color="#3E5E8E"] { stop-color: #AFC6E2; }  /* cloud icon top */
+      .light #overview svg stop[stop-color="#16263E"] { stop-color: #7E9BBE; }  /* cloud icon bottom */
+      .light #overview svg stop[stop-color="rgba(124, 179, 66,0.28)"] { stop-color: rgba(124,179,66,0.10); } /* bg glow */
+
+      /* --- Structural dark fills → light --- */
+      .light #overview svg [fill="rgba(12,24,44,0.95)"] { fill: rgba(233,240,249,0.96); }
+      .light #overview svg [fill="rgba(12,22,40,0.95)"] { fill: rgba(233,240,249,0.96); }
+      .light #overview svg [fill="rgba(14,28,48,0.9)"]  { fill: rgba(228,236,246,0.95); }
+      .light #overview svg [fill="rgba(14,28,46,0.95)"] { fill: rgba(228,236,246,0.95); }
+      .light #overview svg [fill="rgba(14,26,46,0.6)"]  { fill: rgba(232,238,247,0.72); }
+      .light #overview svg [fill="rgba(14,26,46,0.92)"] { fill: rgba(244,241,234,0.96); }  /* YOURS badges */
+      .light #overview svg [fill="rgba(18,12,34,0.7)"]  { fill: rgba(244,240,249,0.82); }  /* device circles */
+      .light #overview svg [fill="rgba(6,26,14,0.95)"]  { fill: rgba(233,243,216,0.96); }
+      .light #overview svg [fill="rgba(10,18,6,0.62)"]  { fill: rgba(78,128,44,.16); }  /* hub core disc */
+      .light #overview svg [fill="rgba(0,0,0,0.4)"]     { fill: rgba(30,52,38,0.12); }      /* ground shadows */
+
+      /* --- Section / label text designed for dark → deepened --- */
+      .light #overview svg [fill="rgba(120,155,200,0.85)"] { fill: rgba(64,100,144,0.95); }  /* YOUR INFRASTRUCTURE / BRANDED */
+      .light #overview svg [fill="rgba(150,185,225,0.9)"]  { fill: rgba(74,112,158,0.95); }  /* YOURS */
+      .light #overview svg [fill="rgba(150,200,72,0.95)"]  { fill: rgba(74,124,42,0.98); }   /* WORLDPOSTA ECOSYSTEM */
+      .light #overview svg [fill="rgba(155,200,248,0.92)"] { fill: rgba(56,98,150,0.96); }   /* Compute / Networking … */
+      .light #overview svg [fill="rgba(208,224,244,0.95)"] { fill: rgba(58,96,142,0.96); }   /* Enterprise / Government / SMBs */
+
+      /* --- Green accents (rings, connectors, icons, glyphs) → readable green --- */
+      .light #overview svg [fill="#A8CF38"]  { fill: #4e802c; }
+      .light #overview svg [stroke="#A8CF38"] { stroke: #4e802c; }
+      .light #overview svg [stroke="#9FBF4A"] { stroke: #4e802c; }
+      .light #overview svg [stroke="#9FCB4A"] { stroke: #4e802c; }
+      .light #overview svg [fill="#C2DC8A"]  { fill: #5e8e2e; }
+      .light #overview svg [fill="#CFE89A"]  { fill: #5e8e2e; }
+      .light #overview svg [stroke="#EFF6E6"] { stroke: #6ea03a; }
+      .light #overview svg [fill="rgba(178,206,128,0.92)"] { fill: rgba(74,124,42,0.96); }
+      .light #overview svg [fill="rgba(196,220,138,0.96)"] { fill: rgba(74,124,42,0.97); }
+      .light #overview svg [stroke="rgba(200,224,150,0.9)"] { stroke: rgba(74,124,42,0.92); }
+      .light #overview svg [fill="rgba(150,200,80,0.85)"]  { fill: rgba(78,128,44,0.9); }   /* relation marker */
+      .light #overview svg [fill="rgba(168, 207, 56,0.6)"]  { fill: rgba(82,124,46,0.9); }   /* subtitle text */
+      .light #overview svg [stroke="rgba(168, 207, 56,0.92)"] { stroke: rgba(78,128,44,0.95); }
+      .light #overview svg [stroke="rgba(168, 207, 56,0.6)"]  { stroke: rgba(82,124,46,0.78); }
+      .light #overview svg [stroke="rgba(168, 207, 56,0.5)"]  { stroke: rgba(94,142,46,0.62); }
+      .light #overview svg [stroke="rgba(168, 207, 56,0.4)"]  { stroke: rgba(94,142,46,0.55); }
+      .light #overview svg [stroke="rgba(168, 207, 56,0.30)"] { stroke: rgba(94,142,46,0.48); }
+      .light #overview svg [stroke="rgba(168, 207, 56,0.24)"] { stroke: rgba(94,142,46,0.42); }
+      .light #overview svg [stroke="rgba(168, 207, 56,0.2)"]  { stroke: rgba(94,142,46,0.38); }
+
+      /* --- Pale-blue accents (designed for dark) → deepened so they read on paper --- */
+      .light #overview svg [fill="#E2ECF6"]  { fill: #5a82a8; }
+      .light #overview svg [stroke="#E2ECF6"] { stroke: #5a82a8; }
+      .light #overview svg [fill="#B0D0EC"]  { fill: #5588b6; }
+      .light #overview svg [fill="#9CC0E0"]  { fill: #5081b2; }
+      .light #overview svg [fill="rgba(110,165,215,0.8)"]  { fill: rgba(74,128,182,0.88); }
+      .light #overview svg [stroke="rgba(110,165,215,0.8)"] { stroke: rgba(74,128,182,0.88); }
+      .light #overview svg [fill="rgba(110,165,215,0.75)"] { fill: rgba(74,128,182,0.85); }
+      .light #overview svg [fill="rgba(78,122,180,0.7)"]   { fill: rgba(64,104,158,0.82); }
+      .light #overview svg [fill="rgba(70,111,160,0.6)"]   { fill: rgba(60,98,150,0.74); }
+      .light #overview svg [fill="rgba(150,190,225,0.9)"]  { fill: rgba(74,112,158,0.92); }
+      .light #overview svg [stroke="rgba(150,190,225,0.9)"] { stroke: rgba(74,112,158,0.92); }
+      .light #overview svg [stroke="rgba(150,185,225,0.5)"] { stroke: rgba(90,125,170,0.58); }
+      .light #overview svg [stroke="rgba(150,185,225,0.45)"] { stroke: rgba(90,125,170,0.55); }
+      .light #overview svg [stroke="rgba(150,185,225,0.3)"] { stroke: rgba(96,130,172,0.48); }
+
+      /* --- Blue outlines / strokes on bodies → slightly stronger for light bodies --- */
+      .light #overview svg [stroke="rgba(80,120,175,0.5)"]  { stroke: rgba(96,134,182,0.6); }
+      .light #overview svg [stroke="rgba(80,120,175,0.45)"] { stroke: rgba(96,134,182,0.55); }
+      .light #overview svg [stroke="rgba(78,116,168,0.5)"]  { stroke: rgba(92,128,176,0.6); }
+      .light #overview svg [stroke="rgba(78,116,168,0.4)"]  { stroke: rgba(92,128,176,0.5); }
+      .light #overview svg [stroke="rgba(72,108,160,0.5)"]  { stroke: rgba(88,124,172,0.6); }
+      .light #overview svg [stroke="rgba(72,108,160,0.3)"]  { stroke: rgba(96,132,178,0.46); }
+      .light #overview svg [stroke="rgba(90,130,185,0.55)"] { stroke: rgba(96,134,182,0.62); }
+      .light #overview svg [stroke="rgba(88,128,185,0.7)"]  { stroke: rgba(80,118,172,0.78); }
+      .light #overview svg [stroke="rgba(88,128,185,0.6)"]  { stroke: rgba(84,122,176,0.68); }
+      .light #overview svg [stroke="rgba(95,140,195,0.65)"] { stroke: rgba(86,126,180,0.72); }
+      .light #overview svg [stroke="rgba(95,135,185,0.45)"] { stroke: rgba(92,130,180,0.55); }
+      .light #overview svg [stroke="rgba(95,135,185,0.22)"] { stroke: rgba(100,138,184,0.42); }
+
+      /* --- Purple SMB device → deepened violet for paper --- */
+      .light #overview svg [fill="rgba(160,128,205,0.5)"]   { fill: rgba(116,82,166,0.62); }
+      .light #overview svg [fill="rgba(160,128,205,0.42)"]  { fill: rgba(116,82,166,0.54); }
+      .light #overview svg [fill="rgba(160,128,205,0.34)"]  { fill: rgba(116,82,166,0.46); }
+      .light #overview svg [stroke="rgba(160,128,205,0.85)"] { stroke: rgba(116,82,166,0.9); }
+      .light #overview svg [stroke="rgba(160,128,205,0.7)"]  { stroke: rgba(116,82,166,0.78); }
+
+      /* --- Hub core: strip SVG glow filters and white halo on paper --- */
+      .light #overview svg circle[filter="url(#hb_hubglow)"] { filter: none; fill: rgba(124,179,66,.07); }
+      .light #overview svg circle[filter="url(#hb_glow)"][cx="800.0"] { filter: none; }
+      .light #overview svg .hb_core {
+        filter: none;
+        fill: rgba(78,128,44,.16);
+        stroke: rgba(78,128,44,.50);
+      }
+      .light #overview svg g[transform="translate(764,368) scale(0.45)"] {
+        filter: none;
+        fill: #3A6820;
+      }
+      .light #overview svg g[transform="translate(764,368) scale(0.45)"] path { fill: #3A6820; }
+
       /* Expand button — lives on the dark diagram, no light-mode change needed */
       .light .eco-expand {
         background: rgba(6,18,8,.78);
