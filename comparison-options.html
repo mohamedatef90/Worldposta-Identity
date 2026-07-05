@@ -2946,9 +2946,9 @@
               while (body.children.length > 5) body.removeChild(body.firstChild);
               var i = 0;
               (function typeChar() {
-                if (i <= line.cmd.length) {
-                  txt.textContent = line.cmd.slice(0, i);
+                if (i < line.cmd.length) {
                   i++;
+                  txt.textContent = line.cmd.slice(0, i);
                   setTimeout(typeChar, 16);
                 } else {
                   row.appendChild(el("span", "term-st " + line.cls, line.st));
