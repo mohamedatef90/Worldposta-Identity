@@ -1,0 +1,3098 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Comparison cards — animation options</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      :root {
+        --ink: #0a1320;
+        --face: #0a101e;
+        --navy: #13263a;
+        --green: #7cb342;
+        --lime: #a8cf38;
+        --lime-pale: #cde9a2;
+        --deep: #5d9842;
+        --white: #fff;
+        --fog: #c5d2e2;
+        --fog2: #8497ae;
+        --fog3: #5a6c82;
+        --red: #e85d4c;
+        --red-soft: #f0a9a0;
+        --amber: #f0b429;
+        --display: "Space Grotesk", -apple-system, system-ui, sans-serif;
+        --body: "Inter", -apple-system, system-ui, sans-serif;
+        --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+        --eq: cubic-bezier(0.22, 1, 0.36, 1);
+        --eq2: cubic-bezier(0.25, 1, 0.5, 1);
+        --line: rgba(148, 163, 184, 0.16);
+      }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--body);
+        background: var(--ink);
+        color: var(--fog);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 900px 520px at 78% -6%, rgba(40, 56, 80, 0.75), transparent 60%),
+          radial-gradient(760px 560px at 4% 12%, rgba(168, 207, 56, 0.07), transparent 55%),
+          radial-gradient(920px 720px at 94% 92%, rgba(124, 179, 66, 0.08), transparent 60%),
+          var(--ink);
+      }
+      a { color: inherit; text-decoration: none; }
+      button { font-family: inherit; }
+      :focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
+
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+      /* ── page chrome ─────────────────────────────────────────── */
+      .jump {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(8, 13, 24, 0.88);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--line);
+      }
+      .jump .wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .jump .wrap::-webkit-scrollbar { display: none; }
+      .jump-brand {
+        font: 600 12px var(--display);
+        letter-spacing: 0.2px;
+        color: var(--white);
+        white-space: nowrap;
+        margin-right: 8px;
+      }
+      .jump a {
+        flex-shrink: 0;
+        font: 500 11.5px var(--body);
+        color: var(--fog2);
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 7px 14px;
+        transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        white-space: nowrap;
+      }
+      .jump a:hover { color: var(--white); border-color: rgba(168, 207, 56, 0.45); background: rgba(124, 179, 66, 0.08); }
+
+      .page-head { padding: 72px 0 8px; }
+      .crumb { font: 500 11px var(--mono); letter-spacing: 1.6px; color: var(--fog3); text-transform: uppercase; }
+      .page-head h1 {
+        font-family: var(--display);
+        font-size: clamp(30px, 4.6vw, 50px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        margin: 14px 0 18px;
+        text-wrap: balance;
+        max-width: 18ch;
+      }
+      .page-head .sub { max-width: 62ch; color: var(--fog); font-size: 16px; }
+      .page-head .sub strong { color: var(--white); font-weight: 600; }
+
+      .opt { padding: 84px 0 8px; }
+      .opt-head { max-width: 70ch; margin-bottom: 30px; }
+      .opt-num {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font: 600 11px var(--mono);
+        letter-spacing: 1.8px;
+        color: var(--lime);
+        border: 1px solid rgba(124, 179, 66, 0.35);
+        background: rgba(124, 179, 66, 0.07);
+        border-radius: 100px;
+        padding: 6px 13px;
+      }
+      .opt-head h2 {
+        font-family: var(--display);
+        font-size: clamp(23px, 3vw, 32px);
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        color: var(--white);
+        margin: 16px 0 10px;
+        text-wrap: balance;
+      }
+      .opt-head p { color: var(--fog); font-size: 15px; max-width: 66ch; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; list-style: none; }
+      .chips li {
+        font: 500 10.5px var(--mono);
+        letter-spacing: 0.8px;
+        color: var(--fog2);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 4px 9px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .demo-hint { margin-top: 14px; font-size: 12.5px; color: var(--fog2); }
+      .demo-hint kbd {
+        font: 500 10.5px var(--mono);
+        color: var(--fog);
+        border: 1px solid var(--line);
+        border-bottom-width: 2px;
+        border-radius: 5px;
+        padding: 1px 6px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .divider { border: none; border-top: 1px solid rgba(38, 54, 80, 0.4); margin: 84px 0 0; }
+
+      /* ── shared scene vocabulary ─────────────────────────────── */
+      .gnode {
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 13px;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        background: rgba(30, 41, 59, 0.72);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: #b8c8dc;
+        font-size: 11px;
+        font-weight: 600;
+        white-space: nowrap;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 8px 24px rgba(2, 8, 20, 0.35);
+      }
+      .gnode .gi {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 8px;
+        background: rgba(148, 163, 184, 0.12);
+        color: #93a6bc;
+        flex-shrink: 0;
+        transition: background 0.5s ease, color 0.5s ease;
+      }
+      .gnode .gi svg { width: 13px; height: 13px; }
+      .gnode.lg { padding: 10px 14px; font-size: 11.5px; }
+      .gnode.sm { padding: 6px 10px; font-size: 10px; }
+      .gnode.sm .gi { width: 19px; height: 19px; }
+      .gnode .st {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--red);
+        box-shadow: 0 0 8px rgba(232, 93, 76, 0.55);
+        flex-shrink: 0;
+        transition: background 0.5s ease, box-shadow 0.5s ease;
+      }
+      .gnode.good { border-color: rgba(124, 179, 66, 0.3); background: rgba(24, 38, 30, 0.72); color: var(--lime-pale); }
+      .gnode.good .gi { background: rgba(124, 179, 66, 0.14); color: var(--lime); }
+      .gnode.good .st { background: #8bbf3c; box-shadow: 0 0 8px rgba(139, 191, 60, 0.55); }
+
+      @keyframes drift {
+        0%, 100% { transform: translate(-50%, -50%); }
+        50% { transform: translate(calc(-50% + var(--dx, 3px)), calc(-50% + var(--dy, -3px))); }
+      }
+      .chaos-drift .gnode { animation: drift var(--fd, 6.5s) ease-in-out infinite var(--dl, 0s); }
+
+      .frag, .spoke, .rings { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+      .frag path {
+        fill: none;
+        stroke: var(--fog3);
+        stroke-width: 0.6;
+        stroke-dasharray: 2 5;
+        stroke-linecap: round;
+        opacity: 0.5;
+        animation: dash-march 4s linear infinite var(--ld, 0s), line-flicker 6s ease-in-out infinite var(--ld, 0s);
+      }
+      @keyframes dash-march { to { stroke-dashoffset: -28; } }
+      @keyframes line-flicker {
+        0%, 100% { opacity: 0.55; }
+        12% { opacity: 0.15; }
+        18% { opacity: 0.5; }
+        55% { opacity: 0.2; }
+        60% { opacity: 0.55; }
+      }
+      .rings ellipse { fill: none; stroke: rgba(124, 179, 66, 0.2); }
+      .spoke line { stroke: rgba(124, 179, 66, 0.18); stroke-width: 0.5; }
+
+      .hub {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: var(--hub, 88px);
+        height: var(--hub, 88px);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(135deg, var(--deep), var(--green) 55%, #8bbf3c);
+        color: var(--white);
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 12.5px;
+        letter-spacing: -0.02em;
+        box-shadow: 0 16px 48px rgba(94, 142, 46, 0.35);
+        z-index: 5;
+      }
+      .hub::after {
+        content: "";
+        position: absolute;
+        inset: -8px;
+        border-radius: 50%;
+        border: 1px solid rgba(168, 207, 56, 0.4);
+        animation: hub-ring 3.2s ease-out infinite;
+      }
+      @keyframes hub-ring {
+        0% { transform: scale(0.92); opacity: 0.8; }
+        100% { transform: scale(1.55); opacity: 0; }
+      }
+
+      .spin { position: absolute; inset: 0; pointer-events: none; animation: rot 22s linear infinite var(--sd, 0s); }
+      .spin i {
+        position: absolute;
+        left: 50%;
+        top: 16%;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--lime);
+        box-shadow: 0 0 10px rgba(168, 207, 56, 0.8);
+        transform: translate(-50%, -50%);
+      }
+      @keyframes rot { to { transform: rotate(360deg); } }
+
+      .readout {
+        position: absolute;
+        left: 50%;
+        bottom: 12px;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font: 500 9.5px var(--mono);
+        letter-spacing: 1.4px;
+        white-space: nowrap;
+        z-index: 6;
+      }
+      .readout i { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; animation: breathe 2.4s ease-in-out infinite; }
+      .readout.ok { color: var(--lime); }
+      .readout.ok i { background: #8bbf3c; box-shadow: 0 0 10px rgba(139, 191, 60, 0.8); }
+      .readout.bad { color: var(--red-soft); }
+      .readout.bad i { background: var(--red); box-shadow: 0 0 10px rgba(232, 93, 76, 0.8); }
+      @keyframes breathe { 50% { opacity: 0.4; } }
+
+      /* comparison card (options 2 & 4) */
+      .ocard {
+        position: relative;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: var(--face);
+        padding: 26px 26px 30px;
+        overflow: hidden;
+      }
+      .ocard .kick {
+        font: 600 10px var(--mono);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .ocard .kick.warn { color: var(--red-soft); }
+      .ocard .kick.ok { color: var(--lime); }
+      .ocard h3 {
+        font-family: var(--display);
+        font-size: 19px;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        color: var(--white);
+        text-align: center;
+        margin: 10px 0 6px;
+      }
+      .ocard .sub { font-size: 13px; color: var(--fog2); text-align: center; max-width: 300px; margin: 0 auto; }
+      .stage {
+        position: relative;
+        margin-top: 22px;
+        aspect-ratio: 1.12 / 1;
+        border-radius: 16px;
+        border: 1px solid rgba(148, 163, 184, 0.08);
+        background:
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+
+      /* pause everything when a demo is off-screen */
+      .demo:not(.live) * { animation-play-state: paused !important; }
+
+      /* ══ OPTION 1 · The Handover ═══════════════════════════════ */
+      .o1-stage {
+        position: relative;
+        height: clamp(340px, 46vw, 480px);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        cursor: ew-resize;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        --cut: 50%;
+      }
+      .o1-layer { position: absolute; inset: 0; }
+      .o1-layer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 34px 34px;
+        pointer-events: none;
+      }
+      .o1-today {
+        background:
+          radial-gradient(90% 130% at 12% 30%, rgba(90, 42, 36, 0.22), transparent 55%),
+          #0c0f16;
+      }
+      .o1-with {
+        background:
+          radial-gradient(80% 120% at 55% 42%, rgba(124, 179, 66, 0.12), transparent 60%),
+          #0a141c;
+        clip-path: inset(0 0 0 var(--cut));
+        will-change: clip-path;
+      }
+      .o1-tag {
+        position: absolute;
+        top: 14px;
+        z-index: 8;
+        font: 600 10px var(--mono);
+        letter-spacing: 1.8px;
+        padding: 6px 11px;
+        border-radius: 100px;
+      }
+      .o1-tag.today { left: 14px; color: var(--red-soft); background: rgba(232, 93, 76, 0.1); border: 1px solid rgba(232, 93, 76, 0.28); }
+      .o1-tag.with { right: 14px; color: var(--lime-pale); background: rgba(124, 179, 66, 0.12); border: 1px solid rgba(124, 179, 66, 0.32); }
+      .o1-today .readout { left: auto; right: 16px; bottom: 14px; transform: none; }
+      .o1-with .readout { left: auto; right: 16px; bottom: 14px; transform: none; }
+      .o1-div {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: var(--cut);
+        width: 2px;
+        transform: translateX(-1px);
+        background: linear-gradient(180deg, transparent, rgba(168, 207, 56, 0.9) 16% 84%, transparent);
+        z-index: 9;
+        pointer-events: none;
+      }
+      .o1-handle {
+        position: absolute;
+        top: 50%;
+        left: var(--cut);
+        transform: translate(-50%, -50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--green), var(--lime));
+        color: var(--ink);
+        cursor: ew-resize;
+        box-shadow: 0 10px 30px rgba(124, 179, 66, 0.4);
+      }
+      .o1-handle svg { width: 18px; height: 18px; }
+
+      /* ══ OPTION 2 · The Migration ══════════════════════════════ */
+      .o2-wrap { position: relative; }
+      .o2-grid { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+      @media (max-width: 760px) { .o2-grid { grid-template-columns: 1fr; } }
+      .o2-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 20; }
+      .mig-dot {
+        position: absolute;
+        left: -8px;
+        top: -8px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, var(--lime-pale), var(--green) 68%);
+        box-shadow: 0 0 16px rgba(168, 207, 56, 0.85), 0 0 42px rgba(124, 179, 66, 0.4);
+        will-change: transform;
+      }
+      .o2-left .gnode { transition: opacity 0.6s ease, filter 0.6s ease; }
+      .o2-left .gnode.drained { opacity: 0.18; filter: grayscale(1); }
+      .o2-left .frag { transition: opacity 0.8s ease; }
+      .o2-grid.done .o2-left .frag { opacity: 0.22; }
+      .o2-right .gnode {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7);
+        transition: opacity 0.45s var(--eq), transform 0.45s var(--eq);
+      }
+      .o2-right .gnode.docked { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      .o2-right .gnode.docked::after {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 18px;
+        border: 1px solid rgba(168, 207, 56, 0.55);
+        animation: dock-ring 0.8s var(--eq) forwards;
+      }
+      @keyframes dock-ring {
+        0% { opacity: 0.9; transform: scale(0.92); }
+        100% { opacity: 0; transform: scale(1.28); }
+      }
+      .o2-grid.done .o2-right .gnode.docked { animation: drift var(--fd, 8s) ease-in-out infinite var(--dl, 0s); }
+      .o2-right .hub {
+        opacity: 0.22;
+        transform: translate(-50%, -50%) scale(0.75);
+        transition: opacity 0.7s var(--eq), transform 0.7s var(--eq);
+      }
+      .o2-right .hub::after { animation: none; }
+      .o2-grid.done .o2-right .hub { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      .o2-grid.done .o2-right .hub::after { animation: hub-ring 3.2s ease-out infinite; }
+      .o2-right .spoke line {
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        transition: stroke-dashoffset 0.7s var(--eq) var(--sdel, 0s);
+      }
+      .o2-grid.done .o2-right .spoke line { stroke-dashoffset: 0; }
+      .o2-right .spin { opacity: 0; transition: opacity 0.9s ease 0.3s; }
+      .o2-grid.done .o2-right .spin { opacity: 1; }
+      .o2-actions { display: flex; justify-content: center; margin-top: 22px; }
+      .o2-replay {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font: 600 12.5px var(--body);
+        color: var(--fog);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+      .o2-replay:hover:not(:disabled) { color: var(--white); border-color: rgba(168, 207, 56, 0.45); background: rgba(124, 179, 66, 0.08); }
+      .o2-replay:disabled { opacity: 0.45; cursor: default; }
+      .o2-replay svg { width: 13px; height: 13px; }
+
+      /* ══ OPTION 3 · The Rearrangement ══════════════════════════ */
+      .o3-card {
+        position: relative;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        background: var(--face);
+        padding: 28px clamp(18px, 3vw, 34px) 30px;
+        overflow: hidden;
+      }
+      .o3-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+      .o3-titles { position: relative; min-height: 56px; flex: 1 1 260px; }
+      .o3-titles .tk { font: 600 10px var(--mono); letter-spacing: 2px; text-transform: uppercase; transition: color 0.4s ease; }
+      .o3-card[data-state="today"] .o3-titles .tk { color: var(--red-soft); }
+      .o3-card[data-state="unified"] .o3-titles .tk { color: var(--lime); }
+      .o3-titles h3 {
+        position: absolute;
+        left: 0;
+        top: 20px;
+        font-family: var(--display);
+        font-size: clamp(17px, 2.2vw, 21px);
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        color: var(--white);
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity 0.45s var(--eq), transform 0.45s var(--eq);
+        white-space: nowrap;
+      }
+      .o3-card[data-state="today"] .t-today,
+      .o3-card[data-state="unified"] .t-with { opacity: 1; transform: translateY(0); }
+      .o3-seg {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: min(320px, 100%);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 3px;
+        flex-shrink: 0;
+      }
+      .o3-seg::before {
+        content: "";
+        position: absolute;
+        top: 3px;
+        bottom: 3px;
+        left: 3px;
+        width: calc(50% - 3px);
+        border-radius: 100px;
+        background: linear-gradient(120deg, rgba(124, 179, 66, 0.28), rgba(168, 207, 56, 0.28));
+        border: 1px solid rgba(124, 179, 66, 0.4);
+        transition: transform 0.45s var(--eq);
+      }
+      .o3-card[data-state="unified"] .o3-seg::before { transform: translateX(100%); }
+      .o3-seg button {
+        position: relative;
+        z-index: 1;
+        background: none;
+        border: 0;
+        padding: 9px 6px;
+        border-radius: 100px;
+        font: 600 12px var(--body);
+        color: var(--fog2);
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+      .o3-card[data-state="today"] .o3-seg button:first-child,
+      .o3-card[data-state="unified"] .o3-seg button:last-child { color: var(--white); }
+      .o3-stage {
+        position: relative;
+        margin-top: 20px;
+        height: clamp(320px, 42vw, 440px);
+        border-radius: 16px;
+        border: 1px solid rgba(148, 163, 184, 0.08);
+        background:
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .o3-stage .gnode {
+        left: 0;
+        top: 0;
+        transform: translate(var(--tx), var(--ty)) translate(-50%, -50%);
+        transition:
+          transform 0.85s var(--eq2) var(--td, 0s),
+          border-color 0.5s ease,
+          background 0.5s ease,
+          color 0.5s ease;
+        will-change: transform;
+      }
+      .o3-stage.no-t .gnode { transition: none !important; }
+      .o3-card[data-state="unified"] .gnode { border-color: rgba(124, 179, 66, 0.3); background: rgba(24, 38, 30, 0.72); color: var(--lime-pale); }
+      .o3-card[data-state="unified"] .gnode .gi { background: rgba(124, 179, 66, 0.14); color: var(--lime); }
+      .o3-card[data-state="unified"] .gnode .st { background: #8bbf3c; box-shadow: 0 0 8px rgba(139, 191, 60, 0.6); }
+      .o3-frag { opacity: 1; transition: opacity 0.45s ease; }
+      .o3-card[data-state="unified"] .o3-frag { opacity: 0; }
+      .o3-uni { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease 0.25s; pointer-events: none; }
+      .o3-card[data-state="unified"] .o3-uni { opacity: 1; }
+      .o3-uni .hub { transform: translate(-50%, -50%) scale(0.55); transition: transform 0.7s var(--eq) 0.3s; }
+      .o3-card[data-state="unified"] .o3-uni .hub { transform: translate(-50%, -50%) scale(1); }
+      .o3-note { margin-top: 16px; text-align: center; font-size: 12.5px; color: var(--fog2); }
+
+      /* ══ OPTION 4 · The Radar Sweep ════════════════════════════ */
+      .o4-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+      @media (max-width: 760px) { .o4-grid { grid-template-columns: 1fr; } }
+      .o4-t .gnode .st { animation: o4-bad 6s ease-in-out infinite var(--sdl, 0s); }
+      @keyframes o4-bad {
+        0%, 100% { background: var(--red); box-shadow: 0 0 8px rgba(232, 93, 76, 0.55); }
+        40% { background: var(--amber); box-shadow: 0 0 8px rgba(240, 180, 41, 0.5); }
+        55% { background: var(--red); }
+        78% { background: var(--red); box-shadow: 0 0 14px rgba(232, 93, 76, 0.9); }
+      }
+      .o4-badge {
+        position: absolute;
+        z-index: 6;
+        font: 500 9px var(--mono);
+        letter-spacing: 1.2px;
+        color: var(--red-soft);
+        background: rgba(232, 93, 76, 0.1);
+        border: 1px solid rgba(232, 93, 76, 0.3);
+        padding: 4px 7px;
+        border-radius: 6px;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        animation: o4-badge 9s ease-in-out infinite var(--bd, 0s);
+        white-space: nowrap;
+      }
+      @keyframes o4-badge {
+        0%, 70%, 100% { opacity: 0; }
+        74%, 92% { opacity: 1; }
+      }
+      .o4-sweep {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 120%;
+        aspect-ratio: 1;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+        background: conic-gradient(
+          from -80deg,
+          transparent 0deg,
+          rgba(124, 179, 66, 0.02) 30deg,
+          rgba(124, 179, 66, 0.14) 76deg,
+          rgba(168, 207, 56, 0.3) 80deg,
+          transparent 80.6deg
+        );
+        -webkit-mask: radial-gradient(circle, #000 0 57%, transparent 58%);
+        mask: radial-gradient(circle, #000 0 57%, transparent 58%);
+        animation: o4-rot 8s linear infinite;
+        will-change: transform;
+      }
+      @keyframes o4-rot { to { transform: translate(-50%, -50%) rotate(360deg); } }
+      .o4-u .gnode {
+        animation:
+          drift var(--fd, 8s) ease-in-out infinite var(--dl, 0s),
+          o4-hit 8s linear infinite var(--hd, 0s);
+      }
+      @keyframes o4-hit {
+        0% { border-color: rgba(168, 207, 56, 0.95); box-shadow: 0 0 20px rgba(124, 179, 66, 0.45); }
+        6% { border-color: rgba(168, 207, 56, 0.8); }
+        30%, 100% { border-color: rgba(124, 179, 66, 0.24); box-shadow: 0 0 0 rgba(124, 179, 66, 0); }
+      }
+      .o4-u .gnode .st { animation: o4-flash 8s linear infinite var(--hd, 0s); }
+      @keyframes o4-flash {
+        0% { transform: scale(1.8); }
+        12%, 100% { transform: scale(1); }
+      }
+      .o4-u .spoke line { stroke: rgba(124, 179, 66, 0.13); animation: o4-spoke 8s linear infinite var(--hd, 0s); }
+      @keyframes o4-spoke {
+        0% { stroke: rgba(168, 207, 56, 0.6); }
+        18%, 100% { stroke: rgba(124, 179, 66, 0.13); }
+      }
+
+      /* shared: corner tags + two-column grid for new options */
+      .scene-tag {
+        position: absolute;
+        top: 14px;
+        z-index: 8;
+        font: 600 10px var(--mono);
+        letter-spacing: 1.8px;
+        padding: 6px 11px;
+        border-radius: 100px;
+        white-space: nowrap;
+      }
+      .scene-tag.today { left: 14px; color: var(--red-soft); background: rgba(232, 93, 76, 0.1); border: 1px solid rgba(232, 93, 76, 0.28); }
+      .scene-tag.with { right: 14px; color: var(--lime-pale); background: rgba(124, 179, 66, 0.12); border: 1px solid rgba(124, 179, 66, 0.32); }
+      .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+      @media (max-width: 760px) { .duo { grid-template-columns: 1fr; } }
+      .flow { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+      .flow circle { opacity: 0; }
+
+      /* ══ OPTION 5 · The Assembly ═══════════════════════════════ */
+      .o5-track { height: 230vh; }
+      .o5-sticky { position: sticky; top: 72px; }
+      .o5-stage {
+        position: relative;
+        height: min(72vh, 560px);
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        overflow: hidden;
+        background:
+          radial-gradient(80% 120% at 58% 42%, rgba(124, 179, 66, calc(var(--p, 0) * 0.13)), transparent 60%),
+          var(--face);
+      }
+      .o5-stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 34px 34px;
+        pointer-events: none;
+      }
+      .o5-stage .frag { opacity: var(--fragop, 1); }
+      .o5-uni { position: absolute; inset: 0; opacity: var(--uniop, 0); pointer-events: none; }
+      .o5-uni .hub { transform: translate(-50%, -50%) scale(var(--hubsc, 0.5)); }
+      .o5-stage .gnode {
+        left: 0;
+        top: 0;
+        transform: translate(var(--tx), var(--ty)) translate(-50%, -50%);
+        transition: border-color 0.4s ease, background 0.4s ease, color 0.4s ease;
+        will-change: transform;
+      }
+      .o5-stage .scene-tag.today { opacity: calc(1 - var(--p, 0)); }
+      .o5-stage .scene-tag.with { opacity: var(--p, 0); }
+      .o5-bar {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 16px;
+        height: 2px;
+        border-radius: 2px;
+        background: rgba(148, 163, 184, 0.15);
+        z-index: 8;
+      }
+      .o5-bar i {
+        display: block;
+        height: 100%;
+        border-radius: 2px;
+        width: calc(var(--p, 0) * 100%);
+        background: linear-gradient(90deg, var(--green), var(--lime));
+      }
+      .o5-hint {
+        position: absolute;
+        left: 50%;
+        bottom: 28px;
+        transform: translateX(-50%);
+        font: 500 10px var(--mono);
+        letter-spacing: 1.6px;
+        color: var(--fog2);
+        opacity: calc(1 - var(--p, 0) * 3);
+        z-index: 8;
+        white-space: nowrap;
+      }
+
+      /* ══ OPTION 6 · The Lens ═══════════════════════════════════ */
+      @property --mr {
+        syntax: "<length>";
+        inherits: true;
+        initial-value: 130px;
+      }
+      .o6-stage {
+        position: relative;
+        height: clamp(340px, 46vw, 480px);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        touch-action: none;
+        --mr: 130px;
+        transition: --mr 0.35s var(--eq);
+      }
+      .o6-stage.pressed { --mr: 185px; }
+      .o6-layer { position: absolute; inset: 0; }
+      .o6-layer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+        background-size: 34px 34px;
+        pointer-events: none;
+      }
+      .o6-base {
+        background:
+          radial-gradient(90% 130% at 12% 30%, rgba(90, 42, 36, 0.22), transparent 55%),
+          #0c0f16;
+      }
+      .o6-with {
+        background:
+          radial-gradient(80% 120% at 55% 42%, rgba(124, 179, 66, 0.14), transparent 60%),
+          #0a141c;
+        -webkit-mask: radial-gradient(circle var(--mr) at var(--mx, 50%) var(--my, 50%), #000 0 62%, transparent 92%);
+        mask: radial-gradient(circle var(--mr) at var(--mx, 50%) var(--my, 50%), #000 0 62%, transparent 92%);
+      }
+      .o6-ring {
+        position: absolute;
+        left: var(--mx, 50%);
+        top: var(--my, 50%);
+        width: calc(var(--mr) * 2);
+        aspect-ratio: 1;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1.5px solid rgba(168, 207, 56, 0.5);
+        box-shadow: 0 0 30px rgba(124, 179, 66, 0.22), inset 0 0 26px rgba(124, 179, 66, 0.1);
+        pointer-events: none;
+        z-index: 9;
+      }
+      .o6-ring::after {
+        content: "WORLDPOSTA · UNDERNEATH";
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, 9px);
+        font: 600 9px var(--mono);
+        letter-spacing: 1.6px;
+        color: var(--lime-pale);
+        white-space: nowrap;
+      }
+
+      /* ══ OPTION 7 · The Flow ═══════════════════════════════════ */
+      .o7-left .gnode .st { animation: o4-bad 6s ease-in-out infinite var(--sdl, 0s); }
+
+      /* ══ OPTIONS 8–10 · Bridge arrows between the two cards ════ */
+      .st-bad .gnode .st { animation: o4-bad 6s ease-in-out infinite var(--sdl, 0s); }
+      .bduo {
+        display: grid;
+        grid-template-columns: 1fr 92px 1fr;
+        gap: 12px;
+        align-items: center;
+      }
+      .bmid { display: flex; align-items: center; justify-content: center; }
+      .bmid svg { width: 100%; max-width: 130px; overflow: visible; display: block; }
+      @media (max-width: 760px) {
+        .bduo { grid-template-columns: 1fr; }
+        .bmid { height: 110px; }
+        .bmid svg { transform: rotate(90deg); }
+      }
+
+      /* option 8 — comet pulse over the curve, breathing glow shadow */
+      .b8 .b-shadow {
+        filter: blur(3.5px);
+        animation: b8-shadow 4.5s ease-in-out infinite;
+      }
+      @keyframes b8-shadow {
+        0%, 100% { opacity: 0.3; transform: translateY(5px); }
+        50% { opacity: 0.65; transform: translateY(7px); }
+      }
+      .b8 .b-shaft { opacity: 0.35; }
+      .b8 .b-pulse {
+        stroke-dasharray: 16 100;
+        stroke-dashoffset: 16;
+        animation: b-pulse-run 2.6s cubic-bezier(0.45, 0.05, 0.25, 1) infinite;
+        filter: drop-shadow(0 0 6px rgba(168, 207, 56, 0.8));
+      }
+      @keyframes b-pulse-run {
+        0% { stroke-dashoffset: 16; }
+        100% { stroke-dashoffset: -100; }
+      }
+      .b8 .b-head {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: b8-head 2.6s ease-out infinite;
+      }
+      @keyframes b8-head {
+        0%, 74% { transform: scale(1); filter: none; }
+        86% { transform: scale(1.3); filter: drop-shadow(0 0 8px rgba(168, 207, 56, 0.9)); }
+        100% { transform: scale(1); }
+      }
+
+      /* option 9 — draws itself on scroll, then shimmers; deep animated drop-shadow */
+      .b9 .b-shaft {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        transition: stroke-dashoffset 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+        filter: drop-shadow(0 5px 8px rgba(124, 179, 66, 0.35));
+      }
+      .b9.drawn .b-shaft {
+        stroke-dashoffset: 0;
+        animation: b9-breathe 4s ease-in-out 1.6s infinite;
+      }
+      @keyframes b9-breathe {
+        0%, 100% { filter: drop-shadow(0 4px 6px rgba(124, 179, 66, 0.3)); }
+        50% { filter: drop-shadow(0 9px 16px rgba(168, 207, 56, 0.55)); }
+      }
+      .b9 .b-head {
+        opacity: 0;
+        transform: translateX(-6px);
+        transition: opacity 0.4s var(--eq) 1.3s, transform 0.4s var(--eq) 1.3s;
+      }
+      .b9.drawn .b-head { opacity: 1; transform: none; }
+      .b9 .b-shimmer { stroke-dasharray: 10 100; stroke-dashoffset: 10; opacity: 0; }
+      .b9.drawn .b-shimmer { opacity: 0.8; animation: b-pulse-run 3.4s linear 1.8s infinite; }
+
+      /* option 10 — dotted guide + continuous packet stream, pulsing shadow */
+      .b10 .b-shaft {
+        stroke-dasharray: 2 5;
+        opacity: 0.5;
+        animation: dash-march 3s linear infinite;
+      }
+      .b10 .b-shadow {
+        filter: blur(4px);
+        transform: translateY(5px);
+        animation: b10-shadow 3s linear infinite;
+      }
+      @keyframes b10-shadow {
+        0%, 100% { opacity: 0.28; }
+        50% { opacity: 0.58; }
+      }
+      .b10 .b-head { animation: b10-glow 3s ease-in-out infinite; }
+      @keyframes b10-glow {
+        0%, 100% { filter: none; }
+        50% { filter: drop-shadow(0 0 7px rgba(168, 207, 56, 0.9)); }
+      }
+      .b-pkt { opacity: 0; }
+
+      /* ══ OPTION 11 · Mountain Pass (light, per screenshot) ═════ */
+      .lite-panel {
+        background: #edebde;
+        border-radius: 24px;
+        padding: clamp(20px, 3.4vw, 40px);
+      }
+      .lite .mduo { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+      .lite .ocard {
+        background: #fff;
+        border-color: rgba(15, 23, 42, 0.06);
+        box-shadow: 0 24px 48px -28px rgba(15, 23, 42, 0.14);
+        overflow: visible;
+      }
+      .lite .ocard h3 { color: #111827; }
+      .lite .ocard .sub { color: #5d6673; }
+      .lite .kick.warn { color: #b3573f; }
+      .lite .kick.ok { color: #5e8e2e; }
+      .lite .stage {
+        border-color: rgba(15, 23, 42, 0.05);
+        background:
+          linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      .lite .gnode {
+        background: #fbfaf3;
+        border-color: #e4e1d2;
+        color: #3a3f4a;
+        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .lite .gnode .gi { background: rgba(15, 23, 42, 0.05); color: #5a6270; }
+      .lite .gnode.good { background: #f4f8e8; border-color: #d8e6bc; color: #4a7224; }
+      .lite .gnode.good .gi { background: rgba(124, 179, 66, 0.14); color: #5e8e2e; }
+      .lite .frag path { stroke: #c9c4b2; }
+      .lite .rings ellipse { stroke: rgba(124, 179, 66, 0.35); }
+      .lite .spoke line { stroke: rgba(124, 179, 66, 0.35); }
+      .lite .readout.bad { color: #b3573f; }
+      .lite .readout.bad i { background: #b3573f; box-shadow: 0 0 8px rgba(179, 87, 63, 0.5); }
+      .lite .readout.ok { color: #5e8e2e; }
+      .lite .readout.ok i { background: #7cb342; box-shadow: 0 0 8px rgba(124, 179, 66, 0.5); }
+
+      .mbridge {
+        position: absolute;
+        top: 1px;
+        bottom: 1px;
+        left: calc(50% - 34px);
+        width: 70px;
+        z-index: 6;
+        pointer-events: none;
+      }
+      .mwave {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        filter: drop-shadow(-10px 10px 16px rgba(15, 23, 42, 0.12));
+        animation: m-shadow 5s ease-in-out infinite;
+      }
+      @keyframes m-shadow {
+        0%, 100% { filter: drop-shadow(-8px 8px 12px rgba(15, 23, 42, 0.1)); }
+        50% { filter: drop-shadow(-14px 12px 22px rgba(15, 23, 42, 0.18)); }
+      }
+      .mbadge {
+        position: absolute;
+        left: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid #e4e1d2;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4a7224;
+      }
+      .mbadge::before {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        border: 1px solid rgba(124, 179, 66, 0.55);
+        animation: hub-ring 2.8s ease-out infinite;
+      }
+      .mbadge svg { width: 18px; height: 18px; animation: m-nudge 2.2s ease-in-out infinite; }
+      @keyframes m-nudge {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(4px); }
+      }
+      .mrow-arrow { display: none; }
+      @media (max-width: 760px) {
+        .lite .mduo { grid-template-columns: 1fr; gap: 18px; }
+        .mbridge { display: none; }
+        .mrow-arrow { display: flex; justify-content: center; padding: 2px 0; }
+        .mrow-arrow .mbadge {
+          position: static;
+          transform: rotate(90deg);
+          pointer-events: none;
+        }
+      }
+
+      /* ══ OPTION 12 · The Flip ══════════════════════════════════ */
+      .o12-scene { perspective: 1600px; max-width: 620px; margin: 0 auto; }
+      .o12-sway { transform-style: preserve-3d; animation: o12-sway 7s ease-in-out infinite; }
+      @keyframes o12-sway {
+        0%, 100% { transform: rotateY(-2.5deg); }
+        50% { transform: rotateY(2.5deg); }
+      }
+      .o12-card {
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1s var(--eq);
+        cursor: pointer;
+      }
+      .o12-card:focus-visible { outline: 2px solid var(--lime); outline-offset: 6px; }
+      .o12-card.flipped { transform: rotateY(180deg); }
+      .o12-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+      .o12-front { position: relative; }
+      .o12-back { position: absolute; inset: 0; transform: rotateY(180deg); }
+      .o12-flip-ic {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--fog2);
+        z-index: 4;
+      }
+      .o12-flip-ic svg { width: 14px; height: 14px; }
+
+      /* ══ OPTION 13 · Vital Signs ═══════════════════════════════ */
+      .ekg {
+        position: relative;
+        margin-top: 14px;
+        height: 58px;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        background: rgba(2, 8, 20, 0.5);
+        overflow: hidden;
+        -webkit-mask: linear-gradient(90deg, transparent 0, #000 16%, #000 100%);
+        mask: linear-gradient(90deg, transparent 0, #000 16%, #000 100%);
+      }
+      .ekg svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .ekg-g { animation: ekg-scroll var(--edur, 5s) linear infinite; }
+      @keyframes ekg-scroll { to { transform: translateX(-300px); } }
+      .ekg path {
+        fill: none;
+        stroke-width: 1.6;
+        vector-effect: non-scaling-stroke;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+      .ekg-bad path { stroke: var(--red); filter: drop-shadow(0 0 4px rgba(232, 93, 76, 0.5)); }
+      .ekg-ok path { stroke: #8bbf3c; filter: drop-shadow(0 0 4px rgba(139, 191, 60, 0.5)); }
+      .ekg-bad .ekg-g { animation: ekg-scroll var(--edur, 5s) linear infinite, ekg-flicker 4.2s steps(1) infinite; }
+      @keyframes ekg-flicker {
+        0%, 87%, 100% { opacity: 1; }
+        89%, 93% { opacity: 0.35; }
+      }
+      .ekg-label {
+        position: absolute;
+        left: 10px;
+        top: 7px;
+        z-index: 2;
+        font: 600 8.5px var(--mono);
+        letter-spacing: 1.3px;
+      }
+      .ekg-bad .ekg-label { color: var(--red-soft); }
+      .ekg-ok .ekg-label { color: var(--lime-pale); }
+      .o13-right .hub::after { animation-duration: 2s; }
+
+      /* ══ OPTION 14 · The Pairing ═══════════════════════════════ */
+      .o14-wrap { position: relative; }
+      .o14-overlay { position: absolute; inset: 0; pointer-events: none; z-index: 20; }
+      .o14-overlay svg { width: 100%; height: 100%; overflow: visible; display: block; }
+      .o14-overlay path {
+        fill: none;
+        stroke: var(--lime);
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 5px rgba(168, 207, 56, 0.6));
+      }
+      .o14-left .gnode { transition: opacity 0.5s ease, filter 0.5s ease; }
+      .o14-left .gnode.off { opacity: 0.3; filter: grayscale(0.9); }
+      .o14-right .gnode.flash { animation: o14-flash 1s var(--eq); }
+      @keyframes o14-flash {
+        0% { box-shadow: 0 0 0 rgba(168, 207, 56, 0); }
+        25% { box-shadow: 0 0 26px rgba(168, 207, 56, 0.65); border-color: rgba(168, 207, 56, 0.95); }
+        100% { box-shadow: 0 0 0 rgba(168, 207, 56, 0); }
+      }
+
+      /* ══ OPTION 15 · The Terminal ══════════════════════════════ */
+      .term {
+        margin-top: 14px;
+        height: 138px;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        background: #050a14;
+        padding: 10px 12px;
+        overflow: hidden;
+      }
+      .term-body { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; }
+      .term-line {
+        font: 500 10.5px var(--mono);
+        color: var(--fog2);
+        line-height: 2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .term-line:last-child .term-txt::after { content: "▋"; margin-left: 2px; animation: term-blink 1s steps(1) infinite; }
+      @keyframes term-blink { 50% { opacity: 0; } }
+      .term-st { margin-left: 8px; font-weight: 600; }
+      .term-st.err { color: var(--red-soft); }
+      .term-st.warn { color: var(--amber); }
+      .term-st.ok { color: var(--lime); }
+
+      /* ══ OPTION 16 · Storm & Calm ══════════════════════════════ */
+      .o16-left { animation: thunder-shake 8s linear infinite; }
+      .o16-left .stage { overflow: hidden; }
+      .rain { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+      .rain span {
+        position: absolute;
+        top: -24px;
+        left: var(--rx);
+        width: 1px;
+        height: 16px;
+        background: linear-gradient(180deg, transparent, rgba(148, 163, 184, 0.5));
+        animation: rain-fall var(--rd, 1.4s) linear infinite var(--rl, 0s);
+      }
+      @keyframes rain-fall { to { transform: translateY(480px); } }
+      .o16-left .stage::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(80% 60% at 50% 0%, rgba(220, 230, 255, 0.5), transparent 70%);
+        opacity: 0;
+        pointer-events: none;
+        animation: lightning 8s linear infinite;
+        z-index: 4;
+      }
+      @keyframes lightning {
+        0%, 91.5%, 100% { opacity: 0; }
+        92% { opacity: 0.5; }
+        93% { opacity: 0.08; }
+        94% { opacity: 0.32; }
+        95.5% { opacity: 0; }
+      }
+      @keyframes thunder-shake {
+        0%, 91.9%, 95.6%, 100% { transform: translate(0, 0); }
+        92.4% { transform: translate(-1.5px, 1px); }
+        93.2% { transform: translate(1.5px, -1px); }
+        94.4% { transform: translate(-1px, 0.5px); }
+      }
+      .aurora { position: absolute; border-radius: 50%; filter: blur(36px); pointer-events: none; }
+      .aurora.a1 { width: 220px; height: 160px; left: 8%; top: 6%; background: rgba(124, 179, 66, 0.16); animation: aur-1 14s ease-in-out infinite; }
+      .aurora.a2 { width: 180px; height: 140px; right: 6%; bottom: 10%; background: rgba(168, 207, 56, 0.12); animation: aur-2 18s ease-in-out infinite; }
+      @keyframes aur-1 { 50% { transform: translate(26px, 14px) scale(1.12); } }
+      @keyframes aur-2 { 50% { transform: translate(-20px, -12px) scale(1.08); } }
+
+      /* ══ OPTION 17 · The Ledger ════════════════════════════════ */
+      .ledger {
+        margin-top: 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        background: rgba(2, 8, 20, 0.5);
+        padding: 13px 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .led-row { display: flex; align-items: baseline; gap: 8px; font: 500 11.5px var(--body); color: var(--fog2); }
+      .led-row .dots { flex: 1; border-bottom: 1px dotted rgba(148, 163, 184, 0.3); transform: translateY(-3px); }
+      .led-val {
+        font: 700 15px var(--display);
+        letter-spacing: -0.01em;
+        color: var(--white);
+        font-variant-numeric: tabular-nums;
+      }
+      .ledger.bad .led-val.hot { color: var(--red-soft); }
+      .ledger.ok .led-val { color: var(--lime-pale); }
+      .led-val.bump { animation: led-bump 0.4s var(--eq); }
+      @keyframes led-bump {
+        30% { transform: scale(1.25); }
+      }
+
+      /* ══ OPTION 18 · The Magnet ════════════════════════════════ */
+      .o18-left .gnode,
+      .o18-right .gnode {
+        transform: translate(calc(-50% + var(--px, 0px)), calc(-50% + var(--py, 0px)));
+      }
+
+      /* ── footer ──────────────────────────────────────────────── */
+      .foot { margin: 96px 0 80px; }
+      .foot-card {
+        border: 1px solid rgba(124, 179, 66, 0.3);
+        background: rgba(124, 179, 66, 0.05);
+        border-radius: 20px;
+        padding: 30px 32px;
+      }
+      .foot-card h2 {
+        font-family: var(--display);
+        font-size: 21px;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        color: var(--white);
+        margin-bottom: 8px;
+      }
+      .foot-card p { font-size: 14.5px; color: var(--fog); max-width: 66ch; }
+      .foot-card strong { color: var(--lime-pale); font-weight: 600; }
+
+      /* ── reduced motion ──────────────────────────────────────── */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.15s !important;
+        }
+        .o4-sweep, .o4-badge { display: none !important; }
+        .o4-u .gnode { border-color: rgba(124, 179, 66, 0.35); }
+        .spin { display: none; }
+        .flow { display: none !important; }
+        .o6-stage { transition: none; }
+        .b-pulse, .b-shimmer, .b-pkt { display: none !important; }
+        .b9 .b-shaft { stroke-dashoffset: 0; }
+        .b9 .b-head { opacity: 1; transform: none; }
+        .rain { display: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="jump" aria-label="Options">
+      <div class="wrap">
+        <span class="jump-brand">WorldPosta · card options</span>
+        <a href="#option-1">1 · The Handover</a>
+        <a href="#option-2">2 · The Migration</a>
+        <a href="#option-3">3 · The Rearrangement</a>
+        <a href="#option-4">4 · The Radar Sweep</a>
+        <a href="#option-5">5 · The Assembly</a>
+        <a href="#option-6">6 · The Lens</a>
+        <a href="#option-7">7 · The Flow</a>
+        <a href="#option-8">8 · Comet Bridge</a>
+        <a href="#option-9">9 · Drawn Bridge</a>
+        <a href="#option-10">10 · Stream Bridge</a>
+        <a href="#option-11">11 · Mountain Pass</a>
+        <a href="#option-12">12 · The Flip</a>
+        <a href="#option-13">13 · Vital Signs</a>
+        <a href="#option-14">14 · The Pairing</a>
+        <a href="#option-15">15 · Terminal</a>
+        <a href="#option-16">16 · Storm &amp; Calm</a>
+        <a href="#option-17">17 · Ledger</a>
+        <a href="#option-18">18 · Magnet</a>
+      </div>
+    </nav>
+
+    <header class="page-head wrap">
+      <p class="crumb">index.html · “From multiple vendors to one connected ecosystem”</p>
+      <h1>Eighteen ways to animate the comparison</h1>
+      <p class="sub">
+        Same story — <strong>vendor sprawl today</strong> versus <strong>one WorldPosta ecosystem</strong> — told with
+        eighteen different animation mechanics. Options 8–10 keep the two cards and focus on an
+        <strong>animated shadowed arrow</strong> curving between them; option 11 rebuilds the
+        <strong>mountain-curve seam from your screenshot</strong>, animated. Scroll through, play with each one, and pick the option you want on the
+        overview page. Everything uses the house tokens, so the winner drops straight into <strong>index.html</strong>.
+      </p>
+    </header>
+
+    <noscript>
+      <p class="wrap" style="margin-top: 32px; color: #f0a9a0">This preview page needs JavaScript to build the demo scenes.</p>
+    </noscript>
+
+    <!-- ═══════════ OPTION 1 ═══════════ -->
+    <section class="opt wrap" id="option-1">
+      <header class="opt-head">
+        <span class="opt-num">Option 1</span>
+        <h2>The Handover — drag between two worlds</h2>
+        <p>
+          One wide stage instead of two cards. The left world is today’s vendor sprawl; the right world is the
+          WorldPosta ecosystem. A glowing divider sweeps slowly on its own — until the reader grabs it and switches
+          the ecosystem on themselves. The most interactive option: the exec literally performs the handover.
+        </p>
+        <ul class="chips"><li>interactive drag</li><li>clip-path reveal</li><li>keyboard accessible</li><li>auto-sweeps until touched</li></ul>
+      </header>
+      <div class="demo" id="o1-demo" aria-label="Draggable before and after comparison">
+        <div class="o1-stage" id="o1-stage">
+          <div class="o1-layer o1-today" id="o1-today">
+            <span class="o1-tag today">TODAY · MANY VENDORS</span>
+            <p class="readout bad"><i></i>7 VENDORS · 7 CONTRACTS</p>
+          </div>
+          <div class="o1-layer o1-with" id="o1-with">
+            <span class="o1-tag with">WITH WORLDPOSTA · ONE ECOSYSTEM</span>
+            <p class="readout ok"><i></i>ONE PLATFORM · FULLY OPERATED</p>
+          </div>
+          <div class="o1-div"></div>
+          <button
+            class="o1-handle"
+            id="o1-handle"
+            role="slider"
+            aria-label="Reveal the WorldPosta ecosystem"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="50"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 6-6 6 6 6" /><path d="m15 6 6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+        <p class="demo-hint">Drag anywhere on the stage — or focus the handle and use <kbd>←</kbd> <kbd>→</kbd>.</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 2 ═══════════ -->
+    <section class="opt wrap" id="option-2">
+      <header class="opt-head">
+        <span class="opt-num">Option 2</span>
+        <h2>The Migration — services fly into orbit</h2>
+        <p>
+          Keeps the two-card layout, but tells the story once, as choreography: when the section scrolls into view,
+          each service lifts out of the fragmented left card, flies across the gap, and docks into orbit around the
+          WorldPosta core. The left card drains as the right card comes alive. The strongest narrative option.
+        </p>
+        <ul class="chips"><li>scroll-triggered</li><li>arc flight (WAAPI)</li><li>staggered docking</li><li>replayable</li></ul>
+      </header>
+      <div class="demo" id="o2-demo" aria-label="Animated migration from vendor sprawl to unified ecosystem">
+        <div class="o2-wrap">
+          <div class="o2-grid" id="o2-grid">
+            <article class="ocard o2-left">
+              <p class="kick warn">Today</p>
+              <h3>Many vendors, many gaps</h3>
+              <p class="sub">Disconnected platforms. More complexity.</p>
+              <div class="stage chaos-drift" id="o2-left-stage"></div>
+            </article>
+            <article class="ocard o2-right">
+              <p class="kick ok">With WorldPosta</p>
+              <h3>One ecosystem, built to work</h3>
+              <p class="sub">Unified platform. Aligned. Secure. Scalable.</p>
+              <div class="stage" id="o2-right-stage"></div>
+            </article>
+          </div>
+          <div class="o2-overlay" id="o2-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="o2-actions">
+          <button class="o2-replay" id="o2-replay" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" />
+            </svg>
+            Replay migration
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 3 ═══════════ -->
+    <section class="opt wrap" id="option-3">
+      <header class="opt-head">
+        <span class="opt-num">Option 3</span>
+        <h2>The Rearrangement — same services, one core</h2>
+        <p>
+          A single card with a toggle. The seven services never change — they physically reorganize. In “Today” they
+          drift scattered with broken links; switch to “With WorldPosta” and the exact same nodes glide into orbit
+          around the core, turning green as they lock in. The clearest message: you keep every service, WorldPosta
+          rearranges them into one system. It alternates on its own until the reader takes over.
+        </p>
+        <ul class="chips"><li>toggle control</li><li>FLIP-style movement</li><li>staggered glide</li><li>auto-cycles</li></ul>
+      </header>
+      <div class="demo" id="o3-demo" aria-label="Toggle between scattered vendors and unified ecosystem">
+        <article class="o3-card" id="o3-card" data-state="today">
+          <div class="o3-head">
+            <div class="o3-titles">
+              <p class="tk" id="o3-tk">Today</p>
+              <h3 class="t-today">Many vendors, many gaps</h3>
+              <h3 class="t-with">One ecosystem, built to work</h3>
+            </div>
+            <div class="o3-seg" role="group" aria-label="Comparison state">
+              <button type="button" id="o3-btn-today" aria-pressed="true">Today</button>
+              <button type="button" id="o3-btn-with" aria-pressed="false">With WorldPosta</button>
+            </div>
+          </div>
+          <div class="o3-stage" id="o3-stage"></div>
+          <p class="o3-note">Same seven services — rearranged around one operated core.</p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 4 ═══════════ -->
+    <section class="opt wrap" id="option-4">
+      <header class="opt-head">
+        <span class="opt-num">Option 4</span>
+        <h2>The Radar Sweep — always failing vs. always verified</h2>
+        <p>
+          Two cards, fully ambient — no interaction needed, it just runs. The left card keeps struggling: statuses
+          flick from red to amber, links flicker, incident labels pop up. The right card is a calm operations radar:
+          a beam sweeps around the WorldPosta core and every service it passes lights up verified. Built entirely in
+          CSS. The most “operator-grade / NOC” feel of the four.
+        </p>
+        <ul class="chips"><li>ambient loop</li><li>CSS only</li><li>radar sweep</li><li>SOC atmosphere</li></ul>
+      </header>
+      <div class="demo" id="o4-demo" aria-label="Ambient comparison of failing vendors versus verified ecosystem">
+        <div class="o4-grid">
+          <article class="ocard o4-t">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">Something is always breaking somewhere.</p>
+            <div class="stage chaos-drift" id="o4-left-stage"></div>
+          </article>
+          <article class="ocard o4-u">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, continuously verified</h3>
+            <p class="sub">Every service checked, every sweep.</p>
+            <div class="stage" id="o4-right-stage"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 5 ═══════════ -->
+    <section class="opt wrap" id="option-5">
+      <header class="opt-head">
+        <span class="opt-num">Option 5</span>
+        <h2>The Assembly — your scroll builds the ecosystem</h2>
+        <p>
+          The stage pins to the screen and the scroll wheel becomes the timeline: as the reader moves down the page,
+          the scattered services glide out of the sprawl and lock into orbit around the core — and disassemble again
+          if they scroll back up. No clicks needed, works identically on touch, and the reader sets the pace of the
+          transformation.
+        </p>
+        <ul class="chips"><li>scroll-scrubbed</li><li>pinned stage</li><li>fully reversible</li><li>progress bar</li></ul>
+      </header>
+      <div class="demo" id="o5-demo" aria-label="Scroll-driven assembly of the ecosystem">
+        <div class="o5-track" id="o5-track">
+          <div class="o5-sticky">
+            <div class="o5-stage" id="o5-stage">
+              <span class="scene-tag today">TODAY · MANY VENDORS</span>
+              <span class="scene-tag with">WITH WORLDPOSTA · ONE ECOSYSTEM</span>
+              <p class="o5-hint" aria-hidden="true">KEEP SCROLLING — THE ECOSYSTEM ASSEMBLES</p>
+              <div class="o5-bar" aria-hidden="true"><i></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 6 ═══════════ -->
+    <section class="opt wrap" id="option-6">
+      <header class="opt-head">
+        <span class="opt-num">Option 6</span>
+        <h2>The Lens — see the layer running underneath</h2>
+        <p>
+          One chaotic surface — and a lens that follows the cursor, revealing the WorldPosta ecosystem operating
+          underneath the vendor sprawl. When nobody is pointing, the lens drifts across the stage on its own.
+          A different metaphor from the slider: WorldPosta isn’t a “after” state, it’s the layer already working
+          beneath your brand.
+        </p>
+        <ul class="chips"><li>cursor-following mask</li><li>idle drift</li><li>press to widen</li><li>works on touch</li></ul>
+      </header>
+      <div class="demo" id="o6-demo" aria-label="Lens revealing the WorldPosta layer under the vendor sprawl">
+        <div class="o6-stage" id="o6-stage">
+          <div class="o6-layer o6-base" id="o6-base">
+            <span class="scene-tag today">TODAY · WHAT YOU SEE</span>
+          </div>
+          <div class="o6-layer o6-with" id="o6-with">
+            <span class="scene-tag with">WITH WORLDPOSTA · WHAT RUNS UNDERNEATH</span>
+          </div>
+          <div class="o6-ring" aria-hidden="true"></div>
+        </div>
+        <p class="demo-hint">Move your cursor over the stage — press and hold to widen the lens.</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 7 ═══════════ -->
+    <section class="opt wrap" id="option-7">
+      <header class="opt-head">
+        <span class="opt-num">Option 7</span>
+        <h2>The Flow — packets lost vs. packets delivered</h2>
+        <p>
+          Both cards run live traffic, forever. On the left, packets set out across vendor links and die halfway —
+          every hop is a handoff between companies. On the right, every packet leaves the WorldPosta core and arrives
+          at its service. The most literal “it just works” story, and it needs no interaction at all.
+        </p>
+        <ul class="chips"><li>continuous traffic</li><li>SVG motion paths</li><li>no interaction needed</li><li>ambient</li></ul>
+      </header>
+      <div class="demo" id="o7-demo" aria-label="Live packet flow comparison">
+        <div class="duo">
+          <article class="ocard o7-left">
+            <p class="kick warn">Today</p>
+            <h3>Packets set out. Many never arrive.</h3>
+            <p class="sub">Every hop crosses a vendor boundary.</p>
+            <div class="stage chaos-drift" id="o7-left-stage"></div>
+          </article>
+          <article class="ocard o7-right">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>Every packet finds its service.</h3>
+            <p class="sub">One core routes, secures, and delivers.</p>
+            <div class="stage" id="o7-right-stage"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 8 ═══════════ -->
+    <section class="opt wrap" id="option-8">
+      <header class="opt-head">
+        <span class="opt-num">Option 8</span>
+        <h2>The Comet Bridge — a pulse of light crosses the curve</h2>
+        <p>
+          The two cards stay — this option is about the connector. A curved arrow spans the gap, and a comet of light
+          travels it from the sprawl to the ecosystem, over and over. The arrowhead flares each time the comet
+          arrives, and a soft green shadow breathes underneath the whole curve. Closest to what index.html has today,
+          upgraded with the animated shadow and the arrival flare.
+        </p>
+        <ul class="chips"><li>comet pulse</li><li>arrival flare</li><li>breathing glow shadow</li><li>continuous</li></ul>
+      </header>
+      <div class="demo" id="o8-demo" aria-label="Comet arrow bridging the two comparison cards">
+        <div class="bduo">
+          <article class="ocard">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">Disconnected platforms. More complexity.</p>
+            <div class="stage chaos-drift st-bad" id="o8-left-stage"></div>
+          </article>
+          <div class="bmid" aria-hidden="true">
+            <svg class="barrow b8" viewBox="0 0 120 64" fill="none">
+              <defs>
+                <linearGradient id="bgrad8" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#7cb342" /><stop offset="1" stop-color="#a8cf38" />
+                </linearGradient>
+              </defs>
+              <path class="b-shadow" d="M6 46 C22 46 33 18 56 17 C76 16 86 40 108 41" stroke="#7cb342" stroke-width="3" stroke-linecap="round" />
+              <path class="b-shaft" d="M6 46 C22 46 33 18 56 17 C76 16 86 40 108 41" stroke="url(#bgrad8)" stroke-width="2.2" stroke-linecap="round" />
+              <path class="b-pulse" d="M6 46 C22 46 33 18 56 17 C76 16 86 40 108 41" stroke="url(#bgrad8)" stroke-width="3" stroke-linecap="round" pathLength="100" />
+              <path class="b-head" d="M99 33 L110 41 L99 49" stroke="url(#bgrad8)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <article class="ocard">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, built to work</h3>
+            <p class="sub">Unified platform. Aligned. Secure. Scalable.</p>
+            <div class="stage" id="o8-right-stage"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 9 ═══════════ -->
+    <section class="opt wrap" id="option-9">
+      <header class="opt-head">
+        <span class="opt-num">Option 9</span>
+        <h2>The Drawn Bridge — the arrow draws itself on scroll</h2>
+        <p>
+          When the section scrolls into view, the curve draws itself card-to-card — shaft first, arrowhead popping in
+          at the tip — then settles into a slow shimmer with a deep drop-shadow that breathes beneath it. Scroll away
+          and back, and it draws again. The most cinematic of the three arrows: one decisive gesture instead of a loop.
+        </p>
+        <ul class="chips"><li>draws on scroll</li><li>re-triggers on re-entry</li><li>animated drop-shadow</li><li>shimmer after draw</li></ul>
+      </header>
+      <div class="demo" id="o9-demo" aria-label="Arrow that draws itself between the two comparison cards">
+        <div class="bduo">
+          <article class="ocard">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">Disconnected platforms. More complexity.</p>
+            <div class="stage chaos-drift st-bad" id="o9-left-stage"></div>
+          </article>
+          <div class="bmid" aria-hidden="true">
+            <svg class="barrow b9" id="o9-arrow" viewBox="0 0 120 64" fill="none">
+              <defs>
+                <linearGradient id="bgrad9" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#7cb342" /><stop offset="1" stop-color="#a8cf38" />
+                </linearGradient>
+              </defs>
+              <path class="b-shaft" d="M6 50 C28 12 92 12 108 46" stroke="url(#bgrad9)" stroke-width="2.4" stroke-linecap="round" pathLength="100" />
+              <path class="b-shimmer" d="M6 50 C28 12 92 12 108 46" stroke="#cde9a2" stroke-width="2.4" stroke-linecap="round" pathLength="100" />
+              <path class="b-head" d="M101 36 L110 46 L99 52" stroke="url(#bgrad9)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <article class="ocard">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, built to work</h3>
+            <p class="sub">Unified platform. Aligned. Secure. Scalable.</p>
+            <div class="stage" id="o9-right-stage"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 10 ═══════════ -->
+    <section class="opt wrap" id="option-10">
+      <header class="opt-head">
+        <span class="opt-num">Option 10</span>
+        <h2>The Stream Bridge — packets migrate across the arrow</h2>
+        <p>
+          A dotted guide curve between the cards with a continuous stream of glowing packets crossing it, and a
+          pulsing shadow synced to the traffic. Where Option 8 says “one signal crosses”, this one reads as an
+          ongoing migration — services steadily moving from the sprawl into the ecosystem. Pairs naturally with
+          Option 7’s packet story if you want one language across the section.
+        </p>
+        <ul class="chips"><li>particle stream</li><li>dotted marching guide</li><li>pulsing shadow</li><li>glowing head</li></ul>
+      </header>
+      <div class="demo" id="o10-demo" aria-label="Packet stream arrow bridging the two comparison cards">
+        <div class="bduo">
+          <article class="ocard">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">Disconnected platforms. More complexity.</p>
+            <div class="stage chaos-drift st-bad" id="o10-left-stage"></div>
+          </article>
+          <div class="bmid" aria-hidden="true">
+            <svg class="barrow b10" viewBox="0 0 120 64" fill="none">
+              <defs>
+                <linearGradient id="bgrad10" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#7cb342" /><stop offset="1" stop-color="#a8cf38" />
+                </linearGradient>
+              </defs>
+              <path class="b-shadow" d="M6 32 C34 10 62 54 108 32" stroke="#7cb342" stroke-width="3" stroke-linecap="round" />
+              <path class="b-shaft" d="M6 32 C34 10 62 54 108 32" stroke="url(#bgrad10)" stroke-width="1.8" stroke-linecap="round" />
+              <path class="b-head" d="M99 26 L110 32 L101 41" stroke="url(#bgrad10)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+              <circle class="b-pkt" r="2.1" fill="#a8cf38">
+                <animateMotion dur="2.2s" begin="0s" repeatCount="indefinite" path="M6 32 C34 10 62 54 108 32" />
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.85;1" dur="2.2s" begin="0s" repeatCount="indefinite" />
+              </circle>
+              <circle class="b-pkt" r="1.6" fill="#cde9a2">
+                <animateMotion dur="2.2s" begin="-0.73s" repeatCount="indefinite" path="M6 32 C34 10 62 54 108 32" />
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.85;1" dur="2.2s" begin="-0.73s" repeatCount="indefinite" />
+              </circle>
+              <circle class="b-pkt" r="1.8" fill="#7cb342">
+                <animateMotion dur="2.2s" begin="-1.46s" repeatCount="indefinite" path="M6 32 C34 10 62 54 108 32" />
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.85;1" dur="2.2s" begin="-1.46s" repeatCount="indefinite" />
+              </circle>
+            </svg>
+          </div>
+          <article class="ocard">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, built to work</h3>
+            <p class="sub">Unified platform. Aligned. Secure. Scalable.</p>
+            <div class="stage" id="o10-right-stage"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 11 ═══════════ -->
+    <section class="opt wrap" id="option-11">
+      <header class="opt-head">
+        <span class="opt-num">Option 11</span>
+        <h2>The Mountain Pass — your screenshot’s seam, animated</h2>
+        <p>
+          A faithful rebuild of the design in your screenshot: the ecosystem card grows a mountain-curve seam that
+          bulges across the gap toward the sprawl card, with a circular arrow riding the crest. Three animations bring
+          it to life — the seam slowly <strong>breathes</strong> (the crest pushes toward “Today” and eases back), the
+          arrow <strong>nudges forward</strong> with a rippling ring, and the seam’s <strong>shadow swells</strong> in
+          sync. Shown in light mode to match the screenshot; it gets the dark treatment when integrated.
+        </p>
+        <ul class="chips"><li>mountain-curve seam</li><li>breathing morph</li><li>ripple arrow badge</li><li>animated shadow</li></ul>
+      </header>
+      <div class="demo lite" id="o11-demo" aria-label="Mountain curve seam with animated arrow between the two cards">
+        <div class="lite-panel">
+          <div class="mduo">
+            <article class="ocard">
+              <p class="kick warn">Today</p>
+              <h3>Many vendors, many gaps</h3>
+              <p class="sub">Disconnected platforms. More complexity.</p>
+              <div class="stage chaos-drift st-bad" id="o11-left-stage"></div>
+            </article>
+            <div class="mrow-arrow" aria-hidden="true">
+              <span class="mbadge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 12h15" /><path d="m13 6 6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+            <article class="ocard">
+              <p class="kick ok">With WorldPosta</p>
+              <h3>One ecosystem, built to work</h3>
+              <p class="sub">Unified platform. Aligned. Secure. Scalable.</p>
+              <div class="stage" id="o11-right-stage"></div>
+            </article>
+            <div class="mbridge" aria-hidden="true">
+              <svg class="mwave" viewBox="0 0 70 300" preserveAspectRatio="none" fill="none">
+                <path fill="#ffffff" d="M70 0 L46 0 L46 84 C46 112 10 122 10 150 C10 178 46 188 46 216 L46 300 L70 300 Z">
+                  <animate
+                    attributeName="d"
+                    dur="5s"
+                    repeatCount="indefinite"
+                    values="M70 0 L46 0 L46 84 C46 112 10 122 10 150 C10 178 46 188 46 216 L46 300 L70 300 Z;
+                            M70 0 L46 0 L46 80 C46 110 2 120 2 150 C2 180 46 190 46 220 L46 300 L70 300 Z;
+                            M70 0 L46 0 L46 84 C46 112 10 122 10 150 C10 178 46 188 46 216 L46 300 L70 300 Z"
+                    calcMode="spline"
+                    keyTimes="0;0.5;1"
+                    keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
+                  />
+                </path>
+              </svg>
+              <span class="mbadge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 12h15" /><path d="m13 6 6 6-6 6" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 12 ═══════════ -->
+    <section class="opt wrap" id="option-12">
+      <header class="opt-head">
+        <span class="opt-num">Option 12</span>
+        <h2>The Flip — one card, two faces</h2>
+        <p>
+          Instead of two cards side by side, one card in 3D space. The front face is today’s vendor sprawl; flip it
+          and the back face is the WorldPosta ecosystem. It turns on its own every few seconds — click it (or press
+          Enter) and it’s yours to control. The physical metaphor is the strongest here: the ecosystem is literally
+          the other side of the same coin.
+        </p>
+        <ul class="chips"><li>3D perspective flip</li><li>auto-flips</li><li>click / keyboard to flip</li><li>idle sway</li></ul>
+      </header>
+      <div class="demo" id="o12-demo" aria-label="Card that flips between vendor sprawl and unified ecosystem">
+        <div class="o12-scene">
+          <div class="o12-sway">
+            <div class="o12-card" id="o12-card" role="button" tabindex="0" aria-pressed="false" aria-label="Flip the comparison card">
+              <article class="ocard o12-face o12-front">
+                <span class="o12-flip-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" />
+                  </svg>
+                </span>
+                <p class="kick warn">Today</p>
+                <h3>Many vendors, many gaps</h3>
+                <p class="sub">Disconnected platforms. More complexity.</p>
+                <div class="stage chaos-drift st-bad" id="o12-front-stage"></div>
+              </article>
+              <article class="ocard o12-face o12-back">
+                <span class="o12-flip-ic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 3-6.7L3 8" /><path d="M3 3v5h5" />
+                  </svg>
+                </span>
+                <p class="kick ok">With WorldPosta</p>
+                <h3>One ecosystem, built to work</h3>
+                <p class="sub">Unified platform. Aligned. Secure. Scalable.</p>
+                <div class="stage" id="o12-back-stage"></div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <p class="demo-hint">Click the card to flip it — or let it turn on its own.</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 13 ═══════════ -->
+    <section class="opt wrap" id="option-13">
+      <header class="opt-head">
+        <span class="opt-num">Option 13</span>
+        <h2>Vital Signs — monitors don’t lie</h2>
+        <p>
+          Both cards get a live heart-rate monitor under their diagram. The vendor sprawl’s trace is erratic —
+          irregular spikes, dropouts, the line flickering out — while the WorldPosta trace beats a steady, textbook
+          rhythm. A metaphor every executive reads instantly, and it runs forever without any interaction. The most
+          “operations-room” option alongside the radar.
+        </p>
+        <ul class="chips"><li>scrolling EKG traces</li><li>erratic vs. steady</li><li>dropout flicker</li><li>ambient</li></ul>
+      </header>
+      <div class="demo" id="o13-demo" aria-label="Heartbeat monitors comparing vendor sprawl and unified ecosystem">
+        <div class="duo">
+          <article class="ocard o13-left">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">A pulse you can’t rely on.</p>
+            <div class="stage chaos-drift st-bad" id="o13-left-stage"></div>
+            <div class="ekg ekg-bad" id="o13-ekg-l"><span class="ekg-label">LINK HEALTH · ERRATIC</span></div>
+          </article>
+          <article class="ocard o13-right">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, built to work</h3>
+            <p class="sub">A steady operational heartbeat.</p>
+            <div class="stage" id="o13-right-stage"></div>
+            <div class="ekg ekg-ok" id="o13-ekg-r"><span class="ekg-label">LINK HEALTH · STEADY</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 14 ═══════════ -->
+    <section class="opt wrap" id="option-14">
+      <header class="opt-head">
+        <span class="opt-num">Option 14</span>
+        <h2>The Pairing — a beam hands each service over</h2>
+        <p>
+          A continuous choreography across both cards: every second or so, a beam of light draws itself from one
+          service in the sprawl to its twin in the ecosystem — the vendor node switches off, the WorldPosta node
+          flares as it takes over. After all seven services hand over, the cycle resets and begins again. Like the
+          Migration (option 2) but as an endless ambient loop instead of a one-time story.
+        </p>
+        <ul class="chips"><li>sequential beams</li><li>hand-over choreography</li><li>endless loop</li><li>no interaction needed</li></ul>
+      </header>
+      <div class="demo" id="o14-demo" aria-label="Beams handing services from vendor sprawl to the WorldPosta ecosystem">
+        <div class="o14-wrap" id="o14-wrap">
+          <div class="duo">
+            <article class="ocard o14-left">
+              <p class="kick warn">Today</p>
+              <h3>Many vendors, many gaps</h3>
+              <p class="sub">Disconnected platforms. More complexity.</p>
+              <div class="stage chaos-drift" id="o14-left-stage"></div>
+            </article>
+            <article class="ocard o14-right">
+              <p class="kick ok">With WorldPosta</p>
+              <h3>One ecosystem, built to work</h3>
+              <p class="sub">Unified platform. Aligned. Secure. Scalable.</p>
+              <div class="stage" id="o14-right-stage"></div>
+            </article>
+          </div>
+          <div class="o14-overlay" id="o14-overlay" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 15 ═══════════ -->
+    <section class="opt wrap" id="option-15">
+      <header class="opt-head">
+        <span class="opt-num">Option 15</span>
+        <h2>The Terminal — the ops log tells the story</h2>
+        <p>
+          Each card gets a live terminal under its diagram, typing out its operations log character by character.
+          The vendor sprawl’s log is a stream of timeouts, failed retries, and tickets waiting on vendors; the
+          WorldPosta log is a calm run of green checks. Aimed squarely at the technical evaluator — the person who
+          reads logs for a living recognizes both terminals instantly.
+        </p>
+        <ul class="chips"><li>typed log lines</li><li>blinking cursor</li><li>endless tail</li><li>speaks to engineers</li></ul>
+      </header>
+      <div class="demo" id="o15-demo" aria-label="Operations logs comparing vendor sprawl and unified ecosystem">
+        <div class="duo">
+          <article class="ocard">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">The log never stops complaining.</p>
+            <div class="stage chaos-drift st-bad" id="o15-left-stage"></div>
+            <div class="term" id="o15-term-l" aria-hidden="true"><div class="term-body"></div></div>
+          </article>
+          <article class="ocard">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, built to work</h3>
+            <p class="sub">The log has nothing to report.</p>
+            <div class="stage" id="o15-right-stage"></div>
+            <div class="term" id="o15-term-r" aria-hidden="true"><div class="term-body"></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 16 ═══════════ -->
+    <section class="opt wrap" id="option-16">
+      <header class="opt-head">
+        <span class="opt-num">Option 16</span>
+        <h2>Storm &amp; Calm — weather over the infrastructure</h2>
+        <p>
+          Pure atmosphere: it rains inside the vendor-sprawl card, lightning flashes every few seconds with a faint
+          thunder shake, while the ecosystem card sits under a slow green aurora, nodes breathing calmly. No mechanics
+          to learn, no interaction — the emotional temperature of the two worlds does all the talking. The most
+          cinematic ambient option.
+        </p>
+        <ul class="chips"><li>rain &amp; lightning</li><li>thunder shake</li><li>aurora calm</li><li>fully ambient</li></ul>
+      </header>
+      <div class="demo" id="o16-demo" aria-label="Stormy vendor sprawl versus calm ecosystem">
+        <div class="duo">
+          <article class="ocard o16-left">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">Always weathering something.</p>
+            <div class="stage chaos-drift st-bad" id="o16-left-stage"></div>
+          </article>
+          <article class="ocard o16-right">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, built to work</h3>
+            <p class="sub">Clear skies, by design.</p>
+            <div class="stage" id="o16-right-stage"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 17 ═══════════ -->
+    <section class="opt wrap" id="option-17">
+      <header class="opt-head">
+        <span class="opt-num">Option 17</span>
+        <h2>The Ledger — numbers that keep getting worse</h2>
+        <p>
+          Each card carries an invoice-style ledger. When the section scrolls into view the values count up — and
+          then the sprawl’s “hours lost this month” <strong>keeps creeping upward</strong> while you watch, one hour
+          at a time, forever. The ecosystem’s ledger lands on 1 platform, 1 invoice, 99.99% uptime and holds still.
+          The stillness of the right column is the message.
+        </p>
+        <ul class="chips"><li>count-up on scroll</li><li>endless creeping counter</li><li>invoice styling</li><li>executive-friendly</li></ul>
+      </header>
+      <div class="demo" id="o17-demo" aria-label="Cost ledgers comparing vendor sprawl and unified ecosystem">
+        <div class="duo">
+          <article class="ocard">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">The meter never stops running.</p>
+            <div class="stage chaos-drift st-bad" id="o17-left-stage"></div>
+            <div class="ledger bad" id="o17-led-l">
+              <div class="led-row"><span>Vendors to manage</span><span class="dots"></span><span class="led-val" data-target="7">0</span></div>
+              <div class="led-row"><span>Contracts &amp; invoices</span><span class="dots"></span><span class="led-val" data-target="7">0</span></div>
+              <div class="led-row"><span>Hours lost this month</span><span class="dots"></span><span class="led-val hot" data-target="38" data-creep="1">0</span></div>
+            </div>
+          </article>
+          <article class="ocard">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, built to work</h3>
+            <p class="sub">The numbers settle — and stay.</p>
+            <div class="stage" id="o17-right-stage"></div>
+            <div class="ledger ok" id="o17-led-r">
+              <div class="led-row"><span>Platform to run</span><span class="dots"></span><span class="led-val" data-target="1">0</span></div>
+              <div class="led-row"><span>Invoice to pay</span><span class="dots"></span><span class="led-val" data-target="1">0</span></div>
+              <div class="led-row"><span>Uptime</span><span class="dots"></span><span class="led-val" data-target="99.99" data-dec="2" data-suffix="%">0</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══════════ OPTION 18 ═══════════ -->
+    <section class="opt wrap" id="option-18">
+      <header class="opt-head">
+        <span class="opt-num">Option 18</span>
+        <h2>The Magnet — chaos avoids you, the ecosystem reaches for you</h2>
+        <p>
+          Pointer physics. Move your cursor over the vendor sprawl and the services <strong>flee from it</strong> —
+          scattered things stay scattered, nothing wants to be held. Move over the ecosystem and the services
+          <strong>lean gently toward you</strong>, anchored by the core. A tactile way to feel the difference between
+          the two worlds rather than watch it.
+        </p>
+        <ul class="chips"><li>pointer physics</li><li>flee vs. attract</li><li>spring easing</li><li>playful</li></ul>
+      </header>
+      <div class="demo" id="o18-demo" aria-label="Pointer-reactive comparison of vendor sprawl and ecosystem">
+        <div class="duo">
+          <article class="ocard o18-left">
+            <p class="kick warn">Today</p>
+            <h3>Many vendors, many gaps</h3>
+            <p class="sub">Try to reach for a service.</p>
+            <div class="stage st-bad" id="o18-left-stage"></div>
+          </article>
+          <article class="ocard o18-right">
+            <p class="kick ok">With WorldPosta</p>
+            <h3>One ecosystem, built to work</h3>
+            <p class="sub">Everything within reach.</p>
+            <div class="stage" id="o18-right-stage"></div>
+          </article>
+        </div>
+        <p class="demo-hint">Move your cursor over each card and watch how the services react.</p>
+      </div>
+    </section>
+
+    <footer class="foot wrap">
+      <div class="foot-card">
+        <h2>How to choose</h2>
+        <p>
+          Play with all four, then reply with the option number — for example <strong>“option 2”</strong>. The chosen
+          animation will be integrated into the <strong>#opportunity</strong> section of index.html, wired to the
+          existing light and dark themes and the page’s scroll behaviour. Mixing is fine too — e.g. option 3’s toggle
+          with option 4’s radar.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+        var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var SVGNS = "http://www.w3.org/2000/svg";
+
+        var SERVICES = [
+          { label: "Mail", icon: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>' },
+          { label: "Cloud", icon: '<path d="M17.5 19a4.5 4.5 0 0 0 0-9h-1A7 7 0 1 0 5 18"/>' },
+          { label: "Storage", icon: '<rect x="3" y="4" width="18" height="5" rx="1"/><path d="M5 9v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9"/>' },
+          { label: "Security", icon: '<path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5Z"/>' },
+          { label: "Billing", icon: '<rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/>' },
+          { label: "Network", icon: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a13 13 0 0 1 0 18a13 13 0 0 1 0-18Z"/>' },
+          { label: "Management", icon: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3"/>' }
+        ];
+        // index order: mail 0, cloud 1, storage 2, security 3, billing 4, network 5, mgmt 6
+        var PAIRS = [[0, 1], [1, 4], [2, 3], [3, 5], [6, 5], [2, 6], [4, 5], [0, 2], [0, 3], [1, 3]];
+        var DRIFT = [
+          { dx: -4, dy: 2, fd: 6.2, dl: -0.2 },
+          { dx: 2, dy: -2, fd: 7.1, dl: -1.1 },
+          { dx: -3, dy: -1, fd: 6.8, dl: -2.3 },
+          { dx: 1, dy: 2, fd: 5.9, dl: -0.8 },
+          { dx: 3, dy: 1, fd: 7.4, dl: -1.6 },
+          { dx: 2, dy: -1, fd: 6.4, dl: -0.5 },
+          { dx: -1, dy: -2, fd: 7.8, dl: -2.8 }
+        ];
+
+        function el(tag, cls, html) {
+          var e = document.createElement(tag);
+          if (cls) e.className = cls;
+          if (html != null) e.innerHTML = html;
+          return e;
+        }
+        function svgEl(cls) {
+          var s = document.createElementNS(SVGNS, "svg");
+          s.setAttribute("viewBox", "0 0 100 100");
+          s.setAttribute("preserveAspectRatio", "none");
+          s.setAttribute("class", cls);
+          s.setAttribute("aria-hidden", "true");
+          return s;
+        }
+        function makeNode(i, pos, extraCls) {
+          var svc = SERVICES[i];
+          var n = el("div", "gnode " + (pos.s || "") + (extraCls ? " " + extraCls : ""));
+          n.style.setProperty("--x", pos.x + "%");
+          n.style.setProperty("--y", pos.y + "%");
+          var d = DRIFT[i];
+          n.style.setProperty("--dx", d.dx + "px");
+          n.style.setProperty("--dy", d.dy + "px");
+          n.style.setProperty("--fd", d.fd + "s");
+          n.style.setProperty("--dl", d.dl + "s");
+          n.innerHTML =
+            '<span class="gi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+            svc.icon +
+            "</svg></span><span>" +
+            svc.label +
+            '</span><i class="st"></i>';
+          return n;
+        }
+        function quadPath(a, b, i) {
+          var mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+          var dx = b.x - a.x, dy = b.y - a.y;
+          var len = Math.hypot(dx, dy) || 1;
+          var off = 7 * (i % 2 ? 1 : -1);
+          var px = (-dy / len) * off, py = (dx / len) * off;
+          return "M " + a.x + " " + a.y + " Q " + (mx + px).toFixed(1) + " " + (my + py).toFixed(1) + " " + b.x + " " + b.y;
+        }
+        function chaosScene(stage, coords, fragCls) {
+          var svg = svgEl("frag" + (fragCls ? " " + fragCls : ""));
+          PAIRS.forEach(function (p, i) {
+            var path = document.createElementNS(SVGNS, "path");
+            path.setAttribute("d", quadPath(coords[p[0]], coords[p[1]], i));
+            path.style.setProperty("--ld", (-i * 0.4).toFixed(1) + "s");
+            svg.appendChild(path);
+          });
+          stage.appendChild(svg);
+          var nodes = coords.map(function (c, i) {
+            var n = makeNode(i, c);
+            n.querySelector(".st").style.setProperty("--sdl", (-i * 0.9).toFixed(1) + "s");
+            stage.appendChild(n);
+            return n;
+          });
+          return nodes;
+        }
+        function unifiedScene(stage, coords, opts) {
+          opts = opts || {};
+          var rings = svgEl("rings");
+          (opts.rings || [{ rx: 26, ry: 26 }, { rx: 36, ry: 36 }, { rx: 44, ry: 44 }]).forEach(function (r, i) {
+            var e = document.createElementNS(SVGNS, "ellipse");
+            e.setAttribute("cx", "50");
+            e.setAttribute("cy", "50");
+            e.setAttribute("rx", r.rx);
+            e.setAttribute("ry", r.ry);
+            e.setAttribute("stroke-width", [0.45, 0.4, 0.35][i] || 0.35);
+            if (i === 1) e.setAttribute("stroke-dasharray", "1.5 2.5");
+            rings.appendChild(e);
+          });
+          stage.appendChild(rings);
+          var spokes = svgEl("spoke");
+          coords.forEach(function (c, i) {
+            var l = document.createElementNS(SVGNS, "line");
+            l.setAttribute("x1", "50");
+            l.setAttribute("y1", "50");
+            l.setAttribute("x2", c.x);
+            l.setAttribute("y2", c.y);
+            if (opts.spokeDraw) {
+              l.setAttribute("pathLength", "1");
+              l.style.setProperty("--sdel", (0.05 * i).toFixed(2) + "s");
+            }
+            if (opts.hd) l.style.setProperty("--hd", opts.hd[i] + "s");
+            spokes.appendChild(l);
+          });
+          stage.appendChild(spokes);
+          if (opts.spin) {
+            [0, -7, -14].forEach(function (sd) {
+              var w = el("div", "spin", "<i></i>");
+              w.style.setProperty("--sd", sd + "s");
+              w.setAttribute("aria-hidden", "true");
+              stage.appendChild(w);
+            });
+          }
+          var hub = el("div", "hub", "<span>WorldPosta</span>");
+          if (opts.hubSize) hub.style.setProperty("--hub", opts.hubSize);
+          stage.appendChild(hub);
+          var nodes = [];
+          if (!opts.noNodes) {
+            nodes = coords.map(function (c, i) {
+              var n = makeNode(i, Object.assign({}, c, { s: "sm" }), "good");
+              if (opts.hd) n.style.setProperty("--hd", opts.hd[i] + "s");
+              stage.appendChild(n);
+              return n;
+            });
+          }
+          return { hub: hub, nodes: nodes, spokes: spokes };
+        }
+
+        /* pause off-screen demos */
+        var pauser = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (en) { en.target.classList.toggle("live", en.isIntersecting); });
+          },
+          { threshold: 0.05 }
+        );
+        document.querySelectorAll(".demo").forEach(function (d) { pauser.observe(d); });
+
+        /* ══ OPTION 1 ══ */
+        (function () {
+          var stage = document.getElementById("o1-stage");
+          var handle = document.getElementById("o1-handle");
+          var CHAOS = [
+            { x: 9, y: 26, s: "lg" }, { x: 28, y: 12, s: "lg" }, { x: 8, y: 62 }, { x: 36, y: 46 },
+            { x: 62, y: 22, s: "sm" }, { x: 52, y: 78 }, { x: 19, y: 88, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 64, y: 28 }, { x: 50, y: 16 }, { x: 69, y: 58 }, { x: 41, y: 84 },
+            { x: 31, y: 58 }, { x: 59, y: 84 }, { x: 36, y: 28 }
+          ];
+          var today = document.getElementById("o1-today");
+          today.classList.add("chaos-drift");
+          chaosScene(today, CHAOS);
+          unifiedScene(document.getElementById("o1-with"), ORBIT, {
+            rings: [{ rx: 14, ry: 20 }, { rx: 19, ry: 28 }, { rx: 23, ry: 35 }],
+            spin: true,
+            hubSize: "96px"
+          });
+
+          var cut = 50, interacted = false, dragging = false, raf = null, t0 = performance.now();
+          function setCut(v) {
+            cut = Math.max(6, Math.min(94, v));
+            stage.style.setProperty("--cut", cut + "%");
+            handle.setAttribute("aria-valuenow", String(Math.round(cut)));
+          }
+          function idle(now) {
+            if (interacted) return;
+            setCut(50 + Math.sin(((now - t0) / 1000) * ((Math.PI * 2) / 9)) * 15);
+            raf = requestAnimationFrame(idle);
+          }
+          function stopIdle() {
+            interacted = true;
+            if (raf) cancelAnimationFrame(raf);
+          }
+          function fromEvent(e) {
+            var r = stage.getBoundingClientRect();
+            setCut(((e.clientX - r.left) / r.width) * 100);
+          }
+          stage.addEventListener("pointerdown", function (e) {
+            stopIdle();
+            dragging = true;
+            stage.setPointerCapture(e.pointerId);
+            fromEvent(e);
+          });
+          stage.addEventListener("pointermove", function (e) { if (dragging) fromEvent(e); });
+          stage.addEventListener("pointerup", function () { dragging = false; });
+          stage.addEventListener("pointercancel", function () { dragging = false; });
+          handle.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+              stopIdle();
+              setCut(cut + (e.key === "ArrowLeft" ? -3 : 3));
+              e.preventDefault();
+            } else if (e.key === "Home") { stopIdle(); setCut(6); e.preventDefault(); }
+            else if (e.key === "End") { stopIdle(); setCut(94); e.preventDefault(); }
+          });
+          if (!RM) raf = requestAnimationFrame(idle);
+        })();
+
+        /* ══ OPTION 2 ══ */
+        (function () {
+          var CHAOS = [
+            { x: 18, y: 22, s: "lg" }, { x: 55, y: 14, s: "lg" }, { x: 12, y: 58 }, { x: 46, y: 50 },
+            { x: 78, y: 33, s: "sm" }, { x: 68, y: 76 }, { x: 30, y: 84, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 78, y: 31 }, { x: 50, y: 20 }, { x: 85, y: 57 }, { x: 34, y: 77 },
+            { x: 15, y: 57 }, { x: 66, y: 77 }, { x: 22, y: 31 }
+          ];
+          var grid = document.getElementById("o2-grid");
+          var overlay = document.getElementById("o2-overlay");
+          var btn = document.getElementById("o2-replay");
+          var leftNodes = chaosScene(document.getElementById("o2-left-stage"), CHAOS);
+          var right = unifiedScene(document.getElementById("o2-right-stage"), ORBIT, {
+            spokeDraw: true,
+            spin: true,
+            hubSize: "84px"
+          });
+          var running = false;
+
+          function centerOf(node) {
+            var a = node.getBoundingClientRect();
+            var b = overlay.getBoundingClientRect();
+            return { x: a.left + a.width / 2 - b.left, y: a.top + a.height / 2 - b.top };
+          }
+          function instantFinal() {
+            leftNodes.forEach(function (n) { n.classList.remove("drained"); });
+            right.nodes.forEach(function (n) { n.classList.add("docked"); });
+            grid.classList.add("done");
+          }
+          function run() {
+            if (running) return;
+            if (RM) { instantFinal(); return; }
+            running = true;
+            btn.disabled = true;
+            grid.classList.remove("done");
+            leftNodes.forEach(function (n) { n.classList.remove("drained"); });
+            right.nodes.forEach(function (n) { n.classList.remove("docked"); });
+            var step = 170, flight = 950;
+            SERVICES.forEach(function (_, i) {
+              setTimeout(function () {
+                var from = centerOf(leftNodes[i]);
+                var to = centerOf(right.nodes[i]);
+                var dot = el("div", "mig-dot");
+                overlay.appendChild(dot);
+                var mx = (from.x + to.x) / 2;
+                var my = Math.min(from.y, to.y) - 70;
+                leftNodes[i].classList.add("drained");
+                var anim = dot.animate(
+                  [
+                    { transform: "translate(" + from.x + "px," + from.y + "px) scale(0.4)", opacity: 0 },
+                    { transform: "translate(" + from.x + "px," + from.y + "px) scale(1)", opacity: 1, offset: 0.1 },
+                    { transform: "translate(" + mx + "px," + my + "px) scale(1.08)", offset: 0.55 },
+                    { transform: "translate(" + to.x + "px," + to.y + "px) scale(0.85)", opacity: 1 }
+                  ],
+                  { duration: flight, easing: "cubic-bezier(0.45, 0.05, 0.25, 1)", fill: "forwards" }
+                );
+                anim.onfinish = function () {
+                  dot.remove();
+                  right.nodes[i].classList.add("docked");
+                };
+              }, i * step);
+            });
+            setTimeout(function () {
+              grid.classList.add("done");
+              running = false;
+              btn.disabled = false;
+            }, (SERVICES.length - 1) * step + flight + 250);
+          }
+
+          btn.addEventListener("click", run);
+          var io = new IntersectionObserver(
+            function (entries) {
+              if (entries[0].isIntersecting) {
+                io.disconnect();
+                setTimeout(run, 350);
+              }
+            },
+            { threshold: 0.35 }
+          );
+          io.observe(grid);
+        })();
+
+        /* ══ OPTION 3 ══ */
+        (function () {
+          var CHAOS = [
+            { x: 13, y: 22, s: "lg" }, { x: 45, y: 12, s: "lg" }, { x: 11, y: 60 }, { x: 40, y: 47 },
+            { x: 79, y: 24, s: "sm" }, { x: 66, y: 76 }, { x: 27, y: 88, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 72, y: 30 }, { x: 50, y: 16 }, { x: 78, y: 60 }, { x: 38, y: 84 },
+            { x: 22, y: 60 }, { x: 62, y: 84 }, { x: 28, y: 30 }
+          ];
+          var card = document.getElementById("o3-card");
+          var stage = document.getElementById("o3-stage");
+          var tk = document.getElementById("o3-tk");
+          var btnToday = document.getElementById("o3-btn-today");
+          var btnWith = document.getElementById("o3-btn-with");
+
+          var frag = svgEl("frag o3-frag");
+          PAIRS.forEach(function (p, i) {
+            var path = document.createElementNS(SVGNS, "path");
+            path.setAttribute("d", quadPath(CHAOS[p[0]], CHAOS[p[1]], i));
+            path.style.setProperty("--ld", (-i * 0.4).toFixed(1) + "s");
+            frag.appendChild(path);
+          });
+          stage.appendChild(frag);
+          var uni = el("div", "o3-uni");
+          uni.setAttribute("aria-hidden", "true");
+          stage.appendChild(uni);
+          unifiedScene(uni, [], { rings: [{ rx: 15, ry: 22 }, { rx: 21, ry: 31 }, { rx: 26, ry: 39 }], hubSize: "96px" });
+          var nodes = SERVICES.map(function (_, i) {
+            var n = makeNode(i, { x: 0, y: 0 });
+            n.style.removeProperty("--x");
+            n.style.removeProperty("--y");
+            n.style.setProperty("--td", (i * 55) + "ms");
+            stage.appendChild(n);
+            return n;
+          });
+
+          var state = "today";
+          var auto = null;
+          var interacted = false;
+          function layout() {
+            var r = stage.getBoundingClientRect();
+            if (!r.width) return;
+            var coords = state === "today" ? CHAOS : ORBIT;
+            nodes.forEach(function (n, i) {
+              n.style.setProperty("--tx", ((coords[i].x / 100) * r.width).toFixed(1) + "px");
+              n.style.setProperty("--ty", ((coords[i].y / 100) * r.height).toFixed(1) + "px");
+            });
+          }
+          function setState(s) {
+            state = s;
+            card.dataset.state = s;
+            tk.textContent = s === "today" ? "Today" : "With WorldPosta";
+            btnToday.setAttribute("aria-pressed", String(s === "today"));
+            btnWith.setAttribute("aria-pressed", String(s === "unified"));
+            layout();
+          }
+          function takeOver(s) {
+            interacted = true;
+            if (auto) { clearInterval(auto); auto = null; }
+            setState(s);
+          }
+          btnToday.addEventListener("click", function () { takeOver("today"); });
+          btnWith.addEventListener("click", function () { takeOver("unified"); });
+
+          layout();
+          var ro = new ResizeObserver(function () {
+            stage.classList.add("no-t");
+            layout();
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () { stage.classList.remove("no-t"); });
+            });
+          });
+          ro.observe(stage);
+
+          if (!RM) {
+            var io = new IntersectionObserver(
+              function (entries) {
+                if (entries[0].isIntersecting && !interacted && !auto) {
+                  io.disconnect();
+                  setTimeout(function () {
+                    if (interacted) return;
+                    setState("unified");
+                    auto = setInterval(function () {
+                      if (!document.hidden) setState(state === "today" ? "unified" : "today");
+                    }, 5200);
+                  }, 1400);
+                }
+              },
+              { threshold: 0.4 }
+            );
+            io.observe(card);
+          }
+        })();
+
+        /* ══ OPTION 4 ══ */
+        (function () {
+          var CHAOS = [
+            { x: 18, y: 22, s: "lg" }, { x: 55, y: 14, s: "lg" }, { x: 12, y: 58 }, { x: 46, y: 50 },
+            { x: 78, y: 33, s: "sm" }, { x: 68, y: 76 }, { x: 30, y: 84, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 78, y: 31 }, { x: 50, y: 20 }, { x: 85, y: 57 }, { x: 34, y: 77 },
+            { x: 15, y: 57 }, { x: 66, y: 77 }, { x: 22, y: 31 }
+          ];
+          // beam period 8s, angle measured clockwise from top; delay = θ/360·8 − 8
+          var HITS = [-6.76, -8, -5.76, -3.31, -2.24, -4.69, -1.24];
+
+          var left = document.getElementById("o4-left-stage");
+          chaosScene(left, CHAOS);
+          [
+            { t: "SYNC FAILED", x: 56, y: 40, bd: 0 },
+            { t: "TIMEOUT", x: 32, y: 32, bd: -3.2 },
+            { t: "RETRY 3/3", x: 26, y: 68, bd: -6.1 }
+          ].forEach(function (b) {
+            var badge = el("span", "o4-badge", b.t);
+            badge.style.left = b.x + "%";
+            badge.style.top = b.y + "%";
+            badge.style.setProperty("--bd", b.bd + "s");
+            badge.setAttribute("aria-hidden", "true");
+            left.appendChild(badge);
+          });
+          var lr = el("p", "readout bad", "<i></i>2 VENDORS UNREACHABLE");
+          left.appendChild(lr);
+
+          var rightStage = document.getElementById("o4-right-stage");
+          var sweep = el("div", "o4-sweep");
+          sweep.setAttribute("aria-hidden", "true");
+          rightStage.appendChild(sweep);
+          unifiedScene(rightStage, ORBIT, { hd: HITS, hubSize: "84px" });
+          var rr = el("p", "readout ok", "<i></i>ALL SYSTEMS OPERATIONAL");
+          rightStage.appendChild(rr);
+        })();
+
+        /* ══ OPTION 5 ══ */
+        (function () {
+          var CHAOS = [
+            { x: 9, y: 26, s: "lg" }, { x: 28, y: 12, s: "lg" }, { x: 8, y: 62 }, { x: 36, y: 46 },
+            { x: 62, y: 22, s: "sm" }, { x: 52, y: 78 }, { x: 19, y: 88, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 64, y: 28 }, { x: 50, y: 16 }, { x: 69, y: 58 }, { x: 41, y: 84 },
+            { x: 31, y: 58 }, { x: 59, y: 84 }, { x: 36, y: 28 }
+          ];
+          var track = document.getElementById("o5-track");
+          var stage = document.getElementById("o5-stage");
+          if (!track || !stage) return;
+
+          var frag = svgEl("frag");
+          PAIRS.forEach(function (p, i) {
+            var path = document.createElementNS(SVGNS, "path");
+            path.setAttribute("d", quadPath(CHAOS[p[0]], CHAOS[p[1]], i));
+            path.style.setProperty("--ld", (-i * 0.4).toFixed(1) + "s");
+            frag.appendChild(path);
+          });
+          stage.appendChild(frag);
+          var uni = el("div", "o5-uni");
+          uni.setAttribute("aria-hidden", "true");
+          stage.appendChild(uni);
+          unifiedScene(uni, ORBIT, {
+            rings: [{ rx: 13, ry: 20 }, { rx: 18, ry: 28 }, { rx: 22, ry: 35 }],
+            noNodes: true,
+            hubSize: "96px"
+          });
+          var nodes = SERVICES.map(function (_, i) {
+            var n = makeNode(i, { x: 0, y: 0, s: CHAOS[i].s });
+            n.style.removeProperty("--x");
+            n.style.removeProperty("--y");
+            stage.appendChild(n);
+            return n;
+          });
+
+          var sw = 0, sh = 0;
+          function measure() {
+            var r = stage.getBoundingClientRect();
+            sw = r.width;
+            sh = r.height;
+          }
+          function easeIO(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+          function lerp(a, b, t) { return a + (b - a) * t; }
+          function update() {
+            var r = track.getBoundingClientRect();
+            var total = r.height - window.innerHeight;
+            var p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;
+            var e = easeIO(p);
+            stage.style.setProperty("--p", String(p.toFixed(3)));
+            stage.style.setProperty("--fragop", String((1 - e).toFixed(3)));
+            stage.style.setProperty("--uniop", String(e.toFixed(3)));
+            stage.style.setProperty("--hubsc", String((0.5 + 0.5 * e).toFixed(3)));
+            nodes.forEach(function (n, i) {
+              var pi = Math.min(1, Math.max(0, (p - i * 0.04) / 0.72));
+              var ei = easeIO(pi);
+              n.style.setProperty("--tx", ((lerp(CHAOS[i].x, ORBIT[i].x, ei) / 100) * sw).toFixed(1) + "px");
+              n.style.setProperty("--ty", ((lerp(CHAOS[i].y, ORBIT[i].y, ei) / 100) * sh).toFixed(1) + "px");
+              n.classList.toggle("good", pi > 0.6);
+            });
+          }
+          var tick = false;
+          function onScroll() {
+            if (tick) return;
+            tick = true;
+            requestAnimationFrame(function () {
+              tick = false;
+              update();
+            });
+          }
+          measure();
+          update();
+          window.addEventListener("scroll", onScroll, { passive: true });
+          window.addEventListener("resize", function () {
+            measure();
+            update();
+          });
+        })();
+
+        /* ══ OPTION 6 ══ */
+        (function () {
+          var CHAOS = [
+            { x: 9, y: 26, s: "lg" }, { x: 28, y: 12, s: "lg" }, { x: 8, y: 62 }, { x: 36, y: 46 },
+            { x: 62, y: 22, s: "sm" }, { x: 52, y: 78 }, { x: 19, y: 88, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 64, y: 28 }, { x: 50, y: 16 }, { x: 69, y: 58 }, { x: 41, y: 84 },
+            { x: 31, y: 58 }, { x: 59, y: 84 }, { x: 36, y: 28 }
+          ];
+          var stage = document.getElementById("o6-stage");
+          var base = document.getElementById("o6-base");
+          var withL = document.getElementById("o6-with");
+          if (!stage) return;
+          base.classList.add("chaos-drift");
+          chaosScene(base, CHAOS);
+          unifiedScene(withL, ORBIT, {
+            rings: [{ rx: 14, ry: 20 }, { rx: 19, ry: 28 }, { rx: 23, ry: 35 }],
+            spin: true,
+            hubSize: "96px"
+          });
+
+          var hovering = false, raf = null, cur = null;
+          function setPos(x, y) {
+            stage.style.setProperty("--mx", x.toFixed(1) + "px");
+            stage.style.setProperty("--my", y.toFixed(1) + "px");
+          }
+          function idle(now) {
+            if (hovering) return;
+            var r = stage.getBoundingClientRect();
+            var t = now / 1000;
+            var tx = r.width * (0.5 + 0.24 * Math.sin(t * 0.55));
+            var ty = r.height * (0.5 + 0.2 * Math.sin(t * 0.85 + 1.4));
+            if (!cur) cur = { x: tx, y: ty };
+            cur.x += (tx - cur.x) * 0.05;
+            cur.y += (ty - cur.y) * 0.05;
+            setPos(cur.x, cur.y);
+            raf = requestAnimationFrame(idle);
+          }
+          stage.addEventListener("pointermove", function (e) {
+            hovering = true;
+            if (raf) cancelAnimationFrame(raf);
+            var r = stage.getBoundingClientRect();
+            cur = { x: e.clientX - r.left, y: e.clientY - r.top };
+            setPos(cur.x, cur.y);
+          });
+          stage.addEventListener("pointerleave", function () {
+            hovering = false;
+            if (!RM) raf = requestAnimationFrame(idle);
+          });
+          stage.addEventListener("pointerdown", function () { stage.classList.add("pressed"); });
+          window.addEventListener("pointerup", function () { stage.classList.remove("pressed"); });
+          if (RM) {
+            var r = stage.getBoundingClientRect();
+            setPos(r.width / 2, r.height / 2);
+          } else {
+            raf = requestAnimationFrame(idle);
+          }
+        })();
+
+        /* ══ OPTION 7 ══ */
+        (function () {
+          var CHAOS = [
+            { x: 18, y: 22, s: "lg" }, { x: 55, y: 14, s: "lg" }, { x: 12, y: 58 }, { x: 46, y: 50 },
+            { x: 78, y: 33, s: "sm" }, { x: 68, y: 76 }, { x: 30, y: 84, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 78, y: 31 }, { x: 50, y: 20 }, { x: 85, y: 57 }, { x: 34, y: 77 },
+            { x: 15, y: 57 }, { x: 66, y: 77 }, { x: 22, y: 31 }
+          ];
+          var left = document.getElementById("o7-left-stage");
+          var right = document.getElementById("o7-right-stage");
+          if (!left || !right) return;
+
+          function packet(fill, d, dur, begin, opVals, opTimes) {
+            var c = document.createElementNS(SVGNS, "circle");
+            c.setAttribute("r", "1.2");
+            c.setAttribute("fill", fill);
+            var m = document.createElementNS(SVGNS, "animateMotion");
+            m.setAttribute("dur", dur + "s");
+            m.setAttribute("begin", begin + "s");
+            m.setAttribute("repeatCount", "indefinite");
+            m.setAttribute("path", d);
+            var o = document.createElementNS(SVGNS, "animate");
+            o.setAttribute("attributeName", "opacity");
+            o.setAttribute("values", opVals);
+            o.setAttribute("keyTimes", opTimes);
+            o.setAttribute("dur", dur + "s");
+            o.setAttribute("begin", begin + "s");
+            o.setAttribute("repeatCount", "indefinite");
+            c.appendChild(m);
+            c.appendChild(o);
+            return c;
+          }
+
+          chaosScene(left, CHAOS);
+          var lflow = svgEl("flow");
+          PAIRS.slice(0, 7).forEach(function (p, i) {
+            var d = quadPath(CHAOS[p[0]], CHAOS[p[1]], i);
+            lflow.appendChild(
+              packet("#e85d4c", d, (2.6 + i * 0.3).toFixed(1), (-(i * 0.9)).toFixed(1), "0;1;1;0;0", "0;0.12;0.4;0.52;1")
+            );
+          });
+          left.appendChild(lflow);
+          left.appendChild(el("p", "readout bad", "<i></i>PACKETS LOST AT EVERY HANDOFF"));
+
+          unifiedScene(right, ORBIT, { spin: true, hubSize: "84px" });
+          var rflow = svgEl("flow");
+          ORBIT.forEach(function (c, i) {
+            var d = "M 50 50 L " + c.x + " " + c.y;
+            rflow.appendChild(
+              packet("#a8cf38", d, (2.1 + i * 0.22).toFixed(2), (-(i * 0.65)).toFixed(2), "0;1;1;0", "0;0.15;0.85;1")
+            );
+          });
+          right.appendChild(rflow);
+          right.appendChild(el("p", "readout ok", "<i></i>EVERY PACKET DELIVERED"));
+        })();
+
+        /* ══ OPTIONS 8–10 · bridge-arrow cards ══ */
+        (function () {
+          var CHAOS = [
+            { x: 18, y: 22, s: "lg" }, { x: 55, y: 14, s: "lg" }, { x: 12, y: 58 }, { x: 46, y: 50 },
+            { x: 78, y: 33, s: "sm" }, { x: 68, y: 76 }, { x: 30, y: 84, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 78, y: 31 }, { x: 50, y: 20 }, { x: 85, y: 57 }, { x: 34, y: 77 },
+            { x: 15, y: 57 }, { x: 66, y: 77 }, { x: 22, y: 31 }
+          ];
+          ["o8", "o9", "o10"].forEach(function (k) {
+            var l = document.getElementById(k + "-left-stage");
+            var r = document.getElementById(k + "-right-stage");
+            if (!l || !r) return;
+            chaosScene(l, CHAOS);
+            unifiedScene(r, ORBIT, { spin: true, hubSize: "84px" });
+          });
+
+          /* option 11 — mountain-pass cards (light scope) */
+          var l11 = document.getElementById("o11-left-stage");
+          var r11 = document.getElementById("o11-right-stage");
+          if (l11 && r11) {
+            chaosScene(l11, CHAOS);
+            unifiedScene(r11, ORBIT, { spin: true, hubSize: "84px" });
+            if (RM) {
+              document.querySelectorAll(".mwave animate").forEach(function (a) { a.remove(); });
+            }
+          }
+
+          /* option 9 — draw the arrow on scroll, reset when it leaves */
+          var b9 = document.getElementById("o9-arrow");
+          var sec9 = document.getElementById("o9-demo");
+          if (b9 && sec9) {
+            if (RM) {
+              b9.classList.add("drawn");
+            } else {
+              var io = new IntersectionObserver(
+                function (entries) {
+                  entries.forEach(function (en) {
+                    if (en.intersectionRatio >= 0.5) b9.classList.add("drawn");
+                    else if (en.intersectionRatio === 0) b9.classList.remove("drawn");
+                  });
+                },
+                { threshold: [0, 0.5] }
+              );
+              io.observe(sec9);
+            }
+          }
+        })();
+
+        /* ══ OPTION 12 · the flip ══ */
+        (function () {
+          var CHAOS = [
+            { x: 18, y: 22, s: "lg" }, { x: 55, y: 14, s: "lg" }, { x: 12, y: 58 }, { x: 46, y: 50 },
+            { x: 78, y: 33, s: "sm" }, { x: 68, y: 76 }, { x: 30, y: 84, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 78, y: 31 }, { x: 50, y: 20 }, { x: 85, y: 57 }, { x: 34, y: 77 },
+            { x: 15, y: 57 }, { x: 66, y: 77 }, { x: 22, y: 31 }
+          ];
+          var card = document.getElementById("o12-card");
+          if (!card) return;
+          chaosScene(document.getElementById("o12-front-stage"), CHAOS);
+          unifiedScene(document.getElementById("o12-back-stage"), ORBIT, { spin: true, hubSize: "84px" });
+
+          var interacted = false, auto = null;
+          function flip() {
+            card.classList.toggle("flipped");
+            card.setAttribute("aria-pressed", String(card.classList.contains("flipped")));
+          }
+          function takeOver() {
+            interacted = true;
+            if (auto) { clearInterval(auto); auto = null; }
+            flip();
+          }
+          card.addEventListener("click", takeOver);
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              takeOver();
+            }
+          });
+          if (!RM) {
+            var io = new IntersectionObserver(
+              function (entries) {
+                if (entries[0].isIntersecting && !auto && !interacted) {
+                  io.disconnect();
+                  setTimeout(function () {
+                    if (interacted) return;
+                    flip();
+                    auto = setInterval(function () {
+                      if (!document.hidden) flip();
+                    }, 4800);
+                  }, 1600);
+                }
+              },
+              { threshold: 0.4 }
+            );
+            io.observe(card);
+          }
+        })();
+
+        /* ══ OPTION 13 · vital signs ══ */
+        (function () {
+          var CHAOS = [
+            { x: 18, y: 22, s: "lg" }, { x: 55, y: 14, s: "lg" }, { x: 12, y: 58 }, { x: 46, y: 50 },
+            { x: 78, y: 33, s: "sm" }, { x: 68, y: 76 }, { x: 30, y: 84, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 78, y: 31 }, { x: 50, y: 20 }, { x: 85, y: 57 }, { x: 34, y: 77 },
+            { x: 15, y: 57 }, { x: 66, y: 77 }, { x: 22, y: 31 }
+          ];
+          var l = document.getElementById("o13-left-stage");
+          var r = document.getElementById("o13-right-stage");
+          if (!l || !r) return;
+          chaosScene(l, CHAOS);
+          unifiedScene(r, ORBIT, { spin: true, hubSize: "84px" });
+
+          function ekg(container, d, dur) {
+            var svg = document.createElementNS(SVGNS, "svg");
+            svg.setAttribute("viewBox", "0 0 300 40");
+            svg.setAttribute("preserveAspectRatio", "none");
+            svg.setAttribute("aria-hidden", "true");
+            var g = document.createElementNS(SVGNS, "g");
+            g.setAttribute("class", "ekg-g");
+            g.style.setProperty("--edur", dur);
+            [0, 300].forEach(function (off) {
+              var p = document.createElementNS(SVGNS, "path");
+              p.setAttribute("d", d);
+              if (off) p.setAttribute("transform", "translate(300 0)");
+              g.appendChild(p);
+            });
+            svg.appendChild(g);
+            container.appendChild(svg);
+          }
+          var bad =
+            "M0 22 L14 22 L18 25 L22 22 L40 22 L45 4 L49 38 L54 22 L78 22 L82 22 L86 18 L90 22 " +
+            "L118 22 L122 36 L126 2 L131 22 L160 22 L200 22 L204 26 L208 22 L224 22 L229 6 L233 34 " +
+            "L238 22 L268 22 L272 20 L276 22 L300 22";
+          var ok = "M0 22";
+          for (var x = 0; x < 300; x += 60) {
+            ok +=
+              " L" + (x + 8) + " 22 L" + (x + 12) + " 19 L" + (x + 16) + " 22 L" + (x + 22) + " 22" +
+              " L" + (x + 25) + " 5 L" + (x + 28) + " 36 L" + (x + 31) + " 22 L" + (x + 38) + " 22" +
+              " L" + (x + 43) + " 17 L" + (x + 48) + " 22 L" + (x + 60) + " 22";
+          }
+          ekg(document.getElementById("o13-ekg-l"), bad, "6.5s");
+          ekg(document.getElementById("o13-ekg-r"), ok, "4s");
+        })();
+
+        /* ══ OPTION 14 · the pairing ══ */
+        (function () {
+          var CHAOS = [
+            { x: 18, y: 22, s: "lg" }, { x: 55, y: 14, s: "lg" }, { x: 12, y: 58 }, { x: 46, y: 50 },
+            { x: 78, y: 33, s: "sm" }, { x: 68, y: 76 }, { x: 30, y: 84, s: "sm" }
+          ];
+          var ORBIT = [
+            { x: 78, y: 31 }, { x: 50, y: 20 }, { x: 85, y: 57 }, { x: 34, y: 77 },
+            { x: 15, y: 57 }, { x: 66, y: 77 }, { x: 22, y: 31 }
+          ];
+          var wrap = document.getElementById("o14-wrap");
+          var overlay = document.getElementById("o14-overlay");
+          var demo = document.getElementById("o14-demo");
+          if (!wrap) return;
+          var leftNodes = chaosScene(document.getElementById("o14-left-stage"), CHAOS);
+          var right = unifiedScene(document.getElementById("o14-right-stage"), ORBIT, { spin: true, hubSize: "84px" });
+          if (RM) return;
+
+          var svg = document.createElementNS(SVGNS, "svg");
+          svg.setAttribute("aria-hidden", "true");
+          overlay.appendChild(svg);
+          function center(node) {
+            var a = node.getBoundingClientRect();
+            var b = overlay.getBoundingClientRect();
+            return { x: a.left + a.width / 2 - b.left, y: a.top + a.height / 2 - b.top };
+          }
+          var idx = 0, started = false;
+          function step() {
+            if (!demo.classList.contains("live") || document.hidden) {
+              setTimeout(step, 900);
+              return;
+            }
+            if (idx === 0) {
+              leftNodes.forEach(function (n) { n.classList.remove("off"); });
+            }
+            var i = idx;
+            var from = center(leftNodes[i]);
+            var to = center(right.nodes[i]);
+            var midx = (from.x + to.x) / 2;
+            var midy = Math.min(from.y, to.y) - 60;
+            var p = document.createElementNS(SVGNS, "path");
+            p.setAttribute("d", "M " + from.x + " " + from.y + " Q " + midx + " " + midy + " " + to.x + " " + to.y);
+            svg.appendChild(p);
+            var len = p.getTotalLength();
+            p.style.strokeDasharray = len;
+            p.style.strokeDashoffset = len;
+            p.animate(
+              [{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
+              { duration: 650, easing: "cubic-bezier(0.45, 0.05, 0.25, 1)", fill: "forwards" }
+            ).onfinish = function () {
+              leftNodes[i].classList.add("off");
+              right.nodes[i].classList.add("flash");
+              setTimeout(function () { right.nodes[i].classList.remove("flash"); }, 1000);
+              p.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 600, delay: 250, fill: "forwards" }).onfinish =
+                function () { p.remove(); };
+            };
+            idx = (idx + 1) % SERVICES.length;
+            setTimeout(step, idx === 0 ? 2600 : 1150);
+          }
+          var io = new IntersectionObserver(
+            function (entries) {
+              if (entries[0].isIntersecting && !started) {
+                started = true;
+                io.disconnect();
+                setTimeout(step, 600);
+              }
+            },
+            { threshold: 0.35 }
+          );
+          io.observe(wrap);
+        })();
+
+        /* shared coords for options 15–18 */
+        var STD_CHAOS = [
+          { x: 18, y: 22, s: "lg" }, { x: 55, y: 14, s: "lg" }, { x: 12, y: 58 }, { x: 46, y: 50 },
+          { x: 78, y: 33, s: "sm" }, { x: 68, y: 76 }, { x: 30, y: 84, s: "sm" }
+        ];
+        var STD_ORBIT = [
+          { x: 78, y: 31 }, { x: 50, y: 20 }, { x: 85, y: 57 }, { x: 34, y: 77 },
+          { x: 15, y: 57 }, { x: 66, y: 77 }, { x: 22, y: 31 }
+        ];
+
+        /* ══ OPTION 15 · the terminal ══ */
+        (function () {
+          var l = document.getElementById("o15-left-stage");
+          var r = document.getElementById("o15-right-stage");
+          if (!l || !r) return;
+          chaosScene(l, STD_CHAOS);
+          unifiedScene(r, STD_ORBIT, { spin: true, hubSize: "84px" });
+
+          var LEFT_LINES = [
+            { cmd: "$ mail-vendor sync", st: "FAILED · TIMEOUT 30S", cls: "err" },
+            { cmd: "$ retry 2/3", st: "FAILED", cls: "err" },
+            { cmd: "$ storage-api auth", st: "401 UNAUTHORIZED", cls: "err" },
+            { cmd: "$ open ticket #4821", st: "WAITING ON VENDOR", cls: "warn" },
+            { cmd: "$ billing export", st: "MISMATCH · 214 ROWS", cls: "warn" },
+            { cmd: "$ network peering", st: "DEGRADED", cls: "warn" }
+          ];
+          var RIGHT_LINES = [
+            { cmd: "$ ecosystem health", st: "OK · 7/7 SERVICES", cls: "ok" },
+            { cmd: "$ mail delivery", st: "100% · LAST 24H", cls: "ok" },
+            { cmd: "$ backup cycle", st: "COMPLETED 02:00", cls: "ok" },
+            { cmd: "$ security scan", st: "CLEAN", cls: "ok" },
+            { cmd: "$ invoice run", st: "1 INVOICE · 0 ERRORS", cls: "ok" },
+            { cmd: "$ platform update", st: "APPLIED · NO DOWNTIME", cls: "ok" }
+          ];
+          function lineRow(line, typedText) {
+            var row = el("div", "term-line");
+            var txt = el("span", "term-txt", "");
+            txt.textContent = typedText != null ? typedText : line.cmd;
+            row.appendChild(txt);
+            if (typedText == null) row.appendChild(el("span", "term-st " + line.cls, line.st));
+            return row;
+          }
+          function typer(termEl, lines, startDelay) {
+            var body = termEl.querySelector(".term-body");
+            var demo = termEl.closest(".demo");
+            if (RM) {
+              lines.slice(0, 5).forEach(function (line) { body.appendChild(lineRow(line)); });
+              return;
+            }
+            var li = 0;
+            function nextLine() {
+              if (!demo.classList.contains("live") || document.hidden) {
+                setTimeout(nextLine, 1000);
+                return;
+              }
+              var line = lines[li % lines.length];
+              var row = lineRow(line, "");
+              var txt = row.querySelector(".term-txt");
+              body.appendChild(row);
+              while (body.children.length > 5) body.removeChild(body.firstChild);
+              var i = 0;
+              (function typeChar() {
+                if (i <= line.cmd.length) {
+                  txt.textContent = line.cmd.slice(0, i);
+                  i++;
+                  setTimeout(typeChar, 16);
+                } else {
+                  row.appendChild(el("span", "term-st " + line.cls, line.st));
+                  li++;
+                  setTimeout(nextLine, 750);
+                }
+              })();
+            }
+            setTimeout(nextLine, startDelay);
+          }
+          typer(document.getElementById("o15-term-l"), LEFT_LINES, 300);
+          typer(document.getElementById("o15-term-r"), RIGHT_LINES, 900);
+        })();
+
+        /* ══ OPTION 16 · storm & calm ══ */
+        (function () {
+          var l = document.getElementById("o16-left-stage");
+          var r = document.getElementById("o16-right-stage");
+          if (!l || !r) return;
+          chaosScene(l, STD_CHAOS);
+          var rain = el("div", "rain");
+          rain.setAttribute("aria-hidden", "true");
+          for (var i = 0; i < 16; i++) {
+            var drop = document.createElement("span");
+            drop.style.setProperty("--rx", ((i * 61) % 97 + 2) + "%");
+            drop.style.setProperty("--rd", (1.1 + ((i * 37) % 10) / 12).toFixed(2) + "s");
+            drop.style.setProperty("--rl", (-((i * 53) % 20) / 10).toFixed(1) + "s");
+            rain.appendChild(drop);
+          }
+          l.appendChild(rain);
+
+          ["a1", "a2"].forEach(function (cls) {
+            var a = el("div", "aurora " + cls);
+            a.setAttribute("aria-hidden", "true");
+            r.appendChild(a);
+          });
+          unifiedScene(r, STD_ORBIT, { spin: true, hubSize: "84px" });
+        })();
+
+        /* ══ OPTION 17 · the ledger ══ */
+        (function () {
+          var l = document.getElementById("o17-left-stage");
+          var r = document.getElementById("o17-right-stage");
+          if (!l || !r) return;
+          chaosScene(l, STD_CHAOS);
+          unifiedScene(r, STD_ORBIT, { spin: true, hubSize: "84px" });
+
+          var demo = document.getElementById("o17-demo");
+          var vals = Array.prototype.slice.call(demo.querySelectorAll(".led-val"));
+          function fmt(v, dec, suffix) { return v.toFixed(dec) + (suffix || ""); }
+          function countUp(elm) {
+            var target = parseFloat(elm.dataset.target);
+            var dec = parseInt(elm.dataset.dec || "0", 10);
+            var suffix = elm.dataset.suffix || "";
+            if (RM) {
+              elm.textContent = fmt(target, dec, suffix);
+              return;
+            }
+            var t0 = performance.now(), dur = 1300;
+            (function frame(now) {
+              var p = Math.min(1, (now - t0) / dur);
+              var e = 1 - Math.pow(1 - p, 3);
+              elm.textContent = fmt(target * e, dec, suffix);
+              if (p < 1) requestAnimationFrame(frame);
+              else if (elm.dataset.creep) startCreep(elm, target);
+            })(t0);
+          }
+          function startCreep(elm, from) {
+            var v = from;
+            setInterval(function () {
+              if (!demo.classList.contains("live") || document.hidden) return;
+              v += 1;
+              elm.textContent = String(v);
+              elm.classList.remove("bump");
+              void elm.offsetWidth;
+              elm.classList.add("bump");
+            }, 2600);
+          }
+          var started = false;
+          var io = new IntersectionObserver(
+            function (entries) {
+              if (entries[0].isIntersecting && !started) {
+                started = true;
+                io.disconnect();
+                vals.forEach(countUp);
+              }
+            },
+            { threshold: 0.35 }
+          );
+          io.observe(demo);
+        })();
+
+        /* ══ OPTION 18 · the magnet ══ */
+        (function () {
+          var l = document.getElementById("o18-left-stage");
+          var r = document.getElementById("o18-right-stage");
+          if (!l || !r) return;
+          var leftNodes = chaosScene(l, STD_CHAOS);
+          var right = unifiedScene(r, STD_ORBIT, { spin: true, hubSize: "84px" });
+          if (RM) return;
+
+          function attach(stage, nodes, sign, radius, strength) {
+            var tx = null, ty = null, raf = null;
+            var offs = nodes.map(function () { return { x: 0, y: 0 }; });
+            function frame() {
+              var active = tx != null;
+              var moving = false;
+              var rect = stage.getBoundingClientRect();
+              nodes.forEach(function (n, i) {
+                var target = { x: 0, y: 0 };
+                if (active) {
+                  var nx = (parseFloat(n.style.getPropertyValue("--x")) / 100) * rect.width;
+                  var ny = (parseFloat(n.style.getPropertyValue("--y")) / 100) * rect.height;
+                  var dx = nx - tx, dy = ny - ty;
+                  var d = Math.hypot(dx, dy);
+                  if (d < radius && d > 1) {
+                    var f = ((radius - d) / radius) * strength * sign;
+                    target = { x: (dx / d) * f, y: (dy / d) * f };
+                  }
+                }
+                var o = offs[i];
+                o.x += (target.x - o.x) * 0.12;
+                o.y += (target.y - o.y) * 0.12;
+                if (Math.abs(o.x) > 0.15 || Math.abs(o.y) > 0.15) moving = true;
+                n.style.setProperty("--px", o.x.toFixed(1) + "px");
+                n.style.setProperty("--py", o.y.toFixed(1) + "px");
+              });
+              raf = active || moving ? requestAnimationFrame(frame) : null;
+            }
+            stage.addEventListener("pointermove", function (e) {
+              var rect = stage.getBoundingClientRect();
+              tx = e.clientX - rect.left;
+              ty = e.clientY - rect.top;
+              if (!raf) raf = requestAnimationFrame(frame);
+            });
+            stage.addEventListener("pointerleave", function () {
+              tx = ty = null;
+              if (!raf) raf = requestAnimationFrame(frame);
+            });
+          }
+          attach(l, leftNodes, 1, 130, 36);
+          attach(r, right.nodes, -1, 150, 20);
+        })();
+      })();
+    </script>
+  </body>
+</html>
